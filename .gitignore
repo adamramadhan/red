@@ -3,3 +3,4 @@
 /phpmyadmin/*
 /www-static/storage/*
 /wiki/*
+configuration.php
