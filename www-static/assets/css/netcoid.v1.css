@@ -1,0 +1,257 @@
+body {
+    color: #444444;
+    font: 13px/1.7em "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+}
+label {
+    display: block;
+    padding: 5px;
+    text-align: left;
+}
+#red-menu-left #logo {
+    padding: 0;
+}
+#red-menu-left #logo:hover {
+    background: none;
+}
+a { text-decoration: none }
+#red-menu a { color: #fff }
+#red-submenu a { color: #fff }
+#red-header a:hover,
+#red-submenu a:hover { text-decoration: none }
+#red-header {
+    background: none repeat scroll 0 0 #D32E2E;
+    border-bottom: 1px solid #780000;
+    color: #FFFFFF;
+}
+#red-header li {
+    float: left;
+    padding: 10px;
+}
+#red-header li:hover { background: #C52020 }
+#red-menu {
+    width: 960px;
+    margin: 0 auto;
+}
+#red-menu-left { float: left }
+#red-menu-right { float: right }
+span#notification {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #A70000;
+    bottom: 6px;
+    color: #912727;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 7px;
+    padding: 0 2px;
+    position: relative;
+}
+#red-content {
+	background: #fff;
+    border-top: none;
+    /*background: none repeat scroll 0 0 #FEFFED;*/
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    max-width: 960px;
+    min-width: 700px;
+    min-height:500px;
+}
+.background#red-content{background: url("www-static/assets/images/highlight.png") no-repeat scroll left top transparent;}
+#red-content-left {
+    float: left;
+    padding-bottom: 40px;
+    width: 705px;
+}
+
+#red-content-right {
+    background: url("www-static/assets/images/border.png") no-repeat scroll left center #FFFFFF;
+    float: left;
+    min-height: 650px;
+    padding: 5px 5px 5px 20px;
+    width: 230px;
+}
+.box { }
+/* footer */
+#footer {    
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 20px;
+
+}
+#footer-warp{
+    margin: 10px auto 0;
+    padding-bottom: 20px;
+    width: 960px;}
+#copyright { color: #ccc }
+#footer-menu a { color: #ccc }
+#footer-menu #hint a { color: #AEA7A7 }
+#footer ul#footer-menu {
+    width: 600;
+    float: left;
+}
+#footer ul#copyright {
+    width: 370px;
+    float: right;
+}
+#footer ul#footer-menu li {
+    float: left;
+    margin-right: 20px;
+}
+#footer ul#copyright li { float: right }
+/* ERRORS
+   ================================================== */
+#red-error-box {
+    left: 20px;
+    margin: 0 auto 10px;
+    width: 960px;
+}
+#red-error-box a {
+    color: #444444;
+    text-decoration: underline;
+}
+.error-list{}
+.error-list #num {
+    float: left;
+    padding: 10px;
+}
+.error-list #description {
+    background: none repeat scroll 0 0 #FFFFE1;
+    float: left;
+    margin-left: 10px;
+    padding: 10px;
+    max-width: 890px;
+    color: #D32E2E;
+}
+/* ===[ Sementara ]=== */
+#red-register-important {
+    margin: 5px;
+    padding: 5px;
+}
+#red-register .textinput{width:200px}
+/* APPROVEAL
+   ================================================== */
+.box-approve {
+    background: none repeat scroll 0 0 #fff;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
+.box-approve a {
+    color: #D32E2E;
+    text-decoration: underline;
+}
+#box-help {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
+#box-help a {
+    color: #D32E2E;
+    text-decoration: underline;
+}
+/* LOGIN
+   ================================================== */
+#red-login {
+    background: url("www-static/assets/images/border.png") no-repeat scroll right center #FFFFFF;
+    float: left;
+    height: 610px;
+    width: 200px;
+}
+#red-login-information {
+    float: left;
+    margin: 0 5px 5px 20px;
+    padding: 0 5px;
+}
+#red-login-information img {
+    margin: 5px;
+    padding: 5px;
+}
+/* js home */
+.example { color: #aaa }
+/* TERMS
+   ================================================== */
+#red-terms-general {
+    border: 1px solid #D7D7D7;
+    color: #444444;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#red-terms-general a { color: #D32E2E }
+#red-terms-security {
+    border: 1px solid #D7D7D7;
+    color: #444444;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#red-terms-notes {
+    padding: 10px;
+    border: 1px solid #D32E2E;
+}
+ul ul li {
+    list-style: decimal inside none;
+    margin-left: 28px;
+}
+#red-side-ads {
+    border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 220px;
+}
+#red-side-menu {
+    border-left: 1px solid #EEEEEE;
+    float: right;
+    width: 170px;
+    min-height: 500px;
+}
+#red-side-menu ul li {
+    border-bottom: 1px solid #F9EBEB;
+    list-style: none outside none;
+    margin-left: 0;
+    padding: 5px;
+}
+
+#red-side-menu ul ul li:hover {
+    background: none repeat scroll 0 0 #FFFAEF;
+    border-bottom:1px solid #F4E2E2;
+}
+/* dirty fix */
+#red-side-menu ul ul li {
+    list-style: none;
+    margin-left: 0px;
+    background: none repeat scroll 0 0 #FEFCF2;
+}
+#red-side-menu li a{ color:#444;text-decoration:none; }
+/* why */
+#why li {
+    list-style: decimal outside none;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+/* message and buy  */
+#wide-input textarea { width: 400px }
+/*test*/
+#helloworld{      color: #D32E2E;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    line-height: 29px;
+    margin: 10px 0 0 6px;
+    padding-right: 60px;
+    word-spacing: -1px;}
+.spanwelcome{    background: none repeat scroll 0 0 #FFFBC6;
+    color: #444444;
+    position: relative;
+    top: 145px;}
+    
+#users-menu-information {
+    color: #CFCACA;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+}
+#red-register-information{
+    font-size: 10px;
+    padding: 0 5px;
+}

@@ -1,0 +1,81 @@
+#red-profile-menu {
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+#red-profile-menu li {
+    float: left;
+    margin: 0 0 0 10px;
+    padding: 5px 10px;
+}
+#red-profile-menu li#badges { padding: 0 }
+#red-profile-menu #red-profile-name { float: right }
+#red-profile-left {
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 220px;
+}
+#red-profile-left a { margin-bottom: 10px }
+#red-profile-right {
+    float: left;
+    min-height: 500px;
+    padding: 10px;
+    width: 680px;
+}
+#red-profile-right #product {
+    float: left;
+    margin: 5px;
+    padding: 0 5px;
+    width: 150px;
+}
+#productline hr { border-color: #eee }
+#twitter {
+    background: none repeat scroll 0 0 #9AE4F1;
+    padding: 10px;
+    overflow: hidden;
+    display:block;
+}
+#twitter:hover{color:#444;text-decoration:none;background:#AFEEF9;}
+#yahoo {
+    background: none repeat scroll 0 0 #F8FFB1;
+    padding: 10px;
+    display:block;
+}
+#yahoo:hover{color:#444;text-decoration:none;background:#FAFFCF;}
+#status-verified {
+    background: none repeat scroll 0 0 #BAE9FF;
+    padding: 5px 10px;
+}
+#status-founder {
+    background: none repeat scroll 0 0 #D32E2E;
+    padding: 5px 10px;
+    color: #FFFFFF;
+}
+#status-unverified {
+    padding: 5px 10px;
+    background: none repeat scroll 0 0 #F2F2F2;
+}
+/*
+PRODUCTLIST
+*/
+#more {
+    margin-left: 425px;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+#profile {
+    float: left;
+    margin: 5px;
+    padding: 0 5px;
+    width: 220;
+}
+/* JS
+   ================================================== */
+#red-information { overflow:hidden; }
+#more {
+    margin-left: 320px;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+

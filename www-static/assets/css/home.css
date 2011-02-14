@@ -1,0 +1,13 @@
+#red-content-secure {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    margin: 6% auto;
+    opacity: 0.8;
+    padding: 10px;
+    width: 300px;
+}
+#red-register-closed{
+    background: none repeat scroll 0 0 #FFFFDA;
+    border: 1px solid #F2F2C6;
+    padding: 10px;
+}

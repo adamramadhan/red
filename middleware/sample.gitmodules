@@ -1,0 +1,7 @@
+# IGNORE ALL #
+##############
+# for development progress nothing need to be
+# showed up here, becouse its simpler.
+
+wiki/xdebug/cachegrind.*
+storage/*

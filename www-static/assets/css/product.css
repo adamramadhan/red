@@ -1,0 +1,70 @@
+#red-product-menu {
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+#red-product-menu li {
+    float: left;
+    margin: 0 0 0 10px;
+    padding: 5px 10px;
+}
+#red-product-menu li#badges { padding: 0 }
+#red-product-menu #red-product-name { float: right }
+#red-product-left {
+    max-width: 460px;
+    padding: 10px;
+    float: left;
+}
+#red-product-right {
+    max-width: 460px;
+    padding: 10px;
+    float: left;
+    min-height: 500px;
+    overflow:hidden;
+}
+#product {
+    float: left;
+    margin: 5px;
+    padding: 0 5px;
+    width: 150px;
+}
+#productline hr { border-color: #eee }
+#red-product-list {
+    padding: 5px;
+    min-height: 500px;
+    width: 850px;
+    float: left;
+}
+#red-product-tags {
+    border-left: 1px solid #EEEEEE;
+    float: right;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 85px;
+}
+#red-product-tags li { }
+#status-verified {
+    background: none repeat scroll 0 0 #BAE9FF;
+    padding: 5px 10px;
+}
+#status-founder {
+    background: none repeat scroll 0 0 #D32E2E;
+    padding: 5px 10px;
+    color: #FFFFFF;
+}
+#status-unverified {
+    padding: 5px 10px;
+    background: none repeat scroll 0 0 #F2F2F2;
+}
+#more {
+    margin-left: 425px;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+#pesan {
+    background: none repeat scroll 0 0 #D8FFAA;
+    border: 1px solid #BAE687;
+    margin: 5px 0;
+    padding: 5px;
+}

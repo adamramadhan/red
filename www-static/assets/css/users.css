@@ -1,0 +1,148 @@
+#kurs{
+    background: none repeat scroll 0 0 #C9EBBA;
+    border: 1px solid #B6DAA6;
+    margin: 5px 0;
+    padding: 5px;
+}
+.textinput{}
+#red-edit-right
+{
+    border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 220px;
+}
+#red-edit-right li
+{
+    list-style: decimal outside none;
+    margin-left: 20px;
+}
+#red-edit-left-wide
+{
+    border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 485px;	
+}
+#red-edit-full{
+	border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 745px;	
+}
+#red-edit-right-wide
+{
+	border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 485px;	
+}
+#textarea-informationbox{
+	height: 400px;
+    width: 460px;
+}
+#red-edit-left
+{
+    border-top: 1px solid #F5EFE7;
+    background: none repeat scroll 0 0 #FEFBE8;
+    float: left;
+    margin-right: 20px;
+    padding: 10px;
+    width: 220px;
+}
+#red-edit-left p
+{
+    color: #CC3E3E;
+    margin: 5px;
+}
+#red-profile-status
+{
+	background: none repeat scroll 0 0 #CFDEFF;
+    border: 1px solid #BACEEB;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+#red-whattodo{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #F9EBEB;
+    margin: 10px 0;
+    padding: 10px;
+}
+#red-products-status
+{
+	background:none repeat scroll 0 0 #FFCFCF;
+	border:1px solid #EBBABA;
+	margin:10px 0;
+	padding:10px;
+}
+#input-wide input,
+#input-wide textarea { width: 250px }
+#red-profile-status p { margin-bottom: 10px }
+#red-profile-status a{color: #CC3E3E;}
+
+#twitter {
+background:none repeat scroll 0 0 #9AE4F1;
+padding:10px;
+}
+#yahoo {
+background:none repeat scroll 0 0 #F8FFB1;
+padding:10px;
+}
+#connect-status li {
+margin:10px 0;
+list-style:none outside none;
+}
+
+/*product*/
+#subinformation{background:none repeat scroll 0 0 #fff;
+margin:5px 0;border-bottom: 1px solid #F9EBEB;}
+#subinformation:hover{background:#FFFEE3;}
+
+#ptime{    bottom: 25px;
+    color: #C6A6A6;
+    float: right;
+    margin-bottom: -20px;
+    position: relative;}
+#subname{float:left;
+padding:5px 10px;}
+#subtime{
+	color: #CCCCCC;
+    float: left;
+    font-size: 10px;
+    padding: 5px 10px;}
+#suboptions a {
+    color: #CCCCCC;
+    float: right;
+    margin-right: 10px;
+    padding: 5px;
+}
+#subname a{color: #CC3E3E;}
+
+#red-profile-guides{
+    background: none repeat scroll 0 0 #DEFFCF;
+    border: 1px solid #C9EBBA;
+    margin: 10px 0;
+    padding: 10px;	
+}
+#red-profile-info{
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #EAE3E3;
+    margin: 10px 0;
+    padding: 10px;	
+}
+/*messages*/
+#message{background:none repeat scroll 0 0 #fff;
+margin:5px 0;}
+#message:hover{background:#FFFEE3;}
+#archive{
+margin:5px 0;}
+#archive:hover{background:#FFFEE3;}
