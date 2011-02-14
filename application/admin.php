@@ -60,6 +60,7 @@ class Admin Extends Application
 			# see the post
 			if (is_get('n')) {
 				$data['post'] = $this->model->blog->getPost($_GET['n']);
+				$data['post']['content'] = str_replace( "\n" , "<br/>" , $data['post']['content']);
 				$this->view('admin/blogview',$data);
 			}
 

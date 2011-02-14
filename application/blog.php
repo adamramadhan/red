@@ -26,6 +26,7 @@ class Blog Extends Application
 		if (!is_get('id')) {	
 			
 			$data['post'] = $this->model->blog->getLastPost();
+			$data['post']['content'] = str_replace( "\n" , "<br/>" , $data['post']['content']);
 			$this->view('blog/index',$data);
 
 		}
@@ -33,6 +34,7 @@ class Blog Extends Application
 		if (is_get('id')) {
 			
 			$data['post'] = $this->model->blog->getPost($_GET['id']);
+			$data['post']['content'] = str_replace( "\n" , "<br/>" , $data['post']['content']);
 			$this->view('blog/index',$data);
 		}
 		$this->view('blog/footer');
