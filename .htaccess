@@ -4,3 +4,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
+
+<DirectoryMatch .*\.git/.*>
+    Deny From All
+</DirectoryMatch>
