@@ -4,7 +4,7 @@
 		<div id="red-blog-left">
 			<?php 
 				echo '<div class="blog-post" id="post-'.$post['nid'].'">';
-				echo '<h3>'.$post['title'].'</h3>';
+				echo '<h1>'.$post['title'].'</h1>';
 				echo "<ul id='post-meta' class='clearfix'>";
 				echo '<li id="meta-author">By '.$post['name'].'</li>';
 				echo '<li>'.$post['timecreate'].'</li>';
