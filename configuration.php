@@ -1,6 +1,6 @@
 <?php
 # FAQS CONFIGURATION 1.1
-$config['development'] = TRUE;
+$config['development'] = FALSE;
 $config['language'] = 'indonesia';
 $config['folder'] = '';
 $config['compress'] = TRUE;
@@ -10,9 +10,9 @@ $config['database'] = array(
 	'application' => array(
 		'driver'     => 'mysql',
 		'host'		 =>	'127.0.0.1',
-		'name'		 => 'networks2',
-		'username'   => 'root',
-		'password'   => 'networks2010',
+		'name'		 => 'networks',
+		'username'   => 'networks',
+		'password'   => 'lovedams2011',
 		'persistent' => FALSE,
 	)
 );
