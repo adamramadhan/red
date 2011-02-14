@@ -7,6 +7,7 @@ class Admin Extends Application
 		$this->library('sessions');
 		$this->model('users');
 		$data = $this->model->users->getData($this->sessions->get('uid'));
+		
 		# checs uid 2
 		if ( $data['role'] != 5) {
 			redirect('/404');
