@@ -119,6 +119,19 @@ class Site extends Application
 		$this->view('site/footer');			
 	}
 	
+	function why(){
+		$this->view('site/header');
+			if (!$this->sessions->get('uid')) {
+				$this->view('site/menu');
+			}
+			
+			if ($this->sessions->get('uid')) {
+				$this->view('users/menu-active');
+			}
+		$this->view('site/why');
+		$this->view('site/footer');					
+	}
+	
 	function logout(){
 		$this->sessions->flush();
 		$this->sessions->refresh();
