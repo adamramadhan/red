@@ -5,6 +5,12 @@
     RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
 
-<DirectoryMatch .*\.git/.*>
-    Deny From All
-</DirectoryMatch>
+<Files ~ "^\.git">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+</Files>
