@@ -1,14 +1,13 @@
 #red-blog-menu {
-    background: none repeat scroll 0 0 #444444;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #E7E7E7;
 }
 #red-blog-menu li{  float: left;}
 #red-blog-menu li a{
-	color:#ddd;
-	display: block;
-    padding: 2px 10px;
+    color: #444444;
+    display: block;
+    padding: 5px 10px;
 }
-#red-blog-menu a:hover{text-decoration:none;background:#333;}
+#red-blog-menu a:hover{text-decoration:none;background:#FFFEDE;}
 
 #red-blog-left{
     float: left;
