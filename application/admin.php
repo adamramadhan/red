@@ -5,9 +5,10 @@ class Admin Extends Application
 	# put global things here
 	function __construct(){
 		$this->library('sessions');
-		$who = $this->sessions->get('uid');
+		$this->model('users');
+		$data = $this->model->users->getData($this->sessions->get('uid'));
 		# checs uid 2
-		if ( !$who == 2) {
+		if ( $data['role'] != 5) {
 			redirect('/404');
 			die();
 		};
@@ -17,11 +18,16 @@ class Admin Extends Application
 	function index(){
 		# unvefieid users
 		$this->view('admin/header');
-		$this->view('site/menu');
+			if (!$this->sessions->get('uid')) {
+				$this->view('site/menu');
+			}
+			
+			if ($this->sessions->get('uid')) {
+				$this->view('users/menu-active');
+			}
 		
 		# args2
 		if (!isset($args2)) {
-			$this->model('users');
 			$data['users'] = $this->model->users->getRole('0',10);
 			$this->view('admin/index',$data);
 		}
@@ -34,7 +40,13 @@ class Admin Extends Application
 		
 		# unvefieid users
 		$this->view('admin/header');
-		$this->view('site/menu');
+			if (!$this->sessions->get('uid')) {
+				$this->view('site/menu');
+			}
+			
+			if ($this->sessions->get('uid')) {
+				$this->view('users/menu-active');
+			}
 		
 		$data['posts'] = $this->model->blog->getPosts();
 		
@@ -92,7 +104,13 @@ class Admin Extends Application
 		$this->library('validation');
 		# unvefieid users
 		$this->view('admin/header');
-		$this->view('site/menu');	
+			if (!$this->sessions->get('uid')) {
+				$this->view('site/menu');
+			}
+			
+			if ($this->sessions->get('uid')) {
+				$this->view('users/menu-active');
+			}
 			if (is_post('newpost')){
 				$this->model('blog');
 							
