@@ -3,12 +3,13 @@
 	<div class="clearfix" id="red-content">
 
 		<!-- FORM START -->
-		<div id="red-edit-left-wide">
+		<div id="red-edit-full">
 			
 		<?php 	
 		if ( !empty($messages) ) {		
 			foreach ($messages as $message) {
-			echo 	'<div class="clearfix" id="message">
+			echo 	'<div class="clearfix iconmessage" id="message">
+					<div id="subuser">'.$message['name'].'</div>
 					<div id="subname">'.$message['subject'].'</div>
 					<div id="subtime">'.$this->time->formatDateDiff($message['timecreate']).'</div>
 							<div class="c" id="suboptions"><a href="/messages?d='.$message['mid'].'">Hapus</a></div>
@@ -19,7 +20,8 @@
 
 		if ( !empty($archives) ) {		
 			foreach ($archives as $message) {
-			echo 	'<div class="clearfix" id="archive">
+			echo 	'<div class="clearfix iconarchive" id="archive">
+					<div id="subuser">'.$message['name'].'</div>
 					<div id="subname">'.$message['subject'].'</div>
 					<div id="subtime">'.$this->time->formatDateDiff($message['timecreate']).'</div>
 							<div class="c" id="suboptions"><a href="/messages?d='.$message['mid'].'">Hapus</a></div>

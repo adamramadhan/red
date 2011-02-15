@@ -1,3 +1,9 @@
+#logo{    font-family: Trebuchet MS;
+    font-size: 25px;
+    text-shadow: 2px 2px 5px #7A0000;}
+#red-menu-left #logo:hover {
+    background: none;
+}
 body {
     color: #444444;
     font: 13px/1.7em "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
@@ -7,12 +13,8 @@ label {
     padding: 5px;
     text-align: left;
 }
-#red-menu-left #logo {
-    padding: 0;
-}
-#red-menu-left #logo:hover {
-    background: none;
-}
+
+
 a { text-decoration: none }
 #red-menu a { color: #fff }
 #red-submenu a { color: #fff }
@@ -202,30 +204,7 @@ ul ul li {
     padding: 10px;
     width: 220px;
 }
-#red-side-menu {
-    border-left: 1px solid #EEEEEE;
-    float: right;
-    width: 170px;
-    min-height: 500px;
-}
-#red-side-menu ul li {
-    border-bottom: 1px solid #F9EBEB;
-    list-style: none outside none;
-    margin-left: 0;
-    padding: 5px;
-}
 
-#red-side-menu ul ul li:hover {
-    background: none repeat scroll 0 0 #FFFAEF;
-    border-bottom:1px solid #F4E2E2;
-}
-/* dirty fix */
-#red-side-menu ul ul li {
-    list-style: none;
-    margin-left: 0px;
-    background: none repeat scroll 0 0 #FEFCF2;
-}
-#red-side-menu li a{ color:#444;text-decoration:none; }
 /* why */
 #why li {
     list-style: decimal outside none;

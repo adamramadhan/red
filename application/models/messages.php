@@ -6,17 +6,17 @@ class ModelMessages extends Models
 	// agar lebih mudah dapat ditaro disini
 	public $database = 'application';
 	
-	function getListMessages($uid)
+	function getListMessages($ruid)
 	{	
-		$data = $this->fetchAll("SELECT mid, suid, subject, timecreate
-		FROM messages WHERE ruid = :ruid AND type = 0 ORDER BY mid DESC LIMIT 20", array ( 'ruid' => $uid ));
+		$data = $this->fetchAll("SELECT users.name, messages.mid, messages.suid, messages.subject, messages.timecreate
+		FROM messages, users WHERE suid = users.uid AND ruid = :ruid AND type = 0 ORDER BY mid DESC LIMIT 20", array ( 'ruid' => $ruid ));
 		return $data;
 	}
 
-	function getListArchives($uid)
+	function getListArchives($ruid)
 	{	
-		$data = $this->fetchAll("SELECT mid, suid, subject, timecreate
-		FROM messages WHERE ruid = :ruid AND type = 1 ORDER BY mid DESC LIMIT 20", array ( 'ruid' => $uid ));	
+		$data = $this->fetchAll("SELECT users.name, messages.mid, messages.suid, messages.subject, messages.timecreate
+		FROM messages, users WHERE suid = users.uid AND ruid = :ruid AND type = 1 ORDER BY mid DESC LIMIT 20", array ( 'ruid' => $ruid ));
 		return $data;
 	}
 	

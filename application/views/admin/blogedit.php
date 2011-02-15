@@ -13,6 +13,7 @@
 			</ul>
 			<p><input type="submit" value="Edit" name="editpost" id="button"></p>
 			</form>
+			<?php echo nl2br($post['content']);  ?>
 		</div>
 		<?php require 'menu.php'; ?>
 	</div>

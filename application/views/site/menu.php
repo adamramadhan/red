@@ -1,11 +1,11 @@
 	<div id="red-header">
 		<div class="clearfix" id="red-menu">
 			<ul id="red-menu-left">
-				<li><?php $this->href('/','Jejaring Bisnis Indonesia'); ?></li>
-				<li><?php $this->href('/blog','Blog'); ?></li>
+				<li id="logo"><?php $views->href('/','netcoid'); ?></li>
+				<li><?php $views->href('/blog','Blog'); ?></li>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
-				<li id="red-menu-login"><?php $this->href('/login',l('login')); ?></li>
+				<li id="red-menu-login"><?php $views->href('/login',l('login')); ?></li>
 			</ul>
 		</div>
 	</div>

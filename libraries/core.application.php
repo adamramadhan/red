@@ -1,5 +1,4 @@
 <?php  
-
 class Application
 {
 	protected function model($model)
@@ -22,9 +21,13 @@ class Application
 		require_once 'libraries/core.views.php';
 		$views = new Views;
 		if ( config('compress') ) {
-			// See @ref #1
-			ob_start(array($this,'compressor'));
-			/*ob_start("ob_gzhandler");*/
+			
+			/* See @ref #1 
+			we are useing compressor just becouse ob_gzhandler dont support UTF-8 at the
+			header, see http://php.net/manual/en/function.ob-start.php#91963
+			*/
+			 ob_start(array($this,'compressor'));
+			#ob_start("ob_gzhandler");
 		}
 		
 		#renders the data into view vars
@@ -35,15 +38,12 @@ class Application
 		}
 		
 		#require 'libraries/language/'. config('language') .'.php';
-		
 		$path = "application". DS ."views". DS . $view .".php";
 		require $path;
 		return TRUE;
 		
 		if ( config('compress') ) {
-			while (ob_get_level() > 0) {
-			    ob_end_flush();
-			}
+			ob_end_flush();
 		}	
 	}
 	
@@ -81,93 +81,20 @@ class Application
 	public function compressor( $buffer )
 	{
 	    $search = array(
-	        '/<!--(.|\s)*?-->/',
-	        '/\>[^\S ]+/s',
-	        '/[^\S ]+\</s'
+	    	'/(\s)+/s', // shorten multiple whitespace sequences
+	        '/<!--(.|\s)*?-->/', //strip html comments
+	        '/\>[^\S ]+/s', //strip whitespaces after tags, except space
+	        '/[^\S ]+\</s', //strip whitespaces before tags, except space
 	    );
 	    $replace = array(
+	    	'\\1',
 	        '',
 	        '>',
 	        '<'
 	    );
 	    
-	    $buffer = preg_replace($search, $replace, $buffer);
+	    $buffer = preg_replace($search, $replace, $buffer);	
 	    return $buffer;
-	}
-	
-	protected function CSS(){
-		
-		if ( config('compress') ) {
-			// See @ref #1
-			ob_start(array($this,'compressorCSS'));
-		}
-
-		$file = func_get_args();
-		echo "<style type='text/css'>";
-		foreach ( $file as $css ) {
-			
-			if ( config('development') ) {
-				
-				if ( ! file_exists( "www-static". DS ."assets". DS ."css". DS . $css .".css" ) ) {
-					throw new Exception( "No such file as $css.css" );
-				}
-			}
-			
-			require_once  "www-static". DS ."assets". DS ."css". DS . $css .".css";
-		}
-		echo "</style>";
-		
-		if ( config('compress') ) {
-			ob_end_flush();
-		}		
-	}
-	
-	public function compressorCSS( $buffer )
-	{
-  		$buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-  		$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
-  		return $buffer;
-	}
-
-
-	protected function JS()
-	{
-		
-		if ( config('compress') ) {
-			// See @ref #1
-			ob_start(array($this,'compressorJS'));
-		}
-
-		$file = func_get_args();
-		echo "<script type='text/javascript'>";
-		foreach ( $file as $js ) {
-
-		if ( config('development') ) {
-			
-			if ( ! file_exists( "www-static". DS ."assets". DS ."js". DS . $js .".js" ) ) {
-				throw new Exception( "No such file as $js.js" );
-			}
-		}	
-		
-		require_once  "www-static". DS ."assets". DS ."js". DS . $js .".js";
-		}
-		
-		echo "</script>";
-		
-		if ( config('compress') ) {
-			ob_end_flush();
-		}
-	}
-	
-	public function compressorJS( $buffer )
-	{
-  		$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
-  		return $buffer;
-	}	
-			
-	protected function href($link,$language)
-	{
-		echo "<a href='$link'>$language</a>";
 	}
 	
 	#singleton check yes

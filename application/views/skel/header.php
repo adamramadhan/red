@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php $this->css('framework','netcoid.v1'); ?>
+		<?php $views->css('framework','netcoid.v1'); ?>
 		<meta charset="utf-8">
 		<meta name="copyright" content="netcoid 2010" />
 		<meta name="description" content="netcoid, jejaring bisnis indonesia, temukan partner baru di sekitar anda." />

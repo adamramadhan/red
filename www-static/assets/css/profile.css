@@ -33,7 +33,7 @@
 #twitter {
     background: none repeat scroll 0 0 #9AE4F1;
     padding: 10px;
-    overflow: hidden;
+    word-wrap: break-word;
     display:block;
 }
 #twitter:hover{color:#444;text-decoration:none;background:#AFEEF9;}
@@ -72,7 +72,7 @@ PRODUCTLIST
 }
 /* JS
    ================================================== */
-#red-information { overflow:hidden; }
+#red-information {  word-wrap: break-word; overflow:hidden;  }
 #more {
     margin-left: 320px;
     margin-top: 10px;

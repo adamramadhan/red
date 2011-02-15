@@ -21,6 +21,7 @@
     float: left;
     min-height: 500px;
     overflow:hidden;
+    word-wrap: break-word;
 }
 #product {
     float: left;

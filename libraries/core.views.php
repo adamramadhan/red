@@ -32,7 +32,7 @@ class Views
 		echo '<img src="' . $img . '" />';		
 	}
 
-	protected function CSS(){
+	public function CSS(){
 		
 		if ( config('compress') ) {
 			// See @ref #1
@@ -59,7 +59,7 @@ class Views
 		}		
 	}
 
-	protected function JS()
+	public function JS()
 	{
 		
 		if ( config('compress') ) {
@@ -84,9 +84,7 @@ class Views
 		echo "</script>";
 		
 		if ( config('compress') ) {
-			while (ob_get_level() > 0) {
 			    ob_end_flush();
-			}
 		}
 	}
 	
@@ -103,25 +101,12 @@ class Views
 	{
   		$buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
   		return $buffer;
-	}
-	
-	#compressorVIEWS
-	public function compressor( $buffer )
-	{
-	    $search = array(
-	        '/<!--(.|\s)*?-->/',
-	        '/\>[^\S ]+/s',
-	        '/[^\S ]+\</s'
-	    );
-	    $replace = array(
-	        '',
-	        '>',
-	        '<'
-	    );
-	    
-	    $buffer = preg_replace($search, $replace, $buffer);
-	    return $buffer;
 	}	
+
+	public function href($link,$language)
+	{
+		echo "<a href='$link'>$language</a>";
+	}
 }
 
 

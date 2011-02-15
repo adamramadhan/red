@@ -1,6 +1,8 @@
 # NON FRAMEWORK #
 ###################
-/phpmyadmin/*
-/www-static/storage/*
-/wiki/*
+
+phpmyadmin/*
+www-static/storage/*
+www-static/images/i
+wiki/*
 configuration.php

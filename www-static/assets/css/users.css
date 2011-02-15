@@ -107,13 +107,16 @@ list-style:none outside none;
 margin:5px 0;border-bottom: 1px solid #F9EBEB;}
 #subinformation:hover{background:#FFFEE3;}
 
-#ptime{    bottom: 25px;
-    color: #C6A6A6;
-    float: right;
-    margin-bottom: -20px;
-    position: relative;}
-#subname{float:left;
-padding:5px 10px;}
+#ptime{
+    color: #C6A6A6;}
+#subname{    float: left;
+    font-family: "calibri",tahoma;
+    max-width: 230px;
+    padding: 5px 10px;}
+#subuser{
+    float: left;
+    margin-left: 10px;
+    padding: 5px 10px;}
 #subtime{
 	color: #CCCCCC;
     float: left;
@@ -125,7 +128,7 @@ padding:5px 10px;}
     margin-right: 10px;
     padding: 5px;
 }
-#subname a{color: #CC3E3E;}
+#subname a,#subuser a{color: #CC3E3E;}
 
 #red-profile-guides{
     background: none repeat scroll 0 0 #DEFFCF;
@@ -140,9 +143,78 @@ padding:5px 10px;}
     padding: 10px;	
 }
 /*messages*/
-#message{background:none repeat scroll 0 0 #fff;
+#message{background:#fff;    border-bottom: 1px solid #F9EBEB;
 margin:5px 0;}
 #message:hover{background:#FFFEE3;}
 #archive{
 margin:5px 0;}
 #archive:hover{background:#FFFEE3;}
+
+#red-side-menu {
+    background: url("/www-static/assets/images/border-blog.png") no-repeat scroll left top transparent;
+    float: right;
+    min-height: 500px;
+    width: 170px;
+}
+#red-side-menu ul li {
+    border-bottom: 1px solid #F9EBEB;
+    list-style: none outside none;
+    margin-left: 0;
+    padding: 5px;
+}
+
+#red-side-menu ul ul li:hover {
+    border-bottom:1px solid #F4E2E2;
+}
+/* dirty fix */
+#red-side-menu ul ul li {
+    list-style: none;
+    margin-left: 0px;
+    background: none repeat scroll 0 0 #FEFCF2;
+}
+#red-side-menu li a{ color:#444;text-decoration:none; }
+/*icon*/
+#red-side-menu ul ul li.iconprofile{
+	background: url("/www-static/assets/images/i/user.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+#red-side-menu ul ul li.iconaddress{
+	background: url("/www-static/assets/images/i/book_addresses.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+#red-side-menu ul ul li.iconconnect{
+	background: url("/www-static/assets/images/i/arrow_switch.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+#red-side-menu ul ul li.iconadd{
+	background: url("/www-static/assets/images/i/add.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+#red-side-menu ul ul li.iconlist{
+	background: url("/www-static/assets/images/i/text_list_bullets.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+#red-side-menu ul ul li.iconhelp{
+	background: url("/www-static/assets/images/i/help.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
+
+#message.iconmessage{
+    background-image: url("/www-static/assets/images/i/Mail.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+#archive.iconarchive{
+    background-image: url("/www-static/assets/images/i/Mail Open.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}

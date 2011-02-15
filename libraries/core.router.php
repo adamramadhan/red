@@ -14,7 +14,7 @@ class Router
 	function __construct()
 	{
 		$this->url = str_replace(config('folder'), NULL, $_SERVER['REQUEST_URI']);
-		
+
 		# fix untuk (?) jadi bisa terima get
 		$this->url = parse_url($this->url, PHP_URL_PATH);
 		$segments = explode('/',$this->url);
@@ -40,7 +40,6 @@ class Router
 			if (preg_match('#^'.$regex.'$#', $uri)){
 				
 				# kalo ada url untuk diproses dan regex sama dengan segment (url)
-				# var_dump($request);
 				if (isset($this->url)) {
 					$this->controller = $request;
 				}
@@ -88,6 +87,10 @@ class Router
 			}
 			#diatas ini adalah proses pemanggilan kelas
 		}
+	}
+	
+	function setRoutes(){
+		
 	}
 }
 ?>

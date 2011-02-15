@@ -3,10 +3,10 @@
 		<div class="clearfix" id="footer-warp">
 			<ul class="clearfix" id="footer-menu">
 					<!-- WHY -->
-					<li id="hint"><?php $this->href('/why',l('why')); ?></li>
-					<li><?php $this->href('/terms',l('terms')); ?></li>
-					<li><?php $this->href('/netcoid',l('contactus')); ?></li>
-					<li><?php $this->href('/help',l('helpcenter')); ?></li>
+					<li id="hint"><?php $views->href('/why',l('why')); ?></li>
+					<li><?php $views->href('/terms',l('terms')); ?></li>
+					<li><?php $views->href('/netcoid',l('contactus')); ?></li>
+					<li><?php $views->href('/help',l('helpcenter')); ?></li>
 			</ul>
 			
 			<ul class="clearfix" id="copyright">
@@ -17,5 +17,5 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $this->js('jquery','plug.home','home'); ?>
+	<?php $views->js('jquery','plug.home','home'); ?>
 </html>

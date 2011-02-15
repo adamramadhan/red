@@ -30,7 +30,7 @@
 				<?php if ( !$this->sessions->get('uid')): ?>
 				 <u>*Masuk untuk kirim pesan*</u>
 				<?php endif ?> .
-				 atau hubungi langsung @<a href="profile.php?id=<?php echo $user['uid'] ?>">
+				 atau hubungi langsung @<a href="/<?php echo $user['name'] ?>">
 				<?php echo $user['name'] ?></a> via phone di <?php echo $user['phone'] ?>
 			</div>
 			<?php endif ?>	
