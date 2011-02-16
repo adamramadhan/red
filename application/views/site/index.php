@@ -4,7 +4,7 @@
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				netcoid adalah layanan jejaring bisnis yang menhubungkan usaha anda dengan peluang baru.
+				netcoid adalah layanan jejaring bisnis yang menghubungkan usaha anda dengan peluang baru.
 			</div>
 
 		</div>
