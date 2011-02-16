@@ -21,7 +21,8 @@ a { text-decoration: none }
 #red-header a:hover,
 #red-submenu a:hover { text-decoration: none }
 #red-header {
-    background: none repeat scroll 0 0 #D32E2E;
+	/*background: url("/www-static/assets/images/header.jpg") repeat-x scroll left center #D32E2E;*/ 
+     background: none repeat scroll 0 0 #D32E2E; 
     border-bottom: 1px solid #780000;
     color: #FFFFFF;
 }

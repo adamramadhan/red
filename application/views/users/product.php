@@ -1,17 +1,22 @@
 	<?php $this->validation->geterrors(); ?>
+	<div id="red-error-box"></div>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 
 		<!-- FORM START -->
 		<div id="red-edit-left-wide">
 			<h3>Tambah Product</h3>
-			<form enctype="multipart/form-data" accept-charset="utf-8" method="post" >
+			<form id="form-productadd" enctype="multipart/form-data" accept-charset="utf-8" method="post" >
 			<ul>
-				<li><?php $this->forms->input('name','text',l('productname')); ?>
-				<li><?php $this->forms->input('informationbox','textarea',l('productdescription')); ?></li>
-				<li><?php $this->forms->input('tag','text',l('producttag')); ?></li>
-				<li><?php $this->forms->input('price','text',l('productprice')); ?></li>	
-				<li><?php $this->forms->input('image','file',l('productimage')); ?></li>
+				<li><?php $this->forms->textinput('name',l('productname'), array( 'title' => l('product_name_error') )); ?></li>
+				<li><?php $this->forms->textarea('informationbox',l('productdescription'), 
+						  array( 'title' => l('product_description_error'),
+						  		 'cols' => '17',
+						  		 'rows' => '5')
+						  ); ?></li>
+				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error') )); ?></li>
+				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error') )); ?></li>
+				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'title' => l('product_image_error'),'size' => '11' )); ?></li>
 			</ul>
 			<p><input type="submit" value="Tambah" name="edit" id="button"></p>
 			</form>

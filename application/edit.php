@@ -108,7 +108,7 @@ class Edit Extends Application
 		$this->view('users/header');
 		$this->view('users/menu-active',$data);
 		$this->view('users/profile',$data);
-		$this->view('site/footer');	
+		$this->view('users/footer');	
 	}
 	
 	function frontbox(){
@@ -128,7 +128,7 @@ class Edit Extends Application
 		$this->view('users/header');
 		$this->view('users/menu-active',$data);
 		$this->view('users/frontpage',$data);
-		$this->view('site/footer');	
+		$this->view('users/footer');	
 	}
 	
 	function connections(){
@@ -159,7 +159,7 @@ class Edit Extends Application
 		$this->view('users/header');
 		$this->view('users/menu-active');
 		$this->view('users/connections',$data);
-		$this->view('site/footer');	
+		$this->view('users/footer');	
 	}
 	
 	function product(){
@@ -256,7 +256,7 @@ class Edit Extends Application
 		$this->view('users/header');
 		$this->view('users/menu-active');
 		$this->view('users/product');
-		$this->view('site/footer');	
+		$this->view('users/footer');	
 	}
 	
 	function products(){
@@ -289,7 +289,7 @@ class Edit Extends Application
 		$this->view('users/header');
 		$this->view('users/menu-active');
 		$this->view('users/products',$data);
-		$this->view('site/footer');	
+		$this->view('users/footer');	
 	}
 }
 

@@ -1,3 +1,4 @@
+	<?php $this->validation->geterrors(); ?>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		<h3>Kirim Pesan</h3>

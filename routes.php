@@ -19,6 +19,7 @@ $routes['secure'] = 'secure:index';
 $routes['login'] = 'login:index';
 $routes['terms'] = 'site:terms';
 $routes['welcome'] = 'site:welcome';
+$routes['why'] = 'site:why';
 $routes['default'] = 'site:index';
 
 #edit
