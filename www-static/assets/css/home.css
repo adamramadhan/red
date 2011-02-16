@@ -15,15 +15,15 @@
 #why-red{    height: 400px;
     margin-top: 10px;
     position: relative;}
-#why-red img{  }
 .relative{position:relative;}
 #why-red .awesome{    background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #BAADAD;
-    float: left;opacity:0;
+    float: left;
+    opacity:0;
     margin: 65px 0 0;
     position: absolute;
     width: 300px;}
-#why-red .awesome:hover{opacity:1;z-index:999 !important;}
+#why-red .awesome:hover{z-index:4 !important;}
 #why-red #what{    color: #B0B0B0;
     font-size: 30px;
     padding: 15px;}
