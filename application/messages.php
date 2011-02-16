@@ -83,11 +83,15 @@ class Messages Extends Application
 				$m['message'] = $this->validation->safe($_POST['message']);
 				$m['type'] = '0'; #notopen		
 				
-				$this->validation->required($m['message'],l('message_empty'));
-				
 				# get the time from jakarta
 				$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
 				$m['timecreate'] = $time->format('Y-m-d H:i:s');
+				
+				if (empty($m['subject'])) {
+					$m['subject'] = l('nosubject');
+				}
+				
+				$this->validation->required($m['message'],l('message_empty'));
 				
 				if (!sizeof($this->validation->errors)) {
 					$this->model->messages->sendMessage($m);

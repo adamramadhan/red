@@ -6,6 +6,7 @@
 			<div id="helloworld">
 				netcoid adalah layanan jejaring bisnis yang menhubungkan usaha anda dengan peluang baru.
 			</div>
+
 		</div>
 		<div id="red-content-right">
 			<div id="red-register">

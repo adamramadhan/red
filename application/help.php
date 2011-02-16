@@ -17,7 +17,33 @@ class Help Extends Application
 
 		if ($this->sessions->get('uid')) {
 			$this->library('validation');
+			$this->model('users');
+			$this->model('messages');
 			$this->helper('forms');
+			
+			if (is_post('send')) {
+				# untuk sementara first admin
+				$m['RUID'] = $this->model->users->getRole(5,1);
+				$m['SUID'] = $this->sessions->get('uid');
+				$m['subject'] = $this->validation->safe($_POST['subject']);
+				$m['message'] = $this->validation->safe($_POST['message']);
+				$m['type'] = '0'; #notopen
+
+				$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
+				$m['timecreate'] = $time->format('Y-m-d H:i:s');
+					
+				if (empty($m['subject'])) {
+					$m['subject'] = l('nosubject');
+				}
+					
+				$this->validation->required($m['message'],l('message_empty'));
+					
+				if (!sizeof($this->validation->errors)) {
+					$this->model->messages->sendMessage($m);
+					redirect( '/messages' );
+				}	
+			}
+			
 			$this->view('users/header');
 			$this->view('users/menu-active');
 			$this->view('users/helpcenter');
