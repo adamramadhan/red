@@ -18,19 +18,14 @@
 #why-red img{  }
 .relative{position:relative;}
 #why-red .awesome{    background: none repeat scroll 0 0 #FFFFFF;
-    border: 10px solid #A4A4A4;
-    float: left;
+    border: 1px solid #BAADAD;
+    float: left;opacity:0;
     margin: 65px 0 0;
-    opacity: 0.9;
     position: absolute;
     width: 300px;}
 #why-red .awesome:hover{opacity:1;z-index:999 !important;}
-#why-red #what{     background: none repeat scroll 0 0 #5B5B5B;
-    bottom: 55px;
-    color: #FFFFFF;
+#why-red #what{    color: #B0B0B0;
     font-size: 30px;
-    left: 0;
-    opacity: 0.9;
     padding: 15px;}
     
 #why-red #pic-1{top:20px;z-index:1;}
