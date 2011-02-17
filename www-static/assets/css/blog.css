@@ -7,7 +7,34 @@
     display: block;
     padding: 5px 10px;
 }
-#red-blog-menu a:hover{text-decoration:none;background:#FFFEDE;}
+
+#red-blog-menu li#blog-icon-twitter{
+    background-image:  url("/www-static/assets/images/i/twitter16.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+#red-blog-menu li#blog-icon-facebook{
+    background-image:  url("/www-static/assets/images/i/facebook16.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+#red-blog-menu li#blog-icon-github{
+    background-image:  url("/www-static/assets/images/i/github16.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+#red-blog-menu li#blog-icon-deviantart{
+    background-image: url("/www-static/assets/images/i/deviantart16.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+#red-blog-menu li:hover{background:#FFFEDE;}
+#red-blog-menu li a:hover{text-decoration:none;}
 
 #red-blog-left{
     float: left;
