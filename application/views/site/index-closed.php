@@ -7,18 +7,9 @@
 				netcoid adalah layanan jejaring bisnis yang menghubungkan usaha anda dengan peluang baru.
 			</div>
 			<div id="why-red">
-				<div id="pic-1" class="c bs awesome">
-					<img src="http://dl.dropbox.com/u/5984602/netcoid/small/1.png" />
-					<p id="what">it`s social!</p>
-				</div>
-				<div id="pic-2" class="c bs awesome">
-					<img src="http://dl.dropbox.com/u/5984602/netcoid/small/2.png" />
-					<div class="relative"><p id="what">but connected</p></div>
-				</div>				
-				<div id="pic-3" class="c bs awesome">
-					<img src="http://dl.dropbox.com/u/5984602/netcoid/small/5.png" />
-					<div class="relative"><p id="what">with profiles</p></div>
-				</div>									
+				<a id="pic-1" class="awesome" href="#" title="find & trade"><?php $views->getIMG('4.png'); ?></a>
+				<a id="pic-2" class="awesome"href="#" title="and simple."><?php $views->getIMG('2.png'); ?></a>
+				<a id="pic-3" class="awesome" href="#" title="it`s social"><?php $views->getIMG('1.png'); ?></a>	
 			</div>
 				<div>
 					<p id="helloworld">want to see more?</p>

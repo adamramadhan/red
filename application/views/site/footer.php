@@ -17,5 +17,5 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $views->js('jquery','plug.home','home'); ?>
+	<?php $views->js('jquery','plug.home','plugin/rotatescaleanim','home'); ?>
 </html>

@@ -215,7 +215,8 @@ ul ul li {
 /* message and buy  */
 #wide-input textarea { width: 400px }
 /*test*/
-#helloworld{      color: #D32E2E;
+#helloworld{      
+	color: #D32E2E;
     font-size: 20px !important;
     font-weight: bold !important;
     line-height: 29px;

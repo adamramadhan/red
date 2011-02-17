@@ -15,21 +15,61 @@
 #why-red{    height: 400px;
     margin-top: 10px;
     position: relative;}
+    
 .relative{position:relative;}
-#why-red .awesome{    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #BAADAD;
-    float: left;
-    opacity:0;
+
+#why-red .awesome{
     margin: 65px 0 0;
     position: absolute;
     width: 300px;}
-#why-red .awesome:hover{z-index:4 !important;}
-#why-red #what{    color: #B0B0B0;
-    font-size: 30px;
-    padding: 15px;}
     
-#why-red #pic-1{top:20px;z-index:1;}
-#why-red #pic-2{left: 360px;top:20px;z-index:2;}
-#why-red #pic-3{
+
+	
+#why-red a{
+	
+	-webkit-transition: all .15s linear;
+	-ms-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+	transition: all .15s linear;
+    display: inline;
+    border: 1px solid #ddd;
+    font-family: "Marker Felt",sans-serif;
+    font-size: 18px;
+    padding: 10px 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+#why-red a:after {
+	content: attr(title);
+}
+#why-red a:hover{
+	text-decoration:none;
+	
+	behavior:url(-ms-transform.htc);
+	-ms-transform:rotate(45deg);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+	
+	z-index: 4;
+}
+
+a#pic-1{
+	top:20px;
+	z-index:1;
+}
+a#pic-3{
 	bottom: 125px;
-    left: 195px;z-index:3;}
+    left: 195px;
+    z-index:3;
+}
+a#pic-2{
+	left: 360px;
+	top:20px;
+	z-index:2;
+}
