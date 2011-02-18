@@ -46,6 +46,12 @@ class ModelMessages extends Models
 		$status = $this->insert( 'messages', $data );
 		return $status;
 	}
+	
+	function countMessage($uid){
+		$count = $this->fetch('SELECT count(MID) as countmessage 
+		FROM messages WHERE ruid = :uid AND type = 0 LIMIT 1', array( 'uid' => $uid)); 
+		return $count;
+	}
 }
 
 ?>

@@ -128,21 +128,6 @@ class ModelUsers extends Models
 		$status = $this->query( "DELETE FROM products WHERE pid = :pid", array('pid' => $pid ));
 		return $status;
 	}
-	
-	function CountFollowers($uid){
-		$count = $this->fetch("SELECT COUNT(buid) as count FROM follow WHERE buid = :uid", 
-		array( 'uid' => $uid));
-		return $count;
-	}
-	
-	function is_following($person, $follow){
-		$status = $this->fetch('SELECT BUID FROM follow WHERE AUID = :uid AND BUID = :buid LIMIT 1', 
-		array( 
-			'uid' => $person,
-			'buid' => $follow
-		));
-		return $status;
-	}
 }
 
 

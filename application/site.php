@@ -4,6 +4,7 @@ class Site extends Application
 	function __construct()
 	{
 		$this->library('sessions');
+		$this->helper('active');
 	}
 		
 	function index()
@@ -15,14 +16,7 @@ class Site extends Application
 			$this->middleware('recaptcha','recaptcha');
 
 			$this->view('site/header');
-			
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
+			$this->active->menu($this->sessions->get('uid'),$this);
 
 			# register, secureing the data
 			if (is_post('register')) {
@@ -45,7 +39,7 @@ class Site extends Application
 			$this->model('users');
 			$data['user'] = $this->model->users->getData($this->sessions->get('uid'));
 			$this->view('users/header');
-			$this->view('users/menu-active',$data);
+			$this->active->menu($this->sessions->get('uid'),$this);
 			$this->view('users/dashboard',$data);
 			$this->view('site/footer');
 		}
@@ -95,39 +89,21 @@ class Site extends Application
 
 	function terms(){
 		$this->view('site/header');
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('site/terms');
 		$this->view('site/footer');		
 	}
 	
 	function welcome(){
 		$this->view('site/header');
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
+		$this->active->menu($this->sessions->get('uid'),$this);		
 		$this->view('site/welcome');
 		$this->view('site/footer');			
 	}
 	
 	function why(){
 		$this->view('site/header');
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('site/why');
 		$this->view('site/footer');					
 	}

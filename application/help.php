@@ -20,6 +20,7 @@ class Help Extends Application
 			$this->model('users');
 			$this->model('messages');
 			$this->helper('forms');
+			$this->helper('active');
 			
 			if (is_post('send')) {
 				# untuk sementara first admin
@@ -45,7 +46,7 @@ class Help Extends Application
 			}
 			
 			$this->view('users/header');
-			$this->view('users/menu-active');
+			$this->active->menu($this->sessions->get('uid'),$this);
 			$this->view('users/helpcenter');
 			$this->view('site/footer');					
 		}

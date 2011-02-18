@@ -6,6 +6,8 @@ class Admin Extends Application
 	function __construct(){
 		$this->library('sessions');
 		$this->model('users');
+		$this->helper('active');
+		
 		$data = $this->model->users->getData($this->sessions->get('uid'));
 		
 		if ( $data['role'] != 5) {
@@ -15,46 +17,37 @@ class Admin Extends Application
 	}
 	
 	function index(){
-		# unvefieid users
 		$this->view('admin/header');
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
 		
-		# args2
-		if (!isset($args2)) {
-			$data['users'] = $this->model->users->getRole('0',10);
-			$this->view('admin/index',$data);
-		}
+		$this->active->menu($this->sessions->get('uid'),$this);
 		
+		$data['users'] = $this->model->users->getRole('0',10);
+		$this->view('admin/index',$data);
 		$this->view('site/footer');
 	}
 	
 	function blog(){
 		$this->model('blog');
+		
 		$this->view('admin/header');
-		$this->view('users/menu-active');
-
+		$this->active->menu($this->sessions->get('uid'),$this);
+		# get blog posts
 		$data['posts'] = $this->model->blog->getPosts();
 		
-		# delete the post
+		# if request delete
 		if (is_get('d')) {
 			$this->model->blog->delPost($_GET['d']);
 			redirect('/admin/blog');
 		}
-			
-		# see the post
+		
+		# if request view
 		if (is_get('n')) {
 			$data['post'] = $this->model->blog->getPost($_GET['n']);
 			$data['post']['content'] = str_replace( "\n" , "<br />" , $data['post']['content']);
 			$this->view('admin/blogview',$data);
 		}
 
-		# edit the post
+		# if request edit
 		if (is_get('e')) {
 			$this->library('validation');
 			
@@ -62,7 +55,8 @@ class Admin Extends Application
 			$this->view('admin/blogedit',$data);
 			
 			if (is_post('editpost')) {
-				# strip all code for security
+				
+				# @todo strip all code for security
 				$n['title'] = $_POST['title'];
 				$n['content'] = $_POST['content'];
 				$n['tag'] = $_POST['tag'];
@@ -97,13 +91,8 @@ class Admin Extends Application
 		$this->library('validation');
 		# unvefieid users
 		$this->view('admin/header');
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
+		$this->active->menu($this->sessions->get('uid'),$this);
+
 			if (is_post('newpost')){
 				$this->model('blog');
 							

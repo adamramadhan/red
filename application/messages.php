@@ -5,7 +5,7 @@ class Messages Extends Application
 	function __construct()
 	{
 		$this->library('sessions');
-
+		$this->helper('active');
 		if (!$this->sessions->get('uid')) {
 			redirect('/404');
 			die();
@@ -16,7 +16,7 @@ class Messages Extends Application
 		$this->model('messages');
 		
 		$this->view('users/header');
-		$this->view('users/menu-active');
+		$this->active->menu($this->sessions->get('uid'),$this);
 		
 		if (!is_get('id') && !is_get('mid')) {
 			$this->helper('time');

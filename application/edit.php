@@ -12,7 +12,8 @@ class Edit Extends Application
 		$this->library('sessions');
 		$this->library('validation');
 		$this->helper('forms');
-
+		$this->helper('active');
+		
 		if (!$this->sessions->get('uid')) {
 			redirect('/404');
 			die();
@@ -106,7 +107,7 @@ class Edit Extends Application
 		}
 		
 		$this->view('users/header');
-		$this->view('users/menu-active',$data);
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('users/profile',$data);
 		$this->view('users/footer');	
 	}
@@ -126,7 +127,7 @@ class Edit Extends Application
 		}
 		
 		$this->view('users/header');
-		$this->view('users/menu-active',$data);
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('users/frontpage',$data);
 		$this->view('users/footer');	
 	}
@@ -157,7 +158,7 @@ class Edit Extends Application
 			}
 		}
 		$this->view('users/header');
-		$this->view('users/menu-active');
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('users/connections',$data);
 		$this->view('users/footer');	
 	}
@@ -254,7 +255,7 @@ class Edit Extends Application
 	
 		
 		$this->view('users/header');
-		$this->view('users/menu-active');
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('users/product');
 		$this->view('users/footer');	
 	}
@@ -287,7 +288,7 @@ class Edit Extends Application
 		# END DEL REQUEST
 		
 		$this->view('users/header');
-		$this->view('users/menu-active');
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('users/products',$data);
 		$this->view('users/footer');	
 	}

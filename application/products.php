@@ -2,12 +2,19 @@
 
 class Products Extends Application
 {
+	function __construct()
+	{
+		$this->library('sessions');
+		$this->model('products');
+		$this->model('users');
+		$this->helper('active');
+	}	
+	
 	function single()
 	{
 		if ($_GET['id']) {
-			$this->model('products');
-			$this->model('users');
-			$this->library('sessions');
+
+
 			$data['product'] = $this->model->products->getData($_GET['id']);
 			$data['user'] = $this->model->users->getData($data['product']['uid']);
 		}
@@ -24,20 +31,12 @@ class Products Extends Application
 	    $data['product']['information'] = preg_replace('/\[img\]((?:[^\[]+|\[(?!img\]))*)\[img\]/', '<img src="\1" />', $data['product']['information']);
 
 		$this->view('products/header');
-		if (!$this->sessions->get('uid')) {
-			$this->view('site/menu');
-		}
-		
-		if ($this->sessions->get('uid')) {
-			$this->view('users/menu-active');
-		}
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('products/single',$data);
 		$this->view('site/footer');	
 	}
 	
 	function all(){
-		$this->library('sessions');
-		$this->model('products');
 		
 		// start pagenation
 		if (!isset($_GET['offset'])) {
@@ -68,13 +67,7 @@ class Products Extends Application
 		$data['tags'] = $this->model->products->getTags();
 		
 		$this->view('products/header');
-		if (!$this->sessions->get('uid')) {
-			$this->view('site/menu');
-		}
-		
-		if ($this->sessions->get('uid')) {
-			$this->view('users/menu-active');
-		}
+		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->view('products/all',$data);
 		$this->view('site/footer');			
 	}

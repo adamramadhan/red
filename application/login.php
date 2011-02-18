@@ -2,7 +2,8 @@
 
 class Login Extends Application
 {
-	#default page
+	# default page
+	# todo kalo ud login redirect
 	function index(){
 		$this->library('validation');
 		$this->library('sessions');

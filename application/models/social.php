@@ -10,17 +10,23 @@ class ModelSocial extends Models
 	}
 	
 	function unfollow($buid){
-		$status = $this->query( "DELETE FROM follow WHERE buid = :buid", array('buid' => $buid) );
+		$status = $this->query( "DELETE FROM social WHERE buid = :buid", array('buid' => $buid) );
 		return $status;
 	}
 	
 	function is_following($person, $follow){
-		$status = $this->fetch('SELECT BUID FROM follow WHERE AUID = :uid AND BUID = :buid LIMIT 1', 
+		$status = $this->fetch('SELECT BUID FROM social WHERE AUID = :uid AND BUID = :buid LIMIT 1', 
 		array( 
 			'uid' => $person,
 			'buid' => $follow
 		));
 		return $status;
+	}
+	
+	function CountFollowers($uid){
+		$count = $this->fetch("SELECT COUNT(buid) as count FROM social WHERE buid = :uid", 
+		array( 'uid' => $uid));
+		return $count;
 	}
 }
 

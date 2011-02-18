@@ -5,22 +5,21 @@ class Blog Extends Application
 	// set status
 	//public $status = 'off';
 	
-	function index()
+	function __construct()
 	{
-		# get the blog model
 		$this->model('blog');
 		$this->library('sessions');
+		$this->helper('active');
+	}
+	
+	function index()
+	{
+
 		$data['posts'] = $this->model->blog->getPosts();
 		
 		$this->view('blog/header');
 		
-		if (!$this->sessions->get('uid')) {
-			$this->view('site/menu');
-		}
-		
-		if ($this->sessions->get('uid')) {
-			$this->view('users/menu-active');
-		}	
+		$this->active->menu($this->sessions->get('uid'),$this);
 		
 		$this->view('blog/blog-menu');		
 		if (!is_get('id')) {	

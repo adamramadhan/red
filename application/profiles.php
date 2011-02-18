@@ -1,12 +1,14 @@
 <?php
 
 class Profiles Extends Application
-{
+{		
 	function index($username)
 	{
-
+		/*
+		$this->library('validation');
+		$username = $this->validation->safe($username);
+		*/
 		$this->model('users');
-		$this->model('products');
 		$data['user'] = $this->model->users->getData($username);
 
 		// start beta plugin \[img\]((?:[^*_\[]+|\[(?!img\]))*)\[img\]
@@ -31,9 +33,12 @@ class Profiles Extends Application
 			
 			$this->library('social');
 			$this->library('sessions');
+			$this->helper('active');
+			$this->model('products');
+			$this->model('social');
 	
 			$data['thisprofile'] = $username;
-			$data['followers'] = $this->model->users->CountFollowers($username);
+			$data['followers'] = $this->model->social->CountFollowers($username);
 	
 	
 			$this->middleware('googlemaps','googlemaps');
@@ -63,18 +68,10 @@ class Profiles Extends Application
 			
 			$data['products'] = $this->model->products->listProductsByUID($data['user']['uid']);
 			$data['readmore'] = count($data['products']);
-			$data['follow'] = $this->model->users->is_following($this->sessions->get('uid'),$data['user']['uid']);
+			$data['follow'] = $this->model->social->is_following($this->sessions->get('uid'),$data['user']['uid']);
 
 			$this->view('profile/header');
-			
-			if (!$this->sessions->get('uid')) {
-				$this->view('site/menu');
-			}
-			
-			if ($this->sessions->get('uid')) {
-				$this->view('users/menu-active');
-			}
-			
+			$this->active->menu($this->sessions->get('uid'),$this);
 			$this->view('profile/index',$data);
 			$this->view('site/footer');	
 		}	
