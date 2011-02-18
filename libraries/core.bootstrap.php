@@ -37,7 +37,11 @@ function is_post( $name )
 function is_get( $name, $value = NULL )
 {
 	if (!is_null($value)) {
-		return ($_GET[$name] == $value) ? true : false;
+		if (isset($_GET[$name])) {
+			return ($_GET[$name] == $value) ? true : false;
+		} else {
+			return false;
+		}
 	}
 	if (is_null($value)) {
 		$value = NULL;

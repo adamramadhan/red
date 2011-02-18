@@ -4,9 +4,16 @@
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				netcoid adalah layanan jejaring bisnis yang menghubungkan usaha anda dengan peluang baru.
+				Hello VIP`s, lets start to make a change.
 			</div>
-
+			<ul>
+				<li id="red-register-closed">1. masukan username yang diinginkan,nanti digunakan sebagai url anda seperti www.networks.co.id/username<li>
+				<li id="red-register-closed">2. kata sandi, pastinya tidak kami simpan secara langsung ( di hash / enskirpsi satu jalan ) kalo lupa
+					passwordnya cuma bisa direset. 'password' akan terlihat seperti ini di database<img src="http://dl.dropbox.com/u/5984602/images/hash.png" /> bisa sampai 200 char dan selalu diacak.<li>
+				<li id="red-register-closed">3. support di 08999252530 untuk support / gagal login karena password salah ( reset ) atau ke ym netcoid atau damsprivate. jika mengunakan bb bisa masuk ke group bb kami.<li><img src="http://dl.dropbox.com/u/5984602/images/barcode.png" />
+				<li id="red-register-closed">4. Thankyou.</li>
+										
+			</ul>
 		</div>
 		<div id="red-content-right">
 			<div id="red-register">
@@ -23,7 +30,7 @@
 					<li><label for="phone">Kontak Organisasi</label>  <input type="text" title='<?php echo l('register_phone_error'); ?>' 
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
-				<p  ><?php $this->href('privacy','Keamanan Privasi'); ?> &amp; <?php $this->href('terms','Peraturan'); ?> </p>
+				<p  ><?php $views->href('privacy','Keamanan Privasi'); ?> &amp; <?php $views->href('terms','Peraturan'); ?> </p>
 				<p><input type="submit" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>

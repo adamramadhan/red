@@ -28,7 +28,13 @@ class Site extends Application
 				$this->postregister();
 			}
 
-			$this->view('site/index-closed');		
+			if (!is_get('secret','imavip')) {
+				$this->view('site/index-closed');
+			}
+
+			if (is_get('secret','imavip')) {
+				$this->view('site/index');
+			}			
 			#$this->view('site/index');
 			$this->view('site/footer');
 		}
