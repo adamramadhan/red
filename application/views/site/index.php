@@ -30,7 +30,7 @@
 					<li><label for="phone">Kontak Organisasi</label>  <input type="text" title='<?php echo l('register_phone_error'); ?>' 
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
-				<p  ><?php $views->href('privacy','Keamanan Privasi'); ?> &amp; <?php $views->href('terms','Peraturan'); ?> </p>
+				<p><?php $views->href('/terms',l('terms')); ?></p>
 				<p><input type="submit" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>
