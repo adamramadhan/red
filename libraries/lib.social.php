@@ -64,6 +64,50 @@ class Social
 		}
 		return $status;
 	}
+	
+	public function getYahooProfile( $username ){
+		$request = @file ("http://opi.yahoo.com/online?u=" . $yahoo_id . "&m=t");
+		$connect = $request[0];
+		$online = "$yahoo_id is ONLINE";
+			
+		if ($connect == $online) {
+			$status = $yahoo_id . ' Sedang online.';
+		} else {
+			$status = 'Sedang tidak online.';
+		}
+		return $status;
+	}
+	
+	public function getTwitterProfile($twitter){
+		if ( empty( $twitter ) ) {
+			$status = '';
+		}
+
+		if ( !empty( $twitter ) ) {
+			
+			# twitter api xml url, http://php.net/manual/en/function.fopen.php
+			$url = "http://twitter.com/users/show/$twitter.xml";
+			
+			# twitter is down or us connection is not good
+			$fp = @fopen($url, 'r');
+			if (!$fp) {
+				$status = 'maaf, untuk saat ini koneksi jaringan kami sedang bermasalah, silahkan hubungi api@networks.co.id';
+			}
+			
+			if ($fp) {
+				
+				# get xml from url http://php.net/manual/en/function.stream-get-contents.php
+				# http://www.php.net/manual/en/function.simplexml-load-string.php
+				$xml = simplexml_load_string(stream_get_contents($fp));
+				fclose($fp);
+				
+				# get the status text from xml
+				$status = $xml->status->text.' - '.strftime("%A, %d %B %Y at %X ",strtotime($xml->status->created_at)); 
+			}
+		}	
+			
+		return $status;		
+	}
 }
 
 

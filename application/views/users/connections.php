@@ -7,8 +7,8 @@
 			<h3>Data Koneksi</h3>
 			<form accept-charset="utf-8" method="post" action="#" >
 			<ul>
-				<li><?php $this->forms->input('twitter','text',l('twitter'),$user['twitter']); ?>
-				<li><?php $this->forms->input('yahoo','text',l('yahoo'),$user['yahoo']); ?>
+				<li><?php $this->forms->textinput('twitter',l('twitter'), array( 'value' => $user['twitter'])); ?></li>
+				<li><?php $this->forms->textinput('yahoo',l('yahoo'), array( 'value' => $user['yahoo'])); ?></li>
 			</ul>
 			<p><input type="submit" value="Ubah" name="edit" id="button"></p>
 			</form>

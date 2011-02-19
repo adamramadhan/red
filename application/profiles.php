@@ -66,6 +66,29 @@ class Profiles Extends Application
 			}
 			// end pagenation
 			
+			// start social
+			if ($this->cache->get("social:yahoo:$username")) {
+				$data['yahoo'] = $this->cache->get("social:yahoo:$username");
+			}
+			
+			if (!$this->cache->get("social:yahoo:$username")) {
+				$status = $this->social->getYahooProfile($data['user']['yahoo']);
+				$this->cache->add("social:yahoo:$username", $status, FALSE, 120);
+				$data['yahoo'] = $status;
+			}
+			
+			
+			if ($this->cache->get("social:twitter:$username")) {
+				$data['twitter'] = $this->cache->get("social:twitter:$username");
+			}
+			
+			if (!$this->cache->get("social:twitter:$username")) {
+				$status = $this->social->getTwitterProfile($data['user']['twitter']);
+				$this->cache->add("social:twitter:$username", $status, FALSE, 120);
+				$data['twitter'] = $status;
+			}
+
+			
 			$data['products'] = $this->model->products->listProductsByUID($data['user']['uid']);
 			$data['readmore'] = count($data['products']);
 			$data['follow'] = $this->model->social->is_following($this->sessions->get('uid'),$data['user']['uid']);

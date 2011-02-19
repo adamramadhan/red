@@ -7,11 +7,13 @@
 			<h3>Data Usaha</h3>
 			<form enctype="multipart/form-data" accept-charset="utf-8" method="post" action="#" >
 			<ul>
-				<li><?php $this->forms->input('name','disabled',l('name'),$this->sessions->get('name')); ?>
-				<li><?php $this->forms->input('address','textarea',l('address'),$user['address']); ?>
-				<li><?php $this->forms->input('phone','text',l('phone'),$user['phone']); ?></li>
-				<li><?php $this->forms->input('email','text',l('email'),$user['email']); ?></li>	
-				<li><?php $this->forms->input('logo','file',l('logo')); ?>
+				<li><?php $this->forms->textinput('name',l('name'), array( 'disabled' => 'disabled', 'value' => $this->sessions->get('name'))); ?></li>
+				<li><?php $this->forms->textarea('address',l('address'), array( 'value' => $user['address'], 
+						  'cols' => '17',
+						  'rows' => '5')); ?></li>
+				<li><?php $this->forms->textinput('phone',l('phone'), array( 'value' => $user['phone'])); ?></li>
+				<li><?php $this->forms->textinput('email',l('email'), array( 'value' => $user['email'])); ?></li>
+				<li><?php $this->forms->fileinput('logo',l('logo')); ?></li>
 			</ul>
 			<p><input type="submit" value="Ubah" name="edit" id="button"></p>
 			</form>

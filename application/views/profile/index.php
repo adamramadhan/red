@@ -66,12 +66,12 @@
 			<?php endif ?>
 			<?php if (!empty($user['twitter'])): ?>
 				<a class="c" id="twitter" rel="nofollow" target="_blank" href="http://www.twitter.com/<?php echo $user['twitter']?>">
-					<?php echo $this->social->get_twitter($user['twitter']); ?>
+					<?php echo $twitter; ?>
 				</a>
 			<?php endif ?>
 			<?php if (!empty($user['yahoo'])): ?>
 				<a class="c" id="yahoo" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
-					<?php echo $this->social->get_yahoo($user['yahoo']); ?>
+					<?php echo $yahoo; ?>
 				</a>
 			<?php endif ?>	
 			<?php if (!empty($user['address'])): ?>

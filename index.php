@@ -19,6 +19,7 @@ if (config('gzip')) {
 require_once 'libraries/core.router.php';
 require_once 'libraries/core.models.php';
 require_once 'libraries/core.application.php';
+require_once 'libraries/core.cache.php';
 $test = new Router;
 
 if (config('gzip')) {

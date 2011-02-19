@@ -1,5 +1,6 @@
 	<?php $this->validation->geterrors(); ?>
 	<div id="red-error-box"></div>
+	
 	<!-- CONTENT START -->
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
@@ -11,14 +12,14 @@
 				<a id="pic-2" class="awesome"href="#" title="and simple."><?php $views->getIMG('2.png'); ?></a>
 				<a id="pic-3" class="awesome" href="#" title="it`s social"><?php $views->getIMG('1.png'); ?></a>	
 			</div>
-				<div>
-					<p id="helloworld">want to see more?</p>
-					<p id="red-register-closed">Hello, sebelumnya, saya Adam Ramadhan, Netcoid ingin mengucapkan terimakasih kepada seluruh pihak
-						yang telah berpartisipasi, kini kami sudah berada pada versi stabil pertama, sayangnya untuk saat ini kami hanya menerima anggota baru <strong>berdasarkan invitasi</strong>. untuk keterangan email ke hello@networks.co.id atau follow twitter kami di <a href="http://www.twitter.com/netcoid">@netcoid</a>.
-					</p>
-				</div>
-
+			<div>
+				<p id="helloworld">want to see more?</p>
+				<p id="red-register-closed">Hello, sebelumnya, saya Adam Ramadhan, Netcoid ingin mengucapkan terimakasih kepada seluruh pihak
+					yang telah berpartisipasi, kini kami sudah berada pada versi stabil pertama, sayangnya untuk saat ini kami hanya menerima anggota baru <strong>berdasarkan invitasi</strong>. untuk keterangan email ke hello@networks.co.id atau follow twitter kami di <a href="http://www.twitter.com/netcoid">@netcoid</a>.
+				</p>
+			</div>
 		</div>
+		
 		<div id="red-content-right">
 			<div id="red-register">
 				<h3>Pendaftaran</h3>

@@ -5,8 +5,10 @@
 		
 		<form accept-charset="utf-8" method="post" action="/messages?id=<?php echo $_GET['id']; ?>" >
 			<ul id="wide-input">
-				<li><?php $this->forms->input('subject','text','Subject'); ?></li>
-				<li><?php $this->forms->input('message','textarea',l('message')); ?></li>
+				<li><?php $this->forms->textinput('subject','Subject'); ?></li>
+				<li><?php $this->forms->textarea('message',l('message'), array( 
+						  'cols' => '17',
+						  'rows' => '5')); ?></li>
 			</ul>
 			<p><input type="submit" value="Kirim" name="send" id="button"></p>
 		</form>	

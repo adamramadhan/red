@@ -1,6 +1,11 @@
 <?php  
 class Application
 {
+	function __construct()
+	{
+		$this->cache = new Cache;
+	}
+	
 	protected function model($model)
 	{
 		$path = "application". DS ."models". DS . $model .".php";

@@ -5,11 +5,18 @@
  * @param string $string 
  * @return void, configuration ( array or string )
  * @author DAMS
+ * config()
+ * @todo kalo dijadiin global aja gimana?
  */
 function config( $string ){
-	require 'configuration.php';
-	return $config[$string];
+    require 'configuration.php';
+    $keys = explode('/',$string);
+    foreach($keys as $key){
+        $config = $config[$key];
+    }
+    return $config;
 }
+
 
 /**
  * IS_POST()

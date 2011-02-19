@@ -31,7 +31,7 @@ class Forms
 	
 
 	
-	function textinput($name, $label, $options){
+	function textinput($name, $label, $options = array()){
 		
 		$params = '';
 		foreach ($options as $key => $value) {
@@ -42,7 +42,7 @@ class Forms
 		<input name="' . $name . '" type="textinput" id="input-' . $name . '" '.$params.' />';		
 	}
 
-	function textarea($name, $label, $options){
+	function textarea($name, $label, $options = array()){
 		
 		$params = '';
 		foreach ($options as $key => $value) {
@@ -57,7 +57,7 @@ class Forms
 		<textarea name="' . $name . '" id="textarea-' . $name . '" '.$params.' />' . $options['value'] . '</textarea>';		
 	}
 	
-	function fileinput($name, $label, $options){
+	function fileinput($name, $label, $options = array()){
 		
 		$params = '';
 		foreach ($options as $key => $value) {

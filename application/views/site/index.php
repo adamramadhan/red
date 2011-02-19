@@ -11,8 +11,7 @@
 				<li id="red-register-closed">2. kata sandi, pastinya tidak kami simpan secara langsung ( di hash / enskirpsi satu jalan ) kalo lupa
 					passwordnya cuma bisa direset. 'password' akan terlihat seperti ini di database<img src="http://dl.dropbox.com/u/5984602/images/hash.png" /> bisa sampai 200 char dan selalu diacak.<li>
 				<li id="red-register-closed">3. support di 08999252530 untuk support / gagal login karena password salah ( reset ) atau ke ym netcoid atau damsprivate. jika mengunakan bb bisa masuk ke group bb kami.<li><img src="http://dl.dropbox.com/u/5984602/images/barcode.png" />
-				<li id="red-register-closed">4. Thankyou.</li>
-										
+				<li id="red-register-closed">4. Thankyou.</li>	
 			</ul>
 		</div>
 		<div id="red-content-right">
