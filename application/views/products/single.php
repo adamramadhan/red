@@ -25,13 +25,13 @@
 			<div class="c" id="pesan">
 				Pesan produk ini sekarang juga,
 				<?php if ( $this->sessions->get('uid')): ?>
-					<a href="messages.php?id=<?php echo $user['uid'] ?>"> Kirim Pesan</a>
+					<a href="/messages?id=<?php echo $user['uid'] ?>"> Kirim Pesan</a>
 				<?php endif ?>	
 				<?php if ( !$this->sessions->get('uid')): ?>
 				 <u>*Masuk untuk kirim pesan*</u>
 				<?php endif ?> .
-				 atau hubungi langsung @<a href="/<?php echo $user['name'] ?>">
-				<?php echo $user['name'] ?></a> via phone di <?php echo $user['phone'] ?>
+				 atau hubungi langsung @<a href="/<?php echo $user['username'] ?>">
+				<?php echo $user['name'] ?></a> via phone di <span class="secure"><?php echo strrev($user['phone']); ?></span>
 			</div>
 			<?php endif ?>	
 
