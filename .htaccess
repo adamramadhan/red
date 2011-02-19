@@ -15,4 +15,4 @@
     Deny from all
 </Files>
 
-Options -Indexes
+AllowOverride Options -Indexes
