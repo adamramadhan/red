@@ -81,12 +81,12 @@
 			<?php endif ?>	
 			<?php if (!empty($user['email'])): ?>
 				<h3>Email</h3>
-				<p><?php echo $user['email'] ?></p>
+				<p class="secure"><?php echo strrev($user['email']); ?></p>
 			<?php endif ?>	
 			
 			<?php if (!empty($user['phone'])): ?>
 				<h3>Kontak</h3>
-				<p><?php echo $user['phone'] ?></p>
+				<p class="secure"><?php echo strrev($user['phone']); ?></p>
 			<?php endif ?>				
 		</div>
 		<!-- END PROFILE -->	

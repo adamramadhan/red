@@ -230,3 +230,8 @@ input, textarea {
 
 .none{display:none !important;}
 .valid{}
+.secure{    
+	direction: rtl;
+    text-align: left;
+    unicode-bidi: bidi-override;
+}
