@@ -73,10 +73,9 @@ class Profiles Extends Application
 			
 			if (!$this->cache->get("social:yahoo:$username")) {
 				$status = $this->social->getYahooProfile($data['user']['yahoo']);
-				$this->cache->add("social:yahoo:$username", $status, FALSE, 120);
+				$this->cache->add("social:yahoo:$username", $status, FALSE, 1);
 				$data['yahoo'] = $status;
 			}
-			
 			
 			if ($this->cache->get("social:twitter:$username")) {
 				$data['twitter'] = $this->cache->get("social:twitter:$username");

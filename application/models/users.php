@@ -43,14 +43,14 @@ class ModelUsers extends Models
 		# the data is uid
 		if (is_numeric($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, information, role, twitter, yahoo,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo,
 			password FROM users WHERE uid = :uid LIMIT 1', array( 'uid' => $data));
 		}
 		
 		# the data is username
 		if (is_string($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, information, role, twitter, yahoo,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo,
 			password FROM users WHERE username = :username LIMIT 1', array( 'username' => $data));			
 		}
 
@@ -127,6 +127,14 @@ class ModelUsers extends Models
 	function delProduct( $pid ){
 		$status = $this->query( "DELETE FROM products WHERE pid = :pid", array('pid' => $pid ));
 		return $status;
+	}
+	
+	function verifiedUid( $data ){
+		$update = $this->query("UPDATE users SET
+		image_seal = :image_seal, 
+	    role = 1
+	    WHERE uid = :uid", $data);
+	    return $update;		
 	}
 }
 

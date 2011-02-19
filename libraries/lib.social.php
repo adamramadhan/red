@@ -65,7 +65,7 @@ class Social
 		return $status;
 	}
 	
-	public function getYahooProfile( $username ){
+	public function getYahooProfile( $yahoo_id ){
 		$request = @file ("http://opi.yahoo.com/online?u=" . $yahoo_id . "&m=t");
 		$connect = $request[0];
 		$online = "$yahoo_id is ONLINE";

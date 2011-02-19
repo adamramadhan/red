@@ -8,7 +8,7 @@
 			echo '<div class="clearfix" id="subinformation">';
 			echo '<div id="subname">'.$user['name'].'</div>';
 			echo '<div id="subname">'.$user['phone'].'</div>';
-			echo '<div class="c" id="suboptions"><a href="/admin/?verified='.$user['uid'].'">Aktifkan</a></div>';
+			echo '<div class="c" id="suboptions"><a href="/admin?verified='.$user['uid'].'">Aktifkan</a></div>';
 			echo "</div>";
 		}
 		?>			

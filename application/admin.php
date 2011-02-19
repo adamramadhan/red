@@ -18,11 +18,55 @@ class Admin Extends Application
 	
 	function index(){
 		$this->view('admin/header');
-		
 		$this->active->menu($this->sessions->get('uid'),$this);
+		$this->helper('forms');
 		
-		$data['users'] = $this->model->users->getRole('0',10);
-		$this->view('admin/index',$data);
+		if (is_get('verified')) {
+			
+			if (is_post('verified')) {
+				
+				$this->middleware('verotimage','upload');
+				if (!empty($_FILES['image']['size'])) {
+				
+				# SETUP IMAGE	
+				$savepath = STORAGE . DS . $_GET['verified'];
+				$randomid = md5($_GET['verified'].'sealoftrust');
+				$this->upload->vupload($_FILES['image']);
+				
+					if ($this->upload->uploaded) 
+					{
+				        $this->upload->file_auto_rename   = false;
+				        $this->upload->image_resize       = true;
+				        $this->upload->file_overwrite     = true;
+				        $this->upload->image_x            = 960; 
+				        $this->upload->image_ratio_y      = true;
+				        $this->upload->file_new_name_body = 'information' . $randomid;
+				        $this->upload->allowed            = array(
+				            'image/*'
+				        );	
+				        
+				        $this->upload->Process($savepath);
+				        if ($this->upload->processed) 
+				        {
+				        	# IMAGE SEAL AND VERIFIED
+				        	$v['image_seal'] = $this->upload->file_dst_name;
+				        	$v['uid'] = $_GET['verified'];
+							$this->model->users->verifiedUid($v);
+							redirect('/admin');
+				        }		        
+		        		$this->upload->clean();
+					}
+				}			
+			}
+			
+			$this->view('admin/verified');
+		}
+
+		if (!is_get('verified')) {
+			$data['users'] = $this->model->users->getRole('0',10);
+			$this->view('admin/index',$data);
+		}		
+		
 		$this->view('site/footer');
 	}
 	
