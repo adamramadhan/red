@@ -15,4 +15,3 @@
     Deny from all
 </Files>
 
-Options -Indexes
