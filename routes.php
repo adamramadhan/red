@@ -12,7 +12,7 @@ $routes['503'] = 'core:off';
 #$routes['default'] = 'core:index';
 
 #fitur profiles ke method index
-$routes['(a-zA-Z0-9_+)'] = 'profiles:index';
+$routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';
 $routes['secure'] = 'secure:index';
