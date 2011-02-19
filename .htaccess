@@ -14,3 +14,6 @@
     Order allow,deny
     Deny from all
 </Files>
+
+Options -Indexes
+ErrorDocument 403 /index.php
