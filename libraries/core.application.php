@@ -86,13 +86,11 @@ class Application
 	public function compressor( $buffer )
 	{
 	    $search = array(
-	    	'/(\s)+/s', // shorten multiple whitespace sequences
 	        '/<!--(.|\s)*?-->/', //strip html comments
 	        '/\>[^\S ]+/s', //strip whitespaces after tags, except space
 	        '/[^\S ]+\</s', //strip whitespaces before tags, except space
 	    );
 	    $replace = array(
-	    	'\\1',
 	        '',
 	        '>',
 	        '<'

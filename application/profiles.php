@@ -87,6 +87,17 @@ class Profiles Extends Application
 				$data['twitter'] = $status;
 			}
 
+			if ($this->cache->get("social:facebook:$username")) {
+				$data['facebook'] = $this->cache->get("social:facebook:$username");
+			}
+			
+			if (!$this->cache->get("social:facebook:$username")) {
+				$status = $this->social->getFacebookPageStatus($data['user']['facebook']);
+				$this->cache->add("social:facebook:$username", $status, FALSE, 120);
+				$data['facebook'] = $status;
+			}
+			// end social
+
 			
 			$data['products'] = $this->model->products->listProductsByUID($data['user']['uid']);
 			$data['readmore'] = count($data['products']);

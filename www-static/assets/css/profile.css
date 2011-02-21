@@ -43,6 +43,13 @@
     display:block;
 }
 #yahoo:hover{color:#444;text-decoration:none;background:#FAFFCF;}
+#facebook {
+    background: none repeat scroll 0 0 #627AAD;
+    color: #FFFFFF;
+    display: block;
+    padding: 10px;
+}
+#facebook:hover{text-decoration:none;background:none repeat scroll 0 0 #3B5998;}
 #status-verified {
     background: none repeat scroll 0 0 #BAE9FF;
     padding: 5px 10px;

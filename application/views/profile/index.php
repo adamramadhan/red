@@ -74,6 +74,11 @@
 					<?php echo $yahoo; ?>
 				</a>
 			<?php endif ?>	
+			<?php if (!empty($user['facebook'])): ?>
+				<a class="c" id="facebook" href="http://facebook.com/<?php echo $user['facebook']; ?>">
+					<?php echo $facebook; ?>
+				</a>
+			<?php endif ?>	
 			<?php if (!empty($user['address'])): ?>
 				<h3>Alamat</h3>
 				<?php $this->googlemaps->display( $user['uid'] ); ?>

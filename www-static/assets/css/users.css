@@ -99,6 +99,13 @@ display:block;
 background:none repeat scroll 0 0 #F8FFB1;
 padding:10px;
 }
+#facebook {
+    background: none repeat scroll 0 0 #627AAD;
+    color: #FFFFFF;
+    display: block;
+    padding: 10px;
+}
+#facebook:hover{text-decoration:none;background:none repeat scroll 0 0 #3B5998;}
 #connect-status li {
 margin:10px 0;
 list-style:none outside none;

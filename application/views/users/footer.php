@@ -17,5 +17,4 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $views->js('jquery','plug.home','edit/product'); ?>
 </html>

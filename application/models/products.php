@@ -5,11 +5,37 @@ class ModelProducts extends Models
 	public $database = 'application';
 	
 	function getData($pid){
-		$data = $this->fetch("SELECT uid, name, information, image, tag, price 
+		$data = $this->fetch("SELECT uid, name, information, image, image_tumb, tag, price 
 		FROM products WHERE pid = :pid LIMIT 1", array( 'pid' => $pid));	
 		return $data;
 	}
-	
+
+	function updateData($data){
+		if (!empty($data['image']) && !empty($data['image_tumb'])) {
+			$update = $this->query("UPDATE products SET 
+					name = :name,
+					information = :information,
+					tag = :tag,
+					price = :price,
+					image = :image,
+					image_tumb = :image_tumb,
+					timecreate = :timecreate	
+					WHERE pid = :pid", $data);		
+		}
+		
+		if (empty($data['image']) && empty($data['image_tumb'])) {
+			var_dump($data);
+			$update = $this->query("UPDATE products SET 
+					name = :name,
+					information = :information,
+					tag = :tag,
+					price = :price,
+					timecreate = :timecreate
+					WHERE pid = :pid", $data);		
+		}
+		return $update;		
+	}
+		
 	function addProduct($data){
 		$status = $this->insert( 'products', $data );
 		return $status;

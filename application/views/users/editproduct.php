@@ -1,23 +1,23 @@
-	<?php $views->js('jquery','plug.home','edit/product'); ?>
+	<?php $views->js('jquery','plug.home','edit/editproduct'); ?>
 	<?php $this->validation->geterrors(); ?>
 	<div id="red-error-box"></div>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
-
 		<!-- FORM START -->
 		<div id="red-edit-left-wide">
 			<h3>Tambah Product</h3>
 			<form id="form-productadd" enctype="multipart/form-data" accept-charset="utf-8" method="post" >
 			<ul>
-				<li><?php $this->forms->textinput('name',l('productname'), array( 'title' => l('product_name_error') )); ?></li>
+				<li><?php $this->forms->textinput('name',l('productname'), array( 'title' => l('product_name_error'), 'value' => $data['name'] )); ?></li>
 				<li><?php $this->forms->textarea('informationbox',l('productdescription'), 
 						  array( 'title' => l('product_description_error'),
 						  		 'cols' => '17',
-						  		 'rows' => '5')
+						  		 'rows' => '5', 
+						  		 'value' => $information)
 						  ); ?></li>
-				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error') )); ?></li>
-				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error') )); ?></li>
-				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'title' => l('product_image_error'),'size' => '11' )); ?></li>
+				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error'), 'value' => $tag )); ?></li>
+				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error'), 'value' => $price )); ?></li>
+				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'size' => '11' )); ?></li>
 			</ul>
 			<p><input type="submit" value="Tambah" name="edit" id="button"></p>
 			</form>

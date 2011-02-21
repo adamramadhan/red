@@ -12,6 +12,7 @@
 						<div id="subname">'.$value['name'].'</div>
 						<div id="subname">'.$value['price'].'</div>
 						<div class="c" id="suboptions"><a href="/edit/products?d='.$value['pid'].'">Hapus</a></div>
+						<div class="c" id="suboptions"><a href="/edit/product?e='.$value['pid'].'">Edit</a></div>
 						<div class="c" id="suboptions"><a href="/product?id='.$value['pid'].'">Lihat</a></div>
 						</div>';
 				}	

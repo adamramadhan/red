@@ -44,9 +44,6 @@ $l['productprice'] = 'Harga Produk';
 $l['productimage'] = 'Gambar Produk <sup>3</sup>';
 
 /* EDITCONNECTION.PHP*/
-// butuh ga ya?
-$l['twitter'] = 'Twitter';
-$l['yahoo'] = 'Y! Messenger';
 /* message.php*/
 $l['nosubject'] = 'tidak ada subjek';
 /*PROFILE & PRODUCT */
@@ -78,6 +75,7 @@ $l['product_description_error'] = 'Deskripsi Produk tidak boleh kosong';
 $l['product_tag_error'] = 'Tag Produk tidak boleh kosong & Harus Berformat text ( Text tampa spasi ) 3-15 Kata';
 $l['product_price_error'] = 'Harga Produk tidak boleh kosong &  Beformat Numeric ( angka ) 1 - 11 Angka';
 $l['connection_yahoo_error'] = 'Yahoo anda harus berformat 0-100 Angka, Kata, "_" dan "." tampa @yahoo.com contoh: sebuahid.yahoo25';
+$l['connection_facebook_error'] = 'Facebook anda harus berformat 0-100 Angka, Kata, "_" dan "." contoh: 48540605773 atau "cocacola" tampa alamat lengkap url, "facebook.com/cocacola"';
 $l['connection_twitter_error'] = 'Twiiter anda harus berformat 0-20 Angka & Kata';
 $l['message_empty'] = 'Maaf Pesan anda tidak boleh kosong';
 

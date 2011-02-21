@@ -5,7 +5,7 @@ class ModelSocial extends Models
 	public $database = 'application';
 	
 	function follow($data){
-		$status = $this->insert( 'follow', $data );	
+		$status = $this->insert( 'social', $data );	
 		return $status;
 	}
 	

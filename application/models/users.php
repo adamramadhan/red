@@ -43,14 +43,14 @@ class ModelUsers extends Models
 		# the data is uid
 		if (is_numeric($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo, facebook,
 			password FROM users WHERE uid = :uid LIMIT 1', array( 'uid' => $data));
 		}
 		
 		# the data is username
 		if (is_string($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo, facebook,
 			password FROM users WHERE username = :username LIMIT 1', array( 'username' => $data));			
 		}
 
@@ -90,14 +90,15 @@ class ModelUsers extends Models
 	}
 	
 	function getDataConnection($uid){
-		$connection = $this->fetch('SELECT twitter, yahoo FROM users WHERE uid = :uid LIMIT 1', array( 'uid' => $uid));
+		$connection = $this->fetch('SELECT twitter, yahoo, facebook FROM users WHERE uid = :uid LIMIT 1', array( 'uid' => $uid));
 		return $connection;
 	}
 	
 	function updateConnections($data){
 		$update = $this->query("UPDATE users SET 
 	    yahoo = :yahoo,
-	    twitter = :twitter
+	    twitter = :twitter,
+	    facebook = :facebook
 	    WHERE uid = :uid", $data);
 	    return $update;
 	}

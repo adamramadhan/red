@@ -140,6 +140,8 @@ class Edit Extends Application
 		if (is_post('edit')) {
 			$c['yahoo'] = $_POST['yahoo'];
 			$c['twitter'] = $_POST['twitter'];
+			#validation
+			$c['facebook'] = $_POST['facebook'];
 			$c['uid'] = $this->sessions->get('uid');
 			
 			# check if yahoo exist in post
@@ -151,10 +153,14 @@ class Edit Extends Application
 			if (!empty($c['twitter'])) {	
 				$this->validation->regex($c['twitter'],'/^[a-zA-Z0-9_]{1,20}+$/',l('connection_twitter_error'));
 			}
+
+			if (!empty($c['facebook'])) {	
+				$this->validation->regex($c['facebook'],'/^[a-zA-Z0-9_.]+$/',l('connection_facebook_error'));
+			}
 			
 			if (!sizeof($this->validation->errors)) {
 				$this->model->users->updateConnections($c);
-				redirect('/edit/connections');		
+				redirect('/edit/connections');
 			}
 		}
 		$this->view('users/header');
@@ -166,8 +172,15 @@ class Edit Extends Application
 	function product(){
 
 		$this->middleware('verotimage','upload');
-		$this->model('users');
-		
+		$this->model('products');
+
+		# IF EDIT
+		$data = array();
+		if (is_get('e')) {
+			$data = $this->model->products->getData($_GET['e']);
+			$data['price'] = sprintf("%d", $data['price']);
+		}
+
 		# JIKA TAMBAH PRODUCT
 		if (is_post('edit')) {
 			
@@ -176,7 +189,6 @@ class Edit Extends Application
 			$p['information'] = $this->validation->safe($_POST['informationbox']);
 			$p['tag'] = $_POST['tag'];
 			$p['price'] = $_POST['price'];
-			$p['uid'] = $this->sessions->get('uid');
 		
 			# get the time from jakarta
 			$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
@@ -186,8 +198,15 @@ class Edit Extends Application
 			$this->validation->required($p['information'],l('product_description_error'));
 			$this->validation->regex($p['tag'],'/^[a-zA-Z0-9]{3,15}+$/',l('product_tag_error'));
 			$this->validation->regex($p['price'],'/^[0-9]{1,11}+$/',l('product_price_error'));
-			$this->validation->required($_FILES['image']['size'],l('product_image_error'));
-		
+			
+			if (!is_get('e')) {
+				$this->validation->required($_FILES['image']['size'],l('product_image_error'));
+				$p['uid'] = $this->sessions->get('uid');
+			}
+			if (is_get('e')) {
+				$p['pid'] = $_GET['e'];
+			}
+			
 			if (!sizeof($this->validation->errors)) {
 				
 				# JIKA IMAGE ADA
@@ -196,15 +215,14 @@ class Edit Extends Application
 					
 					# START PLUGIN
 					$this->upload->vupload($_FILES['image']);
-					$savepath = STORAGE . DS . $p['uid'];
-					$randomid = md5($p['uid'].'product');
+					$savepath = STORAGE . DS . $this->sessions->get('uid');
+					$randomid = md5($this->sessions->get('uid').'product');
 					
 					if ($this->upload->uploaded) 
 					{
 						// RAW IMAGE START
-					    $this->upload->file_auto_rename = true;
-					    // @todo important! 460 kan maksimalnya cuma gambarnya
-		
+					    $this->upload->file_auto_rename = false;
+					    // @todo important! 460 kan maksimalnya cuma gambarnya	
 						if ($this->upload->image_src_x > 460) {
 							$this->upload->image_resize = true;
 							$this->upload->image_ratio_y = true;
@@ -236,7 +254,6 @@ class Edit Extends Application
 		                );	
 		                			    
 					    $this->upload->Process($savepath);
-		
 				        if ($this->upload->processed) 
 				        {
 				    		/* give another edit variable for update */
@@ -246,17 +263,36 @@ class Edit Extends Application
 					    	        
 				        $this->upload->clean();
 					}
-					
-					$this->model->users->addProduct($p);
-					redirect('/edit/products');
+				}		
+				
+				# IF THERE IS NO EDIT
+				if (!is_get('e')) {
+					$this->model->products->addProduct($p);
 				}
-			}
-		}
+				
+				#IF THERE IS EDIT 
+				if (is_get('e')) {
+					if (!empty($data['image']) && !empty($data['image_tumb'])) {
+				    	# GET PRODUCT IMAGE INFORMATION FROM DB
+				        $imagepath = STORAGE . DS .  $this->sessions->get('uid') . DS;
+				        if (unlink($imagepath.$data['image_tumb']) && unlink($imagepath.$data['image'])) {
+				    		$this->model->products->updateData($p);
+							redirect('/edit/products');
+				        }
+					}
+				}
+			} # ERROR ENDS
+		} # IF POST EDIT
 	
 		
 		$this->view('users/header');
 		$this->active->menu($this->sessions->get('uid'),$this);
-		$this->view('users/product');
+		if (empty($data)) {
+			$this->view('users/product');
+		}
+		if (!empty($data)) {
+			$this->view('users/editproduct',$data);
+		}
 		$this->view('users/footer');	
 	}
 	
