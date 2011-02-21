@@ -142,6 +142,21 @@ class Social
 		}
 	return $message;
 	}
+	
+	# hanya untuk developer
+	public function getFacebookPageData($pageID = NULL){
+		$url = "http://graph.facebook.com/". $pageID;
+		$json = file_get_contents($url);
+		$jsonData = json_decode($json);
+		if ($jsonData) {	
+			foreach ($jsonData as $key => $value) {
+				$data[$key] = $value;
+			}
+		} else {
+			$data = 'get empty';
+		}
+	return $data;
+	}	
 }
 
 

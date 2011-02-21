@@ -96,6 +96,10 @@ class Profiles Extends Application
 				$this->cache->add("social:facebook:$username", $status, FALSE, 120);
 				$data['facebook'] = $status;
 			}
+			
+			if (!empty($data['user']['facebook'])) {
+				$data['facebookdata'] = $this->social->getFacebookPageData($data['user']['facebook']);
+			}
 			// end social
 
 			

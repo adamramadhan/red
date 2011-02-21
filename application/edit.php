@@ -148,12 +148,12 @@ class Edit Extends Application
 			if (!empty($c['yahoo'])) {
 				$this->validation->regex($c['yahoo'],'/^([a-zA-Z0-9_.\s]{6,40})(@yahoo.com|@ymail.com|@rocketmail.com)$/',l('connection_yahoo_error'));
 			}
-
+			
 			# check if twitter exist in post			
 			if (!empty($c['twitter'])) {	
 				$this->validation->regex($c['twitter'],'/^[a-zA-Z0-9_]{1,20}+$/',l('connection_twitter_error'));
 			}
-
+			
 			if (!empty($c['facebook'])) {	
 				$this->validation->regex($c['facebook'],'/^[a-zA-Z0-9_.]+$/',l('connection_facebook_error'));
 			}

@@ -75,7 +75,7 @@
 				</a>
 			<?php endif ?>	
 			<?php if (!empty($user['facebook'])): ?>
-				<a class="c" id="facebook" href="http://facebook.com/<?php echo $user['facebook']; ?>">
+				<a class="c" id="facebook" href="<?php echo $facebookdata['link']; ?>">
 					<?php echo $facebook; ?>
 				</a>
 			<?php endif ?>	
