@@ -19,7 +19,7 @@
 				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error'), 'value' => $price )); ?></li>
 				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'size' => '11' )); ?></li>
 			</ul>
-			<p><input type="submit" value="Tambah" name="edit" id="button"></p>
+			<p><input type="submit" value="Edit" name="edit" id="button"></p>
 			</form>
 		</div>
 		<!-- FORM ENDS -->

@@ -178,7 +178,14 @@ class Edit Extends Application
 		$data = array();
 		if (is_get('e')) {
 			$data = $this->model->products->getData($_GET['e']);
-			$data['price'] = sprintf("%d", $data['price']);
+			if (!empty($data['price'])) {
+				$data['price'] = sprintf("%d", $data['price']);
+			}
+			
+			#validate get data
+			if ($data['uid'] !== $this->sessions->get('uid')) {
+				redirect('/');
+			}
 		}
 
 		# JIKA TAMBAH PRODUCT
@@ -268,6 +275,7 @@ class Edit Extends Application
 				# IF THERE IS NO EDIT
 				if (!is_get('e')) {
 					$this->model->products->addProduct($p);
+					redirect('/edit/products');
 				}
 				
 				#IF THERE IS EDIT 
