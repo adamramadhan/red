@@ -80,6 +80,16 @@ class ModelProducts extends Models
 		$status = $this->query( "DELETE FROM products WHERE pid = :pid", array('pid' => $pid ));
 		return $status;
 	}
+	
+	function listFromFollower($uid){
+		#here
+		$data = $this->fetchAll("SELECT products.name AS product, users.name, products.pid, products.timecreate
+		FROM products
+		INNER JOIN users ON users.uid = products.uid 
+		INNER JOIN social ON products.uid = social.buid
+		WHERE social.auid = :uid", array( 'uid' => $uid));
+		return $data;
+	}
 }
 
 

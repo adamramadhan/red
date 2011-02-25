@@ -43,7 +43,15 @@ class Site extends Application
 		if ( $this->sessions->get('uid')) {
 			
 			$this->model('users');
+			$this->model('products');
+			$this->model('social');
+			$this->helper('time');
+			$data['feed'] = $this->model->products->listFromFollower($this->sessions->get('uid'));
+			$data['products'] = $this->model->products->listProductsByUID($this->sessions->get('uid'));
+			# need optimize
 			$data['user'] = $this->model->users->getData($this->sessions->get('uid'));
+			$data['social'] = $this->model->social->CountSocial($this->sessions->get('uid'));
+			$data['partners'] = $this->model->social->CountParters($this->sessions->get('uid'));
 			$this->view('users/header');
 			$this->active->menu($this->sessions->get('uid'),$this);
 			$this->view('users/dashboard',$data);

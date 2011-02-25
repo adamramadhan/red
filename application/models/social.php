@@ -24,7 +24,34 @@ class ModelSocial extends Models
 	}
 	
 	function CountFollowers($uid){
-		$count = $this->fetch("SELECT COUNT(buid) as count FROM social WHERE buid = :uid", 
+		$count = $this->fetch("SELECT COUNT(BUID) as followers FROM social WHERE BUID = :uid", 
+		array( 'uid' => $uid));
+		return $count;
+	}
+
+	function CountFollowing($uid){
+		$count = $this->fetch("SELECT COUNT(AUID) as following FROM social WHERE AUID = :uid", 
+		array( 'uid' => $uid));
+		return $count;
+	}
+
+	function CountParters($uid){
+		$count = $this->fetch("SELECT COUNT(me.AUID) as partners
+			FROM social AS me 
+			INNER JOIN social AS friend 
+			ON me.BUID = friend.AUID 
+			WHERE me.AUID = friend.BUID 
+			AND me.AUID = :uid", 
+		array( 'uid' => $uid));
+		return $count;
+	}
+	
+	# messages.suid = users.uid need some optimizin
+	function CountSocial($uid){
+		$count = $this->fetch("SELECT 
+		(SELECT COUNT(BUID) FROM social WHERE BUID = :uid) as followers
+  		, (SELECT COUNT(AUID) FROM social WHERE AUID = :uid) as following
+		",
 		array( 'uid' => $uid));
 		return $count;
 	}

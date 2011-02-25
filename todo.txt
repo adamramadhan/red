@@ -1,0 +1,6 @@
+cryto
+- enycript ( prevent evil people from reading the data )
+- auth ( prevent data modifying )
+- identification ( prevent evil people that is predending to be you )
+
+404 kalo login menunya ?

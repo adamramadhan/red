@@ -78,12 +78,20 @@ class Social
 		}
 		if (!empty($pageID)) {
 			$url = "http://graph.facebook.com/". $pageID ."/feed?limit=$limit";
-			$json = file_get_contents($url);
-			$jsonData = json_decode($json);
-			if (!empty($jsonData->data['0']->message)) {	
-				$message = $jsonData->data['0']->message;    
-			} else {
-				$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+			$fp = @fopen($url, 'r');
+
+			if (!$fp) {
+				$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Twitter sedang bermasalah, silahkan hubungi api@networks.co.id';
+			}
+			
+			if ($fp) {
+				$json = stream_get_contents($fp);
+				$jsonData = json_decode($json);
+				if (!empty($jsonData->data['0']->message)) {	
+					$message = $jsonData->data['0']->message;    
+				} else {
+					$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+				}
 			}
 		}
 	return $message;		
@@ -133,12 +141,18 @@ class Social
 	
 	public function getFacebookPageStatus($pageID = NULL, $limit = 1){
 		$url = "http://graph.facebook.com/". $pageID ."/feed?limit=$limit";
-		$json = file_get_contents($url);
-		$jsonData = json_decode($json);
-		if (!empty($jsonData->data['0']->message)) {	
-			$message = $jsonData->data['0']->message;    
-		} else {
+		$fp = @fopen($url, 'r');
+
+		if (!$fp) {
 			$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+		}
+		
+		if ($fp) {
+			$json = stream_get_contents($fp);
+			$jsonData = json_decode($json);
+			if (!empty($jsonData->data['0']->message)) {
+				$message = $jsonData->data['0']->message;    
+			}
 		}
 	return $message;
 	}
@@ -146,14 +160,20 @@ class Social
 	# hanya untuk developer
 	public function getFacebookPageData($pageID = NULL){
 		$url = "http://graph.facebook.com/". $pageID;
-		$json = file_get_contents($url);
-		$jsonData = json_decode($json);
-		if ($jsonData) {	
-			foreach ($jsonData as $key => $value) {
-				$data[$key] = $value;
+		$fp = @fopen($url, 'r');
+
+		if (!$fp) {
+			$data = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+		}
+
+		if ($fp) {
+			$json = stream_get_contents($fp);
+			$jsonData = json_decode($json);
+			if ($jsonData) {	
+				foreach ($jsonData as $key => $value) {
+					$data[$key] = $value;
+				}
 			}
-		} else {
-			$data = 'get empty';
 		}
 	return $data;
 	}	

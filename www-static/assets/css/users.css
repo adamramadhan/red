@@ -213,6 +213,11 @@ margin:5px 0;}
     margin-left: 5px;
     padding-left: 21px;
 }
+#red-side-menu ul ul li.icondashboard{
+	background: url("/www-static/assets/images/i/dashboard.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
 
 #message.iconmessage{
     background-image: url("/www-static/assets/images/i/Mail.png");
@@ -227,3 +232,14 @@ margin:5px 0;}
     background-repeat: no-repeat;
     padding-left: 25px;
 }
+
+/*DASBOARD*/
+#red-dashboard {    background: none repeat scroll 0 0 #D8FFAA;
+    border-bottom: 1px solid #BAE687;}
+#red-dashboard ul li{
+    float: left;
+    margin-right: 5px;
+    padding: 5px;}
+#red-dashboard ul .trustpoint{
+	float: right;
+    margin-right: 0;}

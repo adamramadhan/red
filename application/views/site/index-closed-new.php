@@ -17,7 +17,14 @@
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				netcoid adalah layanan jejaring bisnis yang menghubungkan usaha anda dengan peluang baru.
+				netcoid diperuntukan untuk organisasi non-profit dan organisasi profit ( bisnis ).
+			</div>
+			<div id="intro">
+				<ul class="clearfix">
+					<li class="iconcheck"><h3>Find</h3></li>
+					<li class="iconcheck"><h3>Profiles</h3></li>
+					<li class="iconcheck"><h3>Social</h3></li>
+				<ul>
 			</div>
 		</div>
 		
@@ -37,6 +44,9 @@
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
 				<p><p><?php $views->href('/terms',l('terms')); ?></p></p>
+				<p id="red-register-closed">Hello, sebelumnya, Kami, Team Netcoid ingin mengucapkan terimakasih kepada seluruh pihak
+					yang telah berpartisipasi, kini kami sudah berada pada versi stabil pertama, sayangnya untuk saat ini kami hanya menerima anggota baru <strong>berdasarkan invitasi</strong>. untuk keterangan email ke hello@networks.co.id atau follow twitter kami di <a href="http://www.twitter.com/netcoid">@netcoid</a>.
+				</p>
 				<p><input type="submit" disabled="off" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>
