@@ -54,7 +54,7 @@
 				<?php endif ?>
 				
 				<li id="red-profile-name"><?php echo $user['name']; ?> 
-				(<?php echo $followers['count'] ?>)</li>
+				(<?php echo $followers['followers'] ?>)</li>
 			</ul>
 		</div>
 		<!-- END START -->		
