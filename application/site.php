@@ -29,7 +29,7 @@ class Site extends Application
 			}
 
 			if (!is_get('secret','imavip')) {
-				$this->view('site/index-closed-new');
+				$this->view('site/index-closed');
 			}
 
 			if (is_get('secret','imavip')) {

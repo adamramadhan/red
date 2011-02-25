@@ -9,8 +9,7 @@
 #red-register-closed{    background: none repeat scroll 0 0 #FFFFDA;
     border: 1px solid #F2F2C6;
     margin-top: 10px;
-    padding: 10px;
-    width: 660px;}
+    padding: 10px;}
     
 #why-red{    height: 400px;
     margin-top: 10px;
@@ -79,7 +78,7 @@ a#pic-2{
     margin-right: 10px;
     margin-top: 10px;
     padding: 5px;
-    width: 215px;}
+    width: 195px;}
 #intro .iconcheck{
     background-image: url("/www-static/assets/images/i/check.png");
     background-position: 10px center;
