@@ -1,9 +1,8 @@
-#logo{    font-family: Trebuchet MS;
-    font-size: 25px;
-    text-shadow: 2px 2px 5px #7A0000;}
-#red-menu-left #logo:hover {
-    background: none;
-}
+#logo{
+    height: 22px;
+    width: 75px;}
+
+
 body {
     color: #444444;
     font: 13px/1.7em "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
@@ -16,7 +15,7 @@ label {
 
 
 a { text-decoration: none }
-#red-menu a { color: #fff }
+#red-header #red-menu a { color: #fff;text-shadow: 0 -1px 0 #B11D1D;}
 #red-submenu a { color: #fff }
 #red-header a:hover,
 #red-submenu a:hover { text-decoration: none }
@@ -30,7 +29,7 @@ a { text-decoration: none }
     float: left;
     padding: 10px;
 }
-#red-header li:hover { background: #C52020 }
+#red-header li:hover { background-color: #C52020 }
 #red-menu {
     width: 960px;
     margin: 0 auto;
@@ -61,6 +60,13 @@ span#notification {
     min-height:500px;
 }
 .background#red-content{background: url("www-static/assets/images/highlight.png") no-repeat scroll left top transparent;}
+#red-content-left {
+    float: left;
+    padding-bottom: 40px;
+    width: 705px;
+}
+
+.background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left top transparent;}
 #red-content-left {
     float: left;
     padding-bottom: 40px;
@@ -222,7 +228,8 @@ ul ul li {
     line-height: 29px;
     margin: 10px 0 0 6px;
     padding-right: 60px;
-    word-spacing: -1px;}
+    word-spacing: -1px;
+    text-shadow: 1px 1px 0 #E6E6E6, 1px 2px 0 #D0D0D0;}
 .spanwelcome{    background: none repeat scroll 0 0 #FFFBC6;
     color: #444444;
     position: relative;
@@ -239,3 +246,23 @@ ul ul li {
 
 
 
+.bootstraps{
+    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #FFFFFF;
+    border: 1px solid #A90000;
+    float: left;
+    height: 200px;
+    color:#7D1212;
+    margin-right: 20px !important;
+    margin-top: 15px;
+
+    width: 232px;}
+.bootstraps:last-child{
+     margin-right: 0px !important;
+}
+.bootstraps .image{    border-bottom: 1px solid #B30000;
+    font-size: 20px;
+    height: 53px;
+    padding-top: 40px;
+    text-align: center;}
+.bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
+.feeds {    margin-top: 15px;}

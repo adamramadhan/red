@@ -42,7 +42,9 @@ class Time
 	        }
 	    }
 	   
-	    // We use the two biggest parts
+	    if (empty($format)) {
+	    	return "just now";
+	    }
 	    if(count($format) > 1) {
 	        $format = array_shift($format)." and ".array_shift($format);
 	    } else {

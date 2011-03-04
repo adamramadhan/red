@@ -29,11 +29,11 @@ class Site extends Application
 			}
 
 			if (!is_get('secret','imavip')) {
-				$this->view('site/index-closed-new');
+				$this->view('site/index');
 			}
 
 			if (is_get('secret','imavip')) {
-				$this->view('site/index');
+				$this->view('site/register');
 			}			
 			#$this->view('site/index');
 			$this->view('site/footer');
@@ -46,9 +46,19 @@ class Site extends Application
 			$this->model('products');
 			$this->model('social');
 			$this->helper('time');
-			$data['feed'] = $this->model->products->listFromFollower($this->sessions->get('uid'));
-			$data['products'] = $this->model->products->listProductsByUID($this->sessions->get('uid'));
+			$data['followingproduct'] = $this->model->products->listFromFollower($this->sessions->get('uid'),5);
+			$data['userproduct'] = $this->model->products->listProductsByUID($this->sessions->get('uid'),0,1);
+			
+			foreach($data['followingproduct'] as $key => $value) {
+				$data['feeds'][$value['pid']] = $value;
+				if (config('features/comments')){
+    			$data['feeds'][$value['pid']]['comments'] = $this->model->products->listCommentsByPID($value['pid'],5);
+    			}
+			}
+
+			# var_dump($data['feeds']);
 			# need optimize
+			
 			$data['user'] = $this->model->users->getData($this->sessions->get('uid'));
 			$data['social'] = $this->model->social->CountSocial($this->sessions->get('uid'));
 			$data['partners'] = $this->model->social->CountParters($this->sessions->get('uid'));

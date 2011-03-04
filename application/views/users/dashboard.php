@@ -14,28 +14,54 @@
 			</div>
 			
 			<?php
-			
-			if (empty($user['logo'])) {
-				echo '<div id="red-profile-status">1. Lengkapilah data Usaha atau Organisasi Anda.</div>';
-			}
-			if (empty($products)) {
-				echo '<div id="red-profile-guides">2. Tambah produk Usaha atau Organisasi Anda.</div>';
-			}
-			if (empty($feed)) {
-				echo '<div id="red-whattodo">3. Get Social.</div>';
+			if (empty($user['logo']) || empty($products) || empty($feed)) {
+				echo '<div class="clearfix bootcamp">';
+				if (empty($user['logo'])) {
+					echo '<div class="c bootstraps">
+						<div class="image">Set Up Profile</div>	
+						<div class="desc">Lengkapilah data Usaha atau Organisasi Anda.</div>
+					</div>';
+				}
+				if (empty($userproduct)) {
+					echo '<div class="c bootstraps">
+						<div class="image">Create a Product.</div>	
+						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda dapat menjual.</div>
+					</div>';
+				}
+				if (empty($feeds)) {
+					echo '<div class="c bootstraps">
+						<div class="image">Be Social</div>	
+						<div class="desc">Mulailah dengan memfollow usaha lain, anda akan mendapat update dalam dashboard ini</div>
+					</div>';
+				}
+				echo '</div>';
 			}
 			?>
 						
 			<?php
-			if ( !empty($feed) ) {
-				foreach ( $feed as $key) {
+			if ( !empty($feeds) ) {
+				echo "<div class='feeds'>";
+				foreach ( $feeds as $key) {
 				echo 	'<div class="clearfix" id="subinformation">
-						<div id="subname">'.$key['name'].'</div>
+						<div id="subname">@'.$key['name'].'</div>
 						<div id="subname">'.$key['product'].'</div>
 						<div id="subtime">'.$this->time->formatDateDiff($key['timecreate']).'</div>
 						<div class="c" id="suboptions"><a href="product?id='.$key['pid'].'">Lihat</a></div>
 						</div>';
+					if (config('features/comments')){		
+						if (!empty($key['comments'])) {
+							foreach ($key['comments'] as $comment) {
+								echo '<div class="comments" id="comment-'.$comment['pid'].'">
+								<a href="/'.$comment['username'].'">@'.$comment['name'].'</a> '
+								.$comment['comment'].'</div>';
+							}
+						}
+						if (count($key['comments']) == 5) {
+							echo '<div class="cb morecomments">more then 5</div>';
+						}
+					}
 				}	
+				echo "</div>";
 			}
 			
 			?>

@@ -34,6 +34,7 @@ class Blog Extends Application
 			
 			$data['post'] = $this->model->blog->getPost($_GET['id']);
 			$data['post']['content'] = str_replace( "\n" , "<br/>" , $data['post']['content']);
+
 			$this->view('blog/index',$data);
 		}
 		$this->view('blog/footer');

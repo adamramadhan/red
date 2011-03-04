@@ -50,6 +50,8 @@
     padding: 10px;
 }
 #facebook:hover{text-decoration:none;background:none repeat scroll 0 0 #3B5998;}
+#facebook a{    background: none repeat scroll 0 0 #FBFFD9;
+    color: #AAAAAA;}
 #status-verified {
     background: none repeat scroll 0 0 #BAE9FF;
     padding: 5px 10px;
@@ -85,4 +87,23 @@ PRODUCTLIST
     margin-top: 10px;
     padding: 10px 20px;
 }
-
+/*UJICOBA*/
+.newicon{
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: -moz-linear-gradient(center top , #5D93C3, #436D91) repeat scroll 0 0 transparent;
+    background: -webkit-linear-gradient(center top , #5D93C3, #436D91) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(center top , #5D93C3, #436D91) repeat scroll 0 0 transparent;
+    border: 1px solid #204464;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0 6px 0 0;
+    padding: 0 6px;
+    text-shadow: 0 -1px 0 #0E1E2C;
+    text-transform: uppercase;    
+}
+.newicon a{color:#fff;}

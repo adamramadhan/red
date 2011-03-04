@@ -73,8 +73,7 @@ a#pic-2{
 	z-index:2;
 }
 
-#intro li{    background: none repeat scroll 0 0 #FFFCED;
-    float: left;
+#intro li{   
     margin-right: 10px;
     margin-top: 10px;
     padding: 5px;
@@ -83,5 +82,5 @@ a#pic-2{
     background-image: url("/www-static/assets/images/i/check.png");
     background-position: 10px center;
     background-repeat: no-repeat;
-    padding-left: 25px;	
+    padding-left: 35px;	
 }

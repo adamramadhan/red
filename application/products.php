@@ -11,10 +11,8 @@ class Products Extends Application
 	}	
 	
 	function single()
-	{
+	{	
 		if ($_GET['id']) {
-
-
 			$data['product'] = $this->model->products->getData($_GET['id']);
 			$data['user'] = $this->model->users->getData($data['product']['uid']);
 		}
@@ -22,7 +20,32 @@ class Products Extends Application
 		if (empty($data['product'])) {
 			redirect( '/' );
 		}
-
+		
+		if (config('features/comments')){
+			$this->helper('forms');
+			$this->helper('time');
+			$this->library('validation');
+			$this->model('comments');
+			$data['comments'] = $this->model->comments->listCommentsByPid($_GET['id']);
+			$data['count'] = $this->model->comments->countByPid($_GET['id']);
+			
+			if (is_post('insert')) {
+				$c['comment'] = $this->validation->safe($_POST['comment']);
+				$c['uid'] = $this->sessions->get('uid');
+				$c['pid'] = $_GET['id'];
+				# get the time from jakarta
+				$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
+				$c['timecreate'] = $time->format('Y-m-d H:i:s');	
+				
+				$this->validation->required($c['comment'],l('comment_empty'));
+				
+				if (!sizeof($this->validation->errors)) {
+					$this->model->comments->add($c);
+					redirect('/product?id='.$_GET['id']);
+				}
+			}
+		}
+		
 		// start beta plugin
 		#$db['profile']['information'] = $validate->safe($db['profile']['information']);
 		$data['product']['information'] = str_replace( "\n" , "<br/>" , $data['product']['information']);

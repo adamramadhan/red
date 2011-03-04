@@ -1,28 +1,19 @@
 	<?php $this->validation->geterrors(); ?>
 	<div id="red-error-box"></div>
-	
-	<style type="text/css" media="screen">
-	#red-content-left {
-	    height: 500px;
-	}
-
-	</style>
-	
 	<!-- CONTENT START -->
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				netcoid adalah layanan jejaring bisnis yang menghubungkan usaha anda dengan peluang baru.
+				Hello VIP`s, lets start to make a change.
 			</div>
-			<div id="intro">
-				<ul class="clearfix">
-					<li class="iconcheck"><h3>Buat toko online</h3></li>
-					<li class="iconcheck"><h3>Jejaring bisnis</h3></li>
-					<li class="iconcheck"><h3>Mudah & Simple</h3></li>
-				<ul>
-			</div>
+			<ul>
+				<li id="red-register-closed">1. masukan username yang diinginkan,nanti digunakan sebagai url anda seperti www.networks.co.id/username<li>
+				<li id="red-register-closed">2. kata sandi, pastinya tidak kami simpan secara langsung ( di hash / enskirpsi satu jalan ) kalo lupa
+					passwordnya cuma bisa direset. 'password' akan terlihat seperti ini di database<img src="http://dl.dropbox.com/u/5984602/images/hash.png" /> bisa sampai 200 char dan selalu diacak.<li>
+				<li id="red-register-closed">3. support di 08999252530 untuk support / gagal login karena password salah ( reset ) atau ke ym netcoid atau damsprivate. jika mengunakan bb bisa masuk ke group bb kami.<li><img src="http://dl.dropbox.com/u/5984602/images/barcode.png" />
+				<li id="red-register-closed">4. Thankyou.</li>	
+			</ul>
 		</div>
-		
 		<div id="red-content-right">
 			<div id="red-register">
 				<h3>Pendaftaran</h3>
@@ -38,10 +29,8 @@
 					<li><label for="phone">Kontak Organisasi</label>  <input type="text" title='<?php echo l('register_phone_error'); ?>' 
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
-				<p><p><?php $views->href('/terms',l('terms')); ?></p></p>
-				<p id="red-register-closed">Hello, kini kami sudah berada pada versi stabil pertama, sayangnya untuk saat ini kami hanya menerima anggota baru <strong>berdasarkan invitasi</strong>. untuk keterangan email hello@networks.co.id atau follow twitter kami di <a href="http://www.twitter.com/netcoid">@netcoid</a>.
-				</p>
-				<p><input type="submit" disabled="off" value="Setuju &amp; Registrasi" name="register" id="button"></p>
+				<p><?php $views->href('/terms',l('terms')); ?></p>
+				<p><input type="submit" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>
 		</div>				

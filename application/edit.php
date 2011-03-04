@@ -280,14 +280,14 @@ class Edit Extends Application
 				
 				#IF THERE IS EDIT 
 				if (is_get('e')) {
-					if (!empty($data['image']) && !empty($data['image_tumb'])) {
+					if (!empty($p['image']) && !empty($p['image_tumb'])) {
 				    	# GET PRODUCT IMAGE INFORMATION FROM DB
 				        $imagepath = STORAGE . DS .  $this->sessions->get('uid') . DS;
-				        if (unlink($imagepath.$data['image_tumb']) && unlink($imagepath.$data['image'])) {
-				    		$this->model->products->updateData($p);
-							redirect('/edit/products');
-				        }
+				        unlink($imagepath.$data['image']);
+				        unlink($imagepath.$data['image_tumb']);
 					}
+				    $this->model->products->updateData($p);
+					redirect('/edit/products');
 				}
 			} # ERROR ENDS
 		} # IF POST EDIT
@@ -313,7 +313,7 @@ class Edit Extends Application
 		if ( is_get('d') ) {
 			
 			# GET PRODUCT UID
-		    $productuid = $this->model->users->getProductUID($_GET['d']);			
+		    $productuid = $this->model->products->getProductPID($_GET['d']);			
 		   
 		     # IF PRODUCT UID = USER UID
 		    if ( $productuid['uid'] == $this->sessions->get('uid')) {

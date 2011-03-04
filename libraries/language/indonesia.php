@@ -21,6 +21,8 @@ $l['notification'] = 'Notifikasi';
 $l['inbox'] = 'Kotak masuk';
 $l['productnew'] = 'Cari Produk';
 $l['copyright'] = 'Netcoid 2010, Adam ramadhan &amp; Friends';
+$l['comments'] = 'Komentar';
+$l['nocomments'] = 'Belum ada komentar';
 /* EDITPROFILE.PHP */
 $l['username'] = 'Username';
 $l['name'] = 'Nama Organisasi';
@@ -31,7 +33,7 @@ $l['logo'] = 'Logo Organisasi';
 $l['messagecenter'] = 'Pusat Surat';
 $l['unfollow'] = 'Tidak Ikuti';
 $l['password'] = 'Kata Sandi';
-
+$l['addcomment'] = 'tambah komentar'; // on comment product
 /* LOGIN */
 $l['login_error'] = 'Maaf, Username atau Password Anda salah, jika anda melupakan password atau username anda, segera email kami di helpdesk@networks.co.id';
 /* BUY.PHP */
@@ -43,6 +45,8 @@ $l['producttag'] = 'Tag Produk';
 $l['productprice'] = 'Harga Produk';
 $l['productimage'] = 'Gambar Produk <sup>3</sup>';
 
+/*SOCIAL*/
+$l['more...'] = 'Selengkapnya...';
 /* EDITCONNECTION.PHP*/
 /* message.php*/
 $l['nosubject'] = 'tidak ada subjek';
@@ -78,7 +82,7 @@ $l['connection_yahoo_error'] = 'Yahoo anda harus berformat 0-100 Angka, Kata, "_
 $l['connection_facebook_error'] = 'Facebook anda harus berformat 0-100 Angka, Kata, "_" dan "." contoh: 165598776812971 dari  "http://www.facebook.com/pages/Netcoid-Indonesia/165598776812971" atau "cocacola" jika anda sudah menggunakan facebook/url dari "http://www.facebook.com/cocacola"';
 $l['connection_twitter_error'] = 'Twiiter anda harus berformat 0-20 Angka & Kata';
 $l['message_empty'] = 'Maaf Pesan anda tidak boleh kosong';
-
+$l['comment_empty'] = 'Maaf Komentar anda tidak boleh kosong';
 // Plugin languageThe string you entered for the image verification did not match what was displayed.
 $l['recaptcha_error'] = 'Karakter yang anda masukan tidak sesuai dengan verifikasi reCAPTCHA';
 

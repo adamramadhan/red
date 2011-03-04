@@ -114,11 +114,6 @@ class ModelUsers extends Models
 		return $list;
 	}
 	
-	function getProductUID( $pid ){
-		$userproduct = $this->fetch('SELECT uid FROM products WHERE pid = :pid LIMIT 1', array('pid' => $pid));
-		return $userproduct;
-	}
-	
 	function getProductIMG( $pid ){
 		$images = $this->fetch( 'SELECT image_tumb, image FROM products WHERE pid = :pid LIMIT 1', 
 		array('pid' => $pid));

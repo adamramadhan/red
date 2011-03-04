@@ -87,9 +87,28 @@ class Social
 			if ($fp) {
 				$json = stream_get_contents($fp);
 				$jsonData = json_decode($json);
+
 				if (!empty($jsonData->data['0']->message)) {	
 					$message = $jsonData->data['0']->message;    
-				} else {
+
+				} 
+				if (!empty($jsonData->error->message)) {
+					$message = $jsonData->error->message;
+				}
+					
+				# a link
+				if (!empty($jsonData->data['0']->description)) {
+					$count = strlen($jsonData->data['0']->description);
+					if ($count >= 100) {
+						$message = substr($jsonData->data['0']->description, 0, 100) . 
+						' <a href="'.$jsonData->data['0']->link.'">'.l('more...').'</a>' ;
+					}
+					if ($count <= 100) {
+						$message = $jsonData->data['0']->description;
+					}	
+				}
+				
+				else {
 					$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
 				}
 			}
@@ -142,7 +161,6 @@ class Social
 	public function getFacebookPageStatus($pageID = NULL, $limit = 1){
 		$url = "http://graph.facebook.com/". $pageID ."/feed?limit=$limit";
 		$fp = @fopen($url, 'r');
-
 		if (!$fp) {
 			$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
 		}
@@ -150,9 +168,25 @@ class Social
 		if ($fp) {
 			$json = stream_get_contents($fp);
 			$jsonData = json_decode($json);
-			if (!empty($jsonData->data['0']->message)) {
-				$message = $jsonData->data['0']->message;    
-			}
+				if (!empty($jsonData->data['0']->message)) {	
+					$message = $jsonData->data['0']->message;    
+
+				} 
+				if (!empty($jsonData->error->message)) {
+					$message = $jsonData->error->message;
+				}
+					
+				# a link
+				if (!empty($jsonData->data['0']->description)) {
+					$count = strlen($jsonData->data['0']->description);
+					if ($count >= 100) {
+						$message = substr($jsonData->data['0']->description, 0, 100) . 
+						' <a href="'.$jsonData->data['0']->link.'">'.l('more...').'</a>' ;
+					}
+					if ($count <= 100) {
+						$message = $jsonData->data['0']->description;
+					}	
+				}
 		}
 	return $message;
 	}

@@ -65,7 +65,7 @@ class ModelProducts extends Models
 		return $list;
 	}
 	
-	function getProductUID( $pid ){
+	function getProductPID( $pid ){
 		$userproduct = $this->fetch('SELECT uid FROM products WHERE pid = :pid LIMIT 1', array('pid' => $pid));
 		return $userproduct;
 	}
@@ -81,14 +81,43 @@ class ModelProducts extends Models
 		return $status;
 	}
 	
-	function listFromFollower($uid){
+	function listFromFollower($uid,$limit = 5){
 		#here
 		$data = $this->fetchAll("SELECT products.name AS product, users.name, products.pid, products.timecreate
 		FROM products
 		INNER JOIN users ON users.uid = products.uid 
 		INNER JOIN social ON products.uid = social.buid
+		WHERE social.auid = :uid ORDER BY pid DESC LIMIT ".$limit, array( 'uid' => $uid));
+		return $data;
+	}
+   
+    # follower atau following? maximal 20 comment ( not done )
+	function listFromFollowerWithComments($uid){
+		#here
+		$data = $this->fetchAll("SELECT products.name AS product, comments.comment, users.name, products.pid, products.timecreate
+		FROM products
+		INNER JOIN users ON users.uid = products.uid 
+		INNER JOIN social ON products.uid = social.buid
 		WHERE social.auid = :uid", array( 'uid' => $uid));
 		return $data;
+	}
+    # follower atau following? maximal 20 comment ( not done )
+	function listProductsCommentsFromFollower($uid){
+		$data = $this->fetchAll("SELECT comments.pid, users.name, users.username, comment
+		FROM comments
+		INNER JOIN users ON comments.uid = users.uid
+		INNER JOIN products ON products.pid = comments.pid
+		INNER JOIN social ON social.buid = products.uid
+		WHERE social.auid = :uid ORDER BY comments.cid DESC LIMIT 20", array( 'uid' => $uid ));
+		return $data;		
+	}
+
+	function listCommentsByPID($pid,$limit){
+		$data = $this->fetchAll("SELECT comments.pid, users.name, users.username, comment
+		FROM comments
+		INNER JOIN users ON users.uid = comments.uid
+		WHERE comments.pid = :pid ORDER BY cid DESC LIMIT ".$limit, array( 'pid' => $pid ));
+		return $data;				
 	}
 }
 

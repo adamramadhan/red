@@ -65,19 +65,19 @@
 				<?php $views->getStorage($user['uid'],$user['logo']); ?>
 			<?php endif ?>
 			<?php if (!empty($user['twitter'])): ?>
-				<a class="c" id="twitter" rel="nofollow" target="_blank" href="http://www.twitter.com/<?php echo $user['twitter']?>">
+				<div class="c" id="twitter" rel="nofollow" target="_blank" href="http://www.twitter.com/<?php echo $user['twitter']?>">
 					<?php echo $twitter; ?>
-				</a>
+				</div>
 			<?php endif ?>
 			<?php if (!empty($user['yahoo'])): ?>
-				<a class="c" id="yahoo" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
+				<div class="c" id="yahoo" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
 					<?php echo $yahoo; ?>
-				</a>
+				</div>
 			<?php endif ?>	
 			<?php if (!empty($user['facebook'])): ?>
-				<a class="c" id="facebook" href="<?php echo $facebookdata['link']; ?>">
+				<div class="c" id="facebook" href="<?php echo $facebookdata['link']; ?>">
 					<?php echo $facebook; ?>
-				</a>
+				</div>
 			<?php endif ?>	
 			<?php if (!empty($user['address'])): ?>
 				<h3>Alamat</h3>
