@@ -35,12 +35,14 @@
     padding: 10px;
     word-wrap: break-word;
     display:block;
+    margin-bottom: 5px;
 }
 #twitter:hover{color:#444;text-decoration:none;background:#AFEEF9;}
 #yahoo {
     background: none repeat scroll 0 0 #F8FFB1;
     padding: 10px;
     display:block;
+    margin-bottom: 5px;
 }
 #yahoo:hover{color:#444;text-decoration:none;background:#FAFFCF;}
 #facebook {
@@ -48,6 +50,7 @@
     color: #FFFFFF;
     display: block;
     padding: 10px;
+    margin-bottom: 5px;
 }
 #facebook:hover{text-decoration:none;background:none repeat scroll 0 0 #3B5998;}
 #facebook a{    background: none repeat scroll 0 0 #FBFFD9;
