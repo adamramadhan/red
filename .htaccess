@@ -18,3 +18,7 @@ DirectoryIndex index.php
     Deny from all
 </Files>
 
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTP_HOST} ^(www.)?static.web.id$
+	RewriteRule ^(/)?$ www-static [L]
+</IfModule>
