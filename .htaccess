@@ -19,6 +19,6 @@ DirectoryIndex index.php
 </Files>
 
 <IfModule mod_rewrite.c>
-	RewriteCond %{HTTP_HOST} ^(www.)?static.web.id$
-	RewriteRule ^(/)?$ www-static [L]
+	RewriteCond %{HTTP_HOST} ^static.networks.co.id$
+	RewriteRule ^(.*)$ http://www.networks.co.id/www-static/$1 [R=301,L]
 </IfModule>
