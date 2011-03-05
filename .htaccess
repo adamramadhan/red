@@ -20,5 +20,5 @@ DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
 	RewriteCond %{HTTP_HOST} ^(www.)?static.web.id$
-	RewriteRule ^(/)?$ www-static [L]
+RewriteRule ^(.*)$ /www-static/$1
 </IfModule>
