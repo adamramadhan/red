@@ -4,7 +4,10 @@ foreach (glob("www-static/storage/*/information*") as $filename) {
     chown($filename,'networks');
     chmod($filename,0777);
     unlink($filename);
-}
-$stat = stat($path);
+    if (file_exists($filename)) {
+    	echo "benar";
+    };$stat = stat($path);
 print_r(posix_getpwuid($stat['uid']));
+}
+
 ?>
