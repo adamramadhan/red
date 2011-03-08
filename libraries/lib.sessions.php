@@ -67,6 +67,7 @@ class Sessions
 		$this->config = config('sessions');
 		
 		# doing some importing things
+		ini_set( 'session.cookie_httponly', $this->config['cookie_httponly']);
 		ini_set( 'session.gc_probability', $this->config['gc_probability']);
 		ini_set( 'session.gc_divisor', $this->config['gc_divisor']);
 		ini_set( 'session.hash_function', $this->config['hash_function']);

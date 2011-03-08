@@ -40,7 +40,7 @@
 						echo '<span class="c" id="status-unverified">'.l('unverified').'</span>'; 
 					}
 					if ($user['role'] == 1) {
-						echo '<span class="c" id="status-verified"><a target="_blank" href="/www-static/storage/'.$user['uid'].'/'.$user['image_seal'].'">'.l('verified').'</a></span>'; 
+						echo '<span class="c" id="status-verified"><a target="_blank" href="/verified/'.$user['username'].'">'.l('verified').'</a></span>'; 
 					}
 					if ($user['role'] == 5) {
 						echo '<span class="c" id="status-founder">'.l('founder').'</span>'; 

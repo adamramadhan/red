@@ -9,6 +9,13 @@ class Views
 		
 	}
 
+	public function ActiveCSS(){
+          $url = $_SERVER["REQUEST_URI"];
+          $class = str_replace('/','-',$url);
+ 		  $class = substr($class, 1);
+          echo $class;
+	}
+
 	public function getIMG( $img )
 	{
 		if ( ! file_exists( "www-static". DS ."assets". DS ."images". DS . $img ) ) {

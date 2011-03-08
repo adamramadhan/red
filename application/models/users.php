@@ -43,14 +43,14 @@ class ModelUsers extends Models
 		# the data is uid
 		if (is_numeric($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo, facebook,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, seal_image, seal_date, information, role, twitter, yahoo, facebook,
 			password FROM users WHERE uid = :uid LIMIT 1', array( 'uid' => $data));
 		}
 		
 		# the data is username
 		if (is_string($data)) 
 		{
-			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, image_seal, information, role, twitter, yahoo, facebook,
+			$data = $this->fetch('SELECT uid, username, name, address, phone, email, logo, seal_image, seal_date, information, role, twitter, yahoo, facebook,
 			password FROM users WHERE username = :username LIMIT 1', array( 'username' => $data));			
 		}
 
@@ -127,10 +127,20 @@ class ModelUsers extends Models
 	
 	function verifiedUid( $data ){
 		$update = $this->query("UPDATE users SET
-		image_seal = :image_seal, 
+		seal_image = :seal_image,
+		seal_date = :seal_date, 
 	    role = 1
 	    WHERE uid = :uid", $data);
 	    return $update;		
+	}
+
+	function unverifyUid( $data ){
+		$update = $this->query("UPDATE users SET
+		seal_image = NULL,
+		seal_date = NULL,
+	    role = 0
+	    WHERE uid = :uid", $data);
+	    return $update;	
 	}
 }
 

@@ -100,6 +100,7 @@ class Validation
 			return true;		
 		}			
 	}
+	
 	function __construct()
 	{
 		

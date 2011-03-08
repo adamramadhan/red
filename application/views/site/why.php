@@ -12,7 +12,7 @@
 
 	<!-- CONTENT START -->
 	<div id="red-content">
-		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai media, ispirasi, dan menguatkan entureprainer yang berada disetiap daerah indonesia. Didirikan pada 28 April 2010, Netcoid adalah jejaring bisnis pertama diindonesia, dengan menggabungkan semua ide yang terbaik yang pernah ada di web, mulai dari social, profiles, dan sistim pencarian.</p></div>
+		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai media, ispirasi, dan menguatkan entureprainer yang berada disetiap daerah indonesia. Berdiri pada 28 April 2010, Netcoid adalah jejaring bisnis pertama di Indonesia, dengan menggabungkan semua ide yang terbaik yang pernah ada di web, mulai dari social, profiles, dan sistim pencarian.</p></div>
 
 		<div class="whybox" id="how">Sebagai destinasi komunitas, Netcoid adalah sebuah layanan dalam bentuk aplikasi yang membantu saling <strong>menghubungkan, berinteraksi, dan bertransaksi</strong> yang dapat digunakan hingga ke organisasi <a href="http://en.wikipedia.org/wiki/Nonprofit_organization">non-profit</a>, dengan cara <strong>semudah, sedekat dan sesimple</strong> mungkin.
 		Saat ini kami juga membuka kerjasama kepada komunitas non-profit ( seperti komunitas pengrajin, komunitas kalangan wiraswasta mahasiswa, atau komunitas non-profit maupun profit lainnya ), jika berminat, silahkan email ke nonprofit@networks.co.id.

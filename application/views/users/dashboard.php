@@ -42,6 +42,7 @@
 			if ( !empty($feeds) ) {
 				echo "<div class='feeds'>";
 				foreach ( $feeds as $key) {
+				echo '<div class="feed">';
 				echo 	'<div class="clearfix" id="subinformation">
 						<div id="subname">@'.$key['name'].'</div>
 						<div id="subname">'.$key['product'].'</div>
@@ -50,16 +51,19 @@
 						</div>';
 					if (config('features/comments')){		
 						if (!empty($key['comments'])) {
+							echo '<ul id="comments">';
 							foreach ($key['comments'] as $comment) {
-								echo '<div class="comments" id="comment-'.$comment['pid'].'">
+								echo '<li class="comment" id="comment-'.$comment['pid'].'">
 								<a href="/'.$comment['username'].'">@'.$comment['name'].'</a> '
-								.$comment['comment'].'</div>';
+								.$comment['comment'].'</li>';
 							}
+							echo "</ul>";
 						}
 						if (count($key['comments']) == 5) {
 							echo '<div class="cb morecomments">more then 5</div>';
 						}
 					}
+				echo "</div>";
 				}	
 				echo "</div>";
 			}

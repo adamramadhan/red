@@ -45,7 +45,22 @@ class ModelSocial extends Models
 		array( 'uid' => $uid));
 		return $count;
 	}
-	
+
+	function is_parters($uid,$uidpartner){
+		$status = $this->fetch("SELECT me.FID as partners
+			FROM social AS me 
+			INNER JOIN social AS friend 
+			ON me.BUID = friend.AUID 
+			WHERE me.AUID = friend.BUID 
+			AND me.AUID = :uid 
+			AND friend.AUID = :uidpartner",
+		array( 
+			'uid' => $uid,
+			'uidpartner' => $uidpartner
+		));
+		return $status;
+	}
+		
 	# messages.suid = users.uid need some optimizin
 	function CountSocial($uid){
 		$count = $this->fetch("SELECT 

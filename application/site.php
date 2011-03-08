@@ -86,16 +86,21 @@ class Site extends Application
 		$this->validation->required($r['password'],l('register_password_empty'));
 		$this->validation->regex($r['name'],'/^[a-zA-Z0-9_\s]{6,30}$/',l('register_companyname_error'));
 		$this->validation->regex($r['phone'],'/^([0]([0-9]{2}|[0-9]{3})[-][0-9]{6,8}|[0][8]([0-9]{8,12}))$/',l('register_phone_error'));
-		
+
 		# check username
 		# @todo ajaxnya blm
 		$userexist = $this->model->users->userexist($r['username']);
 		$this->validation->f(!empty($userexist),l('register_username_used'));
 		$companyexist = $this->model->users->companyexist($r['name']);
 		$this->validation->f(!empty($companyexist),l('register_name_used'));
+
+		# check kalo udah dipake di route belum
+		$this->validation->f(is_routes($r['username']),l('register_username_used'));
 		
 		if (!sizeof($this->validation->errors)) {
 			# make a / secure get
+			echo "string";
+			die();
 			$this->sessions->set('secure.get','/');  
 			$this->sessions->set('secure.data',$r);
 			redirect('/secure');

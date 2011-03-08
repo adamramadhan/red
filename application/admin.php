@@ -20,8 +20,42 @@ class Admin Extends Application
 		$this->view('admin/header');
 		$this->active->menu($this->sessions->get('uid'),$this);
 		$this->helper('forms');
+		$this->view('admin/index');
+		$this->view('site/footer');
+	}
+
+	function listdateunverified(){
 		
-		if (is_get('verified')) {
+	}
+
+	function listverified(){
+		$this->view('admin/header');
+		$this->active->menu($this->sessions->get('uid'),$this);
+		$this->helper('forms');
+		
+		if (is_get('id')) {
+			$data['users'] = $this->model->users->getData($_GET['id']);
+			$v['uid'] = $_GET['id'];;
+			$savepath = STORAGE . DS . $_GET['id'];
+			if (unlink($savepath.'/'.$data['users']['seal_image'])) {
+				$this->model->users->unverifyUid($v);
+				redirect('/admin/unverify');
+			}
+		}
+
+		$data['users'] = $this->model->users->getRole('1',10);
+		$this->view('admin/listverified',$data);
+		
+		
+		$this->view('site/footer');
+	}
+
+	function listunverified(){
+		$this->view('admin/header');
+		$this->active->menu($this->sessions->get('uid'),$this);
+		$this->helper('forms');
+
+		if (is_get('id')) {
 			
 			if (is_post('verified')) {
 				
@@ -29,8 +63,8 @@ class Admin Extends Application
 				if (!empty($_FILES['image']['size'])) {
 				
 				# SETUP IMAGE	
-				$savepath = STORAGE . DS . $_GET['verified'];
-				$randomid = md5($_GET['verified'].'sealoftrust');
+				$savepath = STORAGE . DS . $_GET['id'];
+				$randomid = md5($_GET['id'].'sealoftrust');
 				$this->upload->vupload($_FILES['image']);
 				
 					if ($this->upload->uploaded) 
@@ -49,10 +83,12 @@ class Admin Extends Application
 				        if ($this->upload->processed) 
 				        {
 				        	# IMAGE SEAL AND VERIFIED
-				        	$v['image_seal'] = $this->upload->file_dst_name;
-				        	$v['uid'] = $_GET['verified'];
+				        	$v['seal_image'] = $this->upload->file_dst_name;
+				        	$v['uid'] = $_GET['id'];
+							$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
+							$v['seal_date'] = $time->format('Y-m-d H:i:s');
 							$this->model->users->verifiedUid($v);
-							redirect('/admin');
+							redirect('/admin/verify');
 				        }		        
 		        		$this->upload->clean();
 					}
@@ -62,9 +98,9 @@ class Admin Extends Application
 			$this->view('admin/verified');
 		}
 
-		if (!is_get('verified')) {
+		if (!is_get('id')) {
 			$data['users'] = $this->model->users->getRole('0',10);
-			$this->view('admin/index',$data);
+			$this->view('admin/listunverified',$data);
 		}		
 		
 		$this->view('site/footer');

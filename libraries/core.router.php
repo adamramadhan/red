@@ -36,7 +36,6 @@ class Router
 		//var_dump($uri);
 		#execute and search regex routeing from routes.php
 		foreach ($routes as $regex => $request) {
-
 			if (preg_match('#^'.$regex.'$#', $uri)){
 				
 				# kalo ada url untuk diproses dan regex sama dengan segment (url)
@@ -54,7 +53,8 @@ class Router
 		
 		#jika tidak ada di route maka 404
 		if (!isset($this->controller)) {
-			$this->controller = $routes['404'];
+			//$this->controller = $routes['404'];
+			redirect('/404');
 		}
 		
 		#dispatch the routes
@@ -70,6 +70,11 @@ class Router
 			
 			#get the class and the method of the controller
 			$controller = explode(':',$this->controller);
+
+			$this->params = $segments;
+			// get the class of the params, so we can get the real param wiothout the class.
+			$this->params = array_diff($this->params, array($controller[0]));
+
 			$class = ucfirst($controller[0]);
 			$method = strtolower($controller[1]);
 			
@@ -79,8 +84,6 @@ class Router
 
 			# masukan semua segments kedalam params
 			//var_dump($segments);
-			$this->params = $segments;
-			
 			#the magic happens, php 5.3.0 + need optimize see php docs
 			if (is_callable(array($controller,$method))) {
 				call_user_func_array(array($controller, $method), $this->params);

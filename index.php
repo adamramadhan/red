@@ -10,7 +10,6 @@ if (config('development')) {
 	$startmemory = xdebug_memory_usage()/1024/1024;
 }
 
-
 # NAIKIN RAM DIKIT 0.2 MBAN / PAGE
 if (config('gzip')) {
 	ob_start("ob_gzhandler");
@@ -20,7 +19,12 @@ require_once 'libraries/core.router.php';
 require_once 'libraries/core.models.php';
 require_once 'libraries/core.application.php';
 require_once 'libraries/core.cache.php';
-$test = new Router;
+
+try {
+	$test = new Router;
+} catch (Exception $e) {
+	echo $e;
+}
 
 if (config('gzip')) {
 	ob_flush();

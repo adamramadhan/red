@@ -56,6 +56,15 @@ function is_get( $name, $value = NULL )
 	}
 }
 
+function is_routes($string){
+	require 'routes.php';
+	if (in_array($string,array_keys($routes))) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function l($language){
 	require 'libraries/language/'. config('language') .'.php';
 	return $l[$language];

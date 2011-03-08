@@ -22,6 +22,9 @@ $routes['welcome'] = 'site:welcome';
 $routes['why'] = 'site:why';
 $routes['default'] = 'site:index';
 
+$routes['verify'] = 'verify:index';
+$routes['^verify/[a-zA-Z0-9_]{6,20}$'] = 'verify:profile';
+
 #edit
 $routes['logout'] = 'site:logout';
 $routes['edit/profile'] = 'edit:profile';
@@ -48,6 +51,8 @@ $routes['help'] = 'help:index';
 $routes['admin'] = 'admin:index';
 $routes['admin/blog'] = 'admin:blog';
 $routes['admin/newpost'] = 'admin:newpost';
+$routes['admin/unverify'] = 'admin:listverified';
+$routes['admin/verify'] = 'admin:listunverified';
 
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?

@@ -1,0 +1,56 @@
+body.verify { background: none repeat scroll 0 0 #86DAFF }
+.background-verify { background: url("www-static/assets/images/bg/verify.png") no-repeat scroll left top transparent }
+#verified li { }
+#verified li label
+{
+    float: left;
+    width: 160px;
+}
+#verified li p
+{
+    float: left;
+    padding: 5px;
+    text-align: justify;
+    width: 510px;
+}
+#information
+{
+    background: none repeat scroll 0 0 #2E84D3;
+    color: #FFFFFF;
+}
+#notverified
+{
+    background: none repeat scroll 0 0 #D32E2E;
+    color: #fff;
+}
+span#important
+{
+    background: none repeat scroll 0 0 #fff;
+    color: #444;
+    padding: 2px 5px;
+}
+#box-verify
+{
+    float: left;
+    margin: 250px 5px 0;
+    padding: 5px;
+    text-shadow: 0 1px #F7F7F7;
+    width: 300px;
+}
+#box-verify a
+{
+    color: #D32E2E;
+    text-decoration: underline;
+}
+#box-verify .needs
+{
+    background: none repeat scroll 0 0 #A4E2FF;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #7FCFF4;
+    padding: 5px;
+}
+#meta-information li{    padding: 5px;}
+#verified{
+    margin: 80px auto 0;
+    width: 700px;
+}

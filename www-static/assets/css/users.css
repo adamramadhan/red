@@ -26,26 +26,26 @@
     float: left;
     margin-right: 20px;
     padding: 10px;
-    width: 485px;	
+    width: 485px;   
 }
 #red-edit-full{
-	border-top: 1px solid #F5EFE7;
+    border-top: 1px solid #F5EFE7;
     float: left;
     margin-right: 20px;
     padding: 10px;
-    width: 745px;	
+    width: 745px;   
 }
 #red-edit-right-wide
 {
-	border-top: 1px solid #F5EFE7;
+    border-top: 1px solid #F5EFE7;
     background: none repeat scroll 0 0 #FEFBE8;
     float: left;
     margin-right: 20px;
     padding: 10px;
-    width: 485px;	
+    width: 485px;   
 }
 #textarea-informationbox{
-	height: 400px;
+    height: 400px;
     width: 460px;
 }
 #red-edit-left
@@ -64,7 +64,7 @@
 }
 #red-profile-status
 {
-	background: none repeat scroll 0 0 #CFDEFF;
+    background: none repeat scroll 0 0 #CFDEFF;
     border: 1px solid #BACEEB;
     margin: 10px 0;
     padding: 10px;
@@ -78,10 +78,10 @@
 }
 #red-products-status
 {
-	background:none repeat scroll 0 0 #FFCFCF;
-	border:1px solid #EBBABA;
-	margin:10px 0;
-	padding:10px;
+    background:none repeat scroll 0 0 #FFCFCF;
+    border:1px solid #EBBABA;
+    margin:10px 0;
+    padding:10px;
 }
 #input-wide input,
 #input-wide textarea { width: 250px }
@@ -115,7 +115,6 @@ list-style:none outside none;
 /*product*/
 #subinformation{background:none repeat scroll 0 0 #fff;
 margin:5px 0;border-bottom: 1px solid #F9EBEB;}
-#subinformation:hover{background:#FFFEE3;}
 
 #ptime{
     color: #C6A6A6;}
@@ -127,7 +126,7 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     margin-left: 10px;
     padding: 5px 10px;}
 #subtime{
-	color: #CCCCCC;
+    color: #CCCCCC;
     float: left;
     font-size: 10px;
     padding: 5px 10px;}
@@ -143,13 +142,13 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     background: none repeat scroll 0 0 #DEFFCF;
     border: 1px solid #C9EBBA;
     margin: 10px 0;
-    padding: 10px;	
+    padding: 10px;  
 }
 #red-profile-info{
     background: none repeat scroll 0 0 #ffffff;
     border: 1px solid #EAE3E3;
     margin: 10px 0;
-    padding: 10px;	
+    padding: 10px;  
 }
 /*messages*/
 #message{background:#fff;    border-bottom: 1px solid #F9EBEB;
@@ -184,37 +183,37 @@ margin:5px 0;}
 #red-side-menu li a{ color:#444;text-decoration:none; }
 /*icon*/
 #red-side-menu ul ul li.iconprofile{
-	background: url("/www-static/assets/images/i/user.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/user.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconaddress{
-	background: url("/www-static/assets/images/i/book_addresses.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/book_addresses.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconconnect{
-	background: url("/www-static/assets/images/i/arrow_switch.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/arrow_switch.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconadd{
-	background: url("/www-static/assets/images/i/add.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/add.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconlist{
-	background: url("/www-static/assets/images/i/text_list_bullets.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/text_list_bullets.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconhelp{
-	background: url("/www-static/assets/images/i/help.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/help.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
 #red-side-menu ul ul li.icondashboard{
-	background: url("/www-static/assets/images/i/dashboard.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/dashboard.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
@@ -234,6 +233,8 @@ margin:5px 0;}
 }
 
 /*DASBOARD*/
+.feed:hover{background:#FFFEE3;}
+.feed:hover #subinformation{background: none repeat scroll 0 0 #FDFFD9;}
 #red-dashboard {    background: none repeat scroll 0 0 #D8FFAA;
     border-bottom: 1px solid #BAE687;}
 #red-dashboard ul li{
@@ -241,13 +242,35 @@ margin:5px 0;}
     margin-right: 5px;
     padding: 5px;}
 #red-dashboard ul .trustpoint{
-	float: right;
+    float: right;
     margin-right: 0;}
-.comments{    background: none repeat scroll 0 0 #EEF5FF;
+#comments{    margin-left: 30px;}
+.comment{   
     font-family: "calibri",tahoma;
     margin-bottom: 5px;
     padding: 2px 0 2px 10px;}
-.morecomments{    background: none repeat scroll 0 0 #F7FAFF;
+.morecomments{       border-top: 1px dashed #EEEEEE;
     font-family: "calibri",tahoma;
     margin-bottom: 5px;
     padding: 2px 0 2px 10px;}
+
+.bootstraps{
+    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #FFFFFF;
+    border: 1px solid #A90000;
+    float: left;
+    height: 200px;
+    color:#7D1212;
+    margin-right: 20px !important;
+    margin-top: 15px;
+
+    width: 232px;}
+.bootstraps:last-child{
+     margin-right: 0px !important;
+}
+.bootstraps .image{    border-bottom: 1px solid #B30000;
+    font-size: 20px;
+    height: 53px;
+    padding-top: 40px;
+    text-align: center;}
+.bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
+.feeds {    margin-top: 15px;}    

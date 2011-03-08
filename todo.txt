@@ -4,3 +4,10 @@ cryto
 - identification ( prevent evil people that is predending to be you )
 
 404 kalo login menunya ?
+
+verified
+- kalo dicek tanggalnya lewat = delete / reset.
+- di admin harus ada yang udah tanggal lewat. ( 1 baru atas )
+- kontak dan email dijaga
+
+yang ga nyampur ga usah dikasih if feuter, nanti aja

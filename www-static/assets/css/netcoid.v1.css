@@ -20,7 +20,7 @@ a { text-decoration: none }
 #red-header a:hover,
 #red-submenu a:hover { text-decoration: none }
 #red-header {
-	/*background: url("/www-static/assets/images/header.jpg") repeat-x scroll left center #D32E2E;*/ 
+    /*background: url("/www-static/assets/images/header.jpg") repeat-x scroll left center #D32E2E;*/ 
      background: none repeat scroll 0 0 #D32E2E; 
     border-bottom: 1px solid #780000;
     color: #FFFFFF;
@@ -48,7 +48,6 @@ span#notification {
     position: relative;
 }
 #red-content {
-	background: #fff;
     border-top: none;
     /*background: none repeat scroll 0 0 #FEFFED;*/
     margin-bottom: 0;
@@ -222,7 +221,7 @@ ul ul li {
 #wide-input textarea { width: 400px }
 /*test*/
 #helloworld{      
-	color: #D32E2E;
+    color: #D32E2E;
     font-size: 20px !important;
     font-weight: bold !important;
     line-height: 29px;
@@ -243,26 +242,3 @@ ul ul li {
     font-size: 10px;
     padding: 0 5px;
 }
-
-
-
-.bootstraps{
-    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #FFFFFF;
-    border: 1px solid #A90000;
-    float: left;
-    height: 200px;
-    color:#7D1212;
-    margin-right: 20px !important;
-    margin-top: 15px;
-
-    width: 232px;}
-.bootstraps:last-child{
-     margin-right: 0px !important;
-}
-.bootstraps .image{    border-bottom: 1px solid #B30000;
-    font-size: 20px;
-    height: 53px;
-    padding-top: 40px;
-    text-align: center;}
-.bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
-.feeds {    margin-top: 15px;}
