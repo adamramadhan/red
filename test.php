@@ -5,4 +5,6 @@ foreach (glob("www-static/storage/*/information*") as $filename) {
     chown($filename,'networks');
     unlink($filename);
 }
+$stat = stat($path);
+print_r(posix_getpwuid($stat['uid']));
 ?>
