@@ -1,5 +1,4 @@
 <?php  
-phpinfo();
 foreach (glob("www-static/storage/*/information*") as $filename) {
     echo "$filename size " . filesize($filename) . "<br/>";
     chown($filename,'networks');
