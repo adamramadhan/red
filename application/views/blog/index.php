@@ -13,6 +13,56 @@
 				echo '<p>'.$post['content'].'</p>';
 				echo "</div>";
 			 ?>
+
+		<!-- COMMENT START -->
+		<?php if (config('features/comments')): ?>
+		<div id="comments">
+
+			<?php if ($count['COUNT(cid)'] == 0): ?>
+			<div id="meta-comments">
+				<h4><?php echo l('nocomments'); ?></h4>
+			</div>
+			<?php endif ?>
+
+			<?php if ($count['COUNT(cid)'] != 0): ?>			
+			<div id="meta-comments">
+				<h4>(<?php echo $count['COUNT(cid)']; ?>) <?php echo l('comments') ?></h4>
+			</div>
+			<?php endif ?>
+						
+			<!-- COMMENT POST -->			
+			<?php if ($this->sessions->get('uid')): ?>
+				<div id="post-comment">
+					<form accept-charset="utf-8" method="post" >
+						<ul>
+							<li><?php $this->forms->textarea('comment',l('addcomment'), array( 
+									  'cols' => '90',
+									  'rows' => '3')); ?></li>
+						</ul>
+						<p><input type="submit" value="Kirim" name="insert" id="button"></p>
+					</form>						
+				</div>
+			<?php endif ?>
+			<!-- COMMENT POST -->			
+			
+			<ul>
+				<?php foreach ($comments as $comment) {
+					echo "<li class='comments' id='comment-".$comment['cid']."'>";
+					echo "<span id='name'><a href='/".$comment['username']."'>@".$comment['name']."</a></span>";
+					echo "<span id='comment'>".$comment['comment']."</span>";
+					echo "<span id='time'>".$this->time->formatDateDiff($comment['timecreate'])."</span>";
+					echo "</li>";
+				} ?>
+			</ul>
+
+			<?php if (!$this->sessions->get('uid')): ?>
+				<div class"c" id="notice">Hallo, <a href="/login">login</a> untuk meninggalkan pesan. </div>
+			<?php endif ?>
+
+		</div>
+		<?php endif ?>
+		<!-- COMMENT END -->
+
 		</div>				
 		<div id="red-blog-right">
 			<ul>

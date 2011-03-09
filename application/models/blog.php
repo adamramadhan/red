@@ -19,11 +19,17 @@ class ModelBlog extends Models
 	}
 	
 	function getLastPost(){
-		$data = $this->fetch('SELECT blog.title, blog.content, users.name, blog.tag, blog.timecreate, blog.nid
+		$data = $this->fetch('SELECT blog.nid, blog.title, blog.content, users.name, blog.tag, blog.timecreate, blog.nid
 		FROM blog, users WHERE users.uid = blog.uid ORDER BY nid DESC LIMIT 1');	
 		return $data;		
 	}
-	
+
+	function listNewsTitle(){
+		$data = $this->fetchAll('SELECT blog.nid, blog.title
+		FROM blog, users WHERE users.uid = blog.uid ORDER BY nid DESC LIMIT 10');	
+		return $data;				
+	}
+		
 	function setPosts($data){
 		// nanti diambil dari class ModelBlog blognya.
 		$data = $this->insert( 'blog', $data );

@@ -13,5 +13,8 @@ verified
 
 yang ga nyampur ga usah dikasih if feuter, nanti aja
 
+http://serverfault.com/questions/168627/which-bots-and-spiders-should-i-block-in-robots-txt
+Interesting point. I wonder if it makes sense to add a fake page to the Disallow list whose sole purpose is to catch such bots in the act so that they can be automatically blocked
+
 munkin nextnya ya cuma mantenance dulu. sambil invitation break #2. 
 invitation break itu ya kaya kasih2 invitation. karena 2 sebanyak 222 invitation atau 22 ? atau 100 aje. ga tau dah.
