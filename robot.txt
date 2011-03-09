@@ -1,0 +1,15 @@
+# Notice: if you would like to crawl netcoid you can
+# contact us here: robots@networks.co.id we will send
+# tos & confirmation right away
+
+User-agent: Googlebot
+Disallow: /www-static
+Disallow: /libraries
+Disallow: /application
+Disallow: /middleware
+Disallow: /wiki
+
+User-agent: *
+Disallow: /
+
+# E-mail sitemaps@networks.co.id if you are authorized to access these and are getting denied.
