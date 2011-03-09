@@ -56,7 +56,7 @@ span#notification {
     padding-top: 10px;
     max-width: 960px;
     min-width: 700px;
-    min-height:500px;
+    min-height:520px;
 }
 .background#red-content{background: url("www-static/assets/images/highlight.png") no-repeat scroll left top transparent;}
 #red-content-left {

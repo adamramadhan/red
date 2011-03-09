@@ -9,5 +9,9 @@ verified
 - kalo dicek tanggalnya lewat = delete / reset.
 - di admin harus ada yang udah tanggal lewat. ( 1 baru atas )
 - kontak dan email dijaga
+- pasang max image di admin.
 
 yang ga nyampur ga usah dikasih if feuter, nanti aja
+
+munkin nextnya ya cuma mantenance dulu. sambil invitation break #2. 
+invitation break itu ya kaya kasih2 invitation. karena 2 sebanyak 222 invitation atau 22 ? atau 100 aje. ga tau dah.

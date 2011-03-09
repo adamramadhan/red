@@ -72,8 +72,9 @@ class Admin Extends Application
 				        $this->upload->file_auto_rename   = false;
 				        $this->upload->image_resize       = true;
 				        $this->upload->file_overwrite     = true;
-				        $this->upload->image_x            = 960; 
-				        $this->upload->image_ratio_y      = true;
+				        #pasang max
+				        #$this->upload->image_x            = 960; 
+				        #$this->upload->image_ratio_y      = true;
 				        $this->upload->file_new_name_body = 'information' . $randomid;
 				        $this->upload->allowed            = array(
 				            'image/*'
