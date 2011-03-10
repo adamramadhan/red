@@ -90,10 +90,11 @@ class Edit Extends Application
 				        {
 				    		/* give another edit variable for update */
 				        	$e['logo'] = $this->upload->file_dst_name;
+				        	chmod($savepath.'/'.$e['logo'],0644);
 				        }		        
 		        		$this->upload->clean();
 					}
-			
+				
 					$this->model->users->updateData($e);
 					redirect('/edit/profile');	
 				}
@@ -246,6 +247,7 @@ class Edit Extends Application
 				        {
 				    		/* give another edit variable for update */
 				        	$p['image'] = $this->upload->file_dst_name;
+				        	chmod($savepath.'/'.$p['image'],0644);
 				        }		        
 						// RAW IMAGE ENDS
 						
@@ -265,6 +267,7 @@ class Edit Extends Application
 				        {
 				    		/* give another edit variable for update */
 				        	$p['image_tumb'] = $this->upload->file_dst_name;
+				        	chmod($savepath.'/'.$p['image_tumb'],0644);
 				        }	
 					    // TUMB IMAGE ENDS
 					    	        

@@ -17,3 +17,7 @@ Interesting point. I wonder if it makes sense to add a fake page to the Disallow
 
 munkin nextnya ya cuma mantenance dulu. sambil invitation break #2. 
 invitation break itu ya kaya kasih2 invitation. karena 2 sebanyak 222 invitation atau 22 ? atau 100 aje. ga tau dah.
+
+#chmod 644 semua image
+-tinggal di middleware doang
+chmod($savepath.'/'.$p['image'],0644);
