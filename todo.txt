@@ -3,13 +3,12 @@ cryto
 - auth ( prevent data modifying )
 - identification ( prevent evil people that is predending to be you )
 
-404 kalo login menunya ?
-
 verified
 - kalo dicek tanggalnya lewat = delete / reset.
+- its younya kurang mantap
 - di admin harus ada yang udah tanggal lewat. ( 1 baru atas )
 - kontak dan email dijaga
-- pasang max image di admin.
+- pasang max image di admin. ( atau tidak kita sendiri yang atur )
 
 yang ga nyampur ga usah dikasih if feuter, nanti aja
 

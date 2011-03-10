@@ -45,7 +45,7 @@ class Verify Extends Application
 			if ($this->sessions->get('uid') == $data['user']['uid']) {
 				$this->view('verify/yes-me',$data);
 			} 
-			if (empty($partner)) {
+			if (empty($partner) && $this->sessions->get('uid') !== $data['user']['uid']) {
 			 	$this->view('verify/yes',$data);
 			}
 		}
