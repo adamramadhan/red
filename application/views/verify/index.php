@@ -13,7 +13,7 @@
 		</div>
 		<div id="box-verify">
 			<h3>FAQS</h3>
-			<p>1. Apakah KTP, SIM, SUIP, dsb akan terlihat secara public ? Tidak, anda hanya dapat melihat data jika anda saling memfollow / mengikuti.</p>
+			<p>1. Apakah KTP, SIM, SIUP, dsb akan terlihat secara public ? Tidak, anda hanya dapat melihat data jika anda saling memfollow / mengikuti.</p>
 			<p>2. Message ke <a href="/netcoid">@netcoid</a> atau Email ke help@networks.co.id untuk <a href="/help">bantuan</a> lebih lanjut.
 			</p>
 		</div>
