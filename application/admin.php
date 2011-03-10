@@ -70,7 +70,7 @@ class Admin Extends Application
 					if ($this->upload->uploaded) 
 					{
 				        $this->upload->file_auto_rename   = false;
-				        $this->upload->image_resize       = true;
+				        #$this->upload->image_resize       = true;
 				        $this->upload->file_overwrite     = true;
 				        #pasang max
 				        #$this->upload->image_x            = 960; 
