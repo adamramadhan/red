@@ -85,6 +85,7 @@ class Admin Extends Application
 				        {
 				        	# IMAGE SEAL AND VERIFIED
 				        	$v['seal_image'] = $this->upload->file_dst_name;
+				        	chmod($v['seal_image'],0644);
 				        	$v['uid'] = $_GET['id'];
 							$time = new DateTime( NULL, new DateTimeZone('Asia/Jakarta'));
 							$v['seal_date'] = $time->format('Y-m-d H:i:s');
