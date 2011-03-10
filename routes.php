@@ -20,6 +20,7 @@ $routes['login'] = 'login:index';
 $routes['terms'] = 'site:terms';
 $routes['welcome'] = 'site:welcome';
 $routes['why'] = 'site:why';
+$routes['allstars'] = 'site:allstars';
 $routes['default'] = 'site:index';
 
 $routes['verify'] = 'verify:index';

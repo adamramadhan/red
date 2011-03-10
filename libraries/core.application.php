@@ -3,7 +3,9 @@ class Application
 {
 	function __construct()
 	{
-		$this->cache = new Cache;
+		if ( config('features/memcached') ) {
+			$this->cache = new Cache;
+		}
 	}
 	
 	protected function model($model)

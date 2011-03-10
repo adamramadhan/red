@@ -98,9 +98,6 @@ class Site extends Application
 		$this->validation->f(is_routes($r['username']),l('register_username_used'));
 		
 		if (!sizeof($this->validation->errors)) {
-			# make a / secure get
-			echo "string";
-			die();
 			$this->sessions->set('secure.get','/');  
 			$this->sessions->set('secure.data',$r);
 			redirect('/secure');
@@ -136,7 +133,14 @@ class Site extends Application
 		$this->view('site/why');
 		$this->view('site/footer');					
 	}
-	
+
+	function allstars(){
+		$this->view('site/header');
+		$this->active->menu($this->sessions->get('uid'),$this);
+		$this->view('site/allstars');
+		$this->view('site/footer');				
+	}
+
 	function logout(){
 		$this->sessions->flush();
 		$this->sessions->refresh();

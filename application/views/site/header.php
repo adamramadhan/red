@@ -8,4 +8,4 @@
 		<meta name="keywords" content="jejaring bisnis, social business, partner usaha, usaha indonesia" />
 		<title>netcoid &mdash; jejaring bisnis indonesia</title>
 	</head>
-<body>
+<body class="<?php $views->ActiveCSS(); ?>">

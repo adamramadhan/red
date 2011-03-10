@@ -18,7 +18,9 @@ if (config('gzip')) {
 require_once 'libraries/core.router.php';
 require_once 'libraries/core.models.php';
 require_once 'libraries/core.application.php';
-require_once 'libraries/core.cache.php';
+if ( config('features/memcached') ) {
+	require_once 'libraries/core.cache.php';
+}
 
 try {
 	$test = new Router;
