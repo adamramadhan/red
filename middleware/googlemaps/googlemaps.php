@@ -73,11 +73,12 @@ class googlemaps
 			if ( $header_size == 256 ) {
 				return FALSE;
 			} else {
-				$url = 'http://maps.google.com/maps/api/staticmap?center=' . urlencode($this->address). '&zoom=16&size=' . $this->size . '&sensor=false&markers=icon:http://chart.apis.google.com/chart%3Fchst%3Dd_map_spin%26chld%3D1%257C0%257Cfff%257C11%257C_%257C' . 
+				$url = 'http://maps.google.com/maps/api/staticmap?center=' . urlencode($this->address). '&zoom=16&size=' .$this->size . '&sensor=false&markers=icon:http://chart.apis.google.com/chart%3Fchst%3Dd_map_spin%26chld%3D1%257C0%257Cfff%257C11%257C_%257C' . 
 		   		$this->language . '|' . urlencode($this->address);
 				
 		   		//mkdir($path);
-		   		file_put_contents($fullpath,file_get_contents($url));   
+		   		file_put_contents($fullpath,file_get_contents($url)); 
+		   		chmod($fullpath,0644);  
 			}	
 		}
 

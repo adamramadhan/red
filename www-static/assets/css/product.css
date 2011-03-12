@@ -63,10 +63,14 @@
     padding: 10px 20px;
 }
 #pesan {
+    -moz-box-shadow: 0 1px 3px #DDDDDD;
+    -webkit-box-shadow: 0 1px 3px #DDDDDD;
+    -o-box-shadow: 0 1px 3px #DDDDDD;
+    -box-shadow: 0 1px 3px #DDDDDD;
     background: none repeat scroll 0 0 #D8FFAA;
-    border: 1px solid #BAE687;
+    border: 1px solid #8CD23A;
     margin: 5px 0;
-    padding: 5px;
+    padding: 10px;
 }
 
 #meta-comments {

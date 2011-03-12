@@ -24,8 +24,10 @@ class Products Extends Application
 		if (config('features/comments')){
 			$this->helper('forms');
 			$this->helper('time');
+			$this->helper('comments');
 			$this->library('validation');
 			$this->model('comments');
+
 			$data['comments'] = $this->model->comments->listCommentsByPid($_GET['id']);
 			$data['count'] = $this->model->comments->countByPid($_GET['id']);
 			
@@ -40,6 +42,7 @@ class Products Extends Application
 				$this->validation->required($c['comment'],l('comment_empty'));
 				
 				if (!sizeof($this->validation->errors)) {
+					$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);
 					$this->model->comments->add($c);
 					redirect('/product?id='.$_GET['id']);
 				}

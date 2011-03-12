@@ -61,6 +61,11 @@ class ModelUsers extends Models
 		password FROM users WHERE role = $role LIMIT $limit");	
 		return $data;	
 	}
+
+	function getDataComments($username){
+		$data = $this->fetch('SELECT username, role, name FROM users WHERE username = :username LIMIT 1', array( 'username' => $username));
+		return $data;		
+	}
 	
 	function updateData($data){
 		if (isset($data['logo'])) {
