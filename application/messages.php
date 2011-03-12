@@ -95,7 +95,7 @@ class Messages Extends Application
 				
 				if (!sizeof($this->validation->errors)) {
 					$this->model->messages->sendMessage($m);
-					redirect( '/messages' );
+					redirect('/');
 				}
 			}	
 			

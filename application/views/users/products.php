@@ -3,7 +3,7 @@
 	<div class="clearfix" id="red-content">
 
 		<!-- INFORMATION START -->
-		<div id="red-edit-left-wide">
+		<div id="red-edit-full">
 			<?php
 			if ( !empty($products) ) {
 				foreach ( $products as $key => $value) {
@@ -30,15 +30,7 @@
 			?>
 		</div>
 		<!-- INFORMATION ENDS -->	
-		
 	
-
-		<div id="red-edit-right">
-		<ul id="red-profile-info">
-			<h3>Information</h3>
-			<p>Lengkapi Data Profile anda untuk mengaktifkan fitur informasi profile</p>
-		</ul>
-		</div>			
 
 		<!-- ADS & MENU START -->
 		<?php $this->view('users/menu-right'); ?>	

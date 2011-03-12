@@ -10,9 +10,21 @@ class ModelComments extends Models
 		$data = $this->insert('comments',$data);
 		return $data;
 	}
+	
+	function del( $cid ){
+		$status = $this->query( "DELETE FROM comments WHERE cid = :cid", array('cid' => $cid ));
+		return $status;
+	}
+
+	function getUID($cid){
+		$data = $this->fetch("SELECT uid FROM comments WHERE cid = :cid", 
+		array( 'cid' => $cid));
+		return $data;
+	}
 		
 	function listCommentsByPid($pid){
-		$data = $this->fetchAll("SELECT users.name, users.username, comments.comment, comments.cid, comments.timecreate
+		$data = $this->fetchAll("SELECT users.name, users.username, 
+		comments.uid, comments.comment, comments.cid, comments.timecreate
 		FROM comments, users WHERE comments.uid = users.uid AND comments.pid = :pid ORDER BY cid DESC LIMIT 20", array ( 'pid' => $pid ));
 		return $data;
 	}
@@ -30,7 +42,8 @@ class ModelComments extends Models
 	}
 
 	function listCommentsByNID($nid){
-		$data = $this->fetchAll("SELECT users.name, users.username, comments.comment, comments.cid, comments.timecreate
+		$data = $this->fetchAll("SELECT users.name, users.username,
+		comments.uid, comments.comment, comments.cid, comments.timecreate
 		FROM comments, users WHERE comments.uid = users.uid AND comments.nid = :nid ORDER BY cid DESC LIMIT 20", array ( 'nid' => $nid ));
 		return $data;		
 	}

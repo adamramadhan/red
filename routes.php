@@ -48,6 +48,9 @@ $routes['messages'] = 'messages:all';
 #help
 $routes['help'] = 'help:index';
 
+#comments
+$routes['^comments'] = 'comments:index';
+
 #admin Routes
 $routes['admin'] = 'admin:index';
 $routes['admin/blog'] = 'admin:blog';
