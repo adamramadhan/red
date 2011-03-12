@@ -10,6 +10,8 @@ class Blog Extends Application
 		$this->model('blog');
 		if (config('features/comments')){
 			$this->model('comments');
+			$this->model('users');
+			$this->helper('comments');
 			$this->library('validation');
 			$this->helper('forms');
 			$this->helper('time');
@@ -44,6 +46,7 @@ class Blog Extends Application
 					$this->validation->required($c['comment'],l('comment_empty'));
 					
 					if (!sizeof($this->validation->errors)) {
+						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);	
 						$this->model->comments->add($c);
 						redirect('/blog');
 					}
@@ -77,6 +80,7 @@ class Blog Extends Application
 					$this->validation->required($c['comment'],l('comment_empty'));
 					
 					if (!sizeof($this->validation->errors)) {
+						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);
 						$this->model->comments->add($c);
 						redirect('/blog?id='. $_GET['id']);
 					}
