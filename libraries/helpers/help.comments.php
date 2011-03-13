@@ -3,9 +3,8 @@
 class Comments extends Application
 {
 	function InsertMentions($cid, $usernames,$modelmentions){
-			var_dump($usernames);
 		foreach ($usernames as $username => $data) {
-			var_dump($data['uid']);
+			$m['open'] = 0;
 			$m['uid'] = $data['uid'];
 			$m['cid'] = $cid;
 			$modelmentions->add($m);

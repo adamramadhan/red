@@ -7,7 +7,9 @@ $l['why']  = 'Seperti apa?';
 $l['aboutus']  = 'Tentang';
 $l['blog']  = 'Blog';
 $l['contactus']  = 'Kontak';
+$l['messagecenter'] = 'Pusat Surat';
 $l['helpcenter']  = 'Pusat bantuan';
+$l['mentionscenter']  = 'Mentions';
 $l['terms']  = 'Privasi &amp; Persyaratan';
 $l['search']  = 'Pencarian';
 $l['login']  = 'Masuk';
@@ -22,6 +24,8 @@ $l['inbox'] = 'Kotak masuk';
 $l['productnew'] = 'Cari Produk';
 $l['copyright'] = 'Netcoid 2010, Adam ramadhan &amp; Friends';
 $l['comments'] = 'Komentar';
+$l['information'] = 'Informasi';
+$l['products'] = 'Produk';
 $l['nocomments'] = 'Belum ada komentar';
 /* EDITPROFILE.PHP */
 $l['username'] = 'Username';
@@ -30,7 +34,6 @@ $l['address'] = 'Alamat Organisasi';
 $l['phone'] = 'Kontak Organisasi';
 $l['email'] = 'Email Organisasi';
 $l['logo'] = 'Logo Organisasi';
-$l['messagecenter'] = 'Pusat Surat';
 $l['unfollow'] = 'Tidak Ikuti';
 $l['password'] = 'Kata Sandi';
 $l['addcomment'] = 'tambah komentar'; // on comment product
@@ -64,9 +67,9 @@ $l['founder'] = 'founder';
 $l['informationbox'] = 'Kotak Informasi <sup>1</sup>';
 
 // Error language
-$l['register_username_error'] = 'Username Anda Harus Berformat 6-20 Angka & Kata';
+$l['register_username_error'] = 'Username Anda Harus Berformat 6-20 Huruf atau Angka';
 $l['register_password_empty'] = 'Password Anda tidak diperbolehkan kosong';
-$l['register_companyname_error'] = 'Nama Organisasi Anda Harus Berformat 6-30 Kata & Spasi, Untuk Organisasi Bisnis / Non Profit Lainnya Silahkan Hubungi <a href="#">Pusat Bantuan</a>';
+$l['register_companyname_error'] = 'Nama Organisasi Anda Harus Berformat 6-30 Kata atau Spasi, Untuk Organisasi Bisnis / Non Profit Lainnya Silahkan Hubungi <a href="#">Pusat Bantuan</a>';
 $l['register_phone_error'] = 'Nomer Telepon Anda Harus Berformat 123-123456, 1234-12345678 atau 0812345678912, Untuk Lainnya Silahkan Hubungi <a href="#">Pusat Bantuan</a>';
 $l['register_username_used'] = 'Username Anda telah digunakan. Silahkan gunakan nama username yang lain';
 $l['register_name_used'] = 'Nama Organisasi Anda telah digunakan. Silahkan gunakan nama organisasi yang lain';
@@ -74,16 +77,23 @@ $l['edit_email_error'] = 'Email Perusahaan Harus Berformat anda@domain.com & dih
 $l['edit_logo_error'] = 'Image Logo Harus Beformat Image ( .png, .jpeg, .gif dan lainnya )';
 $l['edit_address_error'] = 'Alamat Profil tidak boleh kosong';
 $l['product_image_error'] = 'Image Produk Harus Beformat Image ( .png, .jpeg, .gif dan lainnya )';
-$l['product_name_error'] ='Nama Produk harus beformat 4-20 Kata, Angka, # dan Spasi';
+$l['product_name_error'] ='Nama Produk harus beformat 4-20 Kata, Angka, # atau Spasi';
 $l['product_description_error'] = 'Deskripsi Produk tidak boleh kosong';
 $l['product_tag_error'] = 'Tag Produk tidak boleh kosong & Harus Berformat text ( Text tampa spasi ) 3-15 Kata';
-$l['product_price_error'] = 'Harga Produk tidak boleh kosong &  Beformat Numeric ( angka ) 1 - 11 Angka';
-$l['connection_yahoo_error'] = 'Yahoo anda harus berformat 0-100 Angka, Kata, "_" dan "." tampa @yahoo.com contoh: sebuahid.yahoo25';
-$l['connection_facebook_error'] = 'Facebook anda harus berformat 0-100 Angka, Kata, "_" dan "." contoh: 165598776812971 dari  "http://www.facebook.com/pages/Netcoid-Indonesia/165598776812971" atau "cocacola" jika anda sudah menggunakan facebook/url dari "http://www.facebook.com/cocacola"';
-$l['connection_twitter_error'] = 'Twiiter anda harus berformat 0-20 Angka & Kata';
+$l['product_price_error'] = 'Harga Produk tidak boleh kosong & Harus Beformat Numeric ( angka ) 1 - 11 Angka';
+$l['connection_yahoo_error'] = 'Yahoo anda harus berformat 0-100 Angka, Kata, "_" atau "." dengan EXT, contoh: sebuahid.yahoo25@rocketmail.com atau yahooid@yahoo.com';
+$l['connection_facebook_error'] = 'Facebook anda harus berformat 0-100 Angka, Kata, "_" atau "." contoh: 165598776812971 dari  "http://www.facebook.com/pages/Netcoid-Indonesia/165598776812971" atau "cocacola" jika anda sudah menggunakan facebook/url dari "http://www.facebook.com/cocacola"';
+$l['connection_twitter_error'] = 'Twiiter anda harus berformat 0-20 Angka atau Kata';
 $l['message_empty'] = 'Maaf Pesan anda tidak boleh kosong';
 $l['comment_empty'] = 'Maaf Komentar anda tidak boleh kosong';
 // Plugin languageThe string you entered for the image verification did not match what was displayed.
 $l['recaptcha_error'] = 'Karakter yang anda masukan tidak sesuai dengan verifikasi reCAPTCHA';
 
+// menu right
+$l['Profiledata'] = 'Data Profil';
+$l['informationbox'] = 'Kotak Informasi';
+$l['connectioncenter'] = 'Pusat Koneksi';
+$l['addproduct'] = 'Tambah Produk';
+$l['productlist'] = 'List Produk';
+$l['askhelp'] = 'Bertanya';
 ?>

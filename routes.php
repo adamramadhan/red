@@ -48,8 +48,13 @@ $routes['messages'] = 'messages:all';
 #help
 $routes['help'] = 'help:index';
 
-#comments
-$routes['^comments'] = 'comments:index';
+#comments & mentions
+if (config('features/comments/core')) {
+	$routes['comments'] = 'comments:index';
+	if (config('features/comments/mentions')) {
+		$routes['mentions'] = 'mentions:index';
+	}
+}
 
 #admin Routes
 $routes['admin'] = 'admin:index';

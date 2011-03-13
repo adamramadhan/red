@@ -8,10 +8,14 @@
 				<?php if ($message['countmessage'] != 0): ?>
 					<span class="c" id="notification"><?php echo $message['countmessage'] ?></span>						
 				<?php endif ?>
+				<li><?php $views->href('/mentions',l('mentionscenter')); ?>
+				<?php if ($mentions['countmentions'] != 0): ?>
+					<span class="c" id="notification"><?php echo $mentions['countmentions'] ?></span>
+				<?php endif ?>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li><?php $views->href('/'.$this->sessions->get('username'),$this->sessions->get('name')); ?></li>
-				<li><?php $views->href('/','Beranda'); ?></li>
+				<li><?php $views->href('/',l('home')); ?></li>
 				<li id="red-menu-login"><?php $views->href('/logout',l('logout')); ?></li>
 			</ul>
 		</div>

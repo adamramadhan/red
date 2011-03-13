@@ -31,8 +31,8 @@
 				?></li>
 				<!-- SEND MESSAGE END -->
 				
-				<li><a id="content-info" href="#information">Informasi</a></li>
-				<li><a id="content-product" href="#products">Produk</a></li>
+				<li><a id="content-info" href="#information"><?php echo l('information'); ?></a></li>
+				<li><a id="content-product" href="#products"><?php echo l('products'); ?></a></li>
 				
 				<!-- VERIFIED OR NOT START -->
 				<li><?php

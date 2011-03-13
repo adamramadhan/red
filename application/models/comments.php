@@ -52,6 +52,16 @@ class ModelComments extends Models
 		FROM comments, users WHERE comments.uid = users.uid AND comments.nid = :nid ORDER BY cid DESC LIMIT 20", array ( 'nid' => $nid ));
 		return $data;		
 	}
+
+	function listCommentsByMentions($uid){
+		$data = $this->fetchAll("SELECT mentions.uid AS mentionowner, users.name, 
+		comments.cid, comments.comment, comments.nid, comments.pid FROM comments
+		LEFT JOIN mentions ON comments.cid = mentions.cid
+		LEFT JOIN users ON comments.uid = users.uid
+		WHERE mentions.uid = :uid
+		AND mentions.open = 0 ORDER BY cid DESC LIMIT 20", array( 'uid' => $uid));
+		return $data;
+	}
 }
 
 ?>

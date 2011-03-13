@@ -256,3 +256,13 @@ ul ul li {
 margin-left: 10px;opacity:0;}
 .comments:hover #d a{
 opacity:1;}
+.comments:target {
+    background: none repeat scroll 0 0 #FCFF92;
+}
+
+.comments:target a.u{
+   background:  none repeat scroll 0 0 #FFFFFF;
+}
+.comments:target #time{
+   color:#C0C56E !important;    
+}

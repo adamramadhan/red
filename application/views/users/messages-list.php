@@ -31,7 +31,7 @@
 		}
 
 		if ( empty($messages) && empty($archives) ) {	
-			echo 	'<div class="c" id="red-products-status">
+			echo 	'<div class="c" id="red-box-red">
 					<p>Komunikasi <em>simple</em> tampa perantara adalah salah satu tujuan kami, anda mendapat pesan ini karena anda belum mendapatkan
 					message dari organisasi lain, anda dapat mengirim pesan dengan melihat profile organisasi yang dituju, 
 					pilih kirim pesan, masukan subject dan message.</p>

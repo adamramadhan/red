@@ -76,7 +76,7 @@
     margin: 10px 0;
     padding: 10px;
 }
-#red-products-status
+#red-box-red
 {
     background:none repeat scroll 0 0 #FFCFCF;
     border:1px solid #EBBABA;
@@ -274,3 +274,15 @@ margin:5px 0;}
     text-align: center;}
 .bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
 .feeds {    margin-top: 15px;}    
+
+.mentions{ 
+    margin: 5px 0;
+    padding: 5px 0;}
+
+.mentions #d a{color: #CCCCCC;
+margin-left: 10px;opacity:0;}
+.mentions #l a{color: #D32E2E;
+margin-left: 10px;}
+
+.mentions:hover #d a{
+opacity:1;}

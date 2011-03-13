@@ -20,7 +20,7 @@
 			
 			else {
 						
-				echo 	'<div class="c" id="red-products-status">
+				echo 	'<div class="c" id="red-box-red">
 						<p>Products ( Produk ) adalah salah satu fitur utama kami, anda dapat menambah, memanagemen dan 
 						menghapus produk perusahaan. list data product nanti akan kami tampilkan pada halaman profil perusahaan anda,
 						dan setiap produknya akan kami tampilkan pada halaman produk dengan nama perusahaan anda.</p>
