@@ -16,6 +16,11 @@ class ModelComments extends Models
 		return $status;
 	}
 
+	function lastId(){
+		$id = $this->start->lastInsertId();
+		return $id;
+	}
+
 	function getUID($cid){
 		$data = $this->fetch("SELECT uid FROM comments WHERE cid = :cid", 
 		array( 'cid' => $cid));

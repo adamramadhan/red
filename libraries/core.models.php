@@ -33,7 +33,7 @@ class Models
 		$this->start->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
     }
 
-    public function insert($table, $data = array()){
+    public function insert($table, $data = array(), $lastid = NULL ){
     $fieldnames = array_keys($data);
     $name	= '( ' . implode(' ,', $fieldnames) . ' )';
     $value	= '(:' . implode(', :', $fieldnames) . ' )';
@@ -41,7 +41,6 @@ class Models
     $query .= $name.' VALUES '.$value;
     
     $insert = $this->start->prepare($query);
-    
     return $insert->execute($data);
     }
     
@@ -63,7 +62,7 @@ class Models
         $fetch->execute($data);
         
         return $fetch->fetchAll(PDO::FETCH_ASSOC);
-    } 
+    }
 }
 
 

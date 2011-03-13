@@ -8,7 +8,7 @@ class Blog Extends Application
 	function __construct()
 	{
 		$this->model('blog');
-		if (config('features/comments')){
+		if (config('features/comments/core')){
 			$this->model('comments');
 			$this->model('users');
 			$this->helper('comments');
@@ -32,7 +32,7 @@ class Blog Extends Application
 			$data['post'] = $this->model->blog->getLastPost();
 			
 			# start comment
-			if (config('features/comments')){
+			if (config('features/comments/core')){
 				$data['comments'] = $this->model->comments->listCommentsByNID($data['post']['nid']);
 				$data['count'] = $this->model->comments->countByNID($data['post']['nid']);
 				if (is_post('insert')) {
@@ -46,8 +46,15 @@ class Blog Extends Application
 					$this->validation->required($c['comment'],l('comment_empty'));
 					
 					if (!sizeof($this->validation->errors)) {
-						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);	
+						$usernames = array();
+						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users,$usernames);
 						$this->model->comments->add($c);
+
+						if (config('features/comments/mentions')) {
+							$this->model('mentions');
+							$cLastId = $this->model->comments->lastId();
+							$mentions = $this->comments->InsertMentions($cLastId, $usernames,$this->model->mentions);
+						}
 						redirect('/blog');
 					}
 				}
@@ -66,7 +73,7 @@ class Blog Extends Application
 			$data['post'] = $this->model->blog->getPost($_GET['id']);
 
 			# start comment
-			if (config('features/comments')){
+			if (config('features/comments/core')){
 				$data['comments'] = $this->model->comments->listCommentsByNID($_GET['id']);
 				$data['count'] = $this->model->comments->countByNID($_GET['id']);
 				if (is_post('insert')) {
@@ -80,16 +87,21 @@ class Blog Extends Application
 					$this->validation->required($c['comment'],l('comment_empty'));
 					
 					if (!sizeof($this->validation->errors)) {
-						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);
+						$usernames = array();
+						$c['comment'] = $this->comments->Render($c['comment'],$this->model->users,$usernames);
 						$this->model->comments->add($c);
+
+						if (config('features/comments/mentions')) {
+							$this->model('mentions');
+							$cLastId = $this->model->comments->lastId();
+							$mentions = $this->comments->InsertMentions($cLastId, $usernames,$this->model->mentions);
+						}
 						redirect('/blog?id='. $_GET['id']);
 					}
 				}
 			}
 			# end comment
-
 			$data['post']['content'] = str_replace( "\n" , "<br/>" , $data['post']['content']);
-
 			$this->view('blog/index',$data);
 		}
 		$this->view('blog/footer');

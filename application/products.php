@@ -21,7 +21,7 @@ class Products Extends Application
 			redirect( '/' );
 		}
 		
-		if (config('features/comments')){
+		if (config('features/comments/core')){
 			$this->helper('forms');
 			$this->helper('time');
 			$this->helper('comments');
@@ -33,6 +33,7 @@ class Products Extends Application
 			
 			if (is_post('insert')) {
 				$c['comment'] = $this->validation->safe($_POST['comment']);
+				$m['comment'] = $c['comment'];
 				$c['uid'] = $this->sessions->get('uid');
 				$c['pid'] = $_GET['id'];
 				# get the time from jakarta
@@ -42,8 +43,17 @@ class Products Extends Application
 				$this->validation->required($c['comment'],l('comment_empty'));
 				
 				if (!sizeof($this->validation->errors)) {
-					$c['comment'] = $this->comments->Render($c['comment'],$this->model->users);
+
+					$usernames = array();
+					$c['comment'] = $this->comments->Render($c['comment'],$this->model->users,$usernames);
 					$this->model->comments->add($c);
+
+					if (config('features/comments/mentions')) {
+						$this->model('mentions');
+						$cLastId = $this->model->comments->lastId();
+						$mentions = $this->comments->InsertMentions($cLastId, $usernames,$this->model->mentions);
+					}
+
 					redirect('/product?id='.$_GET['id']);
 				}
 			}

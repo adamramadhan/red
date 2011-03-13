@@ -1,4 +1,4 @@
-<?php if (config('features/comments')): ?>
+<?php if (config('features/comments/core')): ?>
 	<?php $this->validation->geterrors(); ?>
 <?php endif ?>
 
@@ -49,7 +49,7 @@
 
 		
 		<!-- COMMENT START -->
-		<?php if (config('features/comments')): ?>
+		<?php if (config('features/comments/core')): ?>
 		<div id="comments">
 
 			<?php if ($count['COUNT(cid)'] == 0): ?>

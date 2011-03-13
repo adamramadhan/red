@@ -63,7 +63,7 @@ class ModelUsers extends Models
 	}
 
 	function getDataComments($username){
-		$data = $this->fetch('SELECT username, role, name FROM users WHERE username = :username LIMIT 1', array( 'username' => $username));
+		$data = $this->fetch('SELECT uid, username, role, name FROM users WHERE username = :username LIMIT 1', array( 'username' => $username));
 		return $data;		
 	}
 	

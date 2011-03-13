@@ -49,7 +49,7 @@
 						<div id="subtime">'.$this->time->formatDateDiff($key['timecreate']).'</div>
 						<div class="c" id="suboptions"><a href="product?id='.$key['pid'].'">Lihat</a></div>
 						</div>';
-					if (config('features/comments')){		
+					if (config('features/comments/core')){		
 						if (!empty($key['comments'])) {
 							echo '<ul id="comments">';
 							foreach ($key['comments'] as $comment) {
