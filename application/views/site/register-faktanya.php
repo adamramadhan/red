@@ -7,7 +7,7 @@
 				Hello Faktahunter, Lets start to make a <strong>change</strong>.
 			</div>
 			<ul>
-				<li style="padding: 10px;">netcoid dibentuk sebagai media, ispirasi dan menguatkan jiwa enturprainer indonesia, disini faktahunter dapat membuat profil toko, usaha atau organisasi sendiri untuk menawarkan produk <strong>karya original</strong> masing masing, faktahunter bisa saling berinteraksi dengan toko lainnya. Lengkapnya langsung ke <a style="color:#D32E2E" target="_blank" href="/why">Perkenalan</a>.</li>
+				<li style="padding: 10px;">netcoid dibentuk sebagai media, ispirasi dan menguatkan jiwa entrepreneur indonesia, disini faktahunter dapat membuat profil toko, usaha atau organisasi sendiri untuk menawarkan produk <strong>karya original</strong> masing masing, faktahunter bisa saling berinteraksi dengan toko lainnya. Lengkapnya langsung ke <a style="color:#D32E2E" target="_blank" href="/why">Perkenalan</a>.</li>
 				<li id="red-register-closed">1. masukan username yang diinginkan,nanti digunakan sebagai url anda seperti www.networks.co.id/username<li>
 				<li id="red-register-closed">2. kata sandi, pastinya tidak kami simpan secara langsung ( di hash / enskirpsi satu jalan ) kalo lupa
 					passwordnya cuma bisa direset. 'password' akan terlihat seperti ini di database<img src="http://dl.dropbox.com/u/5984602/images/hash.png" /> bisa sampai 200 char dan selalu diacak.<li>
