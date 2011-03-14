@@ -28,13 +28,14 @@ class Site extends Application
 				$this->postregister();
 			}
 
-			if (!is_get('secret','imavip')) {
+			if (!is_get('@faktanyaadalah')) {
 				$this->view('site/index');
 			}
 
-			if (is_get('secret','imavip')) {
-				$this->view('site/register');
-			}			
+			if (is_get('@faktanyaadalah')) {
+				$this->view('site/register-faktanya');
+			}
+						
 			#$this->view('site/index');
 			$this->view('site/footer');
 		}

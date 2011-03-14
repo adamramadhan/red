@@ -266,3 +266,11 @@ opacity:1;}
 .comments:target #time{
    color:#C0C56E !important;    
 }
+
+
+
+/*EVENT*/
+.faktanyaadalah{
+    background: url("/www-static/assets/images/bg/faktanyaadalah.gif") repeat 0 0 #000000;
+}
+.faktanyaadalah #red-content.background{ background: #fff;}
