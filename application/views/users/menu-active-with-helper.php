@@ -8,10 +8,14 @@
 				<?php if ($message['countmessage'] != 0): ?>
 					<span class="c" id="notification"><?php echo $message['countmessage'] ?></span>						
 				<?php endif ?>
-				<li><?php $views->href('/mentions',l('mentionscenter')); ?>
-				<?php if ($mentions['countmentions'] != 0): ?>
-					<span class="c" id="notification"><?php echo $mentions['countmentions'] ?></span>
+
+				<?php if (config('features/comments/mentions')): ?>
+					<li><?php $views->href('/mentions',l('mentionscenter')); ?>
+					<?php if ($mentions['countmentions'] != 0): ?>
+						<span class="c" id="notification"><?php echo $mentions['countmentions'] ?></span>
+					<?php endif ?>					
 				<?php endif ?>
+
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li><?php $views->href('/'.$this->sessions->get('username'),$this->sessions->get('name')); ?></li>
