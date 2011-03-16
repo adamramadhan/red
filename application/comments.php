@@ -20,9 +20,9 @@ class Comments Extends Application
 
 		if (is_get('o')) {
 			$this->model('mentions');
-			$data = $this->model->mentions->getDatafromCID($_GET['o']);
+			$data = $this->model->mentions->getDatafromCIDandUID($_GET['o'],$this->sessions->get('uid'));
 			if ($this->sessions->get('uid') == $data['uid']) {
-				$this->model->mentions->open($data['mid']);
+				$this->model->mentions->open($data['mid'],$this->sessions->get('uid'));
 				redirect('/mentions');
 			# security warning
 			} else { redirect('/'); }

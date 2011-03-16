@@ -33,8 +33,9 @@ class Models
 		$this->start->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
     }
 
-    public function insert($table, $data = array(), $lastid = NULL ){
+    public function insert($table, $data = array()){
     $fieldnames = array_keys($data);
+
     $name	= '( ' . implode(' ,', $fieldnames) . ' )';
     $value	= '(:' . implode(', :', $fieldnames) . ' )';
     $query 	= "INSERT INTO $table";

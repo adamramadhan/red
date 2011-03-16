@@ -89,16 +89,17 @@ class Application
 	{
 	    $search = array(
 	        '/<!--(.|\s)*?-->/', //strip html comments
-	        '/\>[^\S ]+/s', //strip whitespaces after tags, except space
-	        '/[^\S ]+\</s', //strip whitespaces before tags, except space
 	    );
 	    $replace = array(
 	        '',
-	        '>',
-	        '<'
 	    );
-	    
+
+
 	    $buffer = preg_replace($search, $replace, $buffer);	
+	    $buffer = trim($buffer);
+	    # https://github.com/tylerhall/html-compressor/blob/master/html-compressor.php#L138
+	    $buffer = str_replace(">\n<", '><', $buffer);
+
 	    return $buffer;
 	}
 	

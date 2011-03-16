@@ -125,7 +125,7 @@ class Admin Extends Application
 		# if request view
 		if (is_get('n')) {
 			$data['post'] = $this->model->blog->getPost($_GET['n']);
-			$data['post']['content'] = str_replace( "\n" , "<br />" , $data['post']['content']);
+			#$data['post']['content'] = str_replace( "\n" , "<br />" , $data['post']['content']);
 			$this->view('admin/blogview',$data);
 		}
 

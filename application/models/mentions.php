@@ -7,13 +7,13 @@ class ModelMentions extends Models
 	public $database = 'application';
 	
 	function add($data){
-		$data = $this->insert('mentions',$data);
+		$data = $this->query('INSERT INTO mentions ( uid, cid, open ) VALUES ' . implode(',', $data));
 		return $data;
 	}
 
-	function open($mid){
+	function open($mid,$uid){
 		$status = $this->query("UPDATE mentions SET 
-		open = 1 WHERE mid = :mid", array ( 'mid' => $mid ));
+		open = 1 WHERE mid = :mid and uid = :uid", array ( 'mid' => $mid, 'uid' => $uid ));
 		return $status;
 	}
 
@@ -22,9 +22,9 @@ class ModelMentions extends Models
 		return $status;
 	}
 
-	function getDatafromCID($cid){
-		$data = $this->fetch("SELECT uid, mid FROM mentions WHERE cid = :cid", 
-		array( 'cid' => $cid));
+	function getDatafromCIDandUID($cid,$uid){
+		$data = $this->fetch("SELECT uid, mid FROM mentions WHERE cid = :cid and uid = :uid", 
+		array( 'cid' => $cid, 'uid' => $uid));
 		return $data;
 	}
 }

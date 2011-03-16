@@ -3,12 +3,12 @@
 class Comments extends Application
 {
 	function InsertMentions($cid, $usernames,$modelmentions){
+		#create query one.
 		foreach ($usernames as $username => $data) {
-			$m['open'] = 0;
-			$m['uid'] = $data['uid'];
-			$m['cid'] = $cid;
-			$modelmentions->add($m);
+			$q[] = '("' . $data['uid'] . '", "' . $cid . '", 0)';
 		}
+
+		$modelmentions->add($q);
 		return true;
 	}
 		
@@ -25,7 +25,7 @@ class Comments extends Application
 			}
 		}
 
-		// updateing getusernames
+		// updateing getusernames above
 		$getusernames = $database;
 
 		/*$database = array('helloworld','netcoid');*/
