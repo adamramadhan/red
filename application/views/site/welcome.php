@@ -14,7 +14,7 @@
 			<h3>Kenapa Verifikasi</h3>
 			<p>Sebelumnya kami akan mengucapkan selamat kepada anda, anda berada pada 1000 pendaftar pertama. verivikasi akan digunakan
 				untuk mendapatkan seal penjual terpercaya*, saat ini kami hanya menerima PT, CV dan Pribadi, nantinya anda akan dihubungi dan dimintai
-				keterangan tentang organisasi anda, setelah itu kami akan meminta scan <a target="_blank" href="help.php">SUIP perusahaan</a> untuk PT dan CV. KTP untuk Private.
+				keterangan tentang organisasi anda, setelah itu kami akan meminta scan <a target="_blank" href="help.php">SIUP perusahaan</a> untuk PT dan CV. KTP untuk Private.
 			</p>				
 		</div>
 		<div class="box-approve">
