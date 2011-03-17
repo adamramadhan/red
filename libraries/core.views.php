@@ -21,7 +21,7 @@ class Views
         echo $class;
 	}
 
-	public function getIMG( $img )
+	public function getIMG( $img, $options = NULL )
 	{
 		if ( ! file_exists( "www-static". DS ."assets". DS ."images". DS . $img ) ) {
 			throw new Exception( "No such img as $img" );
@@ -29,7 +29,7 @@ class Views
 		
 		// epic fix / kalo dihapus jadinya ya cacat
 		$img = "/www-static". DS ."assets". DS ."images". DS . $img;
-		echo '<img src="' . $img . '" />';
+		echo '<img '. $options .' src="' . $img . '" />';
 	}
 	
 	public function getStorage( $uid, $img )
