@@ -4,6 +4,8 @@ class Router
 {
 	# url utamanya
 	protected $url;
+	# * subdomain
+	protected $subdomain; // edit
 	# rute regex di routes.php
 	private $routes;
 	# class dan methodnya
@@ -14,9 +16,8 @@ class Router
 	function __construct()
 	{
 		$this->url = str_replace(config('folder'), NULL, $_SERVER['REQUEST_URI']);
-
 		# fix untuk (?) jadi bisa terima get
-		$this->url = parse_url($this->url, PHP_URL_PATH);
+		$this->url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		$segments = explode('/',$this->url);
 
 		# membuat array pertama [0] hilang

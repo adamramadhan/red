@@ -1,5 +1,5 @@
 <?php 
-$text= '
+/*$text= '
 hallo, kami hari ini akan mencoba sistim comment, dapat dilihat pada halaman produk dan di blog ini.
 jika belum memfollow organisasi lainnya, kini saatnya untuk memfollow, kalian dapat melihat update terakhir seputar produk beserta commentnya.
 
@@ -44,6 +44,11 @@ $line = preg_replace('/\s\s+/', ' ', $line);
 $line = str_replace(">\n<", '><', $line);
 $line = trim($line);
 echo $line;
+*/
 
+		# edit
+		var_dump(explode('.',$_SERVER['HTTP_HOST']));
+		var_dump(explode('.', $_SERVER['SERVER_NAME'], 2));
+		# stop edit
 
 ?>
