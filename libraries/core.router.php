@@ -4,8 +4,6 @@ class Router
 {
 	# url utamanya
 	protected $url;
-	# * subdomain
-	protected $subdomain; // edit
 	# rute regex di routes.php
 	private $routes;
 	# class dan methodnya
