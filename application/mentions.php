@@ -6,6 +6,10 @@ class Mentions Extends Application
 	{
 		$this->library('sessions');
 		$this->helper('active');
+		if (!$this->sessions->get('uid')) {
+			redirect('/404');
+			die();
+		};
 	}
 
 	function index(){

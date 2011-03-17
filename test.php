@@ -46,9 +46,14 @@ $line = trim($line);
 echo $line;
 */
 
-		# edit
-		var_dump(explode('.',$_SERVER['HTTP_HOST']));
-		var_dump(explode('.', $_SERVER['SERVER_NAME'], 2));
-		# stop edit
+$hostname = $_SERVER['HTTP_HOST'];
+$baseHost = '.netcoid.co.id';
+
+$subdomain = substr($hostname, 0, -strlen($baseHost));
+if ($subdomain === 'www') {
+  $subdomain = '';
+}
+
+var_dump($subdomain);
 
 ?>

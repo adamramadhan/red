@@ -5,6 +5,10 @@ class Comments Extends Application
 	function __construct()
 	{
 		$this->library('sessions');
+		if (!$this->sessions->get('uid')) {
+			redirect('/404');
+			die();
+		};
 	}
 
 	function index(){
