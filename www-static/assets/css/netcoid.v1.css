@@ -72,7 +72,8 @@ span#notification {
     width: 705px;
 }
 
-.background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left top transparent;}
+.background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left top transparent;
+    height: 600px;}
 #red-content-left {
     float: left;
     padding-bottom: 40px;
