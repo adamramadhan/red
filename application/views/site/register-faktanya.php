@@ -31,7 +31,7 @@
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
 				<p><?php $views->href('/terms',l('terms')); ?></p>
-				<p><input type="submit" disabled="off" value="Setuju &amp; Registrasi" name="register" id="button"></p>
+				<p><input type="submit" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>
 		</div>				
