@@ -3,11 +3,16 @@
 # tos & confirmation right away
 
 User-agent: Googlebot
+
+# folders
 Disallow: /www-static
 Disallow: /libraries
 Disallow: /application
 Disallow: /middleware
 Disallow: /wiki
+
+# links
+# missing todo
 
 User-agent: *
 Disallow: /

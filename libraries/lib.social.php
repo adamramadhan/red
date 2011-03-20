@@ -1,4 +1,4 @@
-<?php  
+<?php if ( ! defined('SECURE')) exit('Hello, security@networks.co.id');
 /**
  * SOCIAL LIBRARY
  * connects with all the social things

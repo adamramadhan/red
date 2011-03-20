@@ -21,3 +21,5 @@ invitation break itu ya kaya kasih2 invitation. karena 2 sebanyak 222 invitation
 #chmod 644 semua image
 -tinggal di middleware doang
 chmod($savepath.'/'.$p['image'],0644);
+
+test

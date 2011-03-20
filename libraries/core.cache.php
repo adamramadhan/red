@@ -1,27 +1,48 @@
-<?php  
-/**
- * MEMCACHE CACHE
- * untuk sementara simple gini dulu
- * @author DAMS
- */
+<?php
+if (! defined ( 'SECURE' ))
+	exit ( 'Hello, security@networks.co.id' );
 
-class Cache
-{
+/**
+ * DONOTEDIT, temporary cacheing system
+ * @version 100.20/3/2011
+ * @package ENGINE/CORE
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ * @todo cacheing should be in models ?
+ */
+class Cache {
 	private $connect;
-	function __construct()
-	{
-		$memcached = new Memcache;
-		$memcached->connect(config('memcached/master/host'), config('memcached/master/port'));
+	
+	/**
+	 * Dependency injectors and Class init
+	 */
+	function __construct() {
+		$memcached = new Memcache ();
+		$memcached->connect ( config ( 'memcached/master/host' ), config ( 'memcached/master/port' ) );
 		$this->connect = $memcached;
 	}
 	
-	public function add($key, $value, $ttl = 60){
-		$this->connect->add($key,$value,$ttl);
+	/**
+	 * basic add function
+	 * @param string $key
+	 * @param array $value
+	 * @param int $ttl
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
+	public function add($key, $value, $ttl = 60) {
+		$this->connect->add ( $key, $value, $ttl );
 		return true;
 	}
 	
-	public function get($key){
-		return $this->connect->get($key);
+	/**
+	 * basic get function
+	 * @param string $keyF
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
+	public function get($key) {
+		return $this->connect->get ( $key );
 	}
 }
 

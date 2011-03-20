@@ -13,6 +13,11 @@ DirectoryIndex index.php
     Deny from all
 </Files>
 
+<Files ~ "^\.gitignore">
+    Order allow,deny
+    Deny from all
+</Files>
+
 <Files ~ "^\.ht">
     Order allow,deny
     Deny from all

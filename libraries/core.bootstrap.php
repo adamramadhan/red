@@ -1,78 +1,99 @@
-<?php  
+<?php
+if (! defined ( 'SECURE' ))
+	exit ( 'Hello, security@networks.co.id' );
 /**
- * function config
  * gets the config so we can inject it on anywhere who need it.
- * @param string $string 
- * @return void, configuration ( array or string )
- * @author DAMS
- * config()
- * @todo kalo dijadiin global aja gimana?
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $string
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
  */
-function config( $string ){
-    require 'configuration.php';
-    $keys = explode('/',$string);
-    foreach($keys as $key){
-        $config = $config[$key];
-    }
-    return $config;
-}
-
-
-/**
- * IS_POST()
- * ---------
- * this function is geting the if post exist true : false
- * @param	string	name of the post
- * @access global
- * @return boolean
- */ 
-function is_post( $name )
-{
-	return (isset($_POST[$name])) ? true : false;
+function config($string) {
+	require 'configuration.php';
+	$keys = explode ( '/', $string );
+	foreach ( $keys as $key ) {
+		$config = $config [$key];
+	}
+	return $config;
 }
 
 /**
- * IS_GET()
- * --------
- * this function is geting the if get exist true : false
- * @param	string	name of the get
- * @param	string	value of the get
- * @access global
- * @return boolean
- * @useage if ( is_get( 'at', NULL ) ) { echo "there is no $_GET['at'] here"; }
- */ 
-function is_get( $name, $value = NULL )
-{
-	if (!is_null($value)) {
-		if (isset($_GET[$name])) {
-			return ($_GET[$name] == $value) ? true : false;
+ * return bool if there is any post
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $string
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ */
+function is_post($name) {
+	return (isset ( $_POST [$name] )) ? true : false;
+}
+
+/**
+ * return bool if there is any post
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $name
+ * @param string $value
+ * @author rama@networks.co.id
+ * @tutorial wiki/docs/functions/global/is_get.txt
+ */
+function is_get($name, $value = NULL) {
+	if (! is_null ( $value )) {
+		if (isset ( $_GET [$name] )) {
+			return ($_GET [$name] == $value) ? true : false;
 		} else {
 			return false;
 		}
 	}
-	if (is_null($value)) {
+	if (is_null ( $value )) {
 		$value = NULL;
-		return (isset($_GET[$name])) ? true : false;
+		return (isset ( $_GET [$name] )) ? true : false;
 	}
 }
 
-function is_routes($string){
+/**
+ * return bool if a string exists in routes.php
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $string
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ */
+function is_routes($string) {
 	require 'routes.php';
-	if (in_array($string,array_keys($routes))) {
+	if (in_array ( $string, array_keys ( $routes ) )) {
 		return true;
 	} else {
 		return false;
 	}
 }
 
-function l($language){
-	require 'libraries/language/'. config('language') .'.php';
-	return $l[$language];
+/**
+ * return translate
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $language
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ */
+function l($language) {
+	require 'libraries/language/' . config ( 'language' ) . '.php';
+	return $l [$language];
 }
 
-function redirect($link) 
-{ 
-    header('Location: ' . $link);
-    exit($link);
+/**
+ * return redirect to a location useing header, then exit
+ * @version 100.20/3/2011
+ * @package ENGINE/BOOTSTRAP
+ * @param string $link
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ * @todo status codes
+ */
+function redirect($link) {
+	header ( 'Location: ' . $link );
+	exit ( $link );
 }
 ?>

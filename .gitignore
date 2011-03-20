@@ -1,8 +1,14 @@
 # NON FRAMEWORK #
 ###################
-
 phpmyadmin/*
 www-static/storage/*
 www-static/images/i
 wiki/*
 configuration.php
+
+# ZEND #
+########
+.metadata/*
+.settings/*
+.project
+.buildpath
