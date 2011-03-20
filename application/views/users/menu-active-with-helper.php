@@ -19,7 +19,6 @@
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li><?php $views->href('/'.$this->sessions->get('username'),$this->sessions->get('name')); ?></li>
-				<li><?php $views->href('/',l('home')); ?></li>
 				<li id="red-menu-login"><?php $views->href('/logout',l('logout')); ?></li>
 			</ul>
 		</div>

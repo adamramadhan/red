@@ -1,4 +1,6 @@
-<?php  
+<?php
+if (! defined ( 'SECURE' ))
+	exit ( 'Hello, security@networks.co.id' );
 /**
  * ROUTES
  * yang bawah menimpa yang diatas

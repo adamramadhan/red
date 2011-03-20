@@ -5,6 +5,7 @@ www-static/storage/*
 www-static/images/i
 wiki/*
 configuration.php
+debug/*
 
 # ZEND #
 ########

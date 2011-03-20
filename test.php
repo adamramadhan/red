@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*$text= '
 hallo, kami hari ini akan mencoba sistim comment, dapat dilihat pada halaman produk dan di blog ini.
 jika belum memfollow organisasi lainnya, kini saatnya untuk memfollow, kalian dapat melihat update terakhir seputar produk beserta commentnya.
@@ -46,14 +46,14 @@ $line = trim($line);
 echo $line;
 */
 
-$hostname = $_SERVER['HTTP_HOST'];
+$hostname = $_SERVER ['HTTP_HOST'];
 $baseHost = '.netcoid.co.id';
 
-$subdomain = substr($hostname, 0, -strlen($baseHost));
+$subdomain = substr ( $hostname, 0, - strlen ( $baseHost ) );
 if ($subdomain === 'www') {
-  $subdomain = '';
+	$subdomain = '';
 }
 
-var_dump($subdomain);
+var_dump ( $subdomain );
 
 ?>

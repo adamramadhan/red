@@ -91,6 +91,9 @@ span#notification {
 /* footer */
 #footer {    
     background: none repeat scroll 0 0 #F9F9F9;
+    background: -moz-linear-gradient(top, #f9fcf7 0%, #f5f9f0 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9fcf7), color-stop(100%,#f5f9f0));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fcf7', endColorstr='#f5f9f0',GradientType=0 );
     border-top: 1px solid #EEEEEE;
     margin-top: 20px;
 
@@ -107,8 +110,14 @@ span#notification {
     float: left;
 }
 #footer ul#copyright {
-    width: 370px;
+    width: 470px;
     float: right;
+}
+#footer ul#copyright a{color:#ccc;}
+#verified-business{
+    bottom: 5px;
+    position: relative;
+    right: 5px;
 }
 #footer ul#footer-menu li {
     float: left;

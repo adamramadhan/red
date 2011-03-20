@@ -1,14 +1,24 @@
 <?php
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
+
 /**
- * views tempatnya function2 views 
+ * DONOTEDIT, extend olny at /application/views
+ * @version 100.20/3/2011
+ * @package ENGINE/CORE
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
  */
 class Views {
-	function __construct() {
-	
+	final function __construct() {
+		# cant change construct
 	}
 	
+	/**
+	 * place a string for class css in views
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function ActiveCSS() {
 		$url = $_SERVER ["REQUEST_URI"];
 		$url = htmlspecialchars ( $url );
@@ -21,6 +31,13 @@ class Views {
 		echo $class;
 	}
 	
+	/**
+	 * echos a <img> from www-static/assets/images
+	 * @param string $img
+	 * @param array $options
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function getIMG($img, $options = NULL) {
 		if (! file_exists ( "www-static" . DS . "assets" . DS . "images" . DS . $img )) {
 			throw new Exception ( "No such img as $img" );
@@ -31,6 +48,13 @@ class Views {
 		echo '<img ' . $options . ' src="' . $img . '" />';
 	}
 	
+	/**
+	 * echos a <img> from www-static/storage/$uid/$img
+	 * @param int $uid
+	 * @param string $img
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function getStorage($uid, $img) {
 		
 		#var_dump("www-static". DS ."storage". DS . $uid . DS . $img);
@@ -42,8 +66,13 @@ class Views {
 		echo '<img src="' . $img . '" />';
 	}
 	
+	/**
+	 * echos a inline css style
+	 * @param args $views->css('css1','css2','etc');
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function CSS() {
-		
 		if (config ( 'compress' )) {
 			// See @ref #1
 			ob_start ( array ($this, 'compressorCSS' ) );
@@ -69,6 +98,12 @@ class Views {
 		}
 	}
 	
+	/**
+	 * echos a inline css style
+	 * @param args $views->css('css1','css2','etc');
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function JS() {
 		
 		if (config ( 'compress' )) {
@@ -97,19 +132,36 @@ class Views {
 		}
 	}
 	
-	#compressor CSS
+	/**
+	 * main compressor for CSS buffer
+	 * @param string $buffer
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function compressorCSS($buffer) {
 		$buffer = preg_replace ( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer );
 		$buffer = str_replace ( array ("\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $buffer );
 		return $buffer;
 	}
 	
-	#compressorJS
+	/**
+	 * main compressor for JS buffer
+	 * @param string $buffer
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function compressorJS($buffer) {
 		$buffer = str_replace ( array ("\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $buffer );
 		return $buffer;
 	}
 	
+	/**
+	 * echos a <a> for href or linking
+	 * @param string $link
+	 * @param string $language
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	public function href($link, $language) {
 		echo "<a href='$link'>$language</a>";
 	}

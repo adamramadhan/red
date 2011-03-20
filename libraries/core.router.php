@@ -1,6 +1,14 @@
 <?php
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
+
+/**
+ * DONOTEDIT, Router Class
+ * @version 100.20/3/2011
+ * @package ENGINE/CORE
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ */
 class Router {
 	# url utamanya
 	protected $url;
@@ -11,6 +19,9 @@ class Router {
 	# segments url ke parameter
 	private $params;
 	
+	/**
+	 * @todo split from construct
+	 */
 	function __construct() {
 		# fix untuk (?) jadi bisa terima get
 		$this->url = parse_url ( str_replace ( config ( 'folder' ), NULL, $_SERVER ['REQUEST_URI'] ), PHP_URL_PATH );
@@ -83,9 +94,12 @@ class Router {
 			//var_dump($segments);
 			#the magic happens, php 5.3.0 + need optimize see php docs
 			if (is_callable ( array ($controller, $method ) )) {
+				# http://stackoverflow.com/questions/5369099/call-user-func-array-vs-controller-methodparams/5369108#5369108
 				call_user_func_array ( array ($controller, $method ), $this->params );
+			
 			}
 		
+		#$controller->$method($this->params);
 		#diatas ini adalah proses pemanggilan kelas
 		}
 	}

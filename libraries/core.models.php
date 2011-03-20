@@ -3,7 +3,7 @@ if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 
 /**
- * DONOTEDIT, extend olny at application/models
+ * DONOTEDIT, extend olny at /application/models
  * @version 100.20/3/2011
  * @package ENGINE/CORE
  * @author rama@networks.co.id
@@ -25,8 +25,7 @@ class Models {
 		}
 		
 		if (! isset ( $this->database )) {
-			echo "database on this model is not set";
-			die ();
+			throw new Exception ( "database on this model is not set" );
 		}
 	}
 	

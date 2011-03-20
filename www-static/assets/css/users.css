@@ -264,6 +264,11 @@ margin:5px 0;}
     margin-top: 15px;
 
     width: 232px;}
+
+.bootstraps.ok{background: url("/www-static/assets/images/blue-gradiant200.gif") repeat-x scroll left center #FFFFFF;
+border:1px solid #0046B4;color:#222;}
+.bootstraps.ok .desc{border-top: 1px solid #308DEF;}
+.bootstraps.ok .image{ border-bottom: 1px solid #004EA0;}
 .bootstraps:last-child{
      margin-right: 0px !important;
 }

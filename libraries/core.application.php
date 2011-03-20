@@ -2,13 +2,32 @@
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 
+/**
+ * DONOTEDIT, extend olny at /application
+ * @version 100.20/3/2011
+ * @package ENGINE/CORE
+ * @author rama@networks.co.id
+ * @tutorial wiki/missing.txt
+ */
 class Application {
+	
+	/**
+	 * Dependency injectors and Class init
+	 * + its a place where we could include
+	 * global application properties or etc
+	 */
 	function __construct() {
 		if (config ( 'features/memcached' )) {
 			$this->cache = new Cache ();
 		}
 	}
 	
+	/**
+	 * loads a model in application
+	 * @param string $model
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	protected function model($model) {
 		$path = "application" . DS . "models" . DS . $model . ".php";
 		require $path;
@@ -23,6 +42,13 @@ class Application {
 		$this->model->$model = new $class ();
 	}
 	
+	/**
+	 * loads a view in application
+	 * @param string $model
+	 * @param array $data
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	protected function view($view, $data = NULL) {
 		require_once 'libraries/core.views.php';
 		$views = new Views ();
@@ -44,7 +70,6 @@ class Application {
 			}
 		}
 		
-		#require 'libraries/language/'. config('language') .'.php';
 		$path = "application" . DS . "views" . DS . $view . ".php";
 		require $path;
 		return TRUE;
@@ -54,6 +79,12 @@ class Application {
 		}
 	}
 	
+	/**
+	 * loads a library in application
+	 * @param string $lib
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	protected function library($lib) {
 		
 		if (file_exists ( 'libraries/lib.' . $lib . '.php' )) {
@@ -70,6 +101,12 @@ class Application {
 		}
 	}
 	
+	/**
+	 * loads a helper in application
+	 * @param string $help
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
 	protected function helper($help) {
 		
 		if (file_exists ( 'libraries/helpers/help.' . $help . '.php' )) {
@@ -85,12 +122,22 @@ class Application {
 		}
 	}
 	
+	/**
+	 * main compressor for application buffer
+	 * @param string $buffer
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 * @todo we need to strip lines without effecting /n ( example when editing happens )
+	 */
 	public function compressor($buffer) {
 		$search = array ('/<!--(.|\s)*?-->/' ); //strip html comments
+		# another search
 		
 
 		$replace = array ('' );
+		# another replace
 		
+
 		$buffer = preg_replace ( $search, $replace, $buffer );
 		$buffer = trim ( $buffer );
 		# https://github.com/tylerhall/html-compressor/blob/master/html-compressor.php#L138
@@ -99,7 +146,14 @@ class Application {
 		return $buffer;
 	}
 	
-	#singleton check yes
+	/**
+	 * loads a middleware in application
+	 * @param string $vendor
+	 * @param string $package
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 * @todo check the singleton checker line #160
+	 */
 	protected function middleware($vendor, $package) {
 		if (file_exists ( 'middleware' . DS . $vendor . DS . $package . '.php' )) {
 			

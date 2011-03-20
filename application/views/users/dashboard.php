@@ -1,3 +1,8 @@
+
+
+<div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
+<?php $views->getIMG('i/megaphonebybigfunkychiken.gif'); ?> Hallo, Profile URL berada di www.networks.co.id/<?php echo $user['username']; ?>, Jangan lupa untuk ctrl + D atau klik sini untuk Bookmark!</p></div>
+
 	<div class="clearfix" id="red-content">
 		<!-- FORM START -->
 		<div id="red-edit-full">
@@ -24,8 +29,8 @@
 				}
 				if (empty($userproduct)) {
 					echo '<div class="c bootstraps">
-						<div class="image">Create a Product.</div>	
-						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda dapat menjual.</div>
+						<div class="image">Create a Product</div>	
+						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda langsung dapat berbagi.</div>
 					</div>';
 				}
 				if (empty($feeds)) {
