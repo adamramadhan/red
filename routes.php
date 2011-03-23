@@ -13,8 +13,11 @@ $routes['404'] = 'core:missing';
 $routes['503'] = 'core:off';
 #$routes['default'] = 'core:index';
 
+
 #fitur profiles ke method index
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
+#mobile
+$routes['mobile'] = 'mobile:index';
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';
 $routes['secure'] = 'secure:index';

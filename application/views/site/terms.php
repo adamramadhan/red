@@ -9,8 +9,8 @@
 				atau pemberhentian layanan ini.
 				</p></li>
 				<li><hr/><h4>1.2 Konten</h4><p>netcoid tidak bertanggung jawab atas segala konten, produk atau hal lainnya, yang diposting, dikirimkan
-				dan dipublikasikan oleh pengguna layana netcoid. Anda bersedia dihapus, di nonaktifkan atau digugat tampa pemberitahuan jika anda melanggar <a href="#">ketentuan produk</a> dan  <a href="#">ketentuan konten</a>. Jika anda melihat user, perusahaan atau organisasi yang melanggar ketentuan dan persyaratan konten, diharapkan untuk segera menghubungi 
-				<a href="#">Pusat Bantuan Konten</a>
+				dan dipublikasikan oleh pengguna netcoid. Anda bersedia dihubungi, di nonaktifkan atau digugat tampa pemberitahuan jika anda melanggar <a href="#">ketentuan produk</a> dan  <a href="#">ketentuan konten</a>. Jika anda melihat user, perusahaan atau organisasi yang melanggar ketentuan dan persyaratan konten, diharapkan untuk segera menghubungi 
+				<a href="/help">Pusat Bantuan Konten</a>
 				</p>
 				<h4>1.2.1 Ketentuan Konten</h4>
 					<ul>
@@ -24,7 +24,7 @@
 					</ul>
 				<h4>1.2.2 Ketentuan Produk</h4>
 					<ul>
-						<li>Produk tidak boleh melanggar ketentuan merek terdaftar masing - masing, jika anda menjual produk sebuah merek terdaftar maka hukum yang berlaku adalah sesuai dengan merek terdaftar yang dijual yang dikeluarkan oleh kebijakan pemilik merek masing - masing</li>
+						<li>Produk tidak boleh melanggar ketentuan merek terdaftar, jika anda menjual produk merek terdaftar maka hukum yang berlaku adalah sesuai dengan merek terdaftar yang dijual yang dikeluarkan oleh kebijakan pemilik merek</li>
 						<li>Tidak boleh bermuatan JUDI berlaku untuk Konten, <a href="#">UU-ITE BAB VII Pasal 27 ayat 2</a><sup>6</sup></li>
 						<li>PORNOGRAFI, NARKOBA, DAN SEGALA MACAM PRODUK YANG TELAH DILARANG OLEH PEMERINTAH REPUBLIK INDONESIA<sup>7</sup></li>
 					</ul>
