@@ -182,6 +182,11 @@ margin:5px 0;}
 }
 #red-side-menu li a{ color:#444;text-decoration:none; }
 /*icon*/
+#red-side-menu ul ul li.iconhome{
+    background: url("/www-static/assets/images/i/dashboard.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
 #red-side-menu ul ul li.iconprofile{
     background: url("/www-static/assets/images/i/user.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;

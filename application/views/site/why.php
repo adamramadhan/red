@@ -12,22 +12,22 @@
 
 	<!-- CONTENT START -->
 	<div id="red-content">
-		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai media, ispirasi, dan menguatkan entrepreneur yang berada disetiap daerah indonesia. Berdiri pada 28 April 2010, Netcoid adalah jejaring bisnis pertama di Indonesia, dengan menggabungkan semua ide yang terbaik yang pernah ada di web, mulai dari social, profiles, dan sistim pencarian.</p></div>
+		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai ispirasi, teknologi dan media penghubung antar bisnis  yang berada disetiap daerah indonesia. Netcoid adalah jejaring bisnis pertama di Indonesia, dengan menggabungkan semua ide yang terbaik yang pernah ada di web, mulai dari social, profiles, dan sistim pencarian.</p></div>
 
-		<div class="whybox" id="how">Sebagai destinasi komunitas, Netcoid adalah sebuah layanan dalam bentuk aplikasi yang membantu saling <strong>menghubungkan, berinteraksi, dan bertransaksi</strong> yang dapat digunakan hingga ke organisasi <a href="http://en.wikipedia.org/wiki/Nonprofit_organization">non-profit</a>, dengan cara <strong>semudah, sedekat dan sesimple</strong> mungkin.
-		Saat ini kami juga membuka kerjasama kepada komunitas non-profit ( seperti komunitas pengrajin, komunitas kalangan wiraswasta mahasiswa, atau komunitas non-profit maupun profit lainnya ), jika berminat, silahkan email ke nonprofit@networks.co.id.
+		<div class="whybox" id="how">Sebagai destinasi dunia maya ( www ), Netcoid adalah sebuah layanan dalam bentuk aplikasi yang membantu saling <strong>menghubungkan, berinteraksi, dan bertransaksi</strong> yang dapat digunakan oleh pengusaha, perusahaan hingga ke organisasi <a href="http://en.wikipedia.org/wiki/Nonprofit_organization">non-profit</a>, dengan cara <strong>semudah, sedekat dan sebebas</strong> mungkin.
+		Saat ini kami membuka kerjasama kepada komunitas non-profit ( seperti komunitas pengrajin, komunitas kalangan wiraswasta mahasiswa, atau komunitas non-profit maupun profit lainnya ), jika berminat, silahkan email ke nonprofit@networks.co.id.
 		</div>
 
 		<div>
 		<h2>Seperti Apa?</h2>
-		<h3>Profile</h3>
+		<h3>Dapatkan Profile / Portofolio Sekaligus Website!</h3>
 		<?php $views->getIMG('what-1.png'); ?>
-		<h3>Beranda</h3>
+		<h3>Hubungkan Akun anda dengan Jejaring Social!</h3>
 		<?php $views->getIMG('what-2.png'); ?>
-		<h3>Products</h3>
+		<h3>Promosikan Produk Anda!</h3>
 		<?php $views->getIMG('what-3.png'); ?>
 		<h3>Lainnya?</h3>
-		anda dapat melihat informasi lainnya di blog netcoid http://networks.co.id/blog atau dengan langsung mendaftarkan diri sekarang. untuk informasi ke hello@networks.co.id
+		anda dapat melihat informasi lainnya di blog netcoid http://www.networks.co.id/blog atau dengan langsung mendaftarkan diri sekarang. untuk informasi ke hello@networks.co.id
 		</div>
 	</div>
 	<!-- CONTENT END -->

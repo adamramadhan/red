@@ -20,7 +20,7 @@
 			<li><p>Anda bisa menggunakan format :</p>
 				<p>[b]<strong>tulisan bold</strong>[b]</p>
 				<p>[i]<em>tulisan miring</em>[i]</p>
-				<p>[img]{url}[img]</p>
+				<p>[img]url.com/img.png[img]</p>
 			</li>
 		</ul>
 		</div>

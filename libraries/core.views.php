@@ -26,9 +26,14 @@ class Views {
 		$class = substr ( $class, 1 );
 		
 		$vowels = array ("@", "?" );
-		$class = str_replace ( $vowels, "", $class );
+		$pieces['request'] = str_replace ( $vowels, "", $class );
+		if (empty($pieces['request'])) {
+			$pieces['request'] = 'home';
+		}
 		
-		echo $class;
+		$pieces['version'] = 'v1';
+		$activecss = implode (' ', $pieces );
+		echo $activecss;
 	}
 	
 	/**
