@@ -27,11 +27,11 @@ class Site extends Application {
 				$this->postregister ();
 			}
 			
-			if (! is_get ( '@faktanyaadalah' )) {
+			if (! is_get ( 'faktanyaadalah' )) {
 				$this->view ( 'site/index' );
 			}
 			
-			if (is_get ( '@faktanyaadalah' )) {
+			if (is_get ( 'faktanyaadalah' )) {
 				$this->view ( 'site/register-faktanya' );
 			}
 			
