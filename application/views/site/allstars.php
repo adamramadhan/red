@@ -27,7 +27,7 @@
 		<div>
 			<h3>Friends</h3>
 			<h4>We cant have done this without them</h4>
-			<p>Yuda Djuanda, Dimas Maulana, Nencor, and others that we dont notice.
+			<p>Yuda Djuanda, Dimas Maulana, Nencor, Grahani Nene, and others that we dont notice.
 			</p>
 		</div>
 	</div>

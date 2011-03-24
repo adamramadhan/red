@@ -84,3 +84,16 @@ a#pic-2{
     background-repeat: no-repeat;
     padding-left: 35px;	
 }
+
+
+
+/*RESET*/
+#red-reset {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    margin: 120px auto 0;
+    padding: 5px;
+    width: 400px;
+}
+
+#red-reset #important{}

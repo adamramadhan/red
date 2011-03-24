@@ -1,13 +1,6 @@
-
-
-<div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
-<span style="position: relative;right: 5px;top: 2px;"<?php $views->getIMG('i/megaphonebybigfunkychiken.gif'); ?> </span>Hallo, Profile URL berada di www.networks.co.id/<?php echo $user['username']; ?>, Jangan lupa untuk ctrl + D atau klik sini untuk Bookmark!</p></div>
-
 	<div class="clearfix" id="red-content">
 		<!-- FORM START -->
 		<div id="red-edit-full">
-
-			
 			<!-- INFORMATION BOX -->
 			<div id="red-dashboard">
 				<ul class="clearfix">

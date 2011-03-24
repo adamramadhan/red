@@ -145,5 +145,33 @@ class Site extends Application {
 		$this->sessions->refresh ();
 		redirect ( '/' );
 	}
+
+	function reset(){
+		if (is_get('id')) {
+			$this->view ( 'site/header' );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			$this->model ( 'users' );
+			$this->library ( 'forms' );
+			$g['reset'] = $_GET['id'];
+			$data['user'] = $this->model->users->getReset($g);
+			if (empty($data['user'])) {
+				redirect ( '/404' );
+			}
+
+			if (is_post('reset')) {
+				$this->library ( 'security' );
+				$r ['uid'] = $data['user']['uid'];
+				$r ['password'] = $this->security->redhash512 ( $_POST ['password'], $data['user']['username'] );
+				$this->model->users->resetPassword($r);
+				redirect ( '/login' );
+			}
+			$this->view ( 'site/reset',$data );
+			$this->view ( 'site/footer' );		
+		}
+
+		if (!is_get('id')) {
+			redirect ( '/404' );
+		}
+	}
 }
 ?>

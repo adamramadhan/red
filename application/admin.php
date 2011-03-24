@@ -14,7 +14,6 @@ class Admin extends Application {
 			redirect ( '/404' );
 			die ();
 		}
-		;
 	}
 	
 	function index() {
@@ -25,8 +24,37 @@ class Admin extends Application {
 		$this->view ( 'site/footer' );
 	}
 	
-	function listdateunverified() {
-	
+	function reset() {
+
+		if (is_post('reset')) {
+			#$this->library ( 'security' );
+			$p['username'] = $_POST['username'];
+			$p['reset'] = hash('sha512', 'reset'.$_POST['username']);;
+			$this->model->users->addReset($p);
+			redirect ( '/admin/reset' );							
+		}
+
+		if (is_get('d')) {
+			$p['username'] = $_GET['d'];
+			$this->model->users->delReset($p);
+			redirect ( '/admin/reset' );
+		}
+
+		$data['active'] = $this->model->users->listReset();
+		# @todo tambah useruid dihashnya jadi nanti bisa dicari lebih cepet pake uid dari pada
+		# hash =  hash
+		$this->view ( 'admin/header' );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->helper ( 'forms' );
+		$this->view ( 'admin/reset',$data );
+		$this->view ( 'site/footer' );
+	}
+
+	function listreset() {
+		$this->view ( 'admin/header' );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->view ( 'admin/listreset' );
+		$this->view ( 'site/footer' );
 	}
 	
 	function listverified() {

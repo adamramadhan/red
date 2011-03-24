@@ -144,6 +144,39 @@ class ModelUsers extends Models {
 	    WHERE uid = :uid", $data );
 		return $update;
 	}
+
+	function addReset($data){
+		$update = $this->query ( "UPDATE users SET
+		reset = :reset
+	    WHERE username = :username", $data );
+		return $update;	
+	}
+
+	function delReset($data){
+		$update = $this->query ( "UPDATE users SET
+		reset = NULL
+	    WHERE username = :username", $data );
+		return $update;	
+	}
+
+	function getReset($reset) {
+		$data = $this->fetch ( 'SELECT username, name, uid FROM users 
+		WHERE reset = :reset LIMIT 1', $reset );
+		return $data;
+	}
+
+	function resetPassword($data){
+		$update = $this->query ( "UPDATE users SET
+		password = :password,
+		reset = NULL
+	    WHERE uid = :uid", $data );
+		return $update;			
+	}
+	function listReset(){
+		$data = $this->fetchAll ( "SELECT uid, username, reset FROM users WHERE reset IS NOT NULL" );
+		return $data;		
+	}
+
 }
 
 ?>

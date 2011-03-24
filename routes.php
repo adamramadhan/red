@@ -26,6 +26,7 @@ $routes['terms'] = 'site:terms';
 $routes['welcome'] = 'site:welcome';
 $routes['why'] = 'site:why';
 $routes['allstars'] = 'site:allstars';
+$routes['reset'] = 'site:reset';
 $routes['default'] = 'site:index';
 
 $routes['verify'] = 'verify:index';
@@ -63,6 +64,7 @@ if (config('features/comments/core')) {
 
 #admin Routes
 $routes['admin'] = 'admin:index';
+$routes['admin/reset'] = 'admin:reset';
 $routes['admin/blog'] = 'admin:blog';
 $routes['admin/newpost'] = 'admin:newpost';
 $routes['admin/unverify'] = 'admin:listverified';
