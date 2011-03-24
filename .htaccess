@@ -24,8 +24,8 @@ DirectoryIndex index.php
 </Files>
 
 <IfModule mod_rewrite.c>
-    RewriteCond %{HTTP_HOST} ^static.networks.co.id$
-    RewriteRule ^(.*)$ http://www.networks.co.id/www-static/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^networks.co.id$ [NC]
+    RewriteRule ^(.*)$ http://www.networks.co.id/$1 [R=301,L]
 </IfModule>
 
 ExpiresActive on
