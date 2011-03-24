@@ -52,6 +52,10 @@ class Verify extends Application {
 		if ($data ['user'] ['role'] == 5) {
 			$this->view ( 'verify/team', $data );
 		}
+
+		if ($data ['user'] ['role'] == 3) {
+			$this->view ( 'verify/mediapartner', $data );
+		}
 		
 		$this->view ( 'site/footer' );
 	}

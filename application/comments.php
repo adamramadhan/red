@@ -10,7 +10,6 @@ class Comments extends Application {
 			redirect ( '/404' );
 			die ();
 		}
-		;
 	}
 	
 	function index() {

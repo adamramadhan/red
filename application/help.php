@@ -23,13 +23,13 @@ class Help extends Application {
 			
 			if (is_post ( 'send' )) {
 				# untuk sementara first admin
-				$m ['RUID'] = $this->model->users->getRole ( 5, 1 );
+				$dataadmin = $this->model->users->getRole ( 5, 1 );
+				$m ['RUID'] = $dataadmin['0']['uid'];
 				$m ['SUID'] = $this->sessions->get ( 'uid' );
 				$m ['subject'] = $this->validation->safe ( $_POST ['subject'] );
 				$m ['message'] = $this->validation->safe ( $_POST ['message'] );
 				$m ['type'] = '0'; #notopen
 				
-
 				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
 				$m ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
 				
@@ -37,6 +37,7 @@ class Help extends Application {
 					$m ['subject'] = l ( 'nosubject' );
 				}
 				
+				$m ['subject'] = 'Bertanya ' . $m ['subject'] ;
 				$this->validation->required ( $m ['message'], l ( 'message_empty' ) );
 				
 				if (! sizeof ( $this->validation->errors )) {

@@ -69,6 +69,7 @@ $routes['admin/blog'] = 'admin:blog';
 $routes['admin/newpost'] = 'admin:newpost';
 $routes['admin/unverify'] = 'admin:listverified';
 $routes['admin/verify'] = 'admin:listunverified';
+$routes['admin/useredit'] = 'admin:useredit';
 
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?

@@ -63,6 +63,7 @@ $l['follow'] = 'Ikuti';
 $l['verified'] = 'Terverifikasi';
 $l['unverified'] = 'Belum Terverifikasi';
 $l['founder'] = 'founder';
+$l['mediapartner'] = 'Media Partner';
 /* INFORMATIONBOX*/
 $l['informationbox'] = 'Kotak Informasi <sup>1</sup>';
 

@@ -17,7 +17,6 @@ class Edit extends Application {
 			redirect ( '/404' );
 			die ();
 		}
-		;
 	}
 	
 	/**

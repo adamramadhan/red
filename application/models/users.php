@@ -126,6 +126,13 @@ class ModelUsers extends Models {
 		$status = $this->query ( "DELETE FROM products WHERE pid = :pid", array ('pid' => $pid ) );
 		return $status;
 	}
+
+	function editRole($data) {
+		$update = $this->query ( "UPDATE users SET
+	    role = :role
+	    WHERE username = :username", $data );
+		return $update;
+	}
 	
 	function verifiedUid($data) {
 		$update = $this->query ( "UPDATE users SET

@@ -42,6 +42,9 @@
 					if ($user['role'] == 1) {
 						echo '<span class="c" id="status-verified"><a target="_blank" href="/verify/'.$user['username'].'">'.l('verified').'</a></span>'; 
 					}
+					if ($user['role'] == 3) {
+						echo '<span class="c" id="status-mediapartner"><a target="_blank" href="/verify/'.$user['username'].'">'.l('mediapartner').'</a></span>'; 
+					}
 					if ($user['role'] == 5) {
 						echo '<span class="c" id="status-founder">'.l('founder').'</span>'; 
 					}

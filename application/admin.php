@@ -24,6 +24,22 @@ class Admin extends Application {
 		$this->view ( 'site/footer' );
 	}
 	
+	function useredit(){
+		$this->view ( 'admin/header' );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->helper ( 'forms' );
+
+		if (is_post('edit')) {
+			$e['username'] = $_POST['username'];
+			$e['role'] = $_POST['role'];
+			$this->model->users->editRole($e);
+			redirect ( '/admin/useredit' );
+		}
+
+		$this->view ( 'admin/useredit');
+		$this->view ( 'site/footer' );		
+	}
+
 	function reset() {
 
 		if (is_post('reset')) {

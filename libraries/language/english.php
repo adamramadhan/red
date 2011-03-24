@@ -63,6 +63,7 @@ $l['follow'] = 'Follow';
 $l['verified'] = 'Verified';
 $l['unverified'] = 'Unverified';
 $l['founder'] = 'Founder';
+$l['mediapartner'] = 'Media Partner';
 /* INFORMATIONBOX*/
 $l['informationbox'] = 'Information Box <sup>1</sup>';
 
