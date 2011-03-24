@@ -12,6 +12,11 @@ Disallow: /middleware
 Disallow: /wiki
 
 # links
+Disallow: /verify
+Disallow: /messages
+Disallow: /mentions
+Disallow: /edit
+
 # missing todo
 
 User-agent: *
