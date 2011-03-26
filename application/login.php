@@ -5,8 +5,7 @@ class Login extends Application {
 	# default page
 	# todo kalo ud login redirect
 	function index() {
-		#ssl
-		if($_SERVER['SERVER_PORT'] != '443') { header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); exit(); }
+
 		
 		$this->library ( 'validation' );
 		$this->library ( 'sessions' );
