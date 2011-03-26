@@ -6,7 +6,6 @@ class Login extends Application {
 	# todo kalo ud login redirect
 	function index() {
 
-		
 		$this->library ( 'validation' );
 		$this->library ( 'sessions' );
 		$this->library ( 'security' );
