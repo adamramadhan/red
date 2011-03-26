@@ -16,6 +16,7 @@ Disallow: /verify
 Disallow: /messages
 Disallow: /mentions
 Disallow: /edit
+Disallow: /area51
 
 # missing todo
 

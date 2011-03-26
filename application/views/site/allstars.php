@@ -14,7 +14,7 @@
 			<h3>Adam Ramadhan</h3>
 			<?php $views->getIMG('adam.jpg'); ?>
 			<h4>Development</h4>
-			<p>love to share ideas, passion, and ispiration. Currently he is persuing his Bechlahor at Binus university.
+			<p>Love to share ideas, passion, and ispiration. Currently he is persuing his study at Binus university.
 			</p>
 		</div>
 		<div id="box-help">

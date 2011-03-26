@@ -17,8 +17,11 @@ class Test extends Application {
 		if (is_get('d')) {
 			$this->sessions->del('login');
 		}
-				echo session_id().'<br/>';
+		echo session_id().'<br/>';
 		echo $this->sessions->get('login');
+	}
+	function hello(){
+		echo "string";
 	}
 }
 
