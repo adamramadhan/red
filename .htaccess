@@ -30,3 +30,8 @@ DirectoryIndex index.php
 
 ExpiresActive on
 ExpiresByType image/* "modification plus 1 minutes" 
+
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteCond %{REQUEST_URI} login 
+RewriteRule ^(.*)$ https://www.networks.co.id.com/login/$1 [R,L]
