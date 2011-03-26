@@ -13,6 +13,9 @@ class Test extends Application {
 		echo $this->sessions->get('login');
 	}
 	function test2(){
+		if (is_get('d')) {
+			$this->sessions->del('login');
+		}
 		echo $this->sessions->get('login');
 	}
 }
