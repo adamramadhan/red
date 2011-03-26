@@ -46,14 +46,8 @@ $line = trim($line);
 echo $line;
 */
 
-$hostname = $_SERVER ['HTTP_HOST'];
-$baseHost = '.netcoid.co.id';
-
-$subdomain = substr ( $hostname, 0, - strlen ( $baseHost ) );
-if ($subdomain === 'www') {
-	$subdomain = '';
+if (isset($_REQUEST[PHPSESSID])) {
+session_id($_REQUEST[PHPSESSID]);
 }
-
-var_dump ( $subdomain );
 
 ?>
