@@ -89,7 +89,7 @@ class ReCaptcha {
 		#recaptchalink1,#recaptchalink2{background: none repeat scroll 0 0 #444444;
 		        background: none repeat scroll 0 0 #FFF4CB;
     			padding: 2px;}
-    	#recaptcha_response_field{margin-top: 20px;}</style>
+    	#recaptcha_response_field{margin-top: 20px;direction: ltr;}</style>
     	";
 		echo '<div class="clearfix" id="recaptchaplugin" style="display:none;">';
 		
