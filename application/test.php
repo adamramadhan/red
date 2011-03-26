@@ -12,6 +12,9 @@ class Test extends Application {
 		$this->sessions->set('login',1);
 		echo $this->sessions->get('login');
 	}
+	function test2(){
+		echo $this->sessions->get('login');
+	}
 }
 
 ?>
