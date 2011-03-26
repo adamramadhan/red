@@ -10,12 +10,14 @@ class Test extends Application {
 	
 	function test() {
 		$this->sessions->set('login',1);
+		echo session_id().'<br/>';
 		echo $this->sessions->get('login');
 	}
 	function test2(){
 		if (is_get('d')) {
 			$this->sessions->del('login');
 		}
+				echo session_id().'<br/>';
 		echo $this->sessions->get('login');
 	}
 }
