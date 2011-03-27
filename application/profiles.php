@@ -63,37 +63,46 @@ class Profiles extends Application {
 			
 
 			// start social
-			if ($this->cache->get ( "social:yahoo:$username" )) {
-				$data ['yahoo'] = $this->cache->get ( "social:yahoo:$username" );
+			if (config ( 'features/memcached' )) {		
+				if ($this->cache->get ( "social:yahoo:$username" )) {
+					$data ['yahoo'] = $this->cache->get ( "social:yahoo:$username" );
+				}
+				
+				if (! $this->cache->get ( "social:yahoo:$username" )) {
+					$status = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
+					$this->cache->add ( "social:yahoo:$username", $status, FALSE, 120 );
+					$data ['yahoo'] = $status;
+				}
+				
+				if ($this->cache->get ( "social:twitter:$username" )) {
+					$data ['twitter'] = $this->cache->get ( "social:twitter:$username" );
+				}
+				
+				if (! $this->cache->get ( "social:twitter:$username" )) {
+					$status = $this->social->getTwitterProfile ( $data ['user'] ['twitter'] );
+					$this->cache->add ( "social:twitter:$username", $status, FALSE, 120 );
+					$data ['twitter'] = $status;
+				}
+				
+				if ($this->cache->get ( "social:facebook:$username" )) {
+					$data ['facebook'] = $this->cache->get ( "social:facebook:$username" );
+				}
+				
+				if (! $this->cache->get ( "social:facebook:$username" )) {
+					$status = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
+					$this->cache->add ( "social:facebook:$username", $status, FALSE, 120 );
+					$data ['facebook'] = $status;
+				}
+				
+				if (! empty ( $data ['user'] ['facebook'] )) {
+					$data ['facebookdata'] = $this->social->getFacebookPageData ( $data ['user'] ['facebook'] );
+				}
 			}
-			
-			if (! $this->cache->get ( "social:yahoo:$username" )) {
-				$status = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
-				$this->cache->add ( "social:yahoo:$username", $status, FALSE, 120 );
-				$data ['yahoo'] = $status;
-			}
-			
-			if ($this->cache->get ( "social:twitter:$username" )) {
-				$data ['twitter'] = $this->cache->get ( "social:twitter:$username" );
-			}
-			
-			if (! $this->cache->get ( "social:twitter:$username" )) {
-				$status = $this->social->getTwitterProfile ( $data ['user'] ['twitter'] );
-				$this->cache->add ( "social:twitter:$username", $status, FALSE, 120 );
-				$data ['twitter'] = $status;
-			}
-			
-			if ($this->cache->get ( "social:facebook:$username" )) {
-				$data ['facebook'] = $this->cache->get ( "social:facebook:$username" );
-			}
-			
-			if (! $this->cache->get ( "social:facebook:$username" )) {
-				$status = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
-				$this->cache->add ( "social:facebook:$username", $status, FALSE, 120 );
-				$data ['facebook'] = $status;
-			}
-			
-			if (! empty ( $data ['user'] ['facebook'] )) {
+
+			if (!config ( 'features/memcached' )) {		
+				$data ['twitter'] = $this->social->getTwitterProfile ( $data ['user'] ['twitter'] );
+				$data ['yahoo'] = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
+				$data ['facebook'] = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
 				$data ['facebookdata'] = $this->social->getFacebookPageData ( $data ['user'] ['facebook'] );
 			}
 			// end social

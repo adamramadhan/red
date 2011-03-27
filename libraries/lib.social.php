@@ -114,9 +114,13 @@ class Social {
 	}
 	
 	public function getYahooProfile($yahoo_id) {
+
+		if (preg_match ( "/([a-zA-Z0-9_\s]{6,30})@yahoo.com/", $yahoo_id, $matches )) {
+			$yahoo_id = $matches [1];
+		}
+
 		$url = "http://opi.yahoo.com/online?u=" . $yahoo_id . "&m=t";
 		$fp = @fopen ( $url, 'r' );
-		
 		if (! $fp) {
 			$status = 'maaf, untuk saat ini koneksi jaringan kami dengan Twitter sedang bermasalah, silahkan hubungi api@networks.co.id';
 		}
@@ -130,6 +134,7 @@ class Social {
 				$status = 'Sedang tidak online.';
 			}
 		}
+		
 		return $status;
 	}
 	
