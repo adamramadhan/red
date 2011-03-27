@@ -28,7 +28,7 @@ class Test extends Application {
 		echo $this->sessions->get('login');
 	}
 	function info(){
-		ini_set('suhosin.session.encrypt','off')
+		ini_set('suhosin.session.encrypt','off');
 		echo ini_get('suhosin.session.encrypt'). "<br/>";
 		echo 'post_max_size = ' . ini_get('post_max_size') . "<br/>";
 		echo 'post_max_size+1 = ' . (ini_get('post_max_size')+1) . "<br/>";
