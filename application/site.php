@@ -27,14 +27,17 @@ class Site extends Application {
 				$this->postregister ();
 			}
 			
-			if (! is_get ( 'faktanyaadalah' )) {
+			if (! is_get( 'faktanyaadalah' ) && ! is_get( 'binus' )) {
 				$this->view ( 'site/index' );
 			}
 			
-			if (is_get ( 'faktanyaadalah' )) {
+			if (is_get ('faktanyaadalah' )) {
 				$this->view ( 'site/register-faktanya' );
 			}
-			
+			if (is_get ('binus' )) {
+				$this->view ( 'site/register-facebook' );
+			}
+						
 			#$this->view('site/index');
 			$this->view ( 'site/footer' );
 		}

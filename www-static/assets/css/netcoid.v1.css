@@ -285,4 +285,7 @@ opacity:1;}
     background: url("/www-static/assets/images/bg/faktanyaadalah.gif") repeat 0 0 #000000;
 }
 .faktanyaadalah #red-content.background{ background: #fff;}
-
+.binus #red-content.background{    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #666666;}
+.binus{    background: url("/www-static/assets/images/bg/logo-binus.gif") repeat 0 0 #000000;
+}

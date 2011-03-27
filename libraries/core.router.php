@@ -53,7 +53,8 @@ class Router {
 				
 				#cari tanda $ dan mengubahnya jadi backref dari regex ($back)
 				if (strpos ( $request, '$' ) !== FALSE and strpos ( $regex, '(' ) !== FALSE) {
-					$this->controller = preg_replace ( '#^' . $regex . '$#', $request, $this->url );
+					$controller = preg_replace ( '#^' . $regex . '$#', $request, $this->url );
+					$this->controller = $controller;
 				}
 			}
 		}
@@ -63,7 +64,7 @@ class Router {
 			//$this->controller = $routes['404'];
 			redirect ( '/404' );
 		}
-		
+
 		#dispatch the routes
 		$hello = explode ( ':', $this->controller );
 		$path = "application/" . $hello ['0'] . ".php";
