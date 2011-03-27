@@ -28,11 +28,7 @@ DirectoryIndex index.php
     RewriteRule ^(.*)$ https://www.networks.co.id/$1 [R=301,L]
 </IfModule>
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://www.networks.co.id/$1 [R,L]
-</IfModule>
+
 
 ExpiresActive on
 ExpiresByType image/* "modification plus 1 minutes" 
