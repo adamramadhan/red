@@ -29,6 +29,7 @@ class Test extends Application {
 	}
 	function info(){
 		echo ini_get('suhosin.session.encrypt');
+		echo ini_get('display_errors');
 		phpinfo();
 	}
 }
