@@ -20,6 +20,7 @@ class Test extends Application {
 		if (is_get('d')) {
 			$this->sessions->del('login');
 			$this->sessions->del('aw');
+			$this->sessions->flush();
 		}
 		echo session_id().'<br/>';
 

@@ -58,12 +58,13 @@ class Sessions {
 		$this->config = config ( 'sessions' );
 		
 		# doing some importing things
+		#session_name("NETCOID");
+		ini_set ( 'session.name', $this->config ['session_name'] );
 		ini_set ( 'session.cookie_httponly', $this->config ['cookie_httponly'] );
 		ini_set ( 'session.gc_probability', $this->config ['gc_probability'] );
 		ini_set ( 'session.gc_divisor', $this->config ['gc_divisor'] );
 		ini_set ( 'session.hash_function', $this->config ['hash_function'] );
 		ini_set ( 'session.gc_maxlifetime', $this->config ['gc_maxlifetime'] );
-		ini_set ( 'session.name', $this->config ['session_name'] );
 		# start the engine
 		session_start ();
 	}
