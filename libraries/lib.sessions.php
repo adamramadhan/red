@@ -58,7 +58,7 @@ class Sessions {
 		$this->config = config ( 'sessions' );
 		
 		# doing some importing things
-		#session_name("NETCOID");
+		# session_name("NETCOID");
 		ini_set ( 'session.name', $this->config ['session_name'] );
 		ini_set ( 'session.cookie_httponly', $this->config ['cookie_httponly'] );
 		ini_set ( 'session.gc_probability', $this->config ['gc_probability'] );

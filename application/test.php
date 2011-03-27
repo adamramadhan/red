@@ -12,8 +12,7 @@ class Test extends Application {
 		$this->sessions->set('login',1);
 		$_SESSION['aw'] = 'test';
 		echo session_id().'<br/>';
-		echo $_SERVER["SSL_SESSION_ID"].'<br/>';
-		echo $_SESSION["aw"].'<br/>';
+		var_dump($_SESSION).'<br/>';
 		echo $this->sessions->get('login');
 	}
 	function test2(){
@@ -24,8 +23,7 @@ class Test extends Application {
 		}
 		echo session_id().'<br/>';
 
-		echo $_SERVER["SSL_SESSION_ID"].'<br/>';
-		echo $_SESSION["aw"].'<br/>';
+		var_dump($_SESSION).'<br/>';
 		echo $this->sessions->get('login');
 	}
 	function info(){
