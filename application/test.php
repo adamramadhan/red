@@ -20,8 +20,8 @@ class Test extends Application {
 		echo session_id().'<br/>';
 		echo $this->sessions->get('login');
 	}
-	function hello(){
-		echo "string";
+	function info(){
+		phpinfo();
 	}
 }
 
