@@ -25,7 +25,13 @@ DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
     RewriteCond %{HTTP_HOST} ^networks.co.id$ [NC]
-    RewriteRule ^(.*)$ http://www.networks.co.id/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://www.networks.co.id/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://www.networks.co.id/$1 [R,L]
 </IfModule>
 
 ExpiresActive on
