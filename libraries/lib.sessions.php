@@ -61,6 +61,7 @@ class Sessions {
 		# session_name("NETCOID");
 		ini_set ( 'session.name', $this->config ['session_name'] );
 		ini_set ( 'session.cookie_domain', $this->config ['cookie_domain'] );
+		ini_set ( 'session.cookie_secure', $this->config ['cookie_secure'] );
 		ini_set ( 'session.cookie_httponly', $this->config ['cookie_httponly'] );
 		ini_set ( 'session.gc_probability', $this->config ['gc_probability'] );
 		ini_set ( 'session.gc_divisor', $this->config ['gc_divisor'] );
