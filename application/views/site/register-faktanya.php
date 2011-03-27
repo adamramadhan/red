@@ -12,7 +12,7 @@
 				<li id="red-register-closed">2. Masukan kata sandi, Data yang tersimpan di netcoid seperti <i>password</i>, kami simpan secara terenkripsi sehingga data yang anda simpan <strong>aman</strong> dan <strong>tidak dapat disalahgunakan oleh pihak manapun</strong>, pastikan anda mengunjungi <a style="color:#D32E2E" href="/terms"><u>Persyaratan & Privacy</u></a> terlebih dahulu. Anda bisa <i>mereset password</i> anda dengan menghubungi <a href="/help"><u>Pusat Bantuan</u></a>.<li>
 				<li id="red-register-closed">3. Masukan nama usaha, toko atau organisasi anda, Pastikan bahwa nama usaha anda sesuai.<li>
 				<li id="red-register-closed">4. Masukan nomer kontak usaha, perhatikan format pengisian seperti 000-1234567 atau berformat GSM 08123456789.<li>
-				<script src="http://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
+				<script src="https://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
 				  <script type="text/javascript">
 				    twttr.anywhere(function (T) {
 				      T.hovercards();
