@@ -63,6 +63,7 @@ class Sessions {
 		ini_set ( 'session.gc_divisor', $this->config ['gc_divisor'] );
 		ini_set ( 'session.hash_function', $this->config ['hash_function'] );
 		ini_set ( 'session.gc_maxlifetime', $this->config ['gc_maxlifetime'] );
+		ini_set ( 'session.name', $this->config ['session_name'] )
 		# start the engine
 		session_start ();
 	}
