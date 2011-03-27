@@ -11,6 +11,7 @@ class Test extends Application {
 	function test() {
 		$this->sessions->set('login',1);
 		echo session_id().'<br/>';
+		echo $_SERVER["SSL_SESSION_ID"].'<br/>';
 		echo $this->sessions->get('login');
 	}
 	function test2(){
@@ -18,6 +19,7 @@ class Test extends Application {
 			$this->sessions->del('login');
 		}
 		echo session_id().'<br/>';
+		echo $_SERVER["SSL_SESSION_ID"].'<br/>';
 		echo $this->sessions->get('login');
 	}
 	function info(){
