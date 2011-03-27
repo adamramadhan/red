@@ -1,5 +1,6 @@
 <?php
 # CORE CONFIGURATION 
+ini_set ( 'suhosin.session.cryptdocroot', 'On' );
 define ( 'SECURE', TRUE );
 define ( 'DS', '/' );
 define ( 'STORAGE', realpath ( dirname ( __FILE__ ) . '/www-static/storage' ) );
