@@ -2,21 +2,24 @@
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 class Admin extends Application {
+	public $role;
 	# put global things here
 	function __construct() {
 		$this->library ( 'sessions' );
 		$this->model ( 'users' );
 		$this->helper ( 'active' );
 		
-		$data = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
-		
-		if ($data ['role'] != 5) {
-			redirect ( '/404' );
-			die ();
-		}
+		$this->user = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
 	}
 	
 	function index() {
+
+		if ($this->user['role'] == 3 || $this->user['role'] == 5) {
+		} else {
+			redirect ( '/404' );
+			die ();		
+		}
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
@@ -25,6 +28,12 @@ class Admin extends Application {
 	}
 	
 	function useredit(){
+
+		if ($this->user['role'] != 5) {
+			redirect ( '/404' );
+			die ();
+		}		
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
@@ -41,6 +50,11 @@ class Admin extends Application {
 	}
 
 	function reset() {
+
+		if ($this->user['role'] != 5) {
+			redirect ( '/404' );
+			die ();
+		}	
 
 		if (is_post('reset')) {
 			#$this->library ( 'security' );
@@ -67,6 +81,12 @@ class Admin extends Application {
 	}
 
 	function listreset() {
+
+		if ($this->user['role'] != 5) {
+			redirect ( '/404' );
+			die ();
+		}	
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'admin/listreset' );
@@ -74,6 +94,12 @@ class Admin extends Application {
 	}
 	
 	function listverified() {
+
+		if ($this->user['role'] != 5) {
+			redirect ( '/404' );
+			die ();
+		}
+			
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
@@ -96,6 +122,12 @@ class Admin extends Application {
 	}
 	
 	function listunverified() {
+
+		if ($this->user['role'] != 5) {
+			redirect ( '/404' );
+			die ();
+		}	
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
@@ -150,6 +182,12 @@ class Admin extends Application {
 	}
 	
 	function blog() {
+		if ($this->user['role'] == 3 || $this->user['role'] == 5) {
+		} else {
+			redirect ( '/404' );
+			die ();		
+		}
+
 		$this->model ( 'blog' );
 		
 		$this->view ( 'admin/header' );
@@ -211,6 +249,13 @@ class Admin extends Application {
 	}
 	
 	function newpost() {
+
+		if ($this->user['role'] == 3 || $this->user['role'] == 5) {
+		} else {
+			redirect ( '/404' );
+			die ();		
+		}
+
 		$this->library ( 'validation' );
 		# unvefieid users
 		$this->view ( 'admin/header' );
