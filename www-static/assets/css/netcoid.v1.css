@@ -289,3 +289,8 @@ opacity:1;}
     border: 1px solid #666666;}
 .binus{    background: url("/www-static/assets/images/bg/logo-binus.gif") repeat 0 0 #000000;
 }
+
+.uniqpost{
+    background: url("/www-static/assets/images/bg/uniqpost.png") repeat 0 0 #000000;
+}
+.uniqpost #red-content.background{ background: #fff;}

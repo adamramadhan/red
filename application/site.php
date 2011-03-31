@@ -27,7 +27,7 @@ class Site extends Application {
 				$this->postregister ();
 			}
 			
-			if (! is_get( 'faktanyaadalah' ) && ! is_get( 'binus' )) {
+			if (! is_get( 'faktanyaadalah' ) && ! is_get( 'binus' ) && ! is_get( 'uniqpost' )) {
 				$this->view ( 'site/index' );
 			}
 			
@@ -37,7 +37,10 @@ class Site extends Application {
 			if (is_get ('binus' )) {
 				$this->view ( 'site/register-facebook' );
 			}
-						
+			if (is_get ('uniqpost' )) {
+				$this->view ( 'site/register-uniqpost' );
+			}
+									
 			#$this->view('site/index');
 			$this->view ( 'site/footer' );
 		}
