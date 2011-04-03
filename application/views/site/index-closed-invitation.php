@@ -42,7 +42,7 @@
 	<script src="https://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
 	  <script type="text/javascript">
 		  twttr.anywhere(function (T) {
-		    T('#follow-twitterapi').followButton("twitterapi");
+		    T('#follow-twitterapi').followButton("netcoid");
 		  });
 	  </script>
 	  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
