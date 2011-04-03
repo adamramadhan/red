@@ -1,13 +1,6 @@
 Options -indexes
 DirectoryIndex index.php
 
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php [L,QSA]
-</IfModule>
-
 <Files ~ "^\.git">
     Order allow,deny
     Deny from all
@@ -32,6 +25,13 @@ DirectoryIndex index.php
     RewriteEngine On
     RewriteCond %{SERVER_PORT} 80
     RewriteRule ^(.*)$ https://www.networks.co.id/$1 [R,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
 
 ExpiresActive on
