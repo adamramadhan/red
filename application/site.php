@@ -32,13 +32,13 @@ class Site extends Application {
 			}
 			
 			if (is_get ('faktanyaadalah' )) {
-				$this->view ( 'site/register-faktanya' );
+				$this->view ( 'site/index-closed-invitation' );
 			}
 			if (is_get ('binus' )) {
-				$this->view ( 'site/register-facebook' );
+				$this->view ( 'site/index-closed-invitation' );
 			}
 			if (is_get ('uniqpost' )) {
-				$this->view ( 'site/register-uniqpost' );
+				$this->view ( 'site/index-closed-invitation' );
 			}
 									
 			#$this->view('site/index');
