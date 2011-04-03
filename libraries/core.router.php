@@ -41,7 +41,7 @@ class Router {
 		
 		// get the clean url eg: /url1/url2 from www.link.com/url1/url2
 		$uri = implode ( '/', $segments );
-		//var_dump($uri);
+		var_dump($uri);die();
 		#execute and search regex routeing from routes.php
 		foreach ( $routes as $regex => $request ) {
 			if (preg_match ( '#^' . $regex . '$#', $uri )) {
