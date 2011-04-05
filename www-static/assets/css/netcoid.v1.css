@@ -72,7 +72,7 @@ span#notification {
     width: 705px;
 }
 
-.background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left top transparent;
+.background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent;
     height: 600px;}
 #red-content-left {
     float: left;
