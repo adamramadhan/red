@@ -21,13 +21,18 @@ class Blog extends Application {
 	}
 	
 	function index() {
-		# sampe sini
 		$data ['posts'] = $this->model->blog->listNewsTitle ();
-		$this->view ( 'blog/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		
-		$this->view ( 'blog/blog-menu' );
+
 		if (! is_get ( 'id' )) {
+
+			# SEO START
+			$header ['title'] = "netcoid official blog &mdash; media peluang bisnis online";
+			$this->view ( 'blog/header',$header );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			$this->view ( 'blog/blog-menu' );
+			# SEO END
+
 			$data ['post'] = $this->model->blog->getLastPost ();
 			
 			# start comment
@@ -61,7 +66,8 @@ class Blog extends Application {
 			# end comment
 			
 
-			$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
+			#$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
+			$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
 			$this->view ( 'blog/index', $data );
 		
 		}
@@ -70,6 +76,13 @@ class Blog extends Application {
 			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
 			
+			# SEO START
+			$header ['title'] = 'netcoid official blog &mdash; '. $data['post']['title'];
+			$this->view ( 'blog/header',$header );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			$this->view ( 'blog/blog-menu' );
+			# SEO END
+									
 			# start comment
 			if (config ( 'features/comments/core' )) {
 				$data ['comments'] = $this->model->comments->listCommentsByNID ( $_GET ['id'] );
@@ -99,7 +112,8 @@ class Blog extends Application {
 				}
 			}
 			# end comment
-			$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
+			#$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
+			$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
 			$this->view ( 'blog/index', $data );
 		}
 		$this->view ( 'blog/footer' );
