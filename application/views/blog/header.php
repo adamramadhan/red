@@ -7,5 +7,6 @@
 		<meta name="keywords" content="jejaring bisnis, social business, partner usaha, usaha indonesia" />
 		<title><?php echo $title; ?></title>
 		<?php $views->css('framework','netcoid.v1','blog'); ?>
+		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 	</head>
 <body>
