@@ -222,6 +222,7 @@ class Admin extends Application {
 				if (config('middleware/wmd')) {	
 					$n ['content'] = $_POST ['content'];
 					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+					echo "on";
 				}
 				if (!config('middleware/wmd')) {	
 					$n ['content'] = $_POST ['content'];
