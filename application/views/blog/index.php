@@ -85,7 +85,6 @@
 					<li id="blog-icon-deviantart"><?php $views->href('http://netcoid.deviantart.com','@deviantart'); ?></li>
 				</ul>	
 			</div>
-
 		</div>
 	</div>
 	<!-- CONTENT END -->

@@ -17,6 +17,6 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-<?php $views->js('jquery'); ?>
+<?php $views->js('middleware/google/google-analytics'); ?>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 </html>
