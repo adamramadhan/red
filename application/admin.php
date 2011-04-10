@@ -219,7 +219,16 @@ class Admin extends Application {
 				
 				# @todo strip all code for security
 				$n ['title'] = $_POST ['title'];
-				$n ['content'] = $_POST ['content'];
+
+				if (config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+				}
+				if (!config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['content'];
+				}
+
 				$n ['tag'] = $_POST ['tag'];
 				$n ['nid'] = $_GET ['e'];
 				$n ['uid'] = $this->sessions->get ( 'uid' );
@@ -245,7 +254,7 @@ class Admin extends Application {
 			$this->view ( 'admin/blog', $data );
 		}
 		
-		$this->view ( 'site/footer' );
+		$this->view ( 'admin/footer' );
 	}
 	
 	function newpost() {
@@ -268,10 +277,12 @@ class Admin extends Application {
 			$n ['title'] = $_POST ['title'];
 			
 			if (config('middleware/wmd')) {	
-				$n ['content'] = $_POST ['js-middleware-wmd-output'];
+				$n ['content'] = $_POST ['content'];
+				$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
 			}
 			if (!config('middleware/wmd')) {	
 				$n ['content'] = $_POST ['content'];
+				$n ['content_html'] = $_POST ['content'];
 			}
 
 			$n ['tag'] = $_POST ['tag'];

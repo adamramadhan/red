@@ -29,6 +29,10 @@ class Blog extends Application {
 			# GET LATEST POST DATA
 			$data ['post'] = $this->model->blog->getLastPost ();
 
+			if (config('middleware/wmd')) {	
+				$data ['post'] ['content'] = $data ['post'] ['content_html'];
+			}
+
 			# SEO START
 			# @todo karena dihalaman depan ada konten yang sama gimana?
 			$header ['title'] = "netcoid official blog &mdash; media peluang bisnis online";
@@ -82,6 +86,10 @@ class Blog extends Application {
 			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
 			
+			if (config('middleware/wmd')) {	
+				$data ['post'] ['content'] = $data ['post'] ['content_html'];
+			}
+						
 			# SEO START
 			$header ['title'] = $data['post']['title'];
 			$header ['keywords'] = $data['post']['tag'];
