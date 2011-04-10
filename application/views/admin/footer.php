@@ -16,7 +16,18 @@
 		</div>
 	</div>
 	<!-- END FOOTER  -->
-	
 	</body>
-	<?php $views->js('middleware/google/google-analytics','jquery','plug.home','home'); ?>
+
+	<link rel="stylesheet" type="text/css" href="http://localhost/www-static/assets/js/middleware/wmd/wmd.css"/>
+	<?php $views->js('middleware/wmd/wmd'); ?>
+	<?php $views->js('middleware/wmd/showdown'); ?>
+	<script type="text/javascript">
+            setup_wmd({
+                input: "js-middleware-wmd-core",
+                button_bar: "js-middleware-wmd-menu",
+                preview: "js-middleware-wmd-preview",
+				output: "js-middleware-wmd-output"
+            });
+    </script>
+	<?php $views->js('middleware/google/google-analytics'); ?>
 </html>

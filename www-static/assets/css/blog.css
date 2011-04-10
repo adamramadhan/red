@@ -1,40 +1,65 @@
+
+/*
+
+riset
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Droid Sans',verdana,ariel,serif;
+    clear: both;
+    font-weight: 400;
+}
+.blog-post h1{    font-size: 32px;
+    font-weight: bold;
+    line-height: 40px;
+    padding: 5px 0;}
+
+.blog-post h3{
+ border-bottom: 1px solid #DDDDDD;
+    font-size: 22px;
+    line-height: 30px;
+    padding: 5px 0;    margin-bottom: 5px;}
+
+.blog-post h4{    color: #D32E2E;}
+
+
 #red-blog-menu {
     border-bottom: 1px solid #E7E7E7;
 }
-#red-blog-menu li{  float: left;}
-#red-blog-menu li a{
+#red-blog-menu li{    padding: 5px 0px 5px 10px;  float: left;}
+#blog-social li a{
     color: #444444;
     display: block;
-    padding: 5px 10px;
+    padding: 5px 0px 5px 10px;
 }
-
-#red-blog-menu li#blog-icon-twitter{
+#blog-social{    margin-left: -10px;}
+#blog-social li#blog-icon-twitter{
     background-image:  url("/www-static/assets/images/i/twitter16.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     padding-left: 25px;
 }
-#red-blog-menu li#blog-icon-facebook{
+#blog-social li#blog-icon-facebook{
     background-image:  url("/www-static/assets/images/i/facebook16.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     padding-left: 25px;
 }
-#red-blog-menu li#blog-icon-github{
+#blog-social li#blog-icon-github{
     background-image:  url("/www-static/assets/images/i/github16.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     padding-left: 25px;
 }
-#red-blog-menu li#blog-icon-deviantart{
+#blog-social li#blog-icon-deviantart{
     background-image: url("/www-static/assets/images/i/deviantart16.png");
     background-position: 10px center;
     background-repeat: no-repeat;
     padding-left: 25px;
 }
 
-#red-blog-menu li:hover{background:#FFFEDE;}
-#red-blog-menu li a:hover{text-decoration:none;}
+#blog-social li:hover{background:#FFFEDE;}
+#blog-social li a:hover{text-decoration:none;}
 
 #red-blog-left{
     float: left;
@@ -44,19 +69,21 @@
 }
 
 #red-blog-right{
-    background: url("www-static/assets/images/border-blog.png") no-repeat scroll left top #FFFFFF;
+    /*background: url("www-static/assets/images/border-blog.png") no-repeat scroll left top #FFFFFF;*/
+    background: none repeat scroll 0 0 #D32E2E;
     float: left;
-    width:200px;
     min-height: 500px;
+    width: 230px;
 }
 
 .blog-post{  
     margin-bottom: 5px;
-    padding: 10px;}
+    padding: 0 20px 0 0;}
     
 #post-meta li{    
-	border-right: 1px solid #E6E6E6;
+    border-right: 1px solid #E6E6E6;
     float: left;
+    list-style: none outside none;
     padding: 0 8px;
 }
 
@@ -70,9 +97,9 @@
 #post-meta li:last-child {
     border-right: medium none;
 }
-.post-list{    border-bottom: 1px solid #eee;
+.post-list{    border-bottom: 1px solid #B11C1C;
     list-style: none outside none;
-    padding: 5px;}
+    padding: 5px 5px 5px 10px;}
 #post-meta #meta-author{padding-left:0px;}
 
 
@@ -97,12 +124,24 @@
 #notice{    background: none repeat scroll 0 0 #EEEEEE;
     padding: 5px;}
 #notice a{color:#D32E2E;}
-.blog-post a{color:#CC3E3E;text-decoration:underline;}
-.blog-post ul{    border-left: 1px solid #E0DCCD;
-    margin: 5px;
-    padding-left: 5px;}
-.blog-post ul li{    background: none repeat scroll 0 0 #FFFDE4;
-    margin-bottom: 5px;
-    padding: 5px;}
+.blog-post a{color: #3151A2;text-decoration:underline;}
+.blog-post ul{        margin: 10px 0 20px;
+    padding: 0 0 0 40px;}
+.blog-post ul li{     list-style: square outside none;
+    padding-bottom: 0.45em;}
 /*fix sementara*/
 #post-meta{border-left:none;}
+
+
+.blog-post p{
+    clear: both;
+    word-wrap: break-word;
+    margin-bottom: 1.15em;
+}
+
+#post-list-title a{  color: #fff;}
+#post-list-meta{ 
+    font-size: 11px;    color: #961717;}
+
+#hello-blog{     background: none repeat scroll 0 0 #FEFFE8;
+    padding: 5px 5px 5px 10px;}

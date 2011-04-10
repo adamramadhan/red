@@ -78,7 +78,7 @@ class Views {
 	 * @tutorial wiki/missing.txt
 	 */
 	public function CSS() {
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/css' )) {
 			// See @ref #1
 			ob_start ( array ($this, 'compressorCSS' ) );
 		}
@@ -98,7 +98,7 @@ class Views {
 		}
 		echo "</style>";
 		
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/css' )) {
 			ob_end_flush ();
 		}
 	}
@@ -111,7 +111,7 @@ class Views {
 	 */
 	public function JS() {
 		
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/js' )) {
 			// See @ref #1
 			ob_start ( array ($this, 'compressorJS' ) );
 		}
@@ -132,7 +132,7 @@ class Views {
 		
 		echo "</script>";
 		
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/js' )) {
 			ob_end_flush ();
 		}
 	}

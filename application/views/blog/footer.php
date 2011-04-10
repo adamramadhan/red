@@ -17,5 +17,6 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $views->js('jquery','plug.home','home'); ?>
+<?php $views->js('jquery'); ?>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 </html>

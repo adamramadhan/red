@@ -144,12 +144,12 @@ h3 {
     font-size: 16px;
     line-height: 20px;
     padding: 5px 0;
-    text-decoration: underline;
 }
 h4 {
     font-size: 14px;
     line-height: 18px;
     padding: 5px 0;
+    text-decoration: underline;
 }
 h5 {
     font-size: 12px;
@@ -162,7 +162,7 @@ h6 {
 }
 strong, dfn, kbd { font-weight: 700 }
 address, em, dfn, cite, samp, var { font-style: italic }
-code, .safari input { padding: 0 3px }
+/*code, .safari input { padding: 0 3px }*/
 abbr[title], acronym[title], dfn[title] {
     border-bottom: 1px dotted #666;
     cursor: help;
@@ -188,7 +188,7 @@ small { font-size: 12px }
 del { text-decoration: line-through }
 code, pre { line-height: 15px }
 var, kbd, samp, code, pre {
-    background: #fafafa;
+    /*background: #fafafa;*/
     font: 12px/1.4 Consolas, "Andale Mono", Courier, "Courier New", monospace;
 }
 pre {

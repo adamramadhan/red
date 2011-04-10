@@ -16,7 +16,7 @@
 		<div id="red-login-information">
 			<h3>Partnerships</h3>
 			<?php $views->getIMG('icon-domain-id.gif') ?>
-			<a rel="nofollow" href="http://xcode.or.id/support.htm"><?php $views->getIMG('partnerships/yogyafree-banner.png') ?></a>
+			<a rel="nofollow" target="_blank" href="http://xcode.or.id/support.htm"><?php $views->getIMG('partnerships/yogyafree-banner.png') ?></a>
 		</div>
 	</div>
 	<!-- CONTENT END -->

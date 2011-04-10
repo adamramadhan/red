@@ -52,7 +52,7 @@ class Application {
 	protected function view($view, $data = NULL) {
 		require_once 'libraries/core.views.php';
 		$views = new Views ();
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/core' )) {
 			
 			/* See @ref #1 
 			we are useing compressor just becouse ob_gzhandler dont support UTF-8 at the
@@ -74,7 +74,7 @@ class Application {
 		require $path;
 		return TRUE;
 		
-		if (config ( 'compress' )) {
+		if (config ( 'features/compress/core' )) {
 			ob_end_flush ();
 		}
 	}

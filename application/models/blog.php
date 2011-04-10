@@ -25,7 +25,7 @@ class ModelBlog extends Models {
 	}
 	
 	function listNewsTitle() {
-		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title
+		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title, blog.timecreate
 		FROM blog, users WHERE users.uid = blog.uid ORDER BY nid DESC LIMIT 10' );
 		return $data;
 	}

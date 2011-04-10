@@ -26,14 +26,20 @@ class Blog extends Application {
 
 		if (! is_get ( 'id' )) {
 
+			# GET LATEST POST DATA
+			$data ['post'] = $this->model->blog->getLastPost ();
+
 			# SEO START
+			# @todo karena dihalaman depan ada konten yang sama gimana?
 			$header ['title'] = "netcoid official blog &mdash; media peluang bisnis online";
+			$header ['keywords'] = $data['post']['tag'];
+
 			$this->view ( 'blog/header',$header );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'blog/blog-menu' );
 			# SEO END
 
-			$data ['post'] = $this->model->blog->getLastPost ();
+
 			
 			# start comment
 			if (config ( 'features/comments/core' )) {
@@ -67,7 +73,7 @@ class Blog extends Application {
 			
 
 			#$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
-			$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
+			#$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
 			$this->view ( 'blog/index', $data );
 		
 		}
@@ -77,7 +83,9 @@ class Blog extends Application {
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
 			
 			# SEO START
-			$header ['title'] = 'netcoid official blog &mdash; '. $data['post']['title'];
+			$header ['title'] = $data['post']['title'];
+			$header ['keywords'] = $data['post']['tag'];
+
 			$this->view ( 'blog/header',$header );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'blog/blog-menu' );
@@ -113,14 +121,10 @@ class Blog extends Application {
 			}
 			# end comment
 			#$data ['post'] ['content'] = str_replace ( "\n", "<br/>", $data ['post'] ['content'] );
-			$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
+			#$data ['post'] ['content'] = nl2br ( $data ['post'] ['content'] );
 			$this->view ( 'blog/index', $data );
 		}
-		$this->view ( 'blog/footer' );
-	}
-	
-	function tag() {
-	
+	$this->view ( 'blog/footer' );
 	}
 }
 

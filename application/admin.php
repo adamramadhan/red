@@ -264,9 +264,16 @@ class Admin extends Application {
 		if (is_post ( 'newpost' )) {
 			$this->model ( 'blog' );
 			
-			# strip all code for security
+			# @todo strip all code for security
 			$n ['title'] = $_POST ['title'];
-			$n ['content'] = $_POST ['content'];
+			
+			if (config('middleware/wmd')) {	
+				$n ['content'] = $_POST ['js-middleware-wmd-output'];
+			}
+			if (!config('middleware/wmd')) {	
+				$n ['content'] = $_POST ['content'];
+			}
+
 			$n ['tag'] = $_POST ['tag'];
 			$n ['uid'] = $this->sessions->get ( 'uid' );
 			
@@ -285,7 +292,7 @@ class Admin extends Application {
 			}
 		}
 		$this->view ( 'admin/blogadd' );
-		$this->view ( 'site/footer' );
+		$this->view ( 'admin/footer' );
 	}
 }
 

@@ -1,11 +1,7 @@
 	<div id="red-blog-menu">
 		<div class="clearfix" id="red-menu">
 			<ul id="red-menu-left">
-				<li><?php $views->href('/blog','Latest Post'); ?></li>
-				<li id="blog-icon-twitter"><?php $views->href('http://www.twitter.com/netcoid','@twitter'); ?></li>
-				<li id="blog-icon-facebook"><?php $views->href('http://www.facebook.com/pages/Netcoid-Indonesia/165598776812971','@facebook'); ?></li>
-				<li id="blog-icon-github"><?php $views->href('http://www.github.com/netcoid','@github'); ?></li>
-				<li id="blog-icon-deviantart"><?php $views->href('http://netcoid.deviantart.com','@deviantart'); ?></li>
+				<li><?php $views->href('/blog','Netcoid Official Blog'); ?></li>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li id="red-menu-login"><?php $views->href('/terms','disclaimer'); ?></li>

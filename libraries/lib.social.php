@@ -144,7 +144,7 @@ class Social {
 		
 		# twitter is down or us connection is not good
 		$fp = @fopen ( $url, 'r' );
-		if (! $fp) {
+		if (!$fp) {
 			$status = 'maaf, untuk saat ini koneksi jaringan kami dengan Twitter sedang bermasalah, silahkan hubungi api@networks.co.id';
 		}
 		
@@ -163,7 +163,7 @@ class Social {
 	public function getFacebookPageStatus($pageID = NULL, $limit = 1) {
 		$url = "http://graph.facebook.com/" . $pageID . "/feed?limit=$limit";
 		$fp = @fopen ( $url, 'r' );
-		if (! $fp) {
+		if (!$fp) {
 			$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
 		}
 		

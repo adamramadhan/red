@@ -1,4 +1,3 @@
-
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		<div id="red-blog-left">
@@ -7,8 +6,8 @@
 				echo '<h1>'.$post['title'].'</h1>';
 				echo "<ul id='post-meta' class='clearfix'>";
 				echo '<li id="meta-author">By '.$post['name'].'</li>';
-				echo '<li>'.$post['timecreate'].'</li>';
-				echo '<li>'.ucfirst($post['tag']).'</li>';
+				echo '<li>at '.$post['timecreate'].'</li>';
+				echo '<li>tag '.ucfirst($post['tag']).'</li>';
 				echo "</ul>";
 				echo '<p>'.$post['content'].'</p>';
 				echo "</div>";
@@ -67,12 +66,26 @@
 		<!-- COMMENT END -->
 
 		</div>				
-		<div id="red-blog-right">
+		<div class="c" id="red-blog-right">
 			<ul>
 			<?php foreach ($posts as $post) {
-				echo '<li class="post-list" id="post-list-'.$post['nid'].'"><a href="/blog?id='.$post['nid'].'">'.$post['title'].'</a></li>';
+				echo '<li class="post-list" id="post-list-'.$post['nid'].'">
+				<div id="post-list-title"><a href="/blog?id='.$post['nid'].'">'.$post['title'].'</a></div>
+				<div id="post-list-meta">at '.$this->time->formatDateDiff($post['timecreate']).'</div>
+				</li>';
 			} ?>
 			</ul>
+
+			<div id="hello-blog">
+				Hallo, ikuti perkembangan kami dengan "like" akun facebook kami atau "follow" akun twitter kami. 	
+				<ul id="blog-social">
+					<li id="blog-icon-twitter"><?php $views->href('http://www.twitter.com/netcoid','@twitter'); ?></li>
+					<li id="blog-icon-facebook"><?php $views->href('http://www.facebook.com/pages/Netcoid-Indonesia/165598776812971','@facebook'); ?></li>
+					<li id="blog-icon-github"><?php $views->href('http://www.github.com/netcoid','@github'); ?></li>
+					<li id="blog-icon-deviantart"><?php $views->href('http://netcoid.deviantart.com','@deviantart'); ?></li>
+				</ul>	
+			</div>
+
 		</div>
 	</div>
 	<!-- CONTENT END -->
