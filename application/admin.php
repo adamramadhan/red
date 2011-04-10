@@ -222,7 +222,6 @@ class Admin extends Application {
 				if (config('middleware/wmd')) {	
 					$n ['content'] = $_POST ['content'];
 					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
-					echo "on";
 				}
 				if (!config('middleware/wmd')) {	
 					$n ['content'] = $_POST ['content'];
@@ -237,7 +236,7 @@ class Admin extends Application {
 				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
 				$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
 	
-				var_dump($n);die();			
+				var_dump($_POST,$n);die();			
 				# validateing
 				$this->validation->required ( $n ['title'], 'Title jangan lupa diisi.' );
 				$this->validation->required ( $n ['content'], 'Berita utama jangan lupa diisi.' );
