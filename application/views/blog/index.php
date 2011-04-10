@@ -71,7 +71,7 @@
 			<?php foreach ($posts as $post) {
 				echo '<li class="post-list" id="post-list-'.$post['nid'].'">
 				<div id="post-list-title"><a href="/blog?id='.$post['nid'].'">'.$post['title'].'</a></div>
-				<div id="post-list-meta">at '.$this->time->formatDateDiff($post['timecreate']).'</div>
+				<div id="post-list-meta">updated '.$this->time->formatDateDiff($post['timecreate']).'</div>
 				</li>';
 			} ?>
 			</ul>
