@@ -19,6 +19,7 @@
 	</body>
 
 	<link rel="stylesheet" type="text/css" href="/www-static/assets/js/middleware/wmd/wmd.css"/>
+	<?php $views->js('middleware/wmd/wmd'); ?>
 	<?php $views->js('middleware/wmd/showdown'); ?>
 	<script type="text/javascript">
             setup_wmd({
