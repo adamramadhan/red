@@ -216,7 +216,6 @@ class Admin extends Application {
 			$this->view ( 'admin/blogedit', $data );
 			
 			if (is_post ( 'editpost' )) {
-				
 				# @todo strip all code for security
 				$n ['title'] = $_POST ['title'];
 
@@ -236,7 +235,8 @@ class Admin extends Application {
 				# get the time from jakarta
 				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
 				$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
-				
+	
+				var_dump($n);die();			
 				# validateing
 				$this->validation->required ( $n ['title'], 'Title jangan lupa diisi.' );
 				$this->validation->required ( $n ['content'], 'Berita utama jangan lupa diisi.' );
