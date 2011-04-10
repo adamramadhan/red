@@ -8,6 +8,5 @@
 		<title>netcoid &mdash; jejaring bisnis indonesia</title>
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 		<?php $views->css('framework','netcoid.v1','admin'); ?>
-		<?php $views->js(); ?>
 	</head>
 <body>
