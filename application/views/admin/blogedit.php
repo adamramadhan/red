@@ -14,7 +14,7 @@
 					value="<?php echo $post['tag']; ?>" id="input-tag" class="textinput" name="tag"></li>
 			</ul>
 			<input type="hidden" name="js-middleware-wmd-output" value="" id="js-middleware-wmd-output">
-			<p><input type="submit" value="Post" name="newpost" id="button"></p>
+			<p><input type="submit" value="Post" name="editpost" id="button"></p>
 			</form>
 		</div>
 		<?php require 'menu.php'; ?>
