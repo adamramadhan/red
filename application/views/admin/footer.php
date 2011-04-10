@@ -17,14 +17,5 @@
 	</div>
 	<!-- END FOOTER  -->
 	</body>
-	<link rel="stylesheet" type="text/css" href="/www-static/assets/js/middleware/wmd/wmd.css"/>
-	<?php $views->js('middleware/wmd/showdown','middleware/wmd/wmd','middleware/google/google-analytics'); ?>
-	<script type="text/javascript">
-            setup_wmd({
-                input: "js-middleware-wmd-core",
-                button_bar: "js-middleware-wmd-menu",
-                preview: "js-middleware-wmd-preview",
-				output: "js-middleware-wmd-output"
-            });
-    </script>
+
 </html>
