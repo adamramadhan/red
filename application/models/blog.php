@@ -41,7 +41,7 @@ class ModelBlog extends Models {
 	}
 	
 	function editPost($data) {
-		$status = $this->query ( "UPDATE blog SET blog.title = :title, blog.content = :content, blog.timecreate = :timecreate,
+		$status = $this->query ( "UPDATE blog SET blog.title = :title, blog.content = :content, blog.content_html = :content_html, blog.timecreate = :timecreate,
 		blog.uid = :uid, blog.tag = :tag WHERE blog.nid = :nid", $data );
 		return $status;
 	}
