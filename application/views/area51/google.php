@@ -12,12 +12,10 @@
      }
     </style>
 
-    <div id="prompt">
-     <!-- if IE without GCF, prompt goes here -->
-    </div>
+    <div id="prompt"><!-- if IE without GCF, prompt goes here --></div>
  
-     <div id="oninstall">
-     <!-- if IE without GCF, prompt goes here -->
+   <div id="oninstall">
+     not install
     </div>
 
     <script>
@@ -26,8 +24,9 @@
      window.attachEvent("onload", function() {
        CFInstall.check({
          mode: "inline", // the default
-         node: "prompt",
-         oninstall: "oninstall"
+         //node: "prompt",
+         oninstall: "oninstall",
+         onmissing: "missing"
        });
      });
     </script>
