@@ -18,13 +18,17 @@
      not install
     </div>
 
+   <div id="missing">
+     not install
+    </div>
+
     <script>
      // The conditional ensures that this code will only execute in IE,
      // Therefore we can use the IE-specific attachEvent without worry
      window.attachEvent("onload", function() {
        CFInstall.check({
          mode: "inline", // the default
-         //node: "prompt",
+         node: "prompt",
          oninstall: "oninstall",
          onmissing: "missing"
        });
