@@ -29,7 +29,8 @@
        CFInstall.check({
          mode: "inline", // the default
          node: "prompt",
-         oninstall: "oninstall"
+         oninstall: "oninstall",
+         onmissing: "missing"
        });
      });
     </script>
