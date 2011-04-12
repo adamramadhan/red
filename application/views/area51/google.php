@@ -30,7 +30,7 @@
          mode: "inline", // the default
          node: "prompt",
          oninstall: "oninstall",
-         onmissing: "missing",
+         onmissing: "missing"
        });
      });
     </script>
