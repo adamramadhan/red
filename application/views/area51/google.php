@@ -28,11 +28,20 @@
      window.attachEvent("onload", function() {
        CFInstall.check({
          mode: "inline", // the default
-         node: "prompt",
-         onmissing: "missing"
+         node: "prompt"
        });
      });
     </script>
+
+<!--[if IE]>
+<h2>You are using Internet Explorer.</h2>
+<!--[if CF]>
+<p>Chrome Frame is installed.</p>
+<![endif]-->
+<!--[if !CF] -->
+<p>Chrome Frame isn’t installed.</p>
+<!--[endif]-->
+<![endif]-->
 
 </body>
 </html>
