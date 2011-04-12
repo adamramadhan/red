@@ -7,7 +7,13 @@ class Test extends Application {
 		$this->library ( 'sessions' );
 		$this->helper ( 'active' );
 	}
-	
+
+	function google(){
+		$this->view ( 'area51/header', $data );
+		$this->view ( 'area51/chrome', $data );
+		$this->view ( 'area51/footer', $data );
+	}	
+
 	function test() {
 		$this->sessions->set('login',1);
 		$_SESSION['aw'] = 'test';

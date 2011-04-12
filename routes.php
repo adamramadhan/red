@@ -73,9 +73,7 @@ $routes['admin/useredit'] = 'admin:useredit';
 
 
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
-$routes['area51/test'] = 'test:test';
-$routes['area51/test2'] = 'test:test2';
-$routes['area51/info'] = 'test:info';
+$routes['area51/google'] = 'test:google';
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?
 ?>
