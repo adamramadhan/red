@@ -18,5 +18,4 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $views->js('middleware/google/google-analytics','jquery','plug.home','home'); ?>
 </html>

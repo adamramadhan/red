@@ -13,11 +13,11 @@
 	     }
 	    </style>
 
-	    <div id="google-iframe-noinstall">
+	    <div id="google-frame-noinstall">
 	     hello install google iframe untuk tampilan lebih cepat!.
 	    </div>
 
-	    <div id="google-iframe-installed">
+	    <div id="google-frame-installed">
 	     terimakasih
 	    </div>
 	 
@@ -29,7 +29,7 @@
 	         mode: "overlay", // the default
 	         url: "https://google.com/chromeframe"
 	         oninstall: "google-iframe-installed",
-	         onmissing: "google-iframe-noinstall"
+	         onmissing: "google-frame-noinstall"
 	       });
 	     });
 	    </script>
