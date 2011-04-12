@@ -16,13 +16,18 @@
      <!-- if IE without GCF, prompt goes here -->
     </div>
  
+     <div id="oninstall">
+     <!-- if IE without GCF, prompt goes here -->
+    </div>
+
     <script>
      // The conditional ensures that this code will only execute in IE,
      // Therefore we can use the IE-specific attachEvent without worry
      window.attachEvent("onload", function() {
        CFInstall.check({
          mode: "inline", // the default
-         node: "prompt"
+         node: "prompt",
+         oninstall: "oninstall"
        });
      });
     </script>
