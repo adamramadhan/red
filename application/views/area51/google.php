@@ -4,7 +4,7 @@
 <body>
 
 	    <script type="text/javascript" 
-	     src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+	     src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
 
 	    <style>
 	     .chromeFrameInstallDefaultStyle {
