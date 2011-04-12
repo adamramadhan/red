@@ -10,7 +10,7 @@ class Test extends Application {
 
 	function google(){
 		$this->view ( 'area51/header', $data );
-		$this->view ( 'area51/chrome', $data );
+		$this->view ( 'area51/google', $data );
 		$this->view ( 'area51/footer', $data );
 	}	
 
