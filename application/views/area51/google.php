@@ -28,9 +28,8 @@
        CFInstall.check({
          mode: "overlay", // the default
          url: "https://google.com/chromeframe"
-         onmissing: "google-iframe-noinstall",
-         preventPrompt: true,
-         oninstall: "google-iframe-installed"
+         oninstall: "google-iframe-installed",
+         onmissing: "google-iframe-noinstall"
        });
      });
     </script>
