@@ -27,7 +27,9 @@
      window.attachEvent("onload", function() {
        CFInstall.check({
          mode: "overlay", // the default
-         node: "google-iframe-noinstall",
+         url: "https://google.com/chromeframe"
+         onmissing: "google-iframe-noinstall",
+         preventPrompt: true,
          oninstall: "google-iframe-installed"
        });
      });
