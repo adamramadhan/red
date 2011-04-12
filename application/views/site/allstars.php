@@ -27,7 +27,7 @@
 		<div>
 			<h3>Friends</h3>
 			<h4>We cant have done this without them</h4>
-			<p>Yuda Djuanda, Dimas Maulana, Akeda Bagus, Nencor, Grahani Nene, Priscilla Citra and others that we dont notice.
+			<p>Yuda Djuanda, Dimas Maulana, Akeda Bagus, Nencor, Grahani Nene, Priscilla Citra and Many others.
 			</p>
 		</div>
 	</div>

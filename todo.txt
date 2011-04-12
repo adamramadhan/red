@@ -28,3 +28,11 @@ test
 [2:31:49 AM] Dimaz Maulana: klo misal gue login pake profil gue
 [2:31:52 AM] Dimaz Maulana: ubah aja
 [2:31:57 AM] Dimaz Maulana: jadi "edit profil anda"
+
+
+fixes #xxx
+fixed #xxx
+fix #xxx
+closes #xxx
+close #xxx
+closed #xxx
