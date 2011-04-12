@@ -27,7 +27,7 @@
 	     window.attachEvent("onload", function() {
 	       CFInstall.check({
 	         mode: "overlay", // the default
-	         url: "https://google.com/chromeframe"
+	         url: "https://www.google.com/chromeframe"
 	         oninstall: "google-iframe-installed",
 	         onmissing: "google-frame-noinstall"
 	       });
