@@ -2,7 +2,7 @@
 
 <html>
 <body>
-  <!--[if IE]>
+<!--[if lte IE 9]>
     <script type="text/javascript" 
      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
 
@@ -33,7 +33,7 @@
        });
      });
     </script>
-  <![endif]-->
+<![endif]-->
 </body>
 </html>
 
