@@ -212,6 +212,26 @@ class Social {
 		}
 		return $data;
 	}
+
+	public function getTwitterData($username = NULL){
+		$url = "http://api.twitter.com/1/users/show.json?screen_name=". $username;
+		$fp = @fopen($url, 'r');
+
+		if (!$fp) {
+			$data = 'maaf, untuk saat ini koneksi jaringan kami dengan Twitter sedang bermasalah, silahkan hubungi api@networks.co.id';
+		}
+
+		if ($fp) {
+			$json = stream_get_contents($fp);
+			$jsonData = json_decode($json);
+			if ($jsonData) {	
+				foreach ($jsonData as $key => $value) {
+					$data[$key] = $value;
+				}
+			}
+		}
+	return $data;
+	}	
 }
 
 ?>

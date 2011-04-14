@@ -294,3 +294,18 @@ opacity:1;}
     background: url("/www-static/assets/images/bg/uniqpost.png") repeat 0 0 #000000;
 }
 .uniqpost #red-content.background{ background: #fff;}
+
+
+/*TEST*/
+#test-netcoid-why{    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EEEEEE;
+    color: #444444;
+    float: left;
+    left: 30px;
+    margin-top: 20px;
+    padding: 5px 10px;
+    position: absolute;
+    width: 200px;opacity: 0.9;}
+#test-netcoid-why:hover{opacity:1;}
+#test-netcoid-why li{    list-style: square outside none;
+    margin-left: 15px;}

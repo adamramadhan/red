@@ -47,21 +47,40 @@
 						<div id="subtime">'.$this->time->formatDateDiff($key['timecreate']).'</div>
 						<div class="c" id="suboptions"><a href="product?id='.$key['pid'].'">Lihat</a></div>
 						</div>';
+				// END SUBINFORMATION
+				echo "</div>";
+				# START CONTAINER
+				echo '<div class="feed-more clearfix">';
+				echo '<div id="subimage">';
+				echo $views->getStorage($key['uid'],$key['image_tumb']);
+				echo '</div>';
+				// START COMMENT
 					if (config('features/comments/core')){		
+						if (empty($key['comments'])) {
+							echo '<div id="subcomments">';
+							echo '<ul id="comments">';
+							echo '<li class="comment">No comment available.</li>';
+							echo "</ul>";
+							echo "</div>";							
+						}
 						if (!empty($key['comments'])) {
+							echo '<div id="subcomments">';
 							echo '<ul id="comments">';
 							foreach ($key['comments'] as $comment) {
 								echo '<li class="comment" id="comment-'.$comment['pid'].'">
 								<a href="/'.$comment['username'].'">@'.$comment['name'].'</a> '
 								.$comment['comment'].'</li>';
 							}
+
+							if (count($key['comments']) == 5) {
+								echo '<li class="cb morecomments">more then 5</li>';
+							}
 							echo "</ul>";
-						}
-						if (count($key['comments']) == 5) {
-							echo '<div class="cb morecomments">more then 5</div>';
+							echo "</div>";
 						}
 					}
-				echo "</div>";
+				// END COMMET
+				echo '</div>';
 				}	
 				echo "</div>";
 			}

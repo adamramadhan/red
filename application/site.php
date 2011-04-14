@@ -12,6 +12,31 @@ class Site extends Application {
 		if (! $this->sessions->get ( 'uid' )) {
 			# init
 			$this->library ( 'validation' );
+			
+			# social addon
+			if (config ( 'features/memcached' )) {
+				$this->cache = new Cache;		
+				$this->library ( 'social' );
+				if ($this->cache->get ( "netcoid:social:point" )) {
+					$data ['socialpoint'] = $this->cache->get ( "netcoid:social:point" );
+				}
+				
+				if (! $this->cache->get ( "netcoid:social:point" )) {
+					$social['facebook'] = $this->social->getFacebookPageData('netcoid');
+					$social['twitter'] = $this->social->getTwitterData('netcoid');
+					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'];
+					$this->cache->add ( "netcoid:social:point", $socialpt , FALSE, 60 );
+					$data ['socialpoint'] = $socialpt;
+				}
+			}
+
+			if (!config('features/memcached')) {
+				$social['facebook'] = $this->social->getFacebookPageData('netcoid');
+				$social['twitter'] = $this->social->getTwitterData('netcoid');
+				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'];
+			}
+			# end social addon
+
 			$this->middleware ( 'recaptcha', 'recaptcha' );
 			
 			$this->view ( 'site/header' );
@@ -28,7 +53,7 @@ class Site extends Application {
 			}
 			
 			if (! is_get( 'faktanyaadalah' ) && ! is_get( 'binus' ) && ! is_get( 'uniqpost' )) {
-				$this->view ( 'site/index' );
+				$this->view ( 'site/index',$data );
 			}
 			
 			if (is_get ('faktanyaadalah' )) {
@@ -53,7 +78,7 @@ class Site extends Application {
 			$this->model ( 'social' );
 			$this->helper ( 'time' );
 			$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
-			$data ['userproduct'] = $this->model->products->listProductsByUID ( $this->sessions->get ( 'uid' ), 0, 1 );
+
 			
 			foreach ( $data ['followingproduct'] as $key => $value ) {
 				$data ['feeds'] [$value ['pid']] = $value;
@@ -64,8 +89,8 @@ class Site extends Application {
 			
 			# var_dump($data['feeds']);
 			# need optimize
-			
 
+			$data ['userproduct'] = $this->model->products->listProductsByUID ( $this->sessions->get ( 'uid' ), 0, 1 );
 			$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
 			$data ['social'] = $this->model->social->CountSocial ( $this->sessions->get ( 'uid' ) );
 			$data ['partners'] = $this->model->social->CountParters ( $this->sessions->get ( 'uid' ) );

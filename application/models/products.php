@@ -82,7 +82,7 @@ class ModelProducts extends Models {
 	
 	function listFromFollower($uid, $limit = 5) {
 		#here
-		$data = $this->fetchAll ( "SELECT products.name AS product, users.name, products.pid, products.timecreate
+		$data = $this->fetchAll ( "SELECT users.uid, products.image_tumb, products.name AS product, users.name, products.pid, products.timecreate
 		FROM products
 		INNER JOIN users ON users.uid = products.uid 
 		INNER JOIN social ON products.uid = social.buid
