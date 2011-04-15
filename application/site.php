@@ -31,6 +31,7 @@ class Site extends Application {
 			}
 
 			if (!config('features/memcached')) {
+				$this->library ( 'social' );
 				$social['facebook'] = $this->social->getFacebookPageData('netcoid');
 				$social['twitter'] = $this->social->getTwitterData('netcoid');
 				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'];
