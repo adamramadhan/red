@@ -5,6 +5,7 @@
 	<div class="clearfix background-event" id="red-content">
 		<div class="c" id="test-netcoid-why">
 		<h3>Mengapa Netcoid?</h3>
+		<p id="test-netcoid-status">Invitation Only</p>
 		<p>Netcoid dibentuk sebagai ispirasi, teknologi dan media penghubung antar pengusaha indonesia.</p>
 		<hr/>
 		<ul>

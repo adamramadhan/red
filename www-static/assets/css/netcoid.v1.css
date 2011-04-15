@@ -302,10 +302,15 @@ opacity:1;}
     color: #444444;
     float: left;
     left: 30px;
-    margin-top: 20px;
+    margin-top: 15px;
     padding: 5px 10px;
     position: absolute;
     width: 200px;opacity: 0.9;}
 #test-netcoid-why:hover{opacity:1;}
 #test-netcoid-why li{    list-style: square outside none;
     margin-left: 15px;}
+#test-netcoid-why #test-netcoid-status{    background: none repeat scroll 0 0 #F4F4F4;
+    padding: 10px;
+    position: relative;
+    right: 10px;
+    width: 201px;}
