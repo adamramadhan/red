@@ -41,16 +41,16 @@
 				echo "<div class='feeds'>";
 				foreach ( $feeds as $key) {
 				echo '<div class="feed">';
-				echo 	'<div class="clearfix" id="subinformation">
+				echo 	'<div class="clearfix" id="subfeed-meta">
 						<div id="subname">@'.$key['name'].'</div>
 						<div id="subname">'.$key['product'].'</div>
 						<div id="subtime">'.$this->time->formatDateDiff($key['timecreate']).'</div>
 						<div class="c" id="suboptions"><a href="product?id='.$key['pid'].'">Lihat</a></div>
 						</div>';
 				// END SUBINFORMATION
-				echo "</div>";
+
 				# START CONTAINER
-				echo '<div class="feed-more clearfix">';
+				echo '<div id="subfeed-more" class="clearfix">';
 				echo '<div id="subimage">';
 				echo $views->getStorage($key['uid'],$key['image_tumb']);
 				echo '</div>';
@@ -80,6 +80,7 @@
 						}
 					}
 				// END COMMET
+				echo "</div>";
 				echo '</div>';
 				}	
 				echo "</div>";
