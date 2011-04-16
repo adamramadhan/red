@@ -3,7 +3,7 @@
 		#why
 		{
 		    background: none repeat scroll 0 0 #FFF8DE;
-		    border: 1px solid #CBC5AD;
+   			border: 1px solid #EEE4BD;
 		    margin: 0 auto;
 		    padding: 5px 20px;
     	}
