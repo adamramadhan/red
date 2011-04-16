@@ -93,7 +93,9 @@ class Blog extends Application {
 			# SEO START
 			$header ['title'] = $data['post']['title'];
 			$header ['keywords'] = $data['post']['tag'];
-
+			# CONTENT			
+			#$text = strip_tags($data['post']['content']);
+			#var_dump(strstr( $text, ".", true ));
 			$this->view ( 'blog/header',$header );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'blog/blog-menu' );
