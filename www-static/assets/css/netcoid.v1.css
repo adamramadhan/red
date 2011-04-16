@@ -301,11 +301,10 @@ opacity:1;}
     border: 1px solid #EEEEEE;
     color: #444444;
     float: left;
-    left: 30px;
     margin-top: 15px;
+    opacity: 0.9;
     padding: 5px 10px;
-    position: absolute;
-    width: 200px;opacity: 0.9;}
+    width: 200px;}
 #test-netcoid-why:hover{opacity:1;}
 #test-netcoid-why li{    list-style: square outside none;
     margin-left: 15px;}
