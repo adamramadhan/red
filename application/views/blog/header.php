@@ -7,6 +7,7 @@
 		<meta name="keywords" content="<?php echo $keywords; ?>" />
 		<title><?php echo $title; ?></title>
 		<?php $views->css('framework','netcoid.v1','blog'); ?>
+		<meta content="noodp,noydir" name="robots">
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 	</head>
 <body>

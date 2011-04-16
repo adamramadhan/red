@@ -63,8 +63,13 @@ class Products extends Application {
 		$data ['product'] ['information'] = preg_replace ( '/\[i\]((?:[^\[]+|\[(?!i\]))*)\[i\]/', '<em>\1</em>', $data ['product'] ['information'] );
 		$data ['product'] ['information'] = preg_replace ( '/\[b\]((?:[^\[]+|\[(?!b\]))*)\[b\]/', '<strong>\1</strong>', $data ['product'] ['information'] );
 		$data ['product'] ['information'] = preg_replace ( '/\[img\]((?:[^\[]+|\[(?!img\]))*)\[img\]/', '<img src="\1" />', $data ['product'] ['information'] );
-		
-		$this->view ( 'products/header' );
+
+		# START SEO
+		# @topo awas xss
+		$header ['title'] = $data['product']['name'] .' by '.$data['user']['name'];
+		# END SEO
+	
+		$this->view ( 'products/header-single', $header );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'products/single', $data );
 		$this->view ( 'site/footer' );

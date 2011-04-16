@@ -145,28 +145,47 @@ class Site extends Application {
 	}
 	
 	function terms() {
-		$this->view ( 'site/header' );
+		#SEO START
+		$header['title'] = 'Terms of Service';
+		$header['title_more'] = 'Rights and Responsibilities';
+		$this->view ( 'site/header-data',$header );
+		#SEO END
+
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'site/terms' );
 		$this->view ( 'site/footer' );
 	}
 	
 	function welcome() {
-		$this->view ( 'site/header' );
+		#SEO START
+		$header['title'] = 'Hello!';
+		$header['title_more'] = 'before you get started';
+		$this->view ( 'site/header-data',$header );
+		#SEO END
+
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'site/welcome' );
 		$this->view ( 'site/footer' );
 	}
 	
 	function why() {
-		$this->view ( 'site/header' );
+		#SEO START
+		$header['title'] = 'Why, How and What';
+		$header['title_more'] = 'Creating a better business!';
+		$this->view ( 'site/header-data',$header );
+		#SEO END
+
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'site/why' );
 		$this->view ( 'site/footer' );
 	}
 	
 	function allstars() {
-		$this->view ( 'site/header' );
+		#SEO START
+		$header['title'] = 'The Team';
+		$header['title_more'] = 'Our Ideas, Passion and Hardwork';
+		$this->view ( 'site/header-data',$header );
+		#SEO END
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'site/allstars' );
 		$this->view ( 'site/footer' );

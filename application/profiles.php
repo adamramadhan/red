@@ -99,12 +99,21 @@ class Profiles extends Application {
 				}
 			}
 
-			if (!config ( 'features/memcached' )) {		
+			if (!config ( 'features/memcached' )) {	
+				
+				if (! empty ( $data ['user'] ['twitter'] )) {	
 				$data ['twitter'] = $this->social->getTwitterProfile ( $data ['user'] ['twitter'] );
-				$data ['yahoo'] = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
-				$data ['facebook'] = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
-				$data ['facebookdata'] = $this->social->getFacebookPageData ( $data ['user'] ['facebook'] );
-			}
+				}
+
+				if (! empty ( $data ['user'] ['yahoo'] )) {
+					$data ['yahoo'] = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
+				}
+
+				if (! empty ( $data ['user'] ['facebook'] )) {
+					$data ['facebook'] = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
+					$data ['facebookdata'] = $this->social->getFacebookPageData ( $data ['user'] ['facebook'] );
+				}
+			}	
 			// end social
 			
 
@@ -112,7 +121,11 @@ class Profiles extends Application {
 			$data ['readmore'] = count ( $data ['products'] );
 			$data ['follow'] = $this->model->social->is_following ( $this->sessions->get ( 'uid' ), $data ['user'] ['uid'] );
 			
-			$this->view ( 'profile/header' );
+			# START SEO
+			$header ['title'] = $data['user']['name'];
+			# END SEO
+
+			$this->view ( 'profile/header', $header );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'profile/index', $data );
 			$this->view ( 'site/footer' );
