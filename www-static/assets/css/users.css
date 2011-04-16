@@ -249,15 +249,16 @@ margin:5px 0;}
 #red-dashboard ul .trustpoint{
     float: right;
     margin-right: 0;}
-#comments{    margin-left: 20px;}
+#comments{    margin-left: 25px;}
 .comment{   
-    font-family: "calibri",tahoma;
+    font-size: 11px;
+    margin-bottom: 5px;}
+.morecomments{        font-size: 11px; border-top: 1px dashed #EEEEEE;
+    color: #CCCCCC;
     margin-bottom: 5px;
-    padding: 2px 0 2px 10px;}
-.morecomments{       border-top: 1px dashed #EEEEEE;
-    font-family: "calibri",tahoma;
-    margin-bottom: 5px;
-    padding: 2px 0 2px 10px;}
+    margin-top: 10px;
+    padding: 2px 0 2px 10px;
+    text-align: right;}
 
 .bootstraps{
     background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #FFFFFF;
