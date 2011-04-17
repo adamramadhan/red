@@ -45,4 +45,4 @@
 		    T('#follow-twitterapi').followButton("netcoid");
 		  });
 	  </script>
-	  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	  <script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
