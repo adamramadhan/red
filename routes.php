@@ -23,6 +23,7 @@ $routes['home'] = 'site:index';
 $routes['secure'] = 'secure:index';
 $routes['login'] = 'login:index';
 $routes['terms'] = 'site:terms';
+$routes['privacy'] = 'site:privacy';
 $routes['welcome'] = 'site:welcome';
 $routes['why'] = 'site:why';
 $routes['allstars'] = 'site:allstars';

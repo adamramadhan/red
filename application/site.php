@@ -155,7 +155,19 @@ class Site extends Application {
 		$this->view ( 'site/terms' );
 		$this->view ( 'site/footer' );
 	}
-	
+
+	function privacy() {
+		#SEO START
+		$header['title'] = 'Privacy';
+		$header['title_more'] = 'Openess';
+		$this->view ( 'site/header-data',$header );
+		#SEO END
+
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->view ( 'site/privacy' );
+		$this->view ( 'site/footer' );
+	}
+		
 	function welcome() {
 		#SEO START
 		$header['title'] = 'Hello!';

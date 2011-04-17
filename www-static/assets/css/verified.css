@@ -1,5 +1,5 @@
 body.verify { background: none repeat scroll 0 0 #86DAFF }
-.background-verify { background: url("www-static/assets/images/bg/verify.png") no-repeat scroll left top transparent }
+.background-verify { height:570px;background: url("www-static/assets/images/bg/verify.png") no-repeat scroll left top transparent }
 #verified li { }
 #verified li label
 {

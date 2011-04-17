@@ -2,11 +2,12 @@
 	<div id="red-content">
 		<div id="red-terms-general">
 			<ul>
+				<li><h3>Perkenalan Kebijakan Layanan</h3></li>
+				<li><p>Kebijakan Layanan digunakan untuk melindungi Rekan Netcoid, Tolong baca dengan teliti Hak dan Kewajiban Anda. karena dengan mengunakan layanan Netcoid ( www.networks.co.id ), Anda <strong>setuju</strong> untuk mengikuti beberapa ketentuan yang berada di bawah ini. Klarifikasi Kebijakan Layanan di help@networks.co.id. 
+				</p></li>
+				<hr/>
 				<li><h3>1. Persetujuan</h3></li>
-				<li><h4>1.1 Ketersediaan</h4><p>Layanan netcoid disediakan berdasarkan "Sebagaimana Adanya" dan " Sebagaimana Tersedia",
-				netcoid berhak untuk memodifikasi, menhentikan sementara, atau menhentikan layanan, atas kebijakannya sendiri, setiap saat
-				dan tampa ada pengumuman. Anda setuju bahwa netcoid tidak akan bertanggung jawab atas anda, terhadap modifikasi, penangguhan,
-				atau pemberhentian layanan ini.
+				<li><h4>1.1 Ketersediaan</h4><p>Layanan netcoid disediakan berdasarkan "Sebagaimana Adanya" dan " Sebagaimana Tersedia", netcoid berhak untuk memodifikasi, menhentikan sementara, atau menhentikan layanan, atas kebijakannya sendiri, setiap saat dan tampa ada pengumuman. Anda setuju bahwa netcoid tidak akan bertanggung jawab atas anda, terhadap modifikasi, penangguhan, atau pemberhentian layanan ini
 				</p></li>
 				<li><hr/><h4>1.2 Konten</h4><p>netcoid tidak bertanggung jawab atas segala konten, produk atau hal lainnya, yang diposting, dikirimkan
 				dan dipublikasikan oleh pengguna netcoid. Anda bersedia dihubungi, di nonaktifkan atau digugat tampa pemberitahuan jika anda melanggar <a href="#">ketentuan produk</a> dan  <a href="#">ketentuan konten</a>. Jika anda melihat user, perusahaan atau organisasi yang melanggar ketentuan dan persyaratan konten, diharapkan untuk segera menghubungi 
