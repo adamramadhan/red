@@ -13,15 +13,13 @@
 		<div class="box-approve">
 			<h3>Kenapa Verifikasi</h3>
 			<p>Sebelumnya kami akan mengucapkan selamat kepada anda, anda berada pada 1000 pendaftar pertama. <a href="/verify">verifikasi</a> akan digunakan
-				untuk mendapatkan seal penjual terpercaya*, saat ini kami hanya menerima PT, CV dan Pribadi, nantinya anda akan dihubungi dan dimintai
-				keterangan tentang organisasi anda, setelah itu kami akan meminta scan <a target="_blank" href="help.php">SIUP perusahaan</a> untuk PT dan CV. KTP untuk Private. 
+				untuk mendapatkan seal penjual terpercaya*, saat ini kami hanya menerima PT, CV dan Pribadi, nantinya anda akan dihubungi dan dimintai keterangan tentang organisasi anda, setelah itu kami akan meminta scan <a target="_blank" href="help.php">SIUP perusahaan</a> untuk PT dan CV. KTP untuk Private. 
 			</p>				
 		</div>
 		<div class="box-approve">
 			<h3>Peraturan &amp; Ketentuan</h3>
 			<p>Pada dasarnya ada dua aturan disini:</br> Jangan memessage atau memposting hal yang tidak ada tujuan, bersifat kasar dan terkadang tidak wajar.</p></br>
-			<p>yang kedua adalah prinsip "kesopanan" banyaknya perbedaan komunitas penjual akan membawa banyak orang tidak bertanggung jawab untuk berani
-			mengatakan hal - hal yang menyinggung komunitas penjual lainnya, jadi jangan ucapkan hal yang tidak anda akan ucapkan pada saat melakukan percakapan
+			<p>yang kedua adalah prinsip "kesopanan" banyaknya perbedaan komunitas penjual akan membawa banyak orang tidak bertanggung jawab untuk berani mengatakan hal - hal yang menyinggung komunitas penjual lainnya, jadi jangan ucapkan hal yang tidak anda akan ucapkan pada saat melakukan percakapan
 			tatap muka.</p>				
 		</div>
 		<span class="spanwelcome">

@@ -53,17 +53,17 @@ class Site extends Application {
 				$this->postregister ();
 			}
 			
-			if (! is_get( 'faktanyaadalah' ) && ! is_get( 'binus' ) && ! is_get( 'uniqpost' )) {
+			if (! is_get( 'facebook' ) && ! is_get( 'binus' ) && ! is_get( 'public' )) {
 				$this->view ( 'site/index',$data );
 			}
 			
-			if (is_get ('faktanyaadalah' )) {
+			if (is_get ('facebook' )) {
 				$this->view ( 'site/index-closed-invitation' );
 			}
 			if (is_get ('binus' )) {
 				$this->view ( 'site/index-closed-invitation' );
 			}
-			if (is_get ('uniqpost' )) {
+			if (is_get ('public' )) {
 				$this->view ( 'site/index-closed-invitation' );
 			}
 									
