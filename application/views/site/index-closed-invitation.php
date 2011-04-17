@@ -2,7 +2,7 @@
 	<div id="red-error-box"></div>
 	<style type="text/css" media="screen">
 	#red-content-left {
-	    height: 500px;
+	    height: 600px;
 	}
 	#like-facebookapi {
 	    display: block;
@@ -13,11 +13,11 @@
 	    display: block;
 	    float: left;
 	}
-	#red-content.background{    background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent !important;}
+	#red-content.background{    background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent !important;	    height: 600px;}
 	#closed-registration {
 	    background: none repeat scroll 0 0 #FFFFFF;
 	    border: 1px solid #CCCCCC;
-	    margin: 150px auto 0;
+	    margin: 200px auto 0;
 	    padding: 5px;
 	    width: 600px;
 	}
