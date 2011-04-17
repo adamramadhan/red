@@ -80,7 +80,7 @@
 }
 #textarea-comment{width:98%;}
 #comments .comments #name{margin-right: 10px;}
-#comments .comments #comment{margin-right: 10px;}
+#comments .comments #comment{margin-right: 5px;font-size:11px;}
 #comments .comments #time{  color: #E6CDAD;}
 #comments .comments{   
     margin: 5px 0;

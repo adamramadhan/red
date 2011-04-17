@@ -238,11 +238,10 @@ margin:5px 0;}
 }
 
 /*DASBOARD*/
-.feed:hover{background:#FFFEE3;}
-#subfeed-meta{background:none repeat scroll 0 0 #fff;
+
+#subfeed-meta{
 margin:5px 0;border-bottom: 1px solid #F9EBEB;}
-.feed:hover {background: none repeat scroll 0 0 #FDFFD9;}
-.feed:hover #subfeed-meta{  background: none repeat scroll 0 0 #F9FCCF;}
+
 #red-dashboard {    background: none repeat scroll 0 0 #D8FFAA;
     border-bottom: 1px solid #BAE687;}
 #red-dashboard ul li{
@@ -252,7 +251,7 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
 #red-dashboard ul .trustpoint{
     float: right;
     margin-right: 0;}
-#comments{    margin-left: 25px;}
+#comments{  margin-top: 5px;}
 .comment{   
     font-size: 11px;
     margin-bottom: 5px;}
@@ -288,12 +287,12 @@ border:1px solid #0046B4;color:#222;}
     text-align: center;}
 .bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
 .feeds {    margin-top: 15px;}    
-.feeds #subimage{    float: left;    max-width: 150px;}
+.feeds #subimage{      max-width: 150px;}
 .feeds #subimage img{        border: 1px solid #CCCCCC;
     padding: 2px;}
-.feeds #subcomments{    float: left; width: 575px;}
+.feeds #subcomments{  }
 .mentions{ 
-    margin: 5px 0;
+    margin: 5px 0;font-size:11px;
     padding: 5px 0;}
 
 .mentions #d a{color: #CCCCCC;

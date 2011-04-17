@@ -29,7 +29,7 @@
 			<div id="helloworld">
 				Pendaftaran invitasi #1 telah berakhir.
 			</div>
-			<p style=" padding: 5px 5px 0;">Saat ini team akan melanjutkan perkembangan, team akan membuka invitasi #2 pada tanggal 9 April 2011. Anda dapat mengikuti perkembangan dengan memfollow twitter atau "like" facebook kami.</p>
+			<p style=" padding: 5px 5px 0;">Saat ini team akan melanjutkan perkembangan, team akan segera membuka invitasi #2. Anda dapat mengikuti perkembangan dengan memfollow twitter atau "like" facebook kami.</p>
 			<p class="clearfix" style=" padding: 5px 5px 0;">
 				<span id="follow-twitterapi"></span>
 				<span id="like-facebookapi"><fb:like href="www.facebook.com/netcoid" layout="button_count" show_faces="true" width="200" font=""></fb:like></span>

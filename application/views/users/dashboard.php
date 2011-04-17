@@ -1,3 +1,5 @@
+<div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;"><span style="position: relative;right: 5px;top: 2px;"><?php $views->getIMG('i/megaphonebybigfunkychiken.gif'); ?> </span>Hallo, Kami sedang voting <a href="/blog?id=6"><u>permintaan fitur #1</u></a> . Jangan lupa untuk <i>Ctrl + D</i> untuk Bookmark!</p></div>
+
 	<div class="clearfix" id="red-content">
 		<!-- FORM START -->
 		<div id="red-edit-full">
@@ -67,13 +69,13 @@
 							echo '<div id="subcomments">';
 							echo '<ul id="comments">';
 							foreach ($key['comments'] as $comment) {
-								echo '<li class="comment" id="comment-'.$comment['pid'].'">
-								<a href="/'.$comment['username'].'">@'.$comment['name'].'</a> '
-								.$comment['comment'].'</li>';
+								echo '<li class="comment" id="comment-'.$comment['pid'].'">'
+								.$comment['comment'].' <span id="says">says</span> <a href="/'.$comment['username'].'">
+								'.$comment['name'].'</a></li>';
 							}
 
-							if (count($key['comments']) == 5) {
-								echo '<li class="cb morecomments">more then 5</li>';
+							if (count($key['comments']) == 3) {
+								echo '<li class="cb morecomments">more then 3</li>';
 							}
 							echo "</ul>";
 							echo "</div>";

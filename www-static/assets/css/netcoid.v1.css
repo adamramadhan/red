@@ -1,10 +1,9 @@
 /*users*/
 
 a.u{
-    background: none repeat scroll 0 0 #FFF5DE;
-    padding: 2px 5px;
+   color: #5E96E3;
 }
-
+#comment{font-size:11px;}
 #logo{
     height: 22px;
     width: 75px;}
@@ -278,7 +277,7 @@ opacity:1;}
 }
 
 
-
+#says{  color: #C24F4F;}
 
 /*EVENT*/
 .faktanyaadalah{

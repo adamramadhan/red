@@ -84,7 +84,7 @@ class Site extends Application {
 			foreach ( $data ['followingproduct'] as $key => $value ) {
 				$data ['feeds'] [$value ['pid']] = $value;
 				if (config ( 'features/comments/core' )) {
-					$data ['feeds'] [$value ['pid']] ['comments'] = $this->model->products->listCommentsByPID ( $value ['pid'], 5 );
+					$data ['feeds'] [$value ['pid']] ['comments'] = $this->model->products->listCommentsByPID ( $value ['pid'], 3 );
 				}
 			}
 			

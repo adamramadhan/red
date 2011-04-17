@@ -82,8 +82,8 @@
 			<ul>
 				<?php foreach ($comments as $comment) {
 					echo "<li class='comments' id='comment-".$comment['cid']."'>";
-					echo "<span id='name'><a href='/".$comment['username']."'>@".$comment['name']."</a></span>";
 					echo "<span id='comment'>".$comment['comment']."</span>";
+					echo "<span id='name'><span id='says'>says</span> <a href='/".$comment['username']."'>".$comment['name']."</a></span>";
 					echo "<span id='time'>".$this->time->formatDateDiff($comment['timecreate'])."</span>";
 					if ($this->sessions->get('uid') == $comment['uid']) {
 						echo "<span id='d'><a href='/comments?d=".$comment['cid']."'>x</a></span>";
