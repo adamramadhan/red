@@ -13,7 +13,7 @@
 	    display: block;
 	    float: left;
 	}
-	#red-content.background{    background: none repeat scroll 0 0 transparent !important;}
+	#red-content.background{    background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent !important;}
 	#closed-registration {
 	    background: none repeat scroll 0 0 #FFFFFF;
 	    border: 1px solid #CCCCCC;
