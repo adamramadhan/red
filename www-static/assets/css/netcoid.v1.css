@@ -203,7 +203,7 @@ span#notification {
     padding: 10px;
     margin-bottom: 20px;
 }
-#red-terms-general a { color: #D32E2E }
+#red-terms-general a,#red-terms-notes a { color: #D32E2E }
 #red-terms-security {
     border: 1px solid #D7D7D7;
     color: #444444;
@@ -312,3 +312,13 @@ opacity:1;}
     position: relative;
     right: 10px;
     width: 201px;}
+
+
+/*AREA51*/
+#ajax-information img {
+    display: block;
+    float: right;
+    position: relative;
+    right: 5px;
+    top: 3px;
+}

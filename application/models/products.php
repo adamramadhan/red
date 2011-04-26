@@ -118,6 +118,26 @@ class ModelProducts extends Models {
 		WHERE comments.pid = :pid ORDER BY cid DESC LIMIT " . $limit, array ('pid' => $pid ) );
 		return $data;
 	}
+
+	# RESEARCH
+	function getLastListFromFollower($uid){
+		$data = $this->fetchAll ( "SELECT users.uid, products.image_tumb, products.name AS product, users.name, products.pid, products.timecreate
+		FROM products
+		INNER JOIN users ON users.uid = products.uid 
+		INNER JOIN social ON products.uid = social.buid
+		WHERE social.auid = :uid ORDER BY pid DESC LIMIT 1", array ('uid' => $uid ) );
+		return $data;		
+	}
+	function getDiff($uid,$pid){
+		$data = $this->fetch ( "SELECT COUNT(products.pid) AS updates
+		FROM products
+		INNER JOIN users ON users.uid = products.uid 
+		INNER JOIN social ON products.uid = social.buid
+		WHERE social.auid = :uid 
+		AND products.pid > :pid
+		ORDER BY pid DESC LIMIT 1", array ('uid' => $uid, 'pid' => $pid ) );
+		return $data;		
+	}
 }
 
 ?>

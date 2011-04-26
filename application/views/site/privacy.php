@@ -13,46 +13,34 @@
 						<li>Mengidentifikasi Suatu Individual atau Organisasi</li>
 						<li>Keperluan Riset & Penerapan, lengkapnya anda dapat melihat <a href="/blog">Blog Official Netcoid</a></li>
 						<li>Algoritma Trust Point</li>
-						<li>Advertising</li>
-						<li>Verify, Seperti KTP, SIUP, dan SK tidak dalam bentuk raw, akan kami format ke bentuk terensyipsi.</li>
+						<li>Advertising Internal</li>
+						<li>Verify. Seperti KTP, SIUP, dan SK tidak dalam bentuk RAW ( dapat dilihat secara langsung ), akan kami format ke bentuk terenkripsi.</li>
 					</ul>
 				
 				<h4>1.2 Ketentuan Tambahan</h4>
 					<ul>
-						<li>kami <u>tidak akan memberikan data pribadi anda kepada pihak ketiga atau partner kami, tanpa ada pemberitahuan terlebih dahulu</u>.</li>
-						<li>netcoid tidak bertanggung jawab atas informasi yang kami gunakan dari pihak ketiga atau partner kami.</li>
+						<li>kami <u>tidak akan memberikan data pribadi anda kepada pihak ketiga atau partner kami, tanpa ada pemberitahuan terlebih dahulu</u> via email atau broadcast. Jika anda tidak setuju dengan perubahan ketentuan privasi baru, maka anda dapat memilih untuk tidak menggunakan layanan kami dengan menghapus akun anda.</li>
+						<li>netcoid tidak bertanggung jawab atas informasi yang kami gunakan atau kami berikan kepada pihak ketiga atau partner kami saat ini<sup>1</sup>.</li>
 					</ul>
 				<li>
 			</ul>
 		</div>
 
-		<div id="red-terms-general">
-			<ul>
-				<li><h3>2. Keamanan Data</h3></li>
-				<li><h4>2.1 Keamanan Sistim</h4>
-					<ul>
-						<li>Email dan nomer tlp anda yang tampil di netcoid aman, coba copy dan paste nomer atau email anda dimanapun</li>
-						<li>Kami hanya menerima BOT tertentu seperti Google, lengkapnya baca <a href="/robots.txt">Robots.txt</a> kami.</li>
-						<li>Tidak aktif selama waktu yang telah ditentukan</li>
-					<ul>
-				</li>
-			</ul>
-		</div>
-
 		<div id="red-terms-security">
 			<ul>
-				<li><h3>3. Keamanan</h3></li>
-				<li><h4>3.1 Keamanan Fisik</h4><p>
+				<li id="keamanan"><h3>2. Keamanan</h3></li>
+				<li><h4>2.1 Keamanan Fisik</h4><p>
 					<ul>
-						<li>Datacenter hanya dapat diakses oleh karyawan atau teknisi IDC ( indonesia data center )</li>
+						<li>Datacenter hanya dapat diakses oleh karyawan atau teknisi IDC ( 3D )</li>
 						<li>24x7 karyawan security IDC bersiaga menjaga di tempat</li>
 					</ul>
-					<h4>3.2 Keamanan Sistim</h4>
+					<h4>2.2 Keamanan Sistim</h4>
 					<ul>
 						<li>Sistim Operasi telah dikeraskan, sistim yang telah dimodifikasi</li>
 						<li>Redwall adalah sistim yang kami kembangkan untuk melindungi dari serangan DDOS, Flooding, dan lainnya. dengan kerjasama berbagai komunitas keamanan indonesia <sup>8</sup></li>
-						<li>Password dan Email telah di redhash-512, sistim keamanan internal yang dikembangkan oleh team netcoid<sup>9</sup></li>
-						<li>Sistim Update 1x24 untuk menghindari setiap jam 00.00 hingga 00.10</li>
+						<li>Password dan Email telah di redhash-512, sistim keamanan internal yang dikembangkan oleh team netcoid <sup>9</sup></li>
+						<li>Sistim Update 1x168 untuk menghindari bug software pihak ke-3 atau partner setiap jam 00.00 hingga 01.00</li>
+						<li>Teknologi SSL ( Secure Socket Layer ), untuk penerapan kami bekerjasama dengan Godaddy Inc. teknologi ini memimalisir kemunkinan data anda </li>
 					</ul>
 				</li>
 			</ul>
@@ -61,6 +49,8 @@
 		<div id="red-terms-notes">
 			<ul>
 				<li><h3>Notes</h3></li>
+				<li id="note-terms-8">1. Google Analitycs <a href="#">see privacy</a>, 
+				Kissmatrics <a href="#">see privacy</a>, Godaddy SSL <a href="#">see privacy</a>.</li>
 				<li id="note-terms-8">8. untuk kerjasama kami akan memberikan satu account hosting sandbox ( untuk percobaan / latihan ) + account hosting untuk forum website komunitas, kententuan berlaku.</li>
 				<li id="note-terms-9">9. One way hashing, kami tidak menyimpan password & email anda secara langsung ( tidak dalam bentuk text )</li> 
 			</ul>

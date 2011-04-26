@@ -56,32 +56,20 @@
 
 		<div id="red-terms-general">
 			<ul>
-				<li><h3>2. Akun</h3></li>
-				<li><h4>2.1 Managemen</h4><p>Layanan netcoid berhak untuk menonaktifkan akun tampa pemberitahuan dikarenakan beberapa hal sebagai berikut:</p>
+				<li><h3>2. Keamanan</h3></li>
+				<li>Lihat bagian <a href="/privacy#keamanan">Kebijakan Privasi #Keamanan</a></li>
+			</ul>
+		</div>
+
+		<div id="red-terms-general">
+			<ul>
+				<li><h3>3. Akun</h3></li>
+				<li><h4>3.1 Managemen</h4><p>Layanan netcoid berhak untuk menonaktifkan akun tampa pemberitahuan dikarenakan beberapa hal sebagai berikut:</p>
 					<ul>
 						<li>Pelanggaran Persetujuan</li>
 						<li>Melakukan aktifitas yang mencurigakan</li>
 						<li>Tidak aktif selama waktu yang telah ditentukan</li>
 					<ul>
-				</li>
-			</ul>
-		</div>
-
-		<div id="red-terms-security">
-			<ul>
-				<li><h3>3. Keamanan</h3></li>
-				<li><h4>3.1 Keamanan Fisik</h4><p>
-					<ul>
-						<li>Datacenter hanya dapat diakses oleh karyawan atau teknisi IDC ( indonesia data center )</li>
-						<li>24x7 karyawan security IDC bersiaga menjaga di tempat</li>
-					</ul>
-					<h4>3.2 Keamanan Sistim</h4>
-					<ul>
-						<li>Sistim Operasi telah dikeraskan, sistim yang telah dimodifikasi</li>
-						<li>Redwall adalah sistim yang kami kembangkan untuk melindungi dari serangan DDOS, Flooding, dan lainnya. dengan kerjasama berbagai komunitas keamanan indonesia <sup>8</sup></li>
-						<li>Password dan Email telah di redhash-512, sistim keamanan internal yang dikembangkan oleh team netcoid<sup>9</sup></li>
-						<li>Sistim Update 1x24 untuk menghindari setiap jam 00.00 hingga 00.10</li>
-					</ul>
 				</li>
 			</ul>
 		</div>

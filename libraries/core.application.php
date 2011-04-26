@@ -142,7 +142,8 @@ class Application {
 		$buffer = trim ( $buffer );
 		# https://github.com/tylerhall/html-compressor/blob/master/html-compressor.php#L138
 		$buffer = str_replace ( ">\n<", '><', $buffer );
-		
+		# gak bisa dipake karena blm full to p
+		#$buffer = preg_replace('/\s\s+/', ' ', $buffer);
 		return $buffer;
 	}
 	

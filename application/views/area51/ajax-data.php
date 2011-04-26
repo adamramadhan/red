@@ -1,0 +1,1 @@
+<?php echo $ajax['updates']; ?> Updates <a href="#"><?php $views->getIMG('i/arrow_refresh_small.png'); ?></a>

@@ -5,13 +5,13 @@
 	<div class="clearfix background-event" id="red-content">
 		<div class="c" id="test-netcoid-why">
 		<h3>Mengapa Netcoid?</h3>
-		<p id="test-netcoid-status">Invitation Only</p>
+		<p id="test-netcoid-status">Status : Invitation Only</p>
 		<p>Netcoid dibentuk sebagai ispirasi, teknologi dan media penghubung antar pengusaha indonesia.</p>
 		<hr/>
 		<ul>
-			<li>Portofolio Bisnis Anda, <a style="color: rgb(204, 62, 62);" target="_blank" href="/LVUstore">Lihat Profil LVUstore + Social</a></li>
-			<li>Ikuti perkembangan Bisnis sesuai kebutuhan Anda</li>
 			<li>Gabungkan Bisnis + Social</li>
+			<li>Portofolio Bisnis Anda, <a style="color: rgb(204, 62, 62);" target="_blank" href="/LVUstore">Lihat Profil LVUstore</a></li>
+			<li>Ikuti perkembangan Bisnis sesuai kebutuhan Anda</li>
 			<li>Buat Peluang dengan menemukan partner di sekitar Anda</li>
 			<li>Dapatkan juga Kepecayaan Pembeli dengan sistim <a target="_blank" style="color: rgb(204, 62, 62);" href="/verify">Verifikasi</a></li>
 			<li>Tingkatkan penjualan Anda</li>

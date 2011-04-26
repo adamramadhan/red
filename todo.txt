@@ -21,6 +21,7 @@ invitation break itu ya kaya kasih2 invitation. karena 2 sebanyak 222 invitation
 #chmod 644 semua image
 -tinggal di middleware doang
 chmod($savepath.'/'.$p['image'],0644);
+mkdir
 
 test
 
@@ -29,6 +30,8 @@ test
 [2:31:52 AM] Dimaz Maulana: ubah aja
 [2:31:57 AM] Dimaz Maulana: jadi "edit profil anda"
 
+ktp itu yang paling parah verify kudu riset
+0 - 20 pake @ atau gak twitter kurang jelas
 
 fixes #xxx
 fixed #xxx

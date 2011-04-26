@@ -79,7 +79,6 @@ class Site extends Application {
 			$this->model ( 'social' );
 			$this->helper ( 'time' );
 			$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
-
 			
 			foreach ( $data ['followingproduct'] as $key => $value ) {
 				$data ['feeds'] [$value ['pid']] = $value;
@@ -159,7 +158,7 @@ class Site extends Application {
 	function privacy() {
 		#SEO START
 		$header['title'] = 'Privacy';
-		$header['title_more'] = 'Openess';
+		$header['title_more'] = 'Trust and Openess';
 		$this->view ( 'site/header-data',$header );
 		#SEO END
 

@@ -14,30 +14,40 @@ class Test extends Application {
 		$this->view ( 'area51/footer', $data );
 	}	
 
-	function test() {
-		$this->sessions->set('login',1);
-		$_SESSION['aw'] = 'test';
-		echo session_id().'<br/>';
-		var_dump($_SESSION).'<br/>';
-		echo $this->sessions->get('login');
-	}
-	function test2(){
-		if (is_get('d')) {
-			$this->sessions->del('login');
-			$this->sessions->del('aw');
-			$this->sessions->flush();
-		}
-		echo session_id().'<br/>';
+	function ajax(){
+		$this->model('products');
+		
+		$data['followingproduct'] = array(
+			0 => array('pid' => '27' ),
+			1 => array('pid' => '25' ),
+			2 => array('pid' => '23' ),
+			3 => array('pid' => '20' ),
+			4 => array('pid' => '18' ),
+			5 => array('pid' => '17' )
+		);
 
-		var_dump($_SESSION).'<br/>';
-		echo $this->sessions->get('login');
+		# F = FROM
+		if (is_get('f')) {
+
+			if (is_numeric($_GET['f'])) {
+				#$data['new'] = $this->model->products->getLastListFromFollower($this->sessions->get ( 'uid' ),23);
+				$data['ajax'] = $this->model->products->getDiff($this->sessions->get('uid'),$_GET['f']);
+				#$data['x'] = $this->model->products->getDiff($this->sessions->get('uid'),10);
+				$this->view ( 'area51/ajax-data',$data);
+			}
+
+			# FETCH UNTIL PID = 23. COUNT THE DIFFRENCE = X FETCH AS X OR LATEST 5 IF MORE THEN 5
+		}
 	}
-	function info(){
-		ini_set('suhosin.session.encrypt','off');
-		echo ini_get('suhosin.session.encrypt'). "<br/>";
-		echo 'post_max_size = ' . ini_get('post_max_size') . "<br/>";
-		echo 'post_max_size+1 = ' . (ini_get('post_max_size')+1) . "<br/>";
-		phpinfo();
+
+	function home(){
+		$this->model('products');
+		$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
+		$this->view ( 'area51/header');
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->view ( 'area51/ajax');
+		$this->view ( 'area51/footer');
+		echo "string";
 	}
 }
 

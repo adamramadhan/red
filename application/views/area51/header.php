@@ -7,7 +7,7 @@
 		<meta name="keywords" content="jejaring bisnis, social business, partner usaha, usaha indonesia" />
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<title>netcoid &mdash; jejaring bisnis indonesia</title>
-		<?php $views->css('framework','netcoid.v1','home'); ?>
+		<?php $views->css('framework','netcoid.v1','home','users'); ?>
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 	</head>
 <body class="<?php $views->ActiveCSS(); ?>">
