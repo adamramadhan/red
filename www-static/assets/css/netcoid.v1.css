@@ -200,8 +200,15 @@ span#notification {
 #red-terms-general {
     border: 1px solid #D7D7D7;
     color: #444444;
-    padding: 10px;
     margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px
+}
+#red-terms-general img{
+    bottom: 22px;
+    margin-bottom: -10px;
+    position: relative;
+    right: 11px;
 }
 #red-terms-general a,#red-terms-notes a { color: #D32E2E }
 #red-terms-security {

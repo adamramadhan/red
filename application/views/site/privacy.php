@@ -1,6 +1,7 @@
 	<!-- CONTENT START -->
 	<div id="red-content">
 		<div id="red-terms-general">
+		<?php $views->getIMG('privasi.png'); ?>
 			<ul>
 				<li><h3>Perkenalan Kebijakan Privasi</h3></li>
 				<li><p>Di Netcoid, kami sangat sadar akan kepercayaan Anda pada kami dan tanggung jawab kami untuk melindungi privasi Anda. Sebagai bagian dari tanggung jawab ini, kami memberitahukan informasi yang kami kumpulkan saat Anda menggunakan produk dan layanan kami, alasan mengumpulkannya, dan cara menggunakannya untuk meningkatkan pengalaman Anda. Klarifikasi Kebijakan Privasi di help@networks.co.id

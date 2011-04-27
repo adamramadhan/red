@@ -58,7 +58,7 @@ class Site extends Application {
 			}
 			
 			if (is_get ('facebook' )) {
-				$this->view ( 'site/index-closed-invitation' );
+				$this->view ( 'site/register-facebook' );
 			}
 			if (is_get ('binus' )) {
 				$this->view ( 'site/index-closed-invitation' );

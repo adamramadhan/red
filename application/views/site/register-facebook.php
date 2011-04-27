@@ -4,14 +4,16 @@
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				Hello Binusian!, Lets start to make a <strong>change</strong>.
+				Hello!, Lets start to make a <strong>change</strong>.
 			</div>
 			<ul>
-				<li style="padding: 10px;">@netcoid dibentuk sebagai media dan inspirasi jiwa entrepreneur muda indonesia, Disini #Binusian dapat membuat profil / portofolio usaha, toko sampai organisasi untuk menawarkan produk dan <strong>karya original</strong> masing-masing, #Binusian dapat saling berinteraksi dengan sesama pengguna netcoid. Untuk lebih lengkapnya dapat langsung ke <a style="color:#D32E2E" target="_blank" href="/why">Informasi Perkenalan</a>. Atau kunjungi salah contoh profile <a target="_blank" class="u" href="/LVUstore">LVUstore</a> yang berada di netcoid.</li>
-				<li id="red-register-closed">1. Masukan username yang diinginkan, untuk digunakan sebagai url anda seperti : www.networks.co.id/username.<li>
-				<li id="red-register-closed">2. Masukan kata sandi, Data yang tersimpan di netcoid seperti <i>password</i>, kami simpan secara terenkripsi sehingga data yang anda simpan <strong>aman</strong> dan <strong>tidak dapat disalahgunakan oleh pihak manapun</strong>, pastikan anda mengunjungi <a style="color:#D32E2E" href="/terms"><u>Persyaratan & Privacy</u></a> terlebih dahulu. Anda bisa <i>mereset password</i> anda dengan menghubungi <a href="/help"><u>Pusat Bantuan</u></a>.<li>
-				<li id="red-register-closed">3. Masukan nama usaha, toko atau organisasi anda, Pastikan bahwa nama usaha anda sesuai.<li>
-				<li id="red-register-closed">4. Masukan nomer kontak usaha, perhatikan format pengisian seperti 000-1234567 atau berformat GSM 08123456789.<li>
+				<li>Selamat datang di jejaring bisnis indonesia</li>
+				<li>Gabungkan Bisnis + Social</li>
+				<li>Portofolio Bisnis Anda, <a style="color: rgb(204, 62, 62);" target="_blank" href="/LVUstore">Lihat Profil LVUstore</a></li>
+				<li>Ikuti perkembangan Bisnis sesuai kebutuhan Anda</li>
+				<li>Buat Peluang dengan menemukan partner di sekitar Anda</li>
+				<li>Dapatkan juga Kepecayaan Pembeli dengan sistim <a target="_blank" style="color: rgb(204, 62, 62);" href="/verify">Verifikasi</a></li>
+				<li>Tingkatkan penjualan Anda</li>
 				<script src="https://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
 				  <script type="text/javascript">
 				    twttr.anywhere(function (T) {

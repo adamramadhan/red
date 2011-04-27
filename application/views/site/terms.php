@@ -1,6 +1,7 @@
 	<!-- CONTENT START -->
 	<div id="red-content">
 		<div id="red-terms-general">
+			<?php $views->getIMG('layanan.png'); ?>
 			<ul>
 				<li><h3>Perkenalan Kebijakan Layanan</h3></li>
 				<li><p>Kebijakan Layanan digunakan untuk melindungi Rekan Netcoid, Tolong baca dengan teliti Hak dan Kewajiban Anda. karena dengan mengunakan layanan Netcoid ( www.networks.co.id ), Anda <strong>setuju</strong> untuk mengikuti beberapa ketentuan yang berada di bawah ini. Klarifikasi Kebijakan Layanan di help@networks.co.id. 
