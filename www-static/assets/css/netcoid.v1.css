@@ -290,7 +290,7 @@ opacity:1;}
 .home #red-content.background {
     background: url("www-static/assets/images/highlight-1.png") no-repeat scroll -201px 349px transparent;
 }
-.event-invitasi2{   padding: 10px;}
+#event-invitasi2{   padding: 10px;}
 
 .faktanyaadalah{
     background: url("/www-static/assets/images/bg/faktanyaadalah.gif") repeat 0 0 #000000;
