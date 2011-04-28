@@ -36,9 +36,6 @@
 				
 				<!-- VERIFIED OR NOT START -->
 				<li><?php
-					if ($user['role'] == 0) {
-						echo '<span class="c" id="status-unverified">'.l('unverified').'</span>'; 
-					}
 					if ($user['role'] == 1) {
 						echo '<span class="c" id="status-verified"><a target="_blank" href="/verify/'.$user['username'].'">'.l('verified').'</a></span>'; 
 					}
