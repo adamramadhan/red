@@ -17,7 +17,7 @@
 						<li>Ikuti perkembangan bisnis disekitar anda, <sub><i>dengan menggunakan sistim follow</i></sub></li>
 						<li>Tingkatkan Kepercayaan pengunjung, <sub><i>bukan hanya feedback & testimonial</i></sub></li>
 						<li>Butuh lebih?, <sub><i>email team di hello@networks.co.id, 12x7 fast response.</i></sub></li>
-						<li>Masih Bingung? langsung ke <a target="_blank" href="/why">Seperti apa?</a> <sub><i>Atau lihat contoh <a target="_blank" href="/LVUStore">Profil LVU Store</a></i></sub></li>
+						<li>Masih Bingung? langsung ke <a target="_blank" href="/why">Seperti apa?</a> <sub><i>Atau lihat contoh <a class="u" target="_blank" href="/LVUStore">Profil LVU Store</a> atau <a class="u" target="_blank" href="/mangkukmerah">Profil Mangkuk Merah Hosting</a></i></sub></li>
 					</ul>
 			</div>
 		</div>
