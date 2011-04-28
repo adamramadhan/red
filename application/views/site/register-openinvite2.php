@@ -4,25 +4,22 @@
 	<div class="clearfix background" id="red-content">
 		<div id="red-content-left">
 			<div id="helloworld">
-				Hello!, Lets start to make a <strong>change</strong>.
+				Start to make a <strong>real change</strong>.
 			</div>
-			<ul>
-				<li>Selamat datang di jejaring bisnis indonesia</li>
-				<li>Gabungkan Bisnis + Social</li>
-				<li>Portofolio Bisnis Anda, <a style="color: rgb(204, 62, 62);" target="_blank" href="/LVUstore">Lihat Profil LVUstore</a></li>
-				<li>Ikuti perkembangan Bisnis sesuai kebutuhan Anda</li>
-				<li>Buat Peluang dengan menemukan partner di sekitar Anda</li>
-				<li>Dapatkan juga Kepecayaan Pembeli dengan sistim <a target="_blank" style="color: rgb(204, 62, 62);" href="/verify">Verifikasi</a></li>
-				<li>Tingkatkan penjualan Anda</li>
-				<script src="https://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
-				  <script type="text/javascript">
-				    twttr.anywhere(function (T) {
-				      T.hovercards();
-				    });
-				  </script>
-				<li id="red-register-closed">5. Support berada di YM: netcoid, email: help@networks.co.id ( pioritas ), atau MENTION @netcoid.</a>
-				<li style=" padding: 20px 10px 0;"><strong>Jangan lupa follow akun official</strong> <a class="u" href="/netcoid">Netcoid Indonesia</a> di netcoid untuk mendapatkan informasi Merchandise sewaktu-waktu dari @netcoid!.<li>
-			</ul>
+			<?php $views->css('blog'); ?>
+			<div class="blog-post" id="event-invitasi2">
+			<p>Netcoid adalah layanan jejaring bisnis dimana anda bisa;</p>
+					<ul>
+						<li>Buat Portofolio Bisnis Anda, <sub><i>tidak hanya menjual</i></sub></li>
+						<li>Social, <sub><i>dapatkan www.networks.co.id/bisnisanda dengan kekuatan social. facebook, twitter dan yahoo!</i></sub></li>
+						<li>Gunakan domain sendiri! www.bisnisanda.com <sub><i>kontak kami di pusat bantuan</i></sub></li>
+						<li>Dapatkan Partner baru, <sub><i>yang saling melengkapi</i></sub></li>
+						<li>Ikuti perkembangan bisnis disekitar anda, <sub><i>dengan menggunakan sistim follow</i></sub></li>
+						<li>Kepecayaan pelanggan, <sub><i>bukan hanya feedback & testimonial</i></sub></li>
+						<li>Butuh lebih?, <sub><i>email team di hello@networks.co.id, 12x7 fast response.</i></sub></li>
+						<li>Masih Bingung? langsung ke <a target="_blank" href="/why">Seperti apa?</a> <sub><i>Atau lihat contoh <a target="_blank" href="/LVUStore">Profil LVU Store</a></i></sub></li>
+					</ul>
+			</div>
 		</div>
 		<div id="red-content-right">
 			<div id="red-register">

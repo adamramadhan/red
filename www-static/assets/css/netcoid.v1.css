@@ -287,6 +287,10 @@ opacity:1;}
 #says{  color: #C24F4F;}
 
 /*EVENT*/
+.home #red-content.background {
+    background: url("www-static/assets/images/highlight-1.png") no-repeat scroll -201px 349px transparent;
+}
+
 .faktanyaadalah{
     background: url("/www-static/assets/images/bg/faktanyaadalah.gif") repeat 0 0 #000000;
 }
