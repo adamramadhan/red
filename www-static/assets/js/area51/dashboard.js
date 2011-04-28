@@ -1,17 +1,39 @@
+  function getNewFeed(){
+      var feedid = $('.feeds .feed:first').attr('id');
+      var feedid = feedid.match(/^feed-(\d+)$/);
+
+      if (feedid){
+        $.ajax({
+            type: 'GET',
+            url: '/area51/ajax',
+            context: $("#ajax-information"),
+            data: { f: feedid[1] },
+            success: function(data) {
+
+                $(this).html(data);
+
+                var feedstatus = $('.ajax-status').attr('id');
+                if (feedstatus == 'none') {
+                    $(this).hide();     
+                };
+
+                if (feedstatus == 'true') {
+                    $(this).fadeIn().html(data);
+                    $('#ajax-information a').click(function(e) {
+                        //I commented the following line because (as i understand)    
+                        //getNewFeed() makes the ajax call
+                        $('.feeds').fadeIn().load('/ .feeds');
+                        $('#ajax-information').fadeOut();
+                        e.preventDefault();
+                    });
+                };
+            }
+        });
+    }
+}
+
 jQuery(document).ready(function(){
-
-setInterval(function() {
-	// GET A AJAX REQUEST EACH 5 SECONDS NANTI KALO UDAH BISA NODE JS BIAR DI PUSH AJA
-	$.ajax({
-		type: 'GET',
-		url: '/area51/ajax',
-		context: $("#ajax-information"),
-		data: { f: 20 },
-		success: function(data) {
-			$(this).fadeIn().html(data);
-		}
-	});
-}, 7000);
-
-
+     setInterval(function() {
+        getNewFeed();            
+     }, 7000);       
 });

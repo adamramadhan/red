@@ -242,8 +242,7 @@ margin:5px 0;}
 #subfeed-meta{
 margin:5px 0;border-bottom: 1px solid #F9EBEB;}
 
-#red-dashboard {    background: none repeat scroll 0 0 #D8FFAA;
-    border-bottom: 1px solid #BAE687;}
+#red-dashboard {      font-family: Trebuchet MS; }
 #red-dashboard ul li{
     float: left;
     margin-right: 5px;

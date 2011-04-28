@@ -17,15 +17,6 @@ class Test extends Application {
 	function ajax(){
 		$this->model('products');
 		
-		$data['followingproduct'] = array(
-			0 => array('pid' => '27' ),
-			1 => array('pid' => '25' ),
-			2 => array('pid' => '23' ),
-			3 => array('pid' => '20' ),
-			4 => array('pid' => '18' ),
-			5 => array('pid' => '17' )
-		);
-
 		# F = FROM
 		if (is_get('f')) {
 

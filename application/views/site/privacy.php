@@ -50,8 +50,8 @@
 		<div id="red-terms-notes">
 			<ul>
 				<li><h3>Notes</h3></li>
-				<li id="note-terms-8">1. Google Analitycs <a href="#">see privacy</a>, 
-				Kissmatrics <a href="#">see privacy</a>, Godaddy SSL <a href="#">see privacy</a>.</li>
+				<li id="note-terms-8">1. Google Analitycs <a target="_blank" href="http://www.google.com/intl/en/analytics/privacyoverview.html">see privacy</a>, 
+				KissMetrics <a target="_blank" href="http://www.kissmetrics.com/privacy">see privacy</a>, Godaddy SSL <a target="_blank" href="http://www.godaddy.com/Agreements/ShowDoc.aspx?pageid=PRIVACY">see privacy</a>.</li>
 				<li id="note-terms-8">8. untuk kerjasama kami akan memberikan satu account hosting sandbox ( untuk percobaan / latihan ) + account hosting untuk forum website komunitas, kententuan berlaku.</li>
 				<li id="note-terms-9">9. One way hashing, kami tidak menyimpan password & email anda secara langsung ( tidak dalam bentuk text )</li> 
 			</ul>

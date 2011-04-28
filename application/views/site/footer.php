@@ -5,6 +5,7 @@
 					<!-- WHY -->
 					<li id="hint"><?php $views->href('/why',l('why')); ?></li>
 					<li><?php $views->href('/terms',l('terms')); ?></li>
+					<li><?php $views->href('/privacy',l('privacy')); ?></li>
 					<li><?php $views->href('/netcoid',l('contactus')); ?></li>
 					<li><?php $views->href('/help',l('helpcenter')); ?></li>
 			</ul>
