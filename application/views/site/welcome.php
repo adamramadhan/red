@@ -20,7 +20,7 @@
 		</div>
 		<div class="box-approve">
 			<h3>Ikuti Perkembangan kami!</h3>
-			<p>Sebelumnya kami akan mengucapkan selamat kepada anda, anda berada pada 1000 pendaftar pertama. Kami sedang berkembang cepat, untuk mengikuti perkembangan anda dapat membuka <a target="_blank" href="/blog">Blog</a> kami, Twitter dan Facebook kami; 
+			<p>Sebelumnya kami akan mengucapkan selamat kepada anda, anda berada pada 1000 pendaftar pertama. Kami <i>sedang berkembang cepat</i>, untuk mengikuti perkembangan kami anda dapat mengikuti <a target="_blank" href="/blog">Blog</a> kami, Twitter dan Facebook kami; 
 			<p class="clearfix" style=" padding: 5px 5px 0;">
 			<span id="follow-twitterapi"></span>
 			<span id="like-facebookapi"><fb:like href="www.facebook.com/netcoid" send="true" width="300" show_faces="true" font=""></fb:like></span>
