@@ -36,7 +36,7 @@
 					<li><label for="phone">Kontak Organisasi / Bisnis</label>  <input type="text" title='<?php echo l('register_phone_error'); ?>' 
 					value="" id="input-phone" class="textinput" name="phone"></li>
 				</ul>
-				<p style="padding: 5px;">Anda Menyetujui <a href="/terms" style="color: rgb(211, 46, 46);">Kebijakan Layanan</a> dan <a href="/terms" style="color: rgb(211, 46, 46);">Kebijakan Layanan</a> Netcoid.</p>
+				<p style="padding: 5px;">Anda Menyetujui <a target="_blank" href="/terms" style="color: rgb(211, 46, 46);">Kebijakan Layanan</a> dan <a target="_blank" href="/privacy" style="color: rgb(211, 46, 46);">Kebijakan Privasi</a> Netcoid.</p>
 				<p><input type="submit" value="Setuju &amp; Registrasi" name="register" id="button"></p>
 				</form>
 			</div>
