@@ -29,6 +29,10 @@ class Comments extends Application {
 		# \1 blm kepake. munkin nanti pake sekarang pake warna dulu
 		foreach ( $database as $username => $values ) {
 			switch ($values ['role']) {
+				case '1' :
+					$text = preg_replace ( '/=(' . $username . ')/', '<a class="u" href="' . strtolower ( '\1' ) . '">' . $values ['name'] . ' &#x2714;</a>', $text );
+					break;
+
 				case '5' :
 					$text = preg_replace ( '/=(' . $username . ')/', '<a class="u" href="' . strtolower ( '\1' ) . '">*' . $values ['name'] . '</a>', $text );
 					break;

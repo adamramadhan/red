@@ -37,7 +37,7 @@
 				<!-- VERIFIED OR NOT START -->
 				<li><?php
 					if ($user['role'] == 1) {
-						echo '<span class="c" id="status-verified"><a target="_blank" href="/verify/'.$user['username'].'">'.l('verified').'</a></span>'; 
+						echo '<span class="c" id="status-verified"><a target="_blank" href="/verify/'.$user['username'].'">'.l('verified').' &#x2714;</a></span>'; 
 					}
 					if ($user['role'] == 3) {
 						echo '<span class="c" id="status-mediapartner"><a target="_blank" href="/verify/'.$user['username'].'">'.l('mediapartner').'</a></span>'; 
@@ -113,21 +113,20 @@
 				echo $views->getStorage($user['uid'],$product['image_tumb']); 
 				echo "</a></div>";
 	
-		        if ($i % 4 == 0)
+		        if ($i % 4 == 0 && $i != 16)
 		              echo '<div id="productline" class="clear"><hr/></div>';
 		        $i++;
 				}
-				
 				// suatu saat diganti post
 				if ($readmore == 16) {
 					echo '<div id="productline" class="clear"><hr/></div>
-					<a id="more" href="/profile?id='. $user['uid'] .'&offset='. $page .'#products" >More</a>';
+					<a id="more" href="/'. $user['username'] .'?offset='. $page .'#products" >More</a>';
 				}
 
 				if ($readmore < 16 && isset($_GET['offset'])) {
 					$page = $page-2;
 					echo '<div id="productline" class="clear"><hr/></div>
-					<a id="more" href="/profile?id='. $user['uid'] .'&offset='. $page .'#products" >Back</a>';
+					<a id="more" href="/'. $user['username'] .'?offset='. $page .'#products" >Back</a>';
 				}
 			?>
 			</div>

@@ -79,28 +79,28 @@ class Products extends Application {
 		
 		// start pagenation
 		if (! isset ( $_GET ['offset'] )) {
-			$offset = '0';
-			$page = 1;
+			$data['offset'] = '0';
+			$data['page'] = 1;
 		}
 		
 		if (is_get ( 'offset' )) {
 			$page = '0';
 			if (is_numeric ( $_GET ['offset'] )) {
-				$offset = $_GET ['offset'] * 20;
-				$page = 1 + $_GET ['offset'];
+				$data['offset'] = $_GET ['offset'] * 16;
+				$data['page'] = 1 + $_GET ['offset'];
 			}
 		}
 		// end pagenation
 		
 
 		if (! is_get ( 'tag' )) {
-			$data ['products'] = $this->model->products->listProducts ( $offset );
+			$data ['products'] = $this->model->products->listProducts ( $data['offset'] );
 		}
 		
 		if (is_get ( 'tag' )) {
 			# @todo harus di safe dulu
 			$tag = $_GET ['tag'];
-			$data ['products'] = $this->model->products->listProductsByTag ( $tag, $offset );
+			$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
 		}
 		
 		$data ['count'] = count ( $data ['products'] );

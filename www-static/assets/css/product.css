@@ -58,9 +58,10 @@
     background: none repeat scroll 0 0 #F2F2F2;
 }
 #more {
-    margin-left: 425px;
-    margin-top: 10px;
-    padding: 10px 20px;
+    border: 1px solid #EEEEEE;
+    display: block;
+    margin-left: 0;
+    padding: 10px 323px;
 }
 #pesan {
     -moz-box-shadow: 0 1px 3px #DDDDDD;

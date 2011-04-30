@@ -59,6 +59,12 @@
     background: none repeat scroll 0 0 #BAE9FF;
     padding: 5px 10px;
 }
+#status-verified:hover{
+    background: none repeat scroll 0 0 #AEE0F7;
+}
+#status-verified a:hover{
+    color:#444;text-decoration:none;
+}
 #status-mediapartner{
     background: none repeat scroll 0 0 #54EAC0;
     padding: 5px 10px;
@@ -90,9 +96,10 @@ PRODUCTLIST
    ================================================== */
 #red-information {  word-wrap: break-word; overflow:hidden;  }
 #more {
-    margin-left: 320px;
-    margin-top: 10px;
-    padding: 10px 20px;
+    border: 1px solid #EEEEEE;
+    display: block;
+    margin-left: 0;
+    padding: 10px 323px;
 }
 /*UJICOBA*/
 .newicon{

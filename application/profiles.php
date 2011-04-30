@@ -48,15 +48,15 @@ class Profiles extends Application {
 			
 			// start pagenation
 			if (! isset ( $_GET ['offset'] )) {
-				$offset = '0';
-				$page = 1;
+				$data['offset'] = '0';
+				$data['page'] = 1;
 			}
 			
 			if (is_get ( 'offset' )) {
 				$page = '0';
 				if (is_numeric ( $_GET ['offset'] )) {
-					$offset = $_GET ['offset'] * 16;
-					$page = 1 + $_GET ['offset'];
+					$data['offset'] = $_GET ['offset'] * 16;
+					$data['page'] = 1 + $_GET ['offset'];
 				}
 			}
 			// end pagenation
@@ -117,7 +117,7 @@ class Profiles extends Application {
 			// end social
 			
 
-			$data ['products'] = $this->model->products->listProductsByUID ( $data ['user'] ['uid'] );
+			$data ['products'] = $this->model->products->listProductsByUID ( $data ['user'] ['uid'],$data['offset'] );
 			$data ['readmore'] = count ( $data ['products'] );
 			$data ['follow'] = $this->model->social->is_following ( $this->sessions->get ( 'uid' ), $data ['user'] ['uid'] );
 			
