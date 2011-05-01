@@ -8,7 +8,7 @@
 				<!-- FOLLOW OR NOT FOLLOW START -->
 				<li><?php
 				if ( $user['uid'] == $this->sessions->get('uid')) {
-					echo l('yourprofile');
+					echo '<a href="/edit/profile">'.l('editprofile').'</a>';
 				}
 				if ( $this->sessions->get('uid') && $user['uid'] != $this->sessions->get('uid') && empty($follow)) {
 					echo '<a href="/social/follow?id='.$user['uid'] .'&ref='.$thisprofile.'" >'.l('follow').'</a>';

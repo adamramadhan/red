@@ -6,6 +6,8 @@
  
 jQuery(document).ready(function(){
 
+
+
 /* validator start */
 $.validator.addMethod(
         "regex",
@@ -23,24 +25,18 @@ $("#form-productadd").validate({
 		label.addClass("none")
 	},
 	showErrors: function(errorMap, errorList) {
-    $("#form-register").find("input").each(function() {
+    $("#form-productadd").find("input").each(function() {
         $(this).removeClass("error");
     });
     $("#red-error-box").html("");
         if(errorList.length) {
-            $("#red-error-box").html(
-            	'<ul>
-            		<li class="error-list clearfix">
-            		<span id="num">-' + this.numberOfInvalids() +'</span><span id="description">' + errorList[0]['message'] + '</span>
-            		</li>
-            	</ul>'
-            	);
+            $("#red-error-box").html('<ul><li class="error-list clearfix"><span id="num">-' + this.numberOfInvalids() +'</span><span id="description">' + errorList[0]['message'] + '</span></li></ul>');
         $(errorList[0]['element']).addClass("error");
     	}
 	}
 });
 
-$("#input-name").rules("add", { regex: /^[a-zA-Z0-9_\s#]{4,20}$/, required : true });
+$("input#input-name").rules("add", { regex: /^[a-zA-Z0-9_\s#]{4,20}$/, required : true });
 $("#textarea-informationbox").rules("add", { required : true });
 $("#input-image").rules("add", { required : true });
 $("#input-tag").rules("add", { regex: /^[a-zA-Z0-9]{3,15}$/, required : true });

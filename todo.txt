@@ -48,3 +48,7 @@ oh oke, soalnya mau main ke yogya nih :)
 siap
 [Kurniawan Aja]
 iya
+
+
+#ajax nanti dipake untuk fitur2 di information box
+misal dia mau tunjukin analitiksnya bisa cma dengan [analitics] atau [tabel] dsb

@@ -56,6 +56,7 @@ $l['more...'] = 'Read More...';
 $l['nosubject'] = 'No Subject';
 /*PROFILE & PRODUCT */
 $l['yourprofile'] = 'Your Profile';
+$l['editprofile'] = 'Edit Profile';
 $l['yourproduct'] = 'Your Product';
 $l['logintofollow'] = 'Login to follow';
 $l['logintobuy'] = 'Login to order';

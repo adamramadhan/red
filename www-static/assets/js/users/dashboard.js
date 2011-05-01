@@ -1,11 +1,11 @@
-  function getNewFeed(){
+function getNewFeed(){
       var feedid = $('.feeds .feed:first').attr('id');
       var feedid = feedid.match(/^feed-(\d+)$/);
 
       if (feedid){
         $.ajax({
             type: 'GET',
-            url: '/area51/ajax',
+            url: '/ajax/refresh',
             context: $("#ajax-information"),
             data: { f: feedid[1] },
             success: function(data) {

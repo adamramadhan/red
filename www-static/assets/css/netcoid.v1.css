@@ -5,7 +5,6 @@ a.u{
 }
 #comment{font-size:11px;}
 #logo{
-    height: 22px;
     width: 75px;}
 
 
@@ -32,7 +31,7 @@ a { text-decoration: none }
     color: #FFFFFF;
 }
 #red-header li {
-    float: left;
+    float: left;    height: 22px;
     padding: 10px;
 }
 #red-header li:hover { background-color: #C52020 }

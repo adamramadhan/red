@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
 	    });
 	    $("#red-error-box").html("");
 	        if(errorList.length) {
-	            $("#red-error-box").html('<ul><li class="error-list clearfix"><span id="num">-' + this.numberOfInvalids() +'</span><span id="description">' + errorList[0]['message'] + '</span></li></ul>');
+	        	$("#red-error-box").html('<ul><li class="error-list clearfix"><span id="num">-' + this.numberOfInvalids() +'</span><span id="description">' + errorList[0]['message'] + '</span></li></ul>');
 	        $(errorList[0]['element']).addClass("error");
 	    	}
 		}

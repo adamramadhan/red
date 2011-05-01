@@ -73,6 +73,9 @@ $routes['admin/verify'] = 'admin:listunverified';
 $routes['admin/useredit'] = 'admin:useredit';
 
 
+#ajax Routes
+$routes['ajax/refresh'] = 'ajax:getProductDiff';
+
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 #$routes['area51/google'] = 'test:google';
 $routes['area51/home'] = 'test:home';

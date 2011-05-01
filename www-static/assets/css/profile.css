@@ -29,6 +29,11 @@
     padding: 0 5px;
     width: 150px;
 }
+/* @todo tunggu dl
+#red-profile-right #product img{    
+    border: 1px solid #CCCCCC;
+    padding: 2px;}
+*/
 #productline hr { border-color: #eee }
 #twitter {
     background: none repeat scroll 0 0 #9AE4F1;

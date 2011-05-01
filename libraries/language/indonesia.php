@@ -56,6 +56,7 @@ $l['more...'] = 'Selengkapnya...';
 $l['nosubject'] = 'tidak ada subjek';
 /*PROFILE & PRODUCT */
 $l['yourprofile'] = 'Profil Anda';
+$l['editprofile'] = 'Edit Profil Anda';
 $l['yourproduct'] = 'Produk Anda';
 $l['logintofollow'] = 'Masuk untuk mengikuti';
 $l['logintobuy'] = 'Masuk untuk memesan';
