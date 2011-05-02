@@ -45,7 +45,7 @@ class Test extends Application {
 		$this->helper('time');
 		require_once 'middleware/github/Autoloader.php';
 		Github_Autoloader::register();
-		
+
 		$github = new Github_Client();
 		$github->authenticate('adamramadhan', '8935c02b15ad21009647ad21a21ea2b7');
 		$data['updates'] = $github->getCommitApi()->getBranchCommits('adamramadhan', 'red', 'master');

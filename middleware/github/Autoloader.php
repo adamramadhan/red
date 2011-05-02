@@ -21,13 +21,13 @@ class Github_Autoloader
      *
      * @return boolean Returns true if the class has been loaded
      */
-    static public function autoload($class)
-    {
+   static public function autoload($class)
+    {  
         if (0 !== strpos($class, 'Github')) {
             return;
         }
 
-        if (file_exists($file = dirname(__FILE__).'/../'.str_replace('_', '/', $class).'.php')) {
+        if (file_exists($file = 'middleware/'.str_replace('_', '/', lcfirst($class)).'.php')) {
             require $file;
         }
     }

@@ -7,6 +7,7 @@ define ( 'STORAGE', realpath ( dirname ( __FILE__ ) . '/www-static/storage' ) );
 require_once 'libraries/core.bootstrap.php';
 
 if (config ( 'development' )) {
+	ini_set('display_errors', TRUE);
 	$start = microtime ( true );
 	$startmemory = xdebug_memory_usage () / 1024 / 1024;
 }
