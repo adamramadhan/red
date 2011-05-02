@@ -159,10 +159,14 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .development #post-list-title{ word-wrap: break-word;}
-.development #development-status #box{    border: 1px solid #EEEEEE;
+.development #development-status #box {
+    border: 1px solid #EEEEEE;
+    height: 52px;
     margin: 10px;
+    overflow: hidden;
     padding: 10px;
-    width: 195px;}
+    width: 195px;
+}
 .development #development-introduction{   margin: 5px;
     padding: 5px;
     width: 685px;}
@@ -181,8 +185,14 @@ h1, h2, h3, h4, h5, h6 {
     width: 685px;
 }
 .development #committer-information{    margin: 10px auto;
-    width: 400px;}
+}
 
 .development #committer-information img{  }
 
-.development #committer-says{   }
+.development #committer-says {
+    background: none repeat scroll 0 0 #444444;
+    color: #FFFFFF;
+    margin: 0 0 0 10px;
+    padding: 10px;
+    width: 500px;
+}

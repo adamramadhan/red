@@ -58,7 +58,6 @@
 			<?php foreach ($updates as $post) {
 				echo '<li class="post-list" id="post-list-'.$post['id'].'">
 				<div id="post-list-title"><a href="/development?id='.$post['id'].'">'.$post['id'].'</a></div>
-				<div id="post-list-comment">'.$post['message'].'</div>
 				<div id="post-list-meta">updated <abbr class="ajax-time" title="'.$post['committed_date'].'" id="time">'.$this->time->formatDateDiff($post['committed_date']).'</abbr> by '.$post['committer']['name'].'</div>
 				</li>';	
 			} ?>

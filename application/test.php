@@ -62,7 +62,6 @@ class Test extends Application {
 		}
 
 		$data['user'] = $github->getUserApi()->show($data['commit']['committer']['login']);
-		var_dump($data);
 		$header ['title'] = 'Netcoid Development';
 		$header ['keywords'] = 'development,github';
 		$this->view ( 'blog/header',$header );
