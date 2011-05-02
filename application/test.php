@@ -43,7 +43,7 @@ class Test extends Application {
 
 	function github(){
 		$this->helper('time');
-		require_once '/middleware/github/Autoloader.php';
+		require_once 'middleware/github/Autoloader.php';
 		Github_Autoloader::register();
 		
 		$github = new Github_Client();
