@@ -8,5 +8,7 @@
 		<title>netcoid &mdash; jejaring bisnis indonesia</title>
 		<meta content="noodp,noydir" name="robots">
 		<?php $views->css('framework','netcoid.v1'); ?>
+		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
+		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
 	</head>
 <body>

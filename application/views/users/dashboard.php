@@ -52,7 +52,8 @@
 				echo 	'<div class="clearfix" id="subfeed-meta">
 						<div id="subname">@'.$key['name'].'</div>
 						<div id="subname">'.$key['product'].'</div>
-						<div id="subtime">'.$this->time->formatDateDiff($key['timecreate']).'</div>
+						<div id="subtime"><abbr class="ajax-time" title="'.$key['timecreate'].'" id="time">
+						'.$this->time->formatDateDiff($key['timecreate']).'</a></div>
 						<div class="c" id="suboptions"><a href="product?id='.$key['pid'].'">Lihat</a></div>
 						</div>';
 				// END SUBINFORMATION

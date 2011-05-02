@@ -2,7 +2,7 @@
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 class Time {
-	public function formatDateDiff($start, $end = null) {
+	static public function formatDateDiff($start, $end = null) {
 		if (! ($start instanceof DateTime)) {
 			$start = new DateTime ( $start );
 		}

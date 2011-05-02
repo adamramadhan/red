@@ -219,7 +219,8 @@ class Edit extends Application {
 					
 					if ($this->upload->uploaded) {
 						// RAW IMAGE START
-						$this->upload->file_auto_rename = false;
+						# @todo fixed auto rename
+						$this->upload->file_auto_rename = true;
 						// @todo important! 460 kan maksimalnya cuma gambarnya	
 						if ($this->upload->image_src_x > 460) {
 							$this->upload->image_resize = true;

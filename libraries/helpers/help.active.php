@@ -12,7 +12,8 @@ if (! defined ( 'SECURE' ))
 class Active extends Application {
 	function Menu($uid, $application) {
 		if (! $uid) {
-			$application->view ( 'site/menu' );
+			$this->model('all');
+			$application->view ( 'site/menu');
 		}
 		
 		if ($uid) {

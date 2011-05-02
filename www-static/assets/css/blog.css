@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 #red-blog-menu {
     border-bottom: 1px solid #E7E7E7;
 }
-#red-blog-menu li{    padding: 5px 0px 5px 10px;  float: left;}
+#red-blog-menu li{   margin-right: 10px;   padding: 5px 0px 5px 10px;  float: left;}
 #blog-social li a{
     color: #444444;
     display: block;
@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6 {
     /*background: url("www-static/assets/images/border-blog.png") no-repeat scroll left top #FFFFFF;*/
     background: none repeat scroll 0 0 #D32E2E;
     float: left;
+    margin-top: 10px;
     min-height: 500px;
     width: 230px;
 }
@@ -152,3 +153,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-post a.u{    color: #5E96E3;
     text-decoration: none}
+
+
+
+
+
+.development #post-list-title{ word-wrap: break-word;}
+.development #development-status #box{    border: 1px solid #EEEEEE;
+    margin: 10px;
+    padding: 10px;
+    width: 195px;}
+.development #development-introduction{   margin: 5px;
+    padding: 5px;
+    width: 685px;}
+.development #red-blog-right{    background: none repeat scroll 0 0 #444444;
+    float: left;
+    min-height: 500px;
+    width: 230px;}
+.development #post-list-title, .development #post-list-comment, .development #post-list-meta{
+    color:#000000;
+}
+.development .post-list{   border-bottom: 1px solid #1B1B1B;}
+
+.development #development-changes {
+    margin: 5px;
+    padding: 5px;
+    width: 685px;
+}
+.development #committer-information{    margin: 10px auto;
+    width: 400px;}
+
+.development #committer-information img{  }
+
+.development #committer-says{   }

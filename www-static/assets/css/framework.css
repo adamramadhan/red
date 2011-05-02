@@ -40,10 +40,8 @@ mark {
 }
 del { text-decoration: line-through }
 abbr[title], dfn[title] {
-    border-bottom: 1px dotted;
     cursor: help;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -164,7 +162,6 @@ strong, dfn, kbd { font-weight: 700 }
 address, em, dfn, cite, samp, var { font-style: italic }
 /*code, .safari input { padding: 0 3px }*/
 abbr[title], acronym[title], dfn[title] {
-    border-bottom: 1px dotted #666;
     cursor: help;
 }
 blockquote {

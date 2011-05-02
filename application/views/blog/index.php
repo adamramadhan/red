@@ -49,7 +49,7 @@
 					echo "<li class='comments' id='comment-".$comment['cid']."'>";
 					echo "<span id='name'><a href='/".$comment['username']."'>@".$comment['name']."</a></span>";
 					echo "<span id='comment'>".$comment['comment']."</span>";
-					echo "<span id='time'>".$this->time->formatDateDiff($comment['timecreate'])."</span>";
+					echo "<abbr class='ajax-time' title='".$comment['timecreate']."' id='time'>".$this->time->formatDateDiff($comment['timecreate'])."</abbr>";
 					if ($this->sessions->get('uid') == $comment['uid']) {
 						echo "<span id='d'><a href='/comments?d=".$comment['cid']."'>x</a></span>";
 					}
@@ -71,8 +71,8 @@
 			<?php foreach ($posts as $post) {
 				echo '<li class="post-list" id="post-list-'.$post['nid'].'">
 				<div id="post-list-title"><a href="/blog?id='.$post['nid'].'">'.$post['title'].'</a></div>
-				<div id="post-list-meta">updated '.$this->time->formatDateDiff($post['timecreate']).'</div>
-				</li>';
+				<div id="post-list-meta">updated <abbr class="ajax-time" title="'.$post['timecreate'].'" id="time">'.$this->time->formatDateDiff($post['timecreate']).'</abbr></div>
+				</li>';	
 			} ?>
 			</ul>
 

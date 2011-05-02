@@ -2,6 +2,7 @@
 		<div class="clearfix" id="red-menu">
 			<ul id="red-menu-left">
 				<li><?php $views->href('/blog','Netcoid Official Blog'); ?></li>
+				<li><?php $views->href('/development','Development'); ?></li>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li id="red-menu-login"><?php $views->href('/terms','disclaimer'); ?></li>

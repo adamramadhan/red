@@ -8,6 +8,8 @@
 		<title><?php echo $title; ?></title>
 		<?php $views->css('framework','netcoid.v1','profile'); ?>
 		<meta content="noodp,noydir" name="robots">
-		<?php $views->js('jquery','profile'); ?>
+		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
+		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
+		<?php $views->js('jquery,profile'); ?>
 	</head>
 <body>

@@ -17,5 +17,5 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-	<?php $this->js('jquery','plug.home','home'); ?>
+	<?php $this->js('jquery,home'); ?>
 </html>

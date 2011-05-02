@@ -9,5 +9,7 @@
 		<?php $views->css('framework','netcoid.v1','users'); ?>
 		<meta content="noodp,noydir" name="robots">
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
+		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
+		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
 	</head>
 <body>

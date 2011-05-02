@@ -12,7 +12,7 @@ if (config ( 'development' )) {
 }
 
 # NAIKIN RAM DIKIT 0.2 MBAN / PAGE
-if (config ( 'gzip' )) {
+if (config ( 'features/gzip' )) {
 	ob_start ( "ob_gzhandler" );
 }
 
@@ -29,7 +29,7 @@ try {
 	echo $e;
 }
 
-if (config ( 'gzip' )) {
+if (config ( 'features/gzip' )) {
 	ob_flush ();
 }
 

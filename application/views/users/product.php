@@ -1,12 +1,4 @@
-	<?php 
-	# ADD JAVASCRIPT
-	$views->js(
-		'jquery',
-		'middleware/jquery/jquery.form',
-		'middleware/jquery/jquery.validation',
-		'users/product'
-		); 
-	?>
+	<?php $views->js('jquery,middleware/jquery/jquery.form,middleware/jquery/jquery.validation,users/product'); ?>
 	<?php $this->validation->geterrors(); ?>
 	<div id="red-error-box"></div>
 	<!-- CONTENT START -->

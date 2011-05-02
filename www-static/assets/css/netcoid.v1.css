@@ -111,17 +111,17 @@ span#notification {
     width: 390px;
     float: right;
 }
-#footer ul#copyright a{color:#ccc;}
+#footer #copyright a{color:#ccc;}
 #verified-business{
     bottom: 5px;
     position: relative;
     right: 5px;
 }
-#footer ul#footer-menu li {
+#footer #footer-menu li {
     float: left;
     margin-right: 20px;
 }
-#footer ul#copyright li { float: right }
+#footer #copyright li { float: right }
 /* ERRORS
    ================================================== */
 #red-error-box {

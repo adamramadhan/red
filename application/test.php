@@ -40,6 +40,37 @@ class Test extends Application {
 		$this->view ( 'area51/footer');
 		echo "string";
 	}
+
+	function github(){
+		$this->helper('time');
+		require_once '/middleware/github/Autoloader.php';
+		Github_Autoloader::register();
+		
+		$github = new Github_Client();
+		$github->authenticate('adamramadhan', '8935c02b15ad21009647ad21a21ea2b7');
+		$data['updates'] = $github->getCommitApi()->getBranchCommits('adamramadhan', 'red', 'master');
+		$data['updates'] = array_slice($data['updates'],0,10);
+		$data['repo'] = $github->getRepoApi()->show('adamramadhan', 'red');
+
+		if (!is_get('id')) {
+			$data['commit'] = $github->getCommitApi()->getCommit('adamramadhan', 'red', $data['updates']['0']['id']);
+		}
+
+		if (is_get('id')) {
+			# @todo di cek keamanannya urlencode cukup?
+			$data['commit'] = $github->getCommitApi()->getCommit('adamramadhan', 'red', urlencode($_GET['id']));
+		}
+
+		$data['user'] = $github->getUserApi()->show($data['commit']['committer']['login']);
+		var_dump($data);
+		$header ['title'] = 'Netcoid Development';
+		$header ['keywords'] = 'development,github';
+		$this->view ( 'blog/header',$header );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->view ( 'blog/blog-menu' );
+		$this->view ( 'blog/development',$data );
+		$this->view ( 'blog/footer' );
+	}
 }
 
 ?>

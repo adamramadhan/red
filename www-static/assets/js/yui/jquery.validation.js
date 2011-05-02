@@ -1,10 +1,3 @@
-
-/*
- * jQuery Form Example Plugin 1.4.3
- */
-(function(a){a.fn.example=function(e,g){var d=a.isFunction(e),f=a.extend({},g,{example:e});return this.each(function(){var c=a(this),b=a.metadata?a.extend({},a.fn.example.defaults,c.metadata(),f):a.extend({},a.fn.example.defaults,f);if(!a.fn.example.boundClassNames[b.className]){a(window).unload(function(){a("."+b.className).val("")});a("form").submit(function(){a(this).find("."+b.className).val("")});a.fn.example.boundClassNames[b.className]=true}if(!c.attr("defaultValue")&&(d||c.val()==b.example))c.val("");
-if(c.val()==""&&this!=document.activeElement){c.addClass(b.className);c.val(d?b.example.call(this):b.example)}c.focus(function(){if(a(this).is("."+b.className)){a(this).val("");a(this).removeClass(b.className)}});c.change(function(){a(this).is("."+b.className)&&a(this).removeClass(b.className)});c.blur(function(){if(a(this).val()==""){a(this).addClass(b.className);a(this).val(d?b.example.call(this):b.example)}})})};a.fn.example.defaults={className:"example"};a.fn.example.boundClassNames=[]})(jQuery);
-
 /*
  * jQuery validation plug-in 1.7
  *

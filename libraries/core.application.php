@@ -104,11 +104,12 @@ class Application {
 	/**
 	 * loads a helper in application
 	 * @param string $help
+	 * @todo kalo ada 2 helper gimana? satu di header satu di footer, coba riset.
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */
 	protected function helper($help) {
-		
+
 		if (file_exists ( 'libraries/helpers/help.' . $help . '.php' )) {
 			#kemunkinan disini kalo ada dua class sama akan error
 			require 'libraries/helpers/help.' . $help . '.php';

@@ -105,36 +105,54 @@ class Views {
 	
 	/**
 	 * echos a inline css style
-	 * @param args $views->css('css1','css2','etc');
+	 * @param args $views->css('css1,css2,etc','external or empty');
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */
-	public function JS() {
-		
-		if (config ( 'features/compress/js' )) {
-			// See @ref #1
-			ob_start ( array ($this, 'compressorJS' ) );
-		}
-		
-		$file = func_get_args ();
-		echo "<script type='text/javascript'>";
-		foreach ( $file as $js ) {
-			
-			if (config ( 'development' )) {
+	public function JS( $string, $type = NULL ) {
+	
+	# Get the files from the string
+	$files = explode(",", $string);
+	
+	# Is it External or Inline ?
+	switch ($type) {
 				
-				if (! file_exists ( "www-static" . DS . "assets" . DS . "js" . DS . $js . ".js" )) {
-					throw new Exception ( "No such file as $js.js" );
+		# External = CACHE
+		case 'external':
+			foreach ($files as $js) {
+				if (config ( 'development' )) {
+					if (! file_exists ( "www-static" . DS . "assets" . DS . "js" . DS . $js . ".js" )) {
+						throw new Exception ( "No such file as $js.js" );
+					}
 				}
+				$fullpath =  "/www-static" . DS . "assets" . DS . "js" . DS . $js . ".js";
+				echo '<script type="text/javascript" src="'.$fullpath.'"></script>';
 			}
+		break;
+		
+		# Inline = COMPRESS
+		default:
+			if (config ( 'features/compress/js' )) {
+				// See @ref #1
+				ob_start ( array ($this, 'compressorJS' ) );
+			}
+			echo "<script type='text/javascript'>";
+			foreach ( $files as $js ) {
+				if (config ( 'development' )) {
+					if (! file_exists ( "www-static" . DS . "assets" . DS . "js" . DS . $js . ".js" )) {
+						throw new Exception ( "No such file as $js.js" );
+					}
+				}
+				require_once "www-static" . DS . "assets" . DS . "js" . DS . $js . ".js";
+			}
+			echo "</script>";
 			
-			require_once "www-static" . DS . "assets" . DS . "js" . DS . $js . ".js";
-		}
-		
-		echo "</script>";
-		
-		if (config ( 'features/compress/js' )) {
-			ob_end_flush ();
-		}
+			if (config ( 'features/compress/js' )) {
+				ob_end_flush ();
+			}
+		break;
+	}		
+
 	}
 	
 	/**

@@ -23,6 +23,9 @@ class Core extends Application {
 	function off() {
 		$this->view ( 'core/503' );
 	}
+	function nojs() {
+		echo "no js? help@networks.co.id";
+	}
 }
 
 ?>
