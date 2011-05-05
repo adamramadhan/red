@@ -23,7 +23,7 @@
 
 				<?php 
 								
-				# MODIFIED
+				# MODIFIED harmonize sync 
 				if (isset($commit['modified'])) {
 					echo "<h4>Modified</h4>";
 					foreach ($commit['modified'] as $modified) {
