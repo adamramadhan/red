@@ -187,13 +187,13 @@ margin:5px 0;}
     margin-left: 5px;
     padding-left: 21px;
 }
-#red-side-menu ul ul li.iconprofile{
-    background: url("/www-static/assets/images/i/user.png") no-repeat scroll left center #FFFFFF;
+#red-side-menu ul ul li.iconedit{
+    background: url("/www-static/assets/images/i/edit.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
-#red-side-menu ul ul li.iconaddress{
-    background: url("/www-static/assets/images/i/book_addresses.png") no-repeat scroll left center #FFFFFF;
+#red-side-menu ul ul li.iconfrontbox{
+    background: url("/www-static/assets/images/i/frontbox.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }
@@ -208,7 +208,7 @@ margin:5px 0;}
     padding-left: 21px;
 }
 #red-side-menu ul ul li.iconlist{
-    background: url("/www-static/assets/images/i/text_list_bullets.png") no-repeat scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/i/list.png") no-repeat scroll left center #FFFFFF;
     margin-left: 5px;
     padding-left: 21px;
 }

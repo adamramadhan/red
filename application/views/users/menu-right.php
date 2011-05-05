@@ -2,8 +2,8 @@
 			<ul>
 				<ul>
 					<li class="iconhome"><?php $views->href('/',l('home')); ?></li>
-					<li class="iconprofile"><?php $views->href('/edit/profile',l('Profiledata')); ?></li>
-					<li class="iconaddress"><?php $views->href('/edit/frontbox',l('informationbox')); ?></li>
+					<li class="iconedit"><?php $views->href('/edit/profile',l('Profiledata')); ?></li>
+					<li class="iconfrontbox"><?php $views->href('/edit/frontbox',l('informationbox')); ?></li>
 					<li class="iconconnect"><?php $views->href('/edit/connections',l('connectioncenter')); ?></li>
 					<li class="iconadd"><?php $views->href('/edit/product',l('addproduct')); ?></li>
 					<li class="iconlist"><?php $views->href('/edit/products',l('productlist')); ?></li>
