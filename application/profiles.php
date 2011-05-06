@@ -93,6 +93,7 @@ class Profiles extends Application {
 				$social['twitter'] = $this->social->getTwitterData($data ['user'] ['twitter']);
 				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers'];
 			}
+			echo $social['twitter']['followers_count'];echo $social['facebook']['likes']; echo $data ['followers'];
 			# end social addon
 			
 
