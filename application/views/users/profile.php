@@ -39,7 +39,7 @@
 					<h3>Lengkapi Data Usaha</h3>		
 						<ul>
 							<li>Nama Perusahaan tidak dapat diubah, untuk perubahan silahkan hubungi <a href="#">Pusat Bantuan</a>.</li>
-							<li>contoh: <em>"Binus university, Jakarta, Indonesia"</em>, jika tidak nanti tidak terdapat gambar peta, anda dapat <u>merefresh halaman</u></li>
+							<li>contoh: <em>"Binus university, Jakarta, Indonesia"</em>, jika tidak terdapat gambar peta, anda dapat <u>merefresh halaman</u> atau mengubah format alamat anda.</li>
 							<li>Kontak Usaha yang dapat dihubungi</li>
 							<li>Email utama Usaha</li>
 							<li>Resolusi logo akan disesuaikan lebar baru 220px</li>

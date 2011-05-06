@@ -24,7 +24,6 @@ class ModelProducts extends Models {
 		}
 		
 		if (empty ( $data ['image'] ) && empty ( $data ['image_tumb'] )) {
-			var_dump ( $data );
 			$update = $this->query ( "UPDATE products SET 
 					name = :name,
 					information = :information,
