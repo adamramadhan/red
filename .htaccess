@@ -1,20 +1,12 @@
 Options -indexes
 DirectoryIndex index.php
 
-<Files ~ "^\.git">
-    Order allow,deny
-    Deny from all
-</Files>
 
-<Files ~ "^\.gitignore">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files ~ "^\.ht">
-    Order allow,deny
-    Deny from all
-</Files>
+# Block access to "hidden" directories whose names begin with a period. This
+# includes directories used by version control systems such as Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
 
 <IfModule mod_rewrite.c>
     RewriteCond %{HTTP_HOST} ^networks.co.id$ [NC]
@@ -36,3 +28,4 @@ DirectoryIndex index.php
 
 ExpiresActive on
 ExpiresByType image/* "modification plus 1 minutes" 
+

@@ -3,3 +3,8 @@
 ### READ BEFORE
 #### DATABASE
 http://stackoverflow.com/questions/621884/database-development-mistakes-made-by-application-developers
+
+#### LEARN
+http://code.google.com/speed/webp/
+
+#### TODO
