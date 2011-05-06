@@ -37,7 +37,7 @@ class Cache {
 	
 	/**
 	 * basic get function
-	 * @param string $keyF
+	 * @param string $key
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */

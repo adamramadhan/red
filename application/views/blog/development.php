@@ -51,6 +51,8 @@
 				}
 								
 				?>
+
+				<div id="design-momoru"><?php $views->getIMG('sarangsemut.png'); ?></div>
 			</div>
 		</div>				
 		<div class="c" id="red-blog-right">

@@ -186,7 +186,7 @@ class Views {
 	 * @tutorial wiki/missing.txt
 	 */
 	public function href($link, $language) {
-		echo "<a href='$link'>$language</a>";
+		echo "<a title='$language' href='$link'>$language</a>";
 	}
 }
 
