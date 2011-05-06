@@ -43,7 +43,7 @@
 				<h3>Information</h3>
 				<p><?php echo $product['information'] ?></p>
 				<h3>Harga</h3>
-				<p><?php echo $product['price'] ?></p>
+				<p><?php echo number_format($product['price'],2, ',', '.'); ?></p>
 			</div>			
 		</div>
 
