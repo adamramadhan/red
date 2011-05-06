@@ -196,7 +196,10 @@ class Edit extends Application {
 			$this->validation->required ( $p ['information'], l ( 'product_description_error' ) );
 			$this->validation->regex ( $p ['tag'], '/^[a-zA-Z0-9]{3,15}+$/', l ( 'product_tag_error' ) );
 			$this->validation->regex ( $p ['price'], '/^[0-9]{1,11}+$/', l ( 'product_price_error' ) );
-			$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
+
+			if (!is_get ( 'e' )) {
+				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
+			}
 			
 			if (! is_get ( 'e' )) {
 				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
