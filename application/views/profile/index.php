@@ -40,10 +40,10 @@
 						echo '<span class="c" id="status-verified"><a target="_blank" href="/verify/'.$user['username'].'">'.l('verified').' &#x2714;</a></span>'; 
 					}
 					if ($user['role'] == 3) {
-						echo '<span class="c" id="status-mediapartner"><a target="_blank" href="/verify/'.$user['username'].'">'.l('mediapartner').'</a></span>'; 
+						echo '<span class="c" id="status-mediapartner"><a target="_blank" href="/verify/'.$user['username'].'">'.l('mediapartner').' &#x2714;</a></span>'; 
 					}
 					if ($user['role'] == 5) {
-						echo '<span class="c" id="status-founder">'.l('founder').'</span>'; 
+						echo '<span class="c" id="status-founder">'.l('founder').' &#x2714;</span>'; 
 					}
 					// @todo add moderator police etc
 				?></li>
