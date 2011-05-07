@@ -53,8 +53,12 @@
 					<li id="badges"><?php $views->getIMG('power.gif'); ?></li>	
 				<?php endif ?>
 				
-				<li id="red-profile-name"><?php echo $user['name']; ?> 
-				(<?php echo number_format($socialpoint); ?>)</li>
+				<!-- SOCIAL POINTS START -->
+				<?php if (!empty($socialpoint)): ?>
+					<li id="red-profile-name"><?php echo $user['name']; ?> 
+					(<?php echo number_format($socialpoint); ?>)</li>					
+				<?php endif ?>
+				<!-- SOCIAL POINTS END -->
 			</ul>
 		</div>
 		<!-- END START -->		

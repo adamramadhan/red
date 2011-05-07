@@ -75,9 +75,13 @@ class Profiles extends Application {
 
 					if (! empty ( $data ['user'] ['facebook'] )) {
 						$social['facebook'] = $this->social->getFacebookPageData($data ['user'] ['facebook']);
+					} else {
+						$social['facebook'] = 0;
 					}
 					if (! empty ( $data ['user'] ['twitter'] )) {
 						$social['twitter'] = $this->social->getTwitterData($data ['user'] ['twitter']);
+					} else {
+						$social['twitter'] = 0;
 					}
 
 					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers']['followers'];
