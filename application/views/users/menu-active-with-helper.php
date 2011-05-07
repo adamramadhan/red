@@ -1,12 +1,11 @@
 	<div id="red-header">
 		<div class="clearfix" id="red-menu">
 			<ul id="red-menu-left">
-				<li id="logo"><a href="/"><?php $views->getIMG('logo2.png','width="75px" height="20px"'); ?></a></li>
-				<li><?php $views->href('/blog','Blog'); ?></li>
-				<li><?php $views->href('/products',l('search')); ?></li>
+				<li id="logo"><a href="/blog"><?php $views->getIMG('logo2.png','width="75px" height="20px"'); ?></a></li>
+				<li><?php $views->href('/',l('home')); ?></li>
 				<li><?php $views->href('/messages',l('messagecenter')); ?>
 				<?php if ($message['countmessage'] != 0): ?>
-					<span class="c" id="notification"><?php echo $message['countmessage'] ?></span>						
+					<span class="c" id="notification"><?php echo $message['countmessage'] ?></span>
 				<?php endif ?>
 
 				<?php if (config('features/comments/mentions')): ?>
@@ -16,6 +15,7 @@
 					<?php endif ?>					
 				<?php endif ?>
 
+				<li><?php $views->href('/products',l('search')); ?></li>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
 				<li><?php $views->href('/'.$this->sessions->get('username'),$this->sessions->get('name')); ?></li>
