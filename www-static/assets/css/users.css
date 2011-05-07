@@ -276,8 +276,8 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
 border:1px solid #0046B4;color:#222;}
 .bootstraps.ok .desc{border-top: 1px solid #308DEF;}
 .bootstraps.ok .image{ border-bottom: 1px solid #004EA0;}
-.bootstraps:last-child{
-     margin-right: 0px !important;
+.bootstraps#last-child{
+    
 }
 .bootstraps .image{    border-bottom: 1px solid #B30000;
     font-size: 20px;
@@ -301,3 +301,8 @@ margin-left: 10px;}
 
 .mentions:hover #d a{
 opacity:1;}
+
+/*AJAX*/
+#ajax-dashboard-refresh:hover{color:#444;}
+#ajax-information:hover{    background: none repeat scroll 0 0 #FFFDE1;
+    border: 1px solid #F1EEC5;}

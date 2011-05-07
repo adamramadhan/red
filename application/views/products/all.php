@@ -18,12 +18,12 @@
 				/* ok tdnya kan 20 cuma kalo pas 20 pas klick morenya
 				ga ada produknya alangkah lebih baiknya kalo seandainya
 				diklick minimal ada satu product */
-				if ($count > 16) {
+				if ($count > 20) {
 					echo '
 					<a id="more" href="/products?offset='. $page .'" >More</a>';
 				}
 	
-				if ($count < 16 && isset($_GET['offset'])) {
+				if ($count < 20 && isset($_GET['offset'])) {
 					$page = $page-2;
 					echo '<div id="productline" class="clear"><hr/></div>
 					<a id="more" href="/products?offset='. $page .'" >Back</a>';

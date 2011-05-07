@@ -8,7 +8,6 @@
 		<div id="red-edit-full">
 			<!-- AJAX INFORMATION BOX -->
 			<div id="ajax-information" style="display:none;padding: 5px;margin-bottom:5px; border: 1px solid rgb(204, 204, 204); text-align: center;"></div>
-			
 			<!-- INFORMATION BOX -->
 			<div id="red-dashboard">
 				<ul class="clearfix">
@@ -23,22 +22,22 @@
 			if (empty($user['logo']) || empty($products) || empty($feed)) {
 				echo '<div class="clearfix bootcamp">';
 				if (empty($user['logo'])) {
-					echo '<div class="c bootstraps">
+					echo '<a href="/edit/profile"><div class="c bootstraps">
 						<div class="image">Set Up Profile</div>	
 						<div class="desc">Lengkapilah data Usaha atau Organisasi Anda.</div>
-					</div>';
+					</div></a>';
 				}
 				if (empty($userproduct)) {
-					echo '<div class="c bootstraps">
+					echo '<a href="/edit/product"><div class="c bootstraps">
 						<div class="image">Create a Product</div>	
 						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda langsung dapat berbagi.</div>
-					</div>';
+					</div></a>';
 				}
 				if (empty($feeds)) {
-					echo '<div class="c bootstraps">
+					echo '<a href="/products"><div id="last-child" class="c bootstraps">
 						<div class="image">Be Social</div>	
 						<div class="desc">Mulailah dengan memfollow usaha lain, anda akan mendapat update dalam dashboard ini</div>
-					</div>';
+					</div></a>';
 				}
 				echo '</div>';
 			}
@@ -60,9 +59,9 @@
 
 				# START CONTAINER
 				echo '<div id="subfeed-more" class="clearfix">';
-				echo '<div id="subimage">';
+				echo '<a href="product?id='.$key['pid'].'"><div id="subimage">';
 				echo $views->getStorage($key['uid'],$key['image_tumb']);
-				echo '</div>';
+				echo '</div></a>';
 				// START COMMENT
 					if (config('features/comments/core')){		
 						if (empty($key['comments'])) {
