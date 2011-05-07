@@ -67,7 +67,6 @@ class Profiles extends Application {
 
 				# FOLLOWERS
 				$data ['followers'] = $this->model->social->CountFollowers ( $username );
-
 				if ($this->cache->get ( "social:points:$username" )) {
 					$data ['socialpoint'] = $this->cache->get ( "social:points:$username");
 				}
@@ -81,7 +80,7 @@ class Profiles extends Application {
 						$social['twitter'] = $this->social->getTwitterData($data ['user'] ['twitter']);
 					}
 
-					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers'];
+					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers']['followers'];
 					$this->cache->add ( "social:points:$username", $socialpt , FALSE, 60 );
 					$data ['socialpoint'] = $socialpt;
 				}
@@ -91,7 +90,7 @@ class Profiles extends Application {
 				$this->library ( 'social' );
 				$social['facebook'] = $this->social->getFacebookPageData($data ['user'] ['facebook']);
 				$social['twitter'] = $this->social->getTwitterData($data ['user'] ['twitter']);
-				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers'];
+				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers']['followers'];
 			}
 			# end social addon
 			

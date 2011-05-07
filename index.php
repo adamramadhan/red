@@ -8,8 +8,10 @@ require_once 'libraries/core.bootstrap.php';
 
 if (config ( 'development' )) {
 	ini_set('display_errors', TRUE);
-	$start = microtime ( true );
-	$startmemory = xdebug_memory_usage () / 1024 / 1024;
+	if (config('features/profileing')) {
+		$start = microtime ( true );
+		$startmemory = xdebug_memory_usage () / 1024 / 1024;
+	}
 }
 
 # NAIKIN RAM DIKIT 0.2 MBAN / PAGE
@@ -35,9 +37,11 @@ if (config ( 'features/gzip' )) {
 }
 
 if (config ( 'development' )) {
-	$endmemory = xdebug_memory_usage () / 1024 / 1024;
-	$end = microtime ( true );
-	var_dump ( $end - $start . ' S' );
-	var_dump ( $endmemory - $startmemory . ' MB' );
+	if (config('features/profileing')) {
+		$endmemory = xdebug_memory_usage () / 1024 / 1024;
+		var_dump ( $endmemory - $startmemory . ' MB' );
+		$end = microtime ( true );
+		var_dump ( $end - $start . ' S' );
+	}
 }
 ?>
