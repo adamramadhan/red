@@ -79,9 +79,8 @@ $routes['ajax/refresh'] = 'ajax:getProductDiff';
 
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 #$routes['area51/google'] = 'test:google';
-$routes['area51/home'] = 'test:home';
 $routes['development'] = 'test:github';
-$routes['area51/ajax'] = 'test:ajax';
+$routes['area51/flush'] = 'test:flush';
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?
 ?>

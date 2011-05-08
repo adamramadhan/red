@@ -44,6 +44,15 @@ class Cache {
 	public function get($key) {
 		return $this->connect->get ( $key );
 	}
+
+	/**
+	 * basic flush function
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
+	public function flush(){
+		return $this->connect->flush();
+	}
 }
 
 ?>

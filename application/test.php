@@ -8,10 +8,12 @@ class Test extends Application {
 		$this->helper ( 'active' );
 	}
 
-	function google(){
-		$this->view ( 'area51/header', $data );
-		$this->view ( 'area51/google', $data );
-		$this->view ( 'area51/footer', $data );
+	function flush(){
+		$this->cache = new Cache;	
+		$this->cache->flush();
+		#$this->view ( 'area51/header', $data );
+		#$this->view ( 'area51/google', $data );
+		#$this->view ( 'area51/footer', $data );
 	}	
 
 	function ajax(){
