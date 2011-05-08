@@ -38,7 +38,7 @@ class Comments extends Application {
 					break;
 				
 				case '0' :
-					$text = preg_replace ( '/=(' . $username . ')/', '<a class="u" href="' . strtolower ( '\1' ) . '">~' . $values ['name'] . '</a>', $text );
+					$text = preg_replace ( '/=(' . $username . ')/', '<a class="u" href="' . strtolower ( '\1' ) . '">' . $values ['name'] . '</a>', $text );
 					break;
 				
 				default :
