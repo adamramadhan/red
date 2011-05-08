@@ -12,7 +12,11 @@ class ModelUsers extends Models {
 		$data = $this->insert ( 'users', $data );
 		return $data;
 	}
-	
+
+	function registerReturnId($data){
+		$getid = $this->insertwithlastid ( 'users', $data );
+		return $getid;
+	}	
 	function userexist($username) {
 		$data = $this->fetch ( 'SELECT username FROM users WHERE username = :username LIMIT 1', array ('username' => $username ) );
 		return $data;

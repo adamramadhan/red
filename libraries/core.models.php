@@ -57,6 +57,26 @@ class Models {
 		$insert = $this->start->prepare ( $query );
 		return $insert->execute ( $data );
 	}
+
+	/**
+	 * insert + lastid function
+	 * @param string $table
+	 * @param array $data
+	 * @author rama@networks.co.id
+	 * @tutorial wiki/missing.txt
+	 */
+    public function insertwithlastid($table, $data = array()){
+        $fieldnames = array_keys($data);
+        $name	= '( ' . implode(' ,', $fieldnames) . ' )';
+        $value	= '(:' . implode(', :', $fieldnames) . ' )';
+        $query 	= "INSERT INTO $table";
+        $query .= $name.' VALUES '.$value;
+        
+        $insert = $this->start->prepare($query);
+        $insert->execute($data);
+
+        return $this->start->lastInsertId();
+    }
 	
 	/**
 	 * basic fetch function

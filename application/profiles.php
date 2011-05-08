@@ -85,7 +85,7 @@ class Profiles extends Application {
 					}
 
 					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers']['followers'];
-					$this->cache->add ( "social:points:$username", $socialpt , FALSE, 60 );
+					$this->cache->add ( "social:points:$username", $socialpt , 60 );
 					$data ['socialpoint'] = $socialpt;
 				}
 			}
@@ -110,7 +110,7 @@ class Profiles extends Application {
 					
 					if (! $this->cache->get ( "social:yahoo:$username" )) {
 						$status = $this->social->getYahooProfile ( $data ['user'] ['yahoo'] );
-						$this->cache->add ( "social:yahoo:$username", $status, FALSE, 120 );
+						$this->cache->add ( "social:yahoo:$username", $status, 120 );
 						$data ['yahoo'] = $status;
 					}
 				}
@@ -123,7 +123,7 @@ class Profiles extends Application {
 					
 					if (! $this->cache->get ( "social:twitter:$username" )) {
 						$status = $this->social->getTwitterProfile ( $data ['user'] ['twitter'] );
-						$this->cache->add ( "social:twitter:$username", $status, FALSE, 120 );
+						$this->cache->add ( "social:twitter:$username", $status, 120 );
 						$data ['twitter'] = $status;
 					}
 				}
@@ -136,7 +136,7 @@ class Profiles extends Application {
 					
 					if (! $this->cache->get ( "social:facebook:$username" )) {
 						$status = $this->social->getFacebookPageStatus ( $data ['user'] ['facebook'] );
-						$this->cache->add ( "social:facebook:$username", $status, FALSE, 120 );
+						$this->cache->add ( "social:facebook:$username", $status, 120 );
 						$data ['facebook'] = $status;
 					}
 					

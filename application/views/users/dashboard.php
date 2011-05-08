@@ -59,9 +59,9 @@
 
 				# START CONTAINER
 				echo '<div id="subfeed-more" class="clearfix">';
-				echo '<a href="product?id='.$key['pid'].'"><div id="subimage">';
+				echo '<div id="subimage"><a href="product?id='.$key['pid'].'">';
 				echo $views->getStorage($key['uid'],$key['image_tumb']);
-				echo '</div></a>';
+				echo '</a></div>';
 				// START COMMENT
 					if (config('features/comments/core')){		
 						if (empty($key['comments'])) {

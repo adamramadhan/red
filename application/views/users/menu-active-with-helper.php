@@ -5,13 +5,13 @@
 				<li><?php $views->href('/',l('home')); ?></li>
 				<li><?php $views->href('/messages',l('messagecenter')); ?>
 				<?php if ($message['countmessage'] != 0): ?>
-					<span class="c" id="notification"><?php echo $message['countmessage'] ?></span>
+					<span class="c" id="notification"><?php echo $message['countmessage'] ?>*</span>
 				<?php endif ?>
 
 				<?php if (config('features/comments/mentions')): ?>
 					<li><?php $views->href('/mentions',l('mentionscenter')); ?>
 					<?php if ($mentions['countmentions'] != 0): ?>
-						<span class="c" id="notification"><?php echo $mentions['countmentions'] ?></span>
+						<span class="c" id="notification"><?php echo $mentions['countmentions'] ?>*</span>
 					<?php endif ?>					
 				<?php endif ?>
 

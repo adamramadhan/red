@@ -17,6 +17,7 @@ class Site extends Application {
 			if (config ( 'features/memcached' )) {
 				$this->cache = new Cache;		
 				$this->library ( 'social' );
+
 				if ($this->cache->get ( "netcoid:social:point" )) {
 					$data ['socialpoint'] = $this->cache->get ( "netcoid:social:point" );
 				}
@@ -25,7 +26,7 @@ class Site extends Application {
 					$social['facebook'] = $this->social->getFacebookPageData('netcoid');
 					$social['twitter'] = $this->social->getTwitterData('netcoid');
 					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'];
-					$this->cache->add ( "netcoid:social:point", $socialpt , FALSE, 60 );
+					$this->cache->add ( "netcoid:social:point", $socialpt , 60 );
 					$data ['socialpoint'] = $socialpt;
 				}
 			}
@@ -126,7 +127,22 @@ class Site extends Application {
 	
 	function postregister() {
 		$this->model ( 'users' );
-		$this->model->users->register ( $this->sessions->get ( 'secure.data' ) );
+		$lastid = $this->model->users->registerReturnId ( $this->sessions->get ( 'secure.data' ) );
+		# ADDONS
+		$this->model('messages');
+
+		# GET DATA FROM POST
+		$m ['RUID'] = $lastid;
+		$admin = $this->model->users->getRole(5,1);
+		$m ['SUID'] = $admin[0]['uid'];
+		$m ['subject'] = 'Hallo, Rekan Netcoid!.';
+		$m ['message'] = '<div id="event-hello-netcoid" style="background: none repeat scroll 0% 0% rgb(255, 241, 187); padding: 10px;"><p>Sebelumnya, kami team Netcoid mengucapakan;</p><br><div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c"><h3>Adam Ramadhan ( Developer )</h3><p>Thanks sudah bergabung Netcoid, kami tidak munkin bisa sejauh ini tampa ada bantuan dari Rekan Netcoid. Selamat bergabung!</p></div><br><div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c"><h3>Lusi aka Momoru ( illustrator)</h3><p>Hallo!, terimakasih ya udah daftar di netcoid, disini sebagai illustrator netcoid. jangan lupa mampir di <a style="color: rgb(66, 119, 11);" href="/momoru" class="u">*gotcini</a> ya!. follow juga twitter saya di @liulusiliu.</p></div><br><div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c"><h3>Oudi ( Server )</h3><p>Saya membantu Netcoid dibagian teknis server, saya juga ingin mengucapkan selamat datang di keluarga besar Netcoid.</p></div><br><h3>Tips</h3><p>Ada pepatah yang mengatakan "The only kind of marketing you need is an amazing product. If it’s good, people will spread the word for you."</p><br><h3>What next?</h3>Anda dapat membalas surat ini dengan Pertanyaan, fitur yang diinginkan atau Saran. <br><br>Thanks!<br><a href="/allstars">Team Netcoid.</a></div>';
+		$m ['type'] = '0'; #notopen	
+		# get the time from jakarta
+		$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+		$m ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+		$status = $this->model->messages->sendMessage($m);
+		# ADDONS
 		$this->sessions->del ( 'secure.data' );
 		$this->sessions->del ( 'secure.response' );
 		redirect ( '/welcome' );

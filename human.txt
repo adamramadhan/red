@@ -1,0 +1,30 @@
+<div id="event-hello-netcoid" style="background: none repeat scroll 0% 0% rgb(255, 241, 187); padding: 10px;">
+<p>Sebelumnya, kami team Netcoid mengucapakan;</p>
+<br>
+<div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c">
+<h3>Adam Ramadhan ( Developer )</h3>
+<p>Thanks sudah bergabung Netcoid, kami tidak munkin bisa sejauh ini tampa ada bantuan dari Rekan Netcoid. Selamat bergabung!</p>
+</div>
+<br>
+<div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c">
+<h3>Lusi aka Momoru ( illustrator)</h3>
+<p>Hallo!, terimakasih ya udah daftar di netcoid, disini sebagai illustrator netcoid. jangan lupa mampir di <a style="color: rgb(66, 119, 11);" href="/momoru" class="u">*gotcini</a> ya!. follow juga twitter saya di @liulusiliu.</p>
+</div>
+<br>
+<div style="padding: 10px; color: rgb(68, 68, 68); background: none repeat scroll 0pt 0pt rgb(222, 222, 101); text-shadow: 0pt 0pt 1px rgb(236, 255, 230);" class="c">
+<h3>Oudi ( Server )</h3>
+<p>Saya membantu Netcoid dibagian teknis server, saya juga ingin mengucapkan selamat datang di keluarga besar Netcoid.</p>
+</div>
+<br>
+<h3>Tips</h3>
+<p>Ada pepatah yang mengatakan "The only kind of marketing you need is an amazing product. If it’s good, people will spread the word for you."</p>
+<br>
+<h3>What next?</h3>
+Anda dapat membalas surat ini dengan Pertanyaan, fitur yang diinginkan atau Saran. 
+<br>
+<br>Thanks!
+<br>
+<a href="/allstars">Team Netcoid.</a>
+
+
+</div>

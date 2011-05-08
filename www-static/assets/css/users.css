@@ -262,12 +262,12 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     text-align: right;}
 #subfeed-more  {   padding: 10px;}
 .bootstraps{
-    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #FFFFFF;
+    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #D32E2E;
     border: 1px solid #A90000;
     float: left;
     height: 200px;
     color:#7D1212;
-    margin-right: 20px !important;
+    margin-right: 20px;
     margin-top: 15px;
 
     width: 232px;}
@@ -277,7 +277,7 @@ border:1px solid #0046B4;color:#222;}
 .bootstraps.ok .desc{border-top: 1px solid #308DEF;}
 .bootstraps.ok .image{ border-bottom: 1px solid #004EA0;}
 .bootstraps#last-child{
-    
+        margin-right: 0px;
 }
 .bootstraps .image{    border-bottom: 1px solid #B30000;
     font-size: 20px;
