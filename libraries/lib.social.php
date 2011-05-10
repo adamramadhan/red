@@ -108,7 +108,7 @@ class Social {
 				} 
 
 				# empty
-				if (empty ( $jsonData->data ['0']->description )) {
+				if (empty ( $jsonData->data ['0']->description ) && empty ( $jsonData->data ['0']->message )) {
 					$message = 'Status, Ok. but there is no content to fetch.';
 				}
 			}
@@ -173,6 +173,7 @@ class Social {
 		if ($fp) {
 			$json = stream_get_contents ( $fp );
 			$jsonData = json_decode ( $json );
+			var_dump($jsonData);
 			if (! empty ( $jsonData->data ['0']->message )) {
 				$message = $jsonData->data ['0']->message;
 			
@@ -191,7 +192,7 @@ class Social {
 					$message = $jsonData->data ['0']->description;
 				}
 			}
-			if (empty ( $jsonData->data ['0']->description )) {
+			if (empty ( $jsonData->data ['0']->description ) && empty ( $jsonData->data ['0']->message )) {
 				$message = 'Sorry, no news right now. meanwhile, please follow our facebook.';
 			}
 		}
