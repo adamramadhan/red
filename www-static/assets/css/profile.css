@@ -16,7 +16,7 @@
     padding: 10px;
     width: 220px;
 }
-#red-profile-left a { margin-bottom: 10px }
+#red-profile-left a { margin-bottom: 10px;display:block; }
 #red-profile-right {
     float: left;
     min-height: 500px;
@@ -34,32 +34,52 @@
     border: 1px solid #CCCCCC;
     padding: 2px;}
 */
-#productline hr { border-color: #eee }
+#productline {}
+hr { border-color: #eee }
+#profile-logo{    margin-bottom: 5px;}
+#red-profile-left a:hover{color:#444;text-decoration:none;  }
+
+/* TWITTER */
 #twitter {
-    background: none repeat scroll 0 0 #9AE4F1;
+    background: none no-repeat scroll 95% 95% #9AE4F1;
+    display: block;
     padding: 10px;
     word-wrap: break-word;
-    display:block;
-    margin-bottom: 5px;
 }
-#twitter:hover{color:#444;text-decoration:none;background:#AFEEF9;}
+#twitter:hover{  background:  #6EC1EE;}
+#twitter-meta{
+    background: url("www-static/assets/images/i/icon_twit.png") no-repeat scroll 183px center #6EC1EE;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+/* YAHOO */
 #yahoo {
-    background: none repeat scroll 0 0 #F8FFB1;
+    background: url("www-static/assets/images/i/icon_yahoo.png") no-repeat scroll 183px center #F8FFB1;
     padding: 10px;
     display:block;
     margin-bottom: 5px;
+    border: 1px solid #E8DEB7;
 }
-#yahoo:hover{color:#444;text-decoration:none;background:#FAFFCF;}
+#yahoo:hover{color:#444;background:url("www-static/assets/images/i/icon_yahoo.png") no-repeat scroll 183px center #FAFFCF;}
+
+/* FACEBOOK */
 #facebook {
-    background: none repeat scroll 0 0 #627AAD;
+    background: #627AAD;
     color: #FFFFFF;
     display: block;
     padding: 10px;
-    margin-bottom: 5px;
+    word-wrap: break-word;
 }
-#facebook:hover{text-decoration:none;background:none repeat scroll 0 0 #3B5998;}
-#facebook a{    background: none repeat scroll 0 0 #FBFFD9;
-    color: #AAAAAA;}
+
+#facebook:hover{background: #3B5998;}
+#facebook-meta{ 
+    background: url("www-static/assets/images/i/icon_fb.png") no-repeat scroll 187px center #3B5998;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    padding: 10px;}
+}
+
 #status-verified {
     background: none repeat scroll 0 0 #BAE9FF;
     padding: 5px 10px;

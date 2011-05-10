@@ -71,9 +71,11 @@ class Social {
 	}
 	
 	public function getFacebookPageEdit($pageID, $limit = 1) {
+		
 		if (empty ( $pageID )) {
 			$message = 'Facebook Pages';
 		}
+
 		if (! empty ( $pageID )) {
 			$url = "http://graph.facebook.com/" . $pageID . "/feed?limit=$limit";
 			$fp = @fopen ( $url, 'r' );
@@ -105,8 +107,9 @@ class Social {
 					}
 				} 
 
-				else {
-					$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+				# empty
+				if (empty ( $jsonData->data ['0']->description )) {
+					$message = 'Status, Ok. but there is no content to fetch.';
 				}
 			}
 		}
@@ -187,6 +190,9 @@ class Social {
 				if ($count <= 100) {
 					$message = $jsonData->data ['0']->description;
 				}
+			}
+			if (empty ( $jsonData->data ['0']->description )) {
+				$message = 'Sorry, no news right now. meanwhile, please follow our facebook.';
 			}
 		}
 		return $message;
