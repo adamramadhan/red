@@ -173,7 +173,6 @@ class Social {
 		if ($fp) {
 			$json = stream_get_contents ( $fp );
 			$jsonData = json_decode ( $json );
-			var_dump($jsonData);
 			if (! empty ( $jsonData->data ['0']->message )) {
 				$message = $jsonData->data ['0']->message;
 			
