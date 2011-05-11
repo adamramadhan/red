@@ -61,7 +61,7 @@ class Social {
 				$content = stream_get_contents ( $fp );
 				$online = "$yahoo_id is ONLINE";
 				if ($content == $online) {
-					$status = $yahoo_id . ' Sedang online.';
+					$status = $yahoo_id . 'Sedang online.';
 				} else {
 					$status = 'Sedang tidak online.';
 				}
@@ -132,7 +132,7 @@ class Social {
 			$content = stream_get_contents ( $fp );
 			$online = "$yahoo_id is ONLINE";
 			if ($content == $online) {
-				$status = $yahoo_id . ' Sedang online.';
+				$status = "Yahoo! Messenger $yahoo_id Sedang online.";
 			} else {
 				$status = 'Sedang tidak online.';
 			}

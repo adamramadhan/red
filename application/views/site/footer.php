@@ -20,6 +20,11 @@
 	
 	</body>
 
-<?php $views->js('jquery,middleware/google/google-analytics,middleware/jquery/jquery.timeago','external'); ?>
+<?php $views->js('jquery,middleware/jquery/jquery.timeago','external'); ?>
 <?php $views->js('middleware/jquery/jquery.form,middleware/jquery/jquery.validation,home'); ?>
+<?php 
+if (!config('development')) {
+	$views->js('middleware/google/google-analytics');
+}
+?>
 </html>

@@ -55,13 +55,17 @@ hr { border-color: #eee }
 
 /* YAHOO */
 #yahoo {
-    background: url("www-static/assets/images/i/icon_yahoo.png") no-repeat scroll 183px center #F8FFB1;
+    background: #F8FFB1;
     padding: 10px;
     display:block;
-    margin-bottom: 5px;
-    border: 1px solid #E8DEB7;
 }
-#yahoo:hover{color:#444;background:url("www-static/assets/images/i/icon_yahoo.png") no-repeat scroll 183px center #FAFFCF;}
+#yahoo:hover{color:#444;background:#FFE997;}
+#yahoo-meta{ 
+    background: url("www-static/assets/images/i/icon_yahoo.png") no-repeat scroll 187px center #FFE997;
+    color: #444;
+    margin-bottom: 5px;
+    padding: 10px;
+}
 
 /* FACEBOOK */
 #facebook {

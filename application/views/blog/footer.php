@@ -22,7 +22,7 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-<?php $views->js('jquery,middleware/google/google-analytics,middleware/jquery/jquery.timeago','external'); ?>
+<?php $views->js('jquery,middleware/jquery/jquery.timeago','external'); ?>
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	/* time ago plugin start */
@@ -30,4 +30,9 @@ jQuery(document).ready(function(){
 });
 </script>
 <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+<?php 
+if (!config('development')) {
+	$views->js('middleware/google/google-analytics');
+}
+?>
 </html>

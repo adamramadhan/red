@@ -20,3 +20,9 @@
 	
 	</body>
 </html>
+
+<?php 
+if (!config('development')) {
+	$views->js('middleware/google/google-analytics');
+}
+?>

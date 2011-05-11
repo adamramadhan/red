@@ -72,6 +72,14 @@ class Test extends Application {
 		$this->view ( 'blog/development',$data );
 		$this->view ( 'blog/footer' );
 	}
+
+	function analytics(){
+		$region = geoip_region_by_name('www.example.com');
+		if ($region) {
+		    print_r($region);
+		}
+	}
+
 }
 
 ?>

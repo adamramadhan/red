@@ -76,8 +76,9 @@
 			</a>
 		<?php endif ?>
 		<?php if (!empty($user['yahoo'])): ?>
-			<a class="c" id="yahoo" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
-				<?php echo $yahoo; ?>
+			<a class="c" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
+				<div class="cu" id="yahoo"><?php echo $yahoo; ?></div>
+				<div id="yahoo-meta" class="cb">@<?php $y = explode('@',$user['yahoo']);echo $y[0]; ?></div>	
 			</a>
 		<?php endif ?>	
 		<?php if (!empty($user['facebook'])): ?>

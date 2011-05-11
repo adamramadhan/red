@@ -17,8 +17,10 @@ $routes['nojs'] = 'core:nojs';
 
 #fitur profiles ke method index
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
+
 #mobile
 $routes['mobile'] = 'mobile:index';
+
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';
 $routes['secure'] = 'secure:index';
@@ -41,6 +43,7 @@ $routes['edit/frontbox'] = 'edit:frontbox';
 $routes['edit/connections'] = 'edit:connections';
 $routes['edit/product'] = 'edit:product';
 $routes['edit/products'] = 'edit:products';
+
 
 #products
 $routes['product'] = 'products:single';
@@ -81,6 +84,7 @@ $routes['ajax/refresh'] = 'ajax:getProductDiff';
 #$routes['area51/google'] = 'test:google';
 $routes['development'] = 'test:github';
 $routes['area51/flush'] = 'test:flush';
+$routes['area51/analytics'] = 'test:analytics';
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?
 ?>
