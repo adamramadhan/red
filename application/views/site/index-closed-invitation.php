@@ -25,7 +25,7 @@
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		<div id="invitation-closed">
-			<div class="helloworld">teknologi + inspirasi + media</div>
+			<div class="helloworld">bisnis + teknologi + social</div>
 		</div>
 		<div id="invitation-closed-meta"><span id="what-is-netcoid"><a href="/why">Seperti apa?</a></span></div>
 			<?php $views->css('blog'); ?>
