@@ -9,5 +9,7 @@
 		<?php $views->css('framework','netcoid.v1','product'); ?>
 		<meta content="noodp,noydir" name="robots">
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
+		<?php $views->js('jquery','external'); ?>
+ 
 	</head>
 <body>

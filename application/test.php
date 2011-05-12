@@ -40,7 +40,6 @@ class Test extends Application {
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view ( 'area51/ajax');
 		$this->view ( 'area51/footer');
-		echo "string";
 	}
 
 	function github(){
@@ -73,12 +72,7 @@ class Test extends Application {
 		$this->view ( 'blog/footer' );
 	}
 
-	function analytics(){
-		$region = geoip_region_by_name('www.example.com');
-		if ($region) {
-		    print_r($region);
-		}
-	}
+
 
 }
 

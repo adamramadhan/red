@@ -1,48 +1,34 @@
-	<?php $this->validation->geterrors(); ?>
-	<div id="red-error-box"></div>
+<div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
+ <?php echo $socialpoint; ?> ♥ Netcoid <span style="background: none repeat scroll 0% 0% rgb(254, 255, 203); padding: 3px 10px;">Invitasi #2 telah ditutup, untuk mendapatkan invitasi berikutnya follow <a style="color: rgb(211, 46, 46);" href="http://www.twitter.com/netcoid" target="_blank">twitter</a>, like <a style="color: rgb(211, 46, 46);" target="_blank" href="http://www.facebook.com/netcoid">facebook</a> atau ikuti <a style="color: rgb(211, 46, 46);" target="_blank" href="/development">perkembangan</a> kami.</span></p></div></div>
+
+	<link  href="https://fonts.googleapis.com/css?family=Pacifico:regular" rel="stylesheet" type="text/css" >
 	<style type="text/css" media="screen">
-	#red-content-left {
-	    height: 600px;
-	}
-	#like-facebookapi {
-	    display: block;
-	    float: left;
-	    margin: 2px 0 0 10px;
-	}
-	#follow-twitterapi{
-	    display: block;
-	    float: left;
-	}
-	#red-content.background{    background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent !important;	    height: 600px;}
-	#closed-registration {
-	    background: none repeat scroll 0 0 #FFFFFF;
-	    border: 1px solid #CCCCCC;
-	    margin: 200px auto 0;
-	    padding: 5px;
-	    width: 600px;
-	}
+	.home{
+		    background: url("www-static/assets/images/trees.png") no-repeat scroll center bottom #FFFFFF !important;
+}
+.helloworld {
+    font-family: 'Pacifico',serif;
+    font-size: 63px;
+    font-style: normal;
+    font-weight: 400;
+    display:block;
+    width:800px;
+    height:50px;
+}
+#invitation-closed {
+    margin: 100px 0 0 120px;
+}
+#invitation-closed-meta{ margin: 20px 0 0 120px;}
+#what-is-netcoid a{      font-family: 'Pacifico',serif;  font-size: 30px; text-decoration:underline;}
 	</style>
 	
 	<!-- CONTENT START -->
-	<div class="clearfix background" id="red-content">
-	<div class="c bs" id="closed-registration">		
-			<div id="helloworld">
-				Pendaftaran invitasi #1 telah berakhir.
-			</div>
-			<p style=" padding: 5px 5px 0;">Saat ini team akan melanjutkan perkembangan, team akan segera membuka invitasi #2. Anda dapat mengikuti perkembangan dengan memfollow twitter atau "like" facebook kami.</p>
-			<p class="clearfix" style=" padding: 5px 5px 0;">
-				<span id="follow-twitterapi"></span>
-				<span id="like-facebookapi"><fb:like href="www.facebook.com/netcoid" layout="button_count" show_faces="true" width="200" font=""></fb:like></span>
-			</p>
-	</div>
+	<div class="clearfix" id="red-content">
+		<div id="invitation-closed">
+			<div class="helloworld">teknologi + inspirasi + media</div>
+		</div>
+		<div id="invitation-closed-meta"><span id="what-is-netcoid"><a href="/why">Seperti apa?</a></span></div>
+			<?php $views->css('blog'); ?>
+
 	</div>
 	<!-- CONTENT END -->
-
-
-	<script src="https://platform.twitter.com/anywhere.js?id=VgMhY8zm9QF6SgpYskmptA&v=1" type="text/javascript"></script> 
-	  <script type="text/javascript">
-		  twttr.anywhere(function (T) {
-		    T('#follow-twitterapi').followButton("netcoid");
-		  });
-	  </script>
-	  <script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>

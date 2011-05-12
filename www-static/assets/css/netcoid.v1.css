@@ -285,7 +285,7 @@ opacity:1;}
 
 #says{  color: #C24F4F;}
 
-/*EVENT*/
+/*EVENT
 .home #red-content.background {
     background: url("www-static/assets/images/highlight-1.png") no-repeat scroll -201px 349px transparent;
 }
@@ -304,7 +304,7 @@ opacity:1;}
     background: url("/www-static/assets/images/bg/uniqpost.png") repeat 0 0 #000000;
 }
 .uniqpost #red-content.background{ background: #fff;}
-
+*/
 
 /*TEST*/
 #test-netcoid-why{    background: none repeat scroll 0 0 #FFFFFF;

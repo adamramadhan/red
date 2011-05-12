@@ -55,7 +55,7 @@ class Site extends Application {
 			}
 			
 			# open invite
-			$this->view ( 'site/register-openinvite2',$data );
+			$this->view ( 'site/index-closed-invitation',$data );
 									
 			#$this->view('site/index');
 			$this->view ( 'site/footer' );
