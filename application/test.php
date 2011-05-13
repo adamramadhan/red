@@ -78,8 +78,9 @@ class Test extends Application {
 			redirect ( '/404' );
 			die ();
 		}
+
 		$this->model('analytics');
-		$data['analytics'] = $this->model->analytics->getPageViews('24');
+		$data['analytics'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
 
 		# data.addRow(["A", 23, 32]);
 		foreach ($data['analytics'] as $analytics) {
