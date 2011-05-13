@@ -17,7 +17,7 @@
 					<li class="c trustpoint">Trust Points : 0</li>
 				</ul>
 			</div>
-			
+						
 			<?php
 			if (empty($user['logo']) || empty($products) || empty($feed)) {
 				echo '<div class="clearfix bootcamp">';

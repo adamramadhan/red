@@ -10,7 +10,5 @@
 		<meta content="noodp,noydir" name="robots">
 		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
 		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
-		<?php $views->js('jquery,profile'); ?>
-
 	</head>
 <body>

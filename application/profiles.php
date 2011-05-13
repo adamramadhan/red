@@ -175,7 +175,7 @@ class Profiles extends Application {
 			$this->view ( 'profile/header', $header );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'profile/index', $data );
-			$this->view ( 'site/footer' );
+			$this->view ( 'profile/footer' );
 		}
 	}
 }

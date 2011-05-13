@@ -1,7 +1,8 @@
 array (
-  'UID' => '24',
+  'guest_UID' => '24',
+  'host_UID' => '3',
+  'host_PID' => '54',
   'IP' => '127.0.0.1',
-  'referrer' => '',
-  'URL' => '/area51/home',
-  'timecreate' => '2011-05-12 18:15:15',
+  'referrer' => 'http://localhost/',
+  'timecreate' => '2011-05-13 15:35:27',
 )

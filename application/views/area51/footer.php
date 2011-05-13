@@ -21,8 +21,9 @@
 <?php $views->js('jquery',"external"); ?>
 <script type='text/javascript'>  
 jQuery(document).ready(function(){
-    // PATH NAME
-    var pathname = window.location.pathname;
+    // PATH NAME 
+    // var pathname = window.location.pathname;
+    
     // REFERRER
     var referrer = document.referrer.toLowerCase();
  	
@@ -45,10 +46,11 @@ jQuery(document).ready(function(){
 	// START THE NETCOID ANALITICS DATA
 	var analytics = 
 	{ 
-		UID: '<?php echo $this->sessions->get('uid'); ?>',
+		guest_UID: '<?php echo $this->sessions->get('uid'); ?>',
+		host_UID: '<?php echo $ ?>'
 	    IP: '<?php echo $_SERVER['REMOTE_ADDR']; ?>',
 	    referrer: referrer,
-	    URL: pathname,
+	    // URL: pathname,
 	    timecreate:  datetime,
 	};  
 

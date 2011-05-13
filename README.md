@@ -4,6 +4,9 @@
 #### DATABASE
 http://stackoverflow.com/questions/621884/database-development-mistakes-made-by-application-developers
 
+#### SECURITY
+http://stackoverflow.com/questions/3799930/features-functions-that-make-your-app-more-professional-coding-hobbyhorses
+
 #### LEARN
 http://code.google.com/speed/webp/
 

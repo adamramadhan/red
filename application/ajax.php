@@ -5,9 +5,19 @@ class Ajax extends Application {
 	function __construct(){
 		$this->library ( 'sessions' );
 		if (!$this->sessions->get('uid')) {
-			exit ( 'Hello, api@networks.co.id' );			
+			
+			# AVOID ERRORS
+			if (empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+				$_SERVER['HTTP_X_REQUESTED_WITH'] = NULL;
+			}
+
+			# IF ITS NOT A AJAX REQUEST = EXIT
+			if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+				exit ( 'Hello, api@networks.co.id' );	
+			}
 		}
 	}
+	
 	function index(){
 		exit ( 'Hello, api@networks.co.id' );
 	}
@@ -29,14 +39,16 @@ class Ajax extends Application {
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			$this->model('analytics');
 				
-			  // DATA MASUK
-			  $a['UID'] = $_POST['UID'];
+			  $a['guest_UID'] = $_POST['guest_UID'];
+			  $a['host_UID'] = $_POST['host_UID'];
+			  $a['host_PID'] = $_POST['host_PID'];
 			  $a['IP'] = $_POST['IP'];
 			  $a['referrer'] = $_POST['referrer'];
-			  $a['URL'] = $_POST['URL'];
+			  //$a['URL'] = $_POST['URL'];
 			  $a['timecreate'] = $_POST['timecreate'];
 
-			$this->model->analytics->set($a);
+			  $this->model->analytics->set($a);
+			file_put_contents('CACHE', var_export($_POST, true));
 		}
 	}
 }

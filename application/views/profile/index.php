@@ -1,4 +1,66 @@
-<!-- CONTENT START -->
+	<?php $views->js('jquery'); ?>
+
+	<script type='text/javascript'>  
+	jQuery(document).ready(function(){
+		$("#red-products, #red-information").hide();
+		$("#red-" + (window.location.hash.replace("#", "") || "information")).show();
+	 
+		$("#content-info").click(function(event){
+	   		$("#red-products").hide();  
+	   		$("#red-information").show(); 
+	   	});
+
+		$("#content-product").click(function(event){
+			$("#red-products img").hide();
+	   		$("#red-information").hide();
+	   		$("#red-products").show(); 
+			$("#red-products img").fadeIn();
+		});
+
+		// START analytics BETA
+	    // PATH NAME 
+	    // var pathname = window.location.pathname;
+	    
+	    // REFERRER
+	    var referrer = document.referrer.toLowerCase();
+	 	
+	 	// GET DATA
+		function ISODateString(d){
+		function pad(n){return n<10 ? '0'+n : n}
+		 return d.getFullYear()+'-'
+		      + pad(d.getMonth()+1)+'-'
+		      + pad(d.getDate())+' '
+		      + pad(d.getHours())+':'
+		      + pad(d.getMinutes())+':'
+		      + pad(d.getSeconds())
+		}
+
+		var d = new Date();
+		var datetime = ISODateString(d);
+
+		// START THE NETCOID analytics DATA
+		var analytics = 
+		{ 
+			guest_UID: '<?php echo $this->sessions->get('uid'); ?>',
+			host_UID: '<?php echo $user['uid']; ?>',
+			IP: '<?php echo $_SERVER['REMOTE_ADDR']; ?>',
+			referrer: referrer,
+			// URL: pathname,
+			timecreate:  datetime,
+		};  
+
+	    // Create the AJAX request  
+	    $.ajax({  
+	        type: "POST",                    // Using the POST method  
+	        url: "/ajax/analytics/push",      // The file to call  
+	        data: analytics,                  // Our data to pass  
+	        success: function() {            // What to do on success  
+	            //alert(analytics);
+	        }  
+	    });  
+	});  
+	</script> 
+	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		
 		<!-- MENU START -->
