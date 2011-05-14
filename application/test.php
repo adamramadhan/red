@@ -80,17 +80,26 @@ class Test extends Application {
 		}
 
 		$this->model('analytics');
-		$data['analytics'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
+		$data['analytics'] = $this->model->analytics->getPageViews('3');
 
 		# data.addRow(["A", 23, 32]);
 		foreach ($data['analytics'] as $analytics) {
 			$temp[] = '["'.$analytics['date'].'",'.$analytics['views'].','.$analytics['uniquepageviews'].']';
 		}
 		
-		#var_dump($temp);
+		# var_dump($temp);
 		# render the data
-		$data['analytics'] = implode(',', $temp);
-		
+		# var_dump(count($temp));
+
+		#if (count($temp) === 1 ) {
+		#	$data['analytics'] = $temp['0'];
+		#	var_dump($temp['0']);
+		#}
+
+		if (!empty($temp)) {
+			$data['analytics'] = implode(',', $temp);
+		}
+
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view('area51/analytics',$data);

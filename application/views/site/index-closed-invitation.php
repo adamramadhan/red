@@ -16,7 +16,7 @@
     height:50px;
 }
 #invitation-closed {
-    margin: 100px 0 0 120px;
+    margin: 100px 0 0 90px;
 }
 #invitation-closed-meta{ margin: 20px 0 0 120px;}
 #what-is-netcoid a{      font-family: 'Pacifico',serif;  font-size: 30px; text-decoration:underline;}
@@ -25,7 +25,7 @@
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		<div id="invitation-closed">
-			<div class="helloworld">bisnis + teknologi + social</div>
+			<div class="helloworld">business + technology + social</div>
 		</div>
 		<div id="invitation-closed-meta"><span id="what-is-netcoid"><a href="/why">Seperti apa?</a></span></div>
 			<?php $views->css('blog'); ?>
