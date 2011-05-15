@@ -100,7 +100,6 @@ class Test extends Application {
 			$data['analytics'] = implode(',', $temp);
 		}
 
-		var_dump($data);
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view('area51/analytics',$data);
