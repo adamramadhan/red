@@ -1,65 +1,10 @@
 	<?php $views->js('jquery'); ?>
 
 	<script type='text/javascript'>  
-	jQuery(document).ready(function(){
-		$("#red-products, #red-information").hide();
-		$("#red-" + (window.location.hash.replace("#", "") || "information")).show();
-	 
-		$("#content-info").click(function(event){
-	   		$("#red-products").hide();  
-	   		$("#red-information").show(); 
-	   	});
-
-		$("#content-product").click(function(event){
-			$("#red-products img").hide();
-	   		$("#red-information").hide();
-	   		$("#red-products").show(); 
-			$("#red-products img").fadeIn();
-		});
-
-		// START analytics BETA
-	    // PATH NAME 
-	    // var pathname = window.location.pathname;
-	    
-	    // REFERRER
-	    var referrer = document.referrer.toLowerCase();
-	 	
-	 	// GET DATA
-		function ISODateString(d){
-		function pad(n){return n<10 ? '0'+n : n}
-		 return d.getFullYear()+'-'
-		      + pad(d.getMonth()+1)+'-'
-		      + pad(d.getDate())+' '
-		      + pad(d.getHours())+':'
-		      + pad(d.getMinutes())+':'
-		      + pad(d.getSeconds())
-		}
-
-		var d = new Date();
-		var datetime = ISODateString(d);
-
-		// START THE NETCOID analytics DATA
-		var analytics = 
-		{ 
-			guest_UID: '<?php echo $this->sessions->get('uid'); ?>',
-			host_UID: '<?php echo $user['uid']; ?>',
-			IP: '<?php echo $_SERVER['REMOTE_ADDR']; ?>',
-			referrer: referrer,
-			// URL: pathname,
-			timecreate:  datetime,
-		};  
-
-	    // Create the AJAX request  
-	    $.ajax({  
-	        type: "POST",                    // Using the POST method  
-	        url: "/ajax/analytics/push",      // The file to call  
-	        data: analytics,                  // Our data to pass  
-	        success: function() {            // What to do on success  
-	            //alert(analytics);
-	        }  
-	    });  
-	});  
+jQuery(document).ready(function(){$("#red-products, #red-information").hide();$("#red-"+(window.location.hash.replace("#","")||"information")).show();$("#content-info").click(function(event){$("#red-products").hide();$("#red-information").show();});$("#content-product").click(function(event){$("#red-products img").hide();$("#red-information").hide();$("#red-products").show();$("#red-products img").fadeIn();});var referrer=document.referrer.toLowerCase();function ISODateString(d){function pad(n){return n<10?'0'+n:n}return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())}var d=new Date();var datetime=ISODateString(d);var analytics={guest_UID:'<?php echo $this->sessions->get('uid'); ?>',host_UID:'<?php echo $user['uid']; ?>',IP:'<?php echo $_SERVER['REMOTE_ADDR']; ?>',referrer:referrer,timecreate:datetime,};$.ajax({type:"POST",url:"/ajax/analytics/push",data:analytics});var points={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>',twitter:'<?php echo $user['twitter']; ?>',yahoo:'<?php echo $user['yahoo']; ?>',};$.ajax({type:"POST",url:"/ajax/social/pull/points",data:points,beforeSend:function(){$('#ajax-socialpoint').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');},success:function(data){$('#ajax-socialpoint').hide().fadeIn(3000).html(data);},error:function(){$('#ajax-socialpoint').html('0');}});<?php if(!empty($user['twitter'])):?>var twitter={uid:'<?php echo $user['uid']; ?>',twitter:'<?php echo $user['twitter']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/twitter",data:twitter,beforeSend:function(){$('#ajax-pull-twitter').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-twitter').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['yahoo'])):?>var yahoo={uid:'<?php echo $user['uid']; ?>',yahoo:'<?php echo $user['yahoo']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/yahoo",data:yahoo,beforeSend:function(){$('#ajax-pull-yahoo').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-yahoo').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['facebook'])):?>var facebook={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/facebook",data:facebook,beforeSend:function(){$('#ajax-pull-facebook').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-facebook').hide().fadeIn(3000).html(data);}});<?php endif?>});
 	</script> 
+
+
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		
@@ -116,10 +61,8 @@
 				<?php endif ?>
 				
 				<!-- SOCIAL POINTS START -->
-				<?php if (!empty($socialpoint)): ?>
 					<li id="red-profile-name"><?php echo $user['name']; ?> 
-					(<?php echo number_format($socialpoint); ?>)</li>					
-				<?php endif ?>
+					(<span id="ajax-socialpoint"></span>)</li>
 				<!-- SOCIAL POINTS END -->
 			</ul>
 		</div>
@@ -127,28 +70,13 @@
 		
 		<!-- PROFILE START -->
 		<div id="red-profile-left">
-		<?php if (!empty($user['logo'])): ?>
-		<div id="profile-logo"><?php $views->getStorage($user['uid'],$user['logo']); ?></div>
-		<?php endif ?>
+			<?php if (!empty($user['logo'])): ?>
+				<div id="profile-logo"><?php $views->getStorage($user['uid'],$user['logo']); ?></div>
+			<?php endif ?>
 
-		<?php if (!empty($user['twitter'])): ?>
-			<a rel="nofollow" target="_blank" href="http://www.twitter.com/<?php echo $user['twitter']; ?>">
-				<div class="cu" id="twitter"><?php echo $twitter; ?></div>
-				<div id="twitter-meta" class="cb">@<?php echo $user['twitter']; ?></div>
-			</a>
-		<?php endif ?>
-		<?php if (!empty($user['yahoo'])): ?>
-			<a class="c" href="ymsgr:sendIM?<?php echo $user['yahoo']; ?>">
-				<div class="cu" id="yahoo"><?php echo $yahoo; ?></div>
-				<div id="yahoo-meta" class="cb">@<?php $y = explode('@',$user['yahoo']);echo $y[0]; ?></div>	
-			</a>
-		<?php endif ?>	
-		<?php if (!empty($user['facebook'])): ?>
-			<a rel="nofollow" target="_blank" href="<?php echo $facebookdata['link']; ?>">
-				<div class="cu" id="facebook"><?php echo $facebook; ?></div>
-				<div id="facebook-meta" class="cb">@<?php echo $user['facebook']; ?></div>					
-			</a>
-		<?php endif ?>	
+		<div id="ajax-pull-twitter"></div>
+		<div id="ajax-pull-yahoo"></div>
+		<div id="ajax-pull-facebook"></div>
 
 
 			<?php if (!empty($user['address'])): ?>

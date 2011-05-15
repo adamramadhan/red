@@ -1,7 +1,3 @@
 array (
-  'guest_UID' => '24',
-  'host_UID' => '24',
-  'IP' => '127.0.0.1',
-  'referrer' => 'http://localhost/beta/analytics',
-  'timecreate' => '2011-05-15 13:02:06',
+  'socialpoint' => '237',
 )

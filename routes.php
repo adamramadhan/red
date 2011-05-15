@@ -80,6 +80,10 @@ $routes['admin/useredit'] = 'admin:useredit';
 #ajax Routes
 $routes['ajax/refresh'] = 'ajax:getProductDiff';
 $routes['ajax/analytics/push'] = 'ajax:setAnalytics';
+$routes['ajax/social/pull/points'] = 'ajax:getSocialPoints';
+$routes['ajax/social/pull/facebook'] = 'ajax:getSocialFacebook';
+$routes['ajax/social/pull/yahoo'] = 'ajax:getSocialYahoo';
+$routes['ajax/social/pull/twitter'] = 'ajax:getSocialTwitter';
 
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 $routes['area51/home'] = 'test:home';
