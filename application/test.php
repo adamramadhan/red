@@ -80,7 +80,7 @@ class Test extends Application {
 		}
 
 		$this->model('analytics');
-		$data['analytics'] = $this->model->analytics->getPageViews('3');
+		$data['analytics'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
 
 		# data.addRow(["A", 23, 32]);
 		foreach ($data['analytics'] as $analytics) {
@@ -100,6 +100,7 @@ class Test extends Application {
 			$data['analytics'] = implode(',', $temp);
 		}
 
+		var_dump($data);
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view('area51/analytics',$data);
