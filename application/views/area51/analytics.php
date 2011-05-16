@@ -1,3 +1,5 @@
+
+
   <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -19,11 +21,25 @@
       data.addColumn('number', 'Views');
       data.addColumn('number', 'People');
       data.addRows([
-        <?php echo $analytics; ?>
+        <?php echo $data['page']; ?>
       ]);
+
       // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.LineChart(document.getElementById('Analytics-Visualization'));
-      chart.draw(data, {width: 745, height: 240,chartArea:{left:20,top:20,width:640}});
+      var chart = new google.visualization.AreaChart(document.getElementById('Insights-page'));
+      chart.draw(data, {lineWidth:3, pointSize:8, width: 745, height: 240, chartArea:{left:50,top:20,width:610}});
+
+      // DUA
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'PID');
+      data.addColumn('number', 'Views');
+      data.addColumn('number', 'People');
+      data.addRows([
+        <?php echo $data['product']; ?>
+      ]);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('Insights-product'));
+      chart.draw(data, {
+      width: 745, height: 240, chartArea:{left:50,top:20,width:600}});
     }
     </script>
 
@@ -32,8 +48,11 @@
   <div class="clearfix" id="red-content">
     <!-- FORM START -->
     <div id="red-edit-full">
-      <h1>Marketing</h1>
-      <div id="Analytics-Visualization"></div>
+      <h1>Insights</h1>
+      <h3>Weekly Account Information</h3>
+      <div id="Insights-page"></div>
+      <h3>Weekly Top Product</h3>
+      <div id="Insights-product"></div>
     </div>
     
     <!-- ADS & MENU START -->

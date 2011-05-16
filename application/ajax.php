@@ -2,6 +2,9 @@
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 class Ajax extends Application {
+
+	public $cacheTime = 180; // 3 menit
+
 	function __construct(){
 		$this->library ( 'sessions' );
 		if (!$this->sessions->get('uid')) {
@@ -90,7 +93,7 @@ class Ajax extends Application {
 				# COUNT DATA
 				$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'] + $data ['followers']['followers'];
 				
-				$this->cache->add ( 'SOCIAL:POINTS:'.$_POST['uid'], $socialpt , 10 );
+				$this->cache->add ( 'SOCIAL:POINTS:'.$_POST['uid'], $socialpt , $this->cacheTime );
 				$data ['socialpoint'] = $socialpt;
 			}
 		}
@@ -137,7 +140,7 @@ class Ajax extends Application {
 					
 					if (! $this->cache->get ( 'SOCIAL:TWITTER:'.$_POST['uid'] )) {
 						$status = $this->social->getTwitterProfile ( $_POST['twitter'] );
-						$this->cache->add ( 'SOCIAL:TWITTER:'.$_POST['uid'], $status, 120 );
+						$this->cache->add ( 'SOCIAL:TWITTER:'.$_POST['uid'], $status, $this->cacheTime );
 						$data ['twitter'] = $status;
 					}
 				}			
@@ -173,7 +176,7 @@ class Ajax extends Application {
 					
 					if (! $this->cache->get ( 'SOCIAL:YAHOO:'.$_POST['uid'] )) {
 						$status = $this->social->getYahooProfile ($_POST['yahoo']);
-						$this->cache->add ( 'SOCIAL:YAHOO:'.$_POST['uid'], $status, 120 );
+						$this->cache->add ( 'SOCIAL:YAHOO:'.$_POST['uid'], $status, $this->cacheTime );
 						$data ['yahoo'] = $status;
 					}
 				}	
@@ -214,7 +217,7 @@ class Ajax extends Application {
 					if (! $this->cache->get ( 'SOCIAL:FACEBOOK:'.$_POST['uid'] )) {
 						$status['status'] = $this->social->getFacebookPageStatus ( $_POST ['facebook'] );
 						$status['data'] = $this->social->getFacebookPageData ( $_POST ['facebook'] );
-						$this->cache->add ( 'SOCIAL:FACEBOOK:'.$_POST['uid'], $status, 120 );
+						$this->cache->add ( 'SOCIAL:FACEBOOK:'.$_POST['uid'], $status, $this->cacheTime );
 						$data ['facebook'] = $status;
 					}
 				}
@@ -232,7 +235,7 @@ class Ajax extends Application {
 			<a rel="nofollow" target="_blank" href="'.$data ['facebook']['data']['link'].'">
 				<div class="cu" id="facebook">'.$data ['facebook']['status'].'</div>
 				<div id="facebook-meta" class="cb">@'.$_POST['facebook'].'</div>					
-			</a>';			
+			</a>';
 		}			
 	}
 }

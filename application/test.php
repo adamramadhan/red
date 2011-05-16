@@ -80,11 +80,11 @@ class Test extends Application {
 		}
 
 		$this->model('analytics');
-		$data['analytics'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
+		$data['analytics']['page'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
 
 		# data.addRow(["A", 23, 32]);
-		foreach ($data['analytics'] as $analytics) {
-			$temp[] = '["'.$analytics['date'].'",'.$analytics['views'].','.$analytics['uniquepageviews'].']';
+		foreach ($data['analytics']['page'] as $page) {
+			$pages[] = '["'.$page['date'].'",'.$page['views'].','.$page['uniqueviews'].']';
 		}
 		
 		# var_dump($temp);
@@ -96,13 +96,23 @@ class Test extends Application {
 		#	var_dump($temp['0']);
 		#}
 
-		if (!empty($temp)) {
-			$data['analytics'] = implode(',', $temp);
+		if (!empty($pages)) {
+			$data['insights']['page'] = implode(',', $pages);
+		}
+
+
+		$data['analytics']['product'] = $this->model->analytics->getProductsViews($this->sessions->get('uid'));
+		# data.addRow(["A", 23, 32]);
+		foreach ($data['analytics']['product'] as $product) {
+			$products[] = '["'.$product['name'].'(#'.$product['host_PID'].')",'.$product['views'].','.$product['uniqueviews'].']';
+		}
+		if (!empty($products)) {
+			$data['insights']['product'] = implode(',', $products);
 		}
 
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view('area51/analytics',$data);
+		$this->view('area51/analytics',$data['insights']);
 		$this->view ( 'users/footer' );		
 	}
 }

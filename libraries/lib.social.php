@@ -185,7 +185,8 @@ class Social {
 			if (! empty ( $jsonData->data ['0']->description )) {
 				$count = strlen ( $jsonData->data ['0']->description );
 				if ($count >= 100) {
-					$message = substr ( $jsonData->data ['0']->description, 0, 100 ) . ' <a href="' . $jsonData->data ['0']->link . '">' . l ( 'more...' ) . '</a>';
+					$message = substr ( $jsonData->data ['0']->description, 0, 100 ) . 
+					' <a href="' . urlencode($jsonData->data ['0']->link) . '">' . l ( 'more...' ) . '</a>';
 				}
 				if ($count <= 100) {
 					$message = $jsonData->data ['0']->description;

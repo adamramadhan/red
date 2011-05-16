@@ -31,8 +31,6 @@ class Profiles extends Application {
 			# kena ddos, coba cari cara biar usernamenya bisa usah connect database untuk
 			# cari databasenya.
 			
-
-			$this->library ( 'social' );
 			$this->library ( 'sessions' );
 			$this->helper ( 'active' );
 			$this->model ( 'products' );
