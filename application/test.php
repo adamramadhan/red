@@ -84,7 +84,7 @@ class Test extends Application {
 
 		# data.addRow(["A", 23, 32]);
 		foreach ($data['analytics']['page'] as $page) {
-			$pages[] = '["'.$page['date'].'",'.$page['views'].','.$page['uniqueviews'].']';
+			$pages[] = '["'.$page['date'].'",'.$page['views'].','.$page['guestview'].','.$page['netcoidview'].','.$page['uniqueviews'].']';
 		}
 		
 		# var_dump($temp);
@@ -103,8 +103,10 @@ class Test extends Application {
 
 		$data['analytics']['product'] = $this->model->analytics->getProductsViews($this->sessions->get('uid'));
 		# data.addRow(["A", 23, 32]);
+
 		foreach ($data['analytics']['product'] as $product) {
-			$products[] = '["'.$product['name'].'(#'.$product['host_PID'].')",'.$product['views'].','.$product['uniqueviews'].']';
+			$products[] = '["'.$product['name'].'(#'.$product['host_PID'].')",'.$product['views'].',
+			'.$product['guestview'].','.$product['netcoidview'].','.$product['uniqueviews'].']';
 		}
 		if (!empty($products)) {
 			$data['insights']['product'] = implode(',', $products);
