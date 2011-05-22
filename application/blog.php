@@ -21,13 +21,12 @@ class Blog extends Application {
 	}
 	
 	function index() {
-		$data ['posts'] = $this->model->blog->listNewsTitle ();
-		
-
+		$data ['posts'] = $this->model->blog->listNewsTitle ('1');
+		$data ['highlight'] = $this->model->blog->getHighlight();
 		if (! is_get ( 'id' )) {
 
-			# GET LATEST POST DATA
-			$data ['post'] = $this->model->blog->getLastPost ();
+			# GET LATEST POST DATA WHERE STATUS 1
+			$data ['post'] = $this->model->blog->getLastPost ('1');
 
 			if (config('middleware/wmd')) {	
 				$data ['post'] ['content'] = $data ['post'] ['content_html'];

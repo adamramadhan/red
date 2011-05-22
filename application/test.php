@@ -79,8 +79,15 @@ class Test extends Application {
 			die ();
 		}
 
+		# date
+		$weekago = date('Y-m-d', strtotime('today - 1 week'));
+		$weektoday = date('Y-m-d', strtotime('today'));
+
 		$this->model('analytics');
-		$data['analytics']['page'] = $this->model->analytics->getPageViews($this->sessions->get('uid'));
+		$data['analytics']['page'] = $this->model->analytics->getPageViews(
+		$this->sessions->get('uid'),
+		$weekago,
+		$weektoday);
 
 		# data.addRow(["A", 23, 32]);
 		foreach ($data['analytics']['page'] as $page) {
@@ -101,7 +108,11 @@ class Test extends Application {
 		}
 
 
-		$data['analytics']['product'] = $this->model->analytics->getProductsViews($this->sessions->get('uid'));
+		$data['analytics']['product'] = $this->model->analytics->getProductsViews(
+		$this->sessions->get('uid'),
+		$weekago,
+		$weektoday);
+
 		# data.addRow(["A", 23, 32]);
 
 		foreach ($data['analytics']['product'] as $product) {
@@ -110,6 +121,12 @@ class Test extends Application {
 		}
 		if (!empty($products)) {
 			$data['insights']['product'] = implode(',', $products);
+		}
+
+		if (empty($data['insights'])) {
+			$data['insights']['null'] = TRUE;
+			#$data['insights']['page'] = '["'.$weekago.'",1,1,1,1],["'.$weektoday.'",1,1,1,1]';
+			#$data['insights']['product'] = '["#1 Product",1,1,1,1],["#2 Product",1,1,1,1]';
 		}
 
 		$this->view ( 'users/header' );

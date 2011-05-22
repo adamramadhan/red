@@ -1,6 +1,5 @@
-
-
-  <!--Load the AJAX API-->
+<?php if (!isset($null)): ?>
+<!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
     
@@ -46,18 +45,26 @@
       width: 745, height: 240, chartArea:{left:50,top:20,width:550}});
     }
     </script>
-
+<?php endif ?>
 
   <!-- CONTENT START -->
   <div class="clearfix" id="red-content">
     <!-- FORM START -->
     <div id="red-edit-full">
       <h1>Insights</h1>
-      <p>untuk saran atau permintaan tambahan data, langsung ke <a href="https://www.networks.co.id/blog?id=6" style="color: rgb(211, 46, 46);">Invitasi &amp; Voting</a>.</p>
-      <h3>Weekly Account Information</h3>
-      <div id="Insights-page"></div>
-      <h3>Weekly Top Product</h3>
-      <div id="Insights-product"></div>
+
+      <?php if (isset($null)): ?>
+      <p>No data Available.</p>        
+      <?php endif ?>
+
+      <?php if (!isset($null)): ?>
+        <p>untuk saran atau permintaan tambahan data, langsung ke <a href="https://www.networks.co.id/blog?id=6" style="color: rgb(211, 46, 46);">Invitasi &amp; Voting</a>.</p>
+        <h3>Weekly Account Information</h3>
+        <div id="Insights-page"></div>
+        <h3>Weekly Top Product</h3>
+        <div id="Insights-product"></div>        
+      <?php endif ?>
+
     </div>
     
     <!-- ADS & MENU START -->

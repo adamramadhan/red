@@ -11,5 +11,6 @@
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
 		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
+		<?php $views->JS('modernizr-1.7.min') ?>
 	</head>
 <body>

@@ -6,7 +6,7 @@ http://stackoverflow.com/questions/621884/database-development-mistakes-made-by-
 
 #### SECURITY
 http://stackoverflow.com/questions/3799930/features-functions-that-make-your-app-more-professional-coding-hobbyhorses
-
+http://www.nsa.gov/ia/_files/os/redhat/rhel5-guide-i731.pdf LINUX CENTOS
 #### LEARN
 http://code.google.com/speed/webp/
 

@@ -75,6 +75,7 @@ $routes['admin/newpost'] = 'admin:newpost';
 $routes['admin/unverify'] = 'admin:listverified';
 $routes['admin/verify'] = 'admin:listunverified';
 $routes['admin/useredit'] = 'admin:useredit';
+$routes['admin/groups'] = 'admin:grouplist';
 
 
 #ajax Routes
@@ -88,7 +89,7 @@ $routes['ajax/social/pull/twitter'] = 'ajax:getSocialTwitter';
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 $routes['area51/home'] = 'test:home';
 $routes['development'] = 'test:github';
-$routes['beta/analytics'] = 'test:getAnalytics';
+$routes['beta/insights'] = 'test:getAnalytics';
 $routes['area51/flush'] = 'test:flush';
 #$routes['area51/analytics'] = 'test:analytics';
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya

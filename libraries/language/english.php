@@ -27,6 +27,7 @@ $l['comments'] = 'Comments';
 $l['information'] = 'Information';
 $l['products'] = 'Products';
 $l['nocomments'] = 'No Comments';
+$l['insights'] = 'Insights';
 /* EDITPROFILE.PHP */
 $l['username'] = 'Username';
 $l['name'] = 'Name';

@@ -9,5 +9,6 @@
 		<?php $views->css('framework','netcoid.v1','verified'); ?>
 		<meta content="noodp,noydir" name="robots">
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
+		<?php $views->JS('modernizr-1.7.min') ?>
 	</head>
 <body class="<?php $views->activeCSS(); ?>">

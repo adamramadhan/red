@@ -8,7 +8,8 @@
 					<li class="iconadd"><?php $views->href('/edit/product',l('addproduct')); ?></li>
 					<li class="iconlist"><?php $views->href('/edit/products',l('productlist')); ?></li>
 					<li class="iconhelp"><?php $views->href('/help',l('askhelp')); ?></li>
+					<li class="iconinsights"><?php $views->href('/beta/insights',l('insights').'<sup style="font-size: 10px;">beta</sup>'); ?></li>
 				</ul>
-					<li><p id="users-menu-information">Kami akan segera menambah sistim privasi kami, silahkan hubungi privacy@networks.co.id</p></li>
+					<li><p id="users-menu-information">Beta*, status beta menunjukan bahwa fitur tersebut masih dalam tahap uji coba.</p></li>
 			</ul>
 		</div>

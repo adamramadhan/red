@@ -19,7 +19,7 @@ class ModelAnalytics extends Models {
 		LEFT(timecreate, 10) AS date, COUNT(DISTINCT(IP)) AS uniqueviews
 		FROM analytics WHERE host_UID = :uid AND 
 		LEFT(timecreate, 10) 
-		BETWEEN $date_start and $date_end 
+		BETWEEN '$date_start' and '$date_end' 
 		GROUP BY(LEFT(timecreate, 10))", array ('uid' => $uid ) );
 		return $data;
 	}
@@ -33,7 +33,7 @@ class ModelAnalytics extends Models {
 		COUNT(DISTINCT(IP)) AS uniqueviews
 
 		FROM analytics, products WHERE analytics.host_PID = products.pid AND host_UID = :uid AND 
-		DATE_FORMAT(analytics.timecreate,'%Y-%m-%d') BETWEEN $date_start and $date_end AND host_PID IS NOT NULL 
+		DATE_FORMAT(analytics.timecreate,'%Y-%m-%d') BETWEEN '$date_start' and '$date_end' AND host_PID IS NOT NULL 
 		GROUP BY(host_PID)", array ('uid' => $uid ) );
 		return $data;		
 	}

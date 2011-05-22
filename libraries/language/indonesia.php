@@ -28,6 +28,8 @@ $l['comments'] = 'Komentar';
 $l['information'] = 'Informasi';
 $l['products'] = 'Produk';
 $l['nocomments'] = 'Belum ada komentar';
+$l['insights'] = 'Insights';
+
 /* EDITPROFILE.PHP */
 $l['username'] = 'Username';
 $l['name'] = 'Nama Organisasi';

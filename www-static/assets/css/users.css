@@ -222,6 +222,11 @@ margin:5px 0;}
     margin-left: 5px;
     padding-left: 21px;
 }
+#red-side-menu ul ul li.iconinsights{
+    background: url("/www-static/assets/images/i/insights.png") no-repeat scroll left center #FFFFFF;
+    margin-left: 5px;
+    padding-left: 21px;
+}
 
 #message.iconmessage{
     background-image: url("/www-static/assets/images/i/Mail.png");

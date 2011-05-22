@@ -189,7 +189,8 @@ class Admin extends Application {
 		}
 
 		$this->model ( 'blog' );
-		
+		$this->helper ( 'forms' );
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		# get blog posts
@@ -203,6 +204,16 @@ class Admin extends Application {
 		
 		# if request view
 		if (is_get ( 'n' )) {
+			$data['status'] = $this->model->blog->checkStatus($_GET['n']);
+			# IF POST SHOW
+			# @TODO SAMPE SINI
+			if (is_post('editstatus')) {
+				$e['nid'] = $_GET['n'];
+				$e['status'] = $_POST['status'];
+				$this->model->blog->editStatus($e);
+				redirect('/admin/blog');
+			}
+			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['n'] );
 			#$data['post']['content'] = str_replace( "\n" , "<br />" , $data['post']['content']);
 			$this->view ( 'admin/blogview', $data );
@@ -303,6 +314,21 @@ class Admin extends Application {
 		}
 		$this->view ( 'admin/blogadd' );
 		$this->view ( 'admin/footer' );
+	}
+
+	function grouplist(){
+
+		if ($this->user['role'] == 5) {
+		} else {
+			redirect ( '/404' );
+			die ();		
+		}
+
+		$this->view ( 'admin/header' );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->helper ( 'forms' );
+		$this->view ( 'admin/listgroups' );
+		$this->view ( 'site/footer' );
 	}
 }
 

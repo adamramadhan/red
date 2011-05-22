@@ -13,3 +13,4 @@
 		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
 	</head>
 <body class="<?php $views->ActiveCSS(); ?>">
+<?php $views->JS('modernizr-1.7.min') ?>
