@@ -59,9 +59,9 @@
 
       <?php if (!isset($null)): ?>
         <p>untuk saran atau permintaan tambahan data, langsung ke <a href="https://www.networks.co.id/blog?id=6" style="color: rgb(211, 46, 46);">Invitasi &amp; Voting</a>.</p>
-        <h3>Weekly Account Information</h3>
+        <h3>Weekly Account Insights</h3>
         <div id="Insights-page"></div>
-        <h3>Weekly Top Product</h3>
+        <h3>Weekly Product Insights</h3>
         <div id="Insights-product"></div>        
       <?php endif ?>
 
