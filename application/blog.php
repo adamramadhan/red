@@ -85,6 +85,11 @@ class Blog extends Application {
 			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
 			
+			# IF STATUS 0 OR NOT PUBLISHED
+			if ($data['post']['status'] == '0') {
+				redirect('404');
+			}
+			
 			if (config('middleware/wmd')) {	
 				$data ['post'] ['content'] = $data ['post'] ['content_html'];
 			}
