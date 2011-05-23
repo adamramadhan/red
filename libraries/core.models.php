@@ -45,15 +45,14 @@ class Models {
 	 * @param array $data
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
+	 * @update http://stackoverflow.com/questions/6093655/problem-with-php-mysql-field-name-group
 	 */
 	public function insert($table, $data = array()) {
 		$fieldnames = array_keys ( $data );
-		
-		$name = '( ' . implode ( ' ,', $fieldnames ) . ' )';
+		$name = '( ' . '`' . implode('`, `', $fieldnames) . '`' . ' )';
 		$value = '(:' . implode ( ', :', $fieldnames ) . ' )';
 		$query = "INSERT INTO $table";
 		$query .= $name . ' VALUES ' . $value;
-		
 		$insert = $this->start->prepare ( $query );
 		return $insert->execute ( $data );
 	}

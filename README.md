@@ -7,6 +7,7 @@ http://stackoverflow.com/questions/621884/database-development-mistakes-made-by-
 #### SECURITY
 http://stackoverflow.com/questions/3799930/features-functions-that-make-your-app-more-professional-coding-hobbyhorses
 http://www.nsa.gov/ia/_files/os/redhat/rhel5-guide-i731.pdf LINUX CENTOS
+
 #### LEARN
 http://code.google.com/speed/webp/
 
@@ -14,3 +15,4 @@ http://code.google.com/speed/webp/
 1. 1 tag = 1 community, coba lihat di products itu kan berdasarkan masing2 tag nah coba kalo seandainya tiap tag ada komunitasnya masing2. kan enak tuh bisa saling kenalan saling komen disana. jadi gak repot juga.
 2. minta verifynya di kasih image. jadi bisa render image gitu.
 3. CSRF TOKEN. !
+4. IF there is no activity rediect to secure then back to the session if not then out.

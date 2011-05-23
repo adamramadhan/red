@@ -324,10 +324,45 @@ class Admin extends Application {
 			die ();		
 		}
 
+		$this->model('groups');
+		$data['groups'] = $this->model->groups->getGroups();	
+
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
-		$this->view ( 'admin/listgroups' );
+
+		if (!is_get('e')) {		
+			$this->view ( 'admin/listgroups', $data );
+		}
+
+		if (is_get('e')) {		
+
+			if (is_post('edit')) {
+				$e['group'] = $_POST['group'];
+				$e['tag'] = $_POST['tag'];
+				$e['information'] = $_POST['information'];
+				$e['gid'] = $_GET['e'];
+				$this->model->groups->updateGroup($e);
+				redirect('/admin/groups');
+			}
+
+			$data['group'] = $this->model->groups->getGroup($_GET['e']);
+			$this->view ( 'admin/listgroupsedit', $data );
+		}
+
+		if (is_post('add')) {
+			$a['group'] = $_POST['group'];
+			$a['tag'] = $_POST['tag'];
+			$a['information'] = $_POST['information'];
+			$this->model->groups->register($a);
+			redirect('/admin/groups');
+		}
+
+		if (is_get('d')) {
+			$this->model->groups->del($_GET['d']);
+			redirect('/admin/groups');
+		}
+
 		$this->view ( 'site/footer' );
 	}
 }

@@ -13,5 +13,9 @@
 					<li><?php $views->href('/admin/blog','List Post'); ?></li>
 					<li><?php $views->href('/admin/newpost','Tambah Post'); ?></li>
 				</ul>
+				<li><h4>Groups</h4></li>
+				<ul>
+					<li><?php $views->href('/admin/groups','Groups'); ?></li>
+				</ul>
 			</ul>
 		</div>

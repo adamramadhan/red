@@ -1,7 +1,16 @@
 
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
+
 		<div class="clearfix" id="red-product-list">
+
+			<?php if (!empty($group)): ?>
+				<div style="border: 1px solid rgb(204, 204, 204); padding: 10px; margin: 10px;">
+				<h3><?php echo $group['group']; ?></h3>
+				<p><?php echo $group['information']; ?></p>
+				</div>
+			<?php endif ?>
+
 			<?php
 				$i = 1;	
 				foreach ($products as $product) {

@@ -101,6 +101,10 @@ class Products extends Application {
 			# @todo harus di safe dulu
 			$tag = $_GET ['tag'];
 			$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
+
+			# added groups
+			$this->model('groups');
+			$data ['group'] = $this->model->groups->getGroupByTag($_GET['tag']);
 		}
 		
 		$data ['count'] = count ( $data ['products'] );

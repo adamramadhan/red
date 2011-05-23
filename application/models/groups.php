@@ -12,18 +12,18 @@ class ModelGroups extends Models {
 	}
 
 	function getGroups($limit = 10) {
-		$data = $this->fetchAll ( 'SELECT gid, name, information, tag FROM groups 
+		$data = $this->fetchAll ( 'SELECT gid, `group`, information, tag FROM groups 
 		GROUP BY tag LIMIT ' . $limit );
 		return $data;
 	}
 
 	function getGroup($gid) {
-		$data = $this->fetch ( "SELECT name, information, tag FROM groups WHERE gid = :gid", array ('gid' => $gid ) );
+		$data = $this->fetch ( "SELECT `group`, information, tag FROM groups WHERE gid = :gid", array ('gid' => $gid ) );
 		return $data;
 	}
 
 	function getGroupByTag($tag) {
-		$data = $this->fetch ( "SELECT name, information, gid FROM groups WHERE tag = :tag", array ('tag' => $tag ) );
+		$data = $this->fetch ( "SELECT `group`, information, gid FROM groups WHERE tag = :tag", array ('tag' => $tag ) );
 		return $data;
 	}
 
@@ -34,7 +34,7 @@ class ModelGroups extends Models {
 
 	function updateGroup($data){
 		$update = $this->query ( "UPDATE groups SET 
-		name = :name,
+		`group` = :group,
 		information = :information,
 		tag = :tag
 		WHERE gid = :gid", $data );

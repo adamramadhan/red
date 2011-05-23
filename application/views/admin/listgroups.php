@@ -17,7 +17,7 @@
 			<?php 
 				foreach ($groups as $group) {
 					echo '<div class="clearfix" id="subinformation">';
-					echo '<div id="subname">'.$group['name'].'</div>';
+					echo '<div id="subname">'.$group['group'].'</div>';
 					echo '<div id="subname">'.$group['tag'].'</div>';
 					echo '<div class="c" id="suboptions"><a href="/admin/groups?d='.$group['gid'].'">Delete</a></div>';
 					echo '<div class="c" id="suboptions"><a href="/admin/groups?e='.$group['gid'].'">Edit</a></div>';
