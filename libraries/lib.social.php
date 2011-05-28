@@ -239,7 +239,69 @@ class Social {
 			}
 		}
 	return $data;
-	}	
+	}
+
+	function twitterSearch($search){
+		$url = "http://search.twitter.com/search.json?rpp=100&
+		callback=netcoid-".md5($search)."&q='".$search;
+		
+		$fp = @fopen ( $url, 'r' );
+
+		if (!$fp) {
+			$data = 'maaf, untuk saat ini koneksi jaringan kami dengan Twitter sedang bermasalah, silahkan hubungi api@networks.co.id';
+		}
+		
+		if ($fp) {
+
+			$json = stream_get_contents($fp);
+			$jsonData = json_decode($json);
+			
+			if ($jsonData) {	
+				foreach ($jsonData as $key => $value) {
+					$data[$key] = $value;
+				}
+			}
+		
+			# get data
+			#http://stackoverflow.com/questions/6138023/time-minus-time-time-seconds-in-php/6138184#6138184
+			$time = strtotime($data['results']['0']->created_at) - strtotime($data['results']['99']->created_at);
+			# tweet per hours
+			$data['tweetperhour'] =  ceil(( 99 / $time ) * 60 * 60);
+			#var_dump($data);
+		}
+	return $data;
+	}
+
+	function facebookSearch($search){
+		
+		# no call back karena sebenrnya untuk js tp twitter dipake biar bisa banyak fetchnya?
+		# @todo check ulang
+		$url = 'http://graph.facebook.com/search/?&limit=30&q='.$search;
+		
+		$fp = @fopen ( $url, 'r' );
+
+		if (!$fp) {
+			$data = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
+		}
+		
+		if ($fp) {
+
+			$json = stream_get_contents($fp);
+			$jsonData = json_decode($json);
+
+			if ($jsonData) {	
+				foreach ($jsonData as $key => $value) {
+					$data[$key] = $value;
+				}
+			}
+			
+			# get data
+			$time = strtotime($data['data']['0']->created_time) - strtotime($data['data']['29']->created_time);
+			# tweet per hours
+			$data['postperhour'] =  ceil(( 29 / $time ) * 60 * 60);
+		}
+	return $data;
+	}
 }
 
 ?>

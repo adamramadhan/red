@@ -1,3 +1,27 @@
+<?php if (!empty($group)): ?>
+	<?php $views->JS('jquery'); ?>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		var search = 
+		{ 
+			tag: '<?php echo $group['tag']; ?>',
+		};  
+	    // Create the AJAX request  
+	    $.ajax({  
+	        type: "POST",                    // Using the POST method  
+	        url: "/ajax/social/pull/search",      // The file to call  
+	        data: search,                  // Our data to pass  
+	        beforeSend: function(){
+	        	$('#ajax-talkperhour').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');
+	        },
+	        success: function(data) {            // What to do on success  
+	        	console.log(data);
+	            $('#ajax-talkperhour').hide().fadeIn(3000).html(data);
+	        }  
+	    });  
+	});  
+	</script>
+<?php endif ?>
 
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
@@ -5,19 +29,26 @@
 		<div class="clearfix" id="red-product-list">
 
 			<?php if (!empty($group)): ?>
-				<div style="border: 1px solid rgb(204, 204, 204); padding: 10px; margin: 10px;">
-				<h3><?php echo $group['group']; ?></h3>
-				<p><?php echo $group['information']; ?></p>
+				<div id="product-group">
+					<div id="product-group-meta">
+						<div class="clearfix">
+							<h3 class="l"><?php echo $group['group']; ?></h3>
+							<span id="ajax-talkperhour" class="l">( 1233 People talking / Hour )</span>
+						</div>
+						<p><?php echo $group['information']; ?></p>
+					</div>
 				</div>
 			<?php endif ?>
-
 			<?php
 				$i = 1;	
 				foreach ($products as $product) {
 					if ( $i <= 20 ) { 
-					echo "<div id='product'><a href='/product?id=" . $product['pid'] . "'>";
+					echo "<div id='product'>";
+					echo "<a class='product-image' href='/product?id=" . $product['pid'] . "'>";
 					echo $views->getStorage($product['uid'],$product['image_tumb']); 
-					echo "</a></div>";
+					echo "</a>
+					<span class='product-meta'>".$product['name']."</span>
+					</div>";
 			        if ($i % 5 == 0)
 			              echo '<div id="productline" class="clear"><hr/></div>';
 			        $i++;

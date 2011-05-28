@@ -150,3 +150,12 @@ PRODUCTLIST
     text-transform: uppercase;    
 }
 .newicon a{color:#fff;}
+
+#productline{    padding: 0 10px;}
+.product-meta{    display: block;
+    font-family: Verdana;
+    font-size: 11px;
+    text-align: center;}
+
+.product-image{    display: block;
+    text-align: center;}

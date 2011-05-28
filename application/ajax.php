@@ -101,7 +101,6 @@ class Ajax extends Application {
 
 		# START SOCIAL NO CACHE
 		if (!config('features/memcached')) {
-			$this->library ( 'social' );
 
 			# GET NETCOID FOLLOWERS
 			$data ['followers'] = $this->model->social->CountFollowers ( $_POST['uid'] );
@@ -225,8 +224,9 @@ class Ajax extends Application {
 
 			if (!config ( 'features/memcached' )) {
 				if (! empty ( $_POST['facebook'] )) {	
-					$data ['facebook'] = $this->social->getFacebookPageStatus ( $_POST['facebook'] );
-					$data ['facebookdata'] = $this->social->getFacebookPageData ( $_POST['facebook'] );
+					$status ['status'] = $this->social->getFacebookPageStatus ( $_POST['facebook'] );
+					$status ['data'] = $this->social->getFacebookPageData ( $_POST['facebook'] );
+					$data ['facebook'] = $status;
 				}			
 			}
 
@@ -237,6 +237,40 @@ class Ajax extends Application {
 				<div id="facebook-meta" class="cb">@'.$_POST['facebook'].'</div>					
 			</a>';
 		}			
+	}
+
+	function getSocialSearch(){
+
+		if (! empty ( $_POST['tag'] )) {	
+			$this->library('social');
+			# @todo do we need urlencode ?
+
+			# IF CACHE
+			if (config ( 'features/memcached' )) {
+				$this->cache = new Cache;
+
+				if ( $this->cache->get ( 'SOCIAL:SEARCH:'.$_POST['tag'] )) {
+					$talkperhour = $this->cache->get ( 'SOCIAL:SEARCH:'.$_POST['tag']  );
+				}
+
+				if ( !$this->cache->get ( 'SOCIAL:SEARCH:'.$_POST['tag'] )) {
+					$json['twitter'] = $this->social->twitterSearch(urlencode($_POST['tag']).'&lang=id');
+					$json['facebook'] = $this->social->facebookSearch(urlencode($_POST['tag']).'&type=post');
+					$talkperhour = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
+					$this->cache->add ( 'SOCIAL:SEARCH:'.$_POST['tag'], $talkperhour, 216000 ); # 1 jam
+				}
+			}
+
+			# IF NOT CACHE
+			if (!config ( 'features/memcached' )) {
+				$json['twitter'] = $this->social->twitterSearch(urlencode($_POST['tag']).'&lang=id');
+				$json['facebook'] = $this->social->facebookSearch(urlencode($_POST['tag']).'&type=post');
+				$talkperhour = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
+			}
+
+			# DISPLAY DATA
+			echo $talkperhour.' Pembicaraan / Jam via Twitter & Facebook';
+		}		
 	}
 }
 

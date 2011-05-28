@@ -34,12 +34,18 @@ class Test extends Application {
 	}
 
 	function home(){
-		$this->model('products');
-		$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
-		$this->view ( 'area51/header');
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'area51/ajax');
-		$this->view ( 'area51/footer');
+		$this->library('social');
+		$json['twitter'] = $this->social->twitterSearch('malam&lang=id');
+		$json['facebook'] = $this->social->facebookSearch('malam&type=post');
+		$hello = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
+		var_dump($hello);
+
+		#$this->model('products');
+		#$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
+		#$this->view ( 'area51/header');
+		#$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		#$this->view ( 'area51/ajax');
+		#$this->view ( 'area51/footer');
 	}
 
 	function github(){

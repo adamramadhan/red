@@ -185,7 +185,7 @@ class Edit extends Application {
 			# GET A NEW PRODUCT
 			$p ['name'] = $_POST ['name'];
 			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
-			$p ['tag'] = $_POST ['tag'];
+			$p ['tag'] = strtolower($_POST ['tag']);
 			$p ['price'] = $_POST ['price'];
 			
 			# get the time from jakarta

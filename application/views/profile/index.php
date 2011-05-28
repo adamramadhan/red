@@ -109,9 +109,12 @@ jQuery(document).ready(function(){$("#red-products, #red-information").hide();$(
 				$i = 1;			
 				foreach ($products as $product) {
 					
-				echo "<div id='product'><a href='/product?id=" . $product['pid'] . "'>";
+				echo "<div id='product'>";
+				echo "<a class='product-image' href='/product?id=" . $product['pid'] . "'>";
 				echo $views->getStorage($user['uid'],$product['image_tumb']); 
-				echo "</a></div>";
+				echo "</a>
+				<span class='product-meta'>".$product['name']."</span>
+				</div>";
 	
 		        if ($i % 4 == 0 && $i != 16)
 		              echo '<div id="productline" class="clear"><hr/></div>';

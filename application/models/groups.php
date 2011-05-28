@@ -23,7 +23,7 @@ class ModelGroups extends Models {
 	}
 
 	function getGroupByTag($tag) {
-		$data = $this->fetch ( "SELECT `group`, information, gid FROM groups WHERE tag = :tag", array ('tag' => $tag ) );
+		$data = $this->fetch ( "SELECT `group`, information, tag, gid FROM groups WHERE tag = :tag", array ('tag' => $tag ) );
 		return $data;
 	}
 
