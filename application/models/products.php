@@ -49,8 +49,8 @@ class ModelProducts extends Models {
 	}
 	
 	function listProductsByTag($tag, $offset = 0, $limit = 40) {
-		$list = $this->fetchAll ( "SELECT uid, pid, name, information, image, image_tumb, tag, price 
-		FROM products WHERE tag = :tag ORDER BY pid DESC LIMIT $offset, $limit", array ('tag' => $tag ) );
+		$list = $this->fetchAll ( "SELECT products.pid, products.uid, products.name, products.information, products.image_tumb, price, users.name AS cname, users.username AS cusername, role
+		FROM products,users WHERE tag = :tag ORDER BY pid DESC LIMIT $offset, $limit", array ('tag' => $tag ) );
 		return $list;
 	}
 	
