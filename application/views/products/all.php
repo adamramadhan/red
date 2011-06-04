@@ -22,7 +22,7 @@
 	});  
 	</script>
 <?php endif ?>
-
+<?php var_dump($products); ?>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 
@@ -46,9 +46,19 @@
 					echo "<div id='product'>";
 					echo "<a class='product-image' href='/product?id=" . $product['pid'] . "'>";
 					echo $views->getStorage($product['uid'],$product['image_tumb']); 
-					echo "</a>
-					<span class='product-meta'>".$product['name']."</span>
-					</div>";
+					echo "</a><span class='product-meta'><p>".$product['name']."</p>";
+					if ($product['role'] == 1) {
+						echo "<p style='font-weight: normal;'>by 
+						<a class='u' href='/".$product['cusername']."'>".$product['cname']." ✔</a></p></span>";
+						echo "</div>";
+					}
+
+					if ($product['role'] != 1) {
+						echo "<p style='font-weight: normal;'>by 
+						<a class='u' href='/".$product['cusername']."'>".$product['cname']."</a></p></span>";
+						echo "</div>";
+					}
+
 			        if ($i % 5 == 0)
 			              echo '<div id="productline" class="clear"><hr/></div>';
 			        $i++;

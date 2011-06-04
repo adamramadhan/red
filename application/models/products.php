@@ -68,8 +68,8 @@ class ModelProducts extends Models {
 	}
 	
 	function listProducts($offset = 0, $limit = 40) {
-		$list = $this->fetchall ( "SELECT pid, uid, name, information, image_tumb, price 
-		FROM products ORDER BY pid DESC LIMIT $offset, $limit" );
+		$list = $this->fetchall ( "SELECT products.pid, products.uid, products.name, products.information, products.image_tumb, price, users.name AS cname, users.username AS cusername, role
+		FROM products,users WHERE products.uid = users.uid ORDER BY pid DESC LIMIT $offset, $limit" );
 		return $list;
 	}
 	
