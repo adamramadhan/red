@@ -163,4 +163,4 @@ PRODUCTLIST
 #ajax-pull-twitter,#ajax-pull-yahoo ,#ajax-pull-twitter{
     display:block;    margin-bottom: 10px;
 }
-#ajax-pull-facebook a{    background:none repeat scroll 0 0 #E7E1FF;}
+#ajax-pull-facebook #facebook a{    background:none repeat scroll 0 0 #E7E1FF;}

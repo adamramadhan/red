@@ -92,6 +92,7 @@ class Products extends Application {
 		}
 		// end pagenation
 		
+		$this->model('groups');
 
 		if (! is_get ( 'tag' )) {
 			$data ['products'] = $this->model->products->listProducts ( $data['offset'] );
@@ -103,12 +104,15 @@ class Products extends Application {
 			$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
 
 			# added groups
-			$this->model('groups');
 			$data ['group'] = $this->model->groups->getGroupByTag($_GET['tag']);
 		}
 		
 		$data ['count'] = count ( $data ['products'] );
-		$data ['groups'] = $this->model->products->getGroups ();
+		# yang ini berdasarkan yang ada di group
+		#$data ['groups'] = $this->model->groups->getAllGroups ();
+		# yang ini berdasarkan yang ada di product
+		$data ['groups'] = $this->model->products->getAllGroups();
+		#var_dump($data['groups'],$data['allgroups']);
 		
 		$this->view ( 'products/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );

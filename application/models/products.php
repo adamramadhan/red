@@ -61,8 +61,8 @@ class ModelProducts extends Models {
 	}
 
 	# @todo WARNING HEAVY LOAD!!! bayangin aja kalo ada 1000 orang buka product, kita fetch semua product! tampa limit
-	function getGroups() {
-		$tags = $this->fetchall ( "SELECT `group`,  GROUP_CONCAT(DISTINCT tag ORDER BY tag) AS tags
+	function getAllGroups() {
+		$tags = $this->fetchall ( "SELECT `group`, GROUP_CONCAT(DISTINCT tag ORDER BY tag) AS tags
 		FROM products GROUP BY `group`");
 		return $tags;
 	}
