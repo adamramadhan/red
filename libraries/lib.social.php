@@ -6,8 +6,23 @@ if (! defined ( 'SECURE' ))
  * connects with all the social things
  * @package default
  * @author DAMS
+ *//**
+ * 
  */
 class Social {
+	public $facebook_token;
+	public function __construct(){
+
+		# GET TOKEN FACEBOOK
+		if (empty($this->facebook_token)) {
+			$fbapp 	= '176421082414983';
+			$fbsec	= '2315869887459c2fcbfc3d99c3f134a6';
+			$url 	= "https://graph.facebook.com/oauth/access_token?type=client_cred&client_id=$fbapp&client_secret=$fbsec";
+		   	$token = file_get_contents($url);
+		   	$token = explode('=',$token);
+		   	$this->facebook_token = $token[1];
+		}
+	}
 	public function get_twitter($twitter) {
 		if (empty ( $twitter )) {
 			$status = 'Twitter Profile';
@@ -77,7 +92,7 @@ class Social {
 		}
 
 		if (! empty ( $pageID )) {
-			$url = "http://graph.facebook.com/" . $pageID . "/feed?limit=$limit";
+			$url = "https://graph.facebook.com/" . $pageID . "/feed?access_token=$this->facebook_token&limit=$limit";
 			$fp = @fopen ( $url, 'r' );
 			
 			if (! $fp) {
@@ -164,8 +179,9 @@ class Social {
 	}
 	
 	public function getFacebookPageStatus($pageID = NULL, $limit = 1) {
-		$url = "http://graph.facebook.com/" . $pageID . "/feed?limit=$limit";
+		$url = "https://graph.facebook.com/" . $pageID . "/feed?access_token=$this->facebook_token&limit=$limit";
 		$fp = @fopen ( $url, 'r' );
+		
 		if (!$fp) {
 			$message = 'maaf, untuk saat ini koneksi jaringan kami dengan Facebook sedang bermasalah, silahkan hubungi api@networks.co.id';
 		}
@@ -180,7 +196,7 @@ class Social {
 			if (! empty ( $jsonData->error->message )) {
 				$message = $jsonData->error->message;
 			}
-			
+
 			# a link
 			if (! empty ( $jsonData->data ['0']->description )) {
 				$count = strlen ( $jsonData->data ['0']->description );
@@ -199,7 +215,7 @@ class Social {
 		return $message;
 	}
 	
-	# hanya untuk developer
+	# hanya untuk developer ( blm pake auth juga bisa )
 	public function getFacebookPageData($pageID = NULL) {
 		$url = "http://graph.facebook.com/" . $pageID;
 		$fp = @fopen ( $url, 'r' );
