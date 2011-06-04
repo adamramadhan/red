@@ -43,6 +43,8 @@
     padding-top: 5px;
     width: 85px;
 }
+/*@todo nanti diganti h3 dsb untuk seo*/
+#red-product-tags li.headers{    font-weight: bold;}
 #red-product-tags li {   list-style: none outside none; }
 #red-product-tags ul ul li {      border-left: 1px solid #EEEEEE;
     font-size: 11px;

@@ -91,7 +91,7 @@
 				foreach ($groups as $group) {
 					$group['tags'] = explode(',',$group['tags']); 
 					#var_dump($group['tags']);
-					echo '<li>'.$group['group'].'</li>';
+					echo '<li class="headers">'.$group['group'].'</li>';
 					if (!empty($group['tags'])) {
 						echo '<ul>';
 						foreach ($group['tags'] as $tag) {

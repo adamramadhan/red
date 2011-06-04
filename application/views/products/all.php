@@ -76,10 +76,11 @@
 			<li><a href="/products" style="font-size: 9px;">Tampilkan Semua</a></li>
 			<ul>
 			<?php
+			if (!is_get('groups','none')) {
 				foreach ($groups as $group) {
 					$group['tags'] = explode(',',$group['tags']); 
 					if (!empty($group['tags']) && !empty($group['group']) && $group['group'] != 'others') {
-						echo '<li>'.ucfirst($group['group']).'</li>';
+						echo '<li class="headers">'.ucfirst($group['group']).'</li>';
 						echo '<ul>';
 						foreach ($group['tags'] as $tag) {
 							echo '<li><a href="/products?tag='.$tag.'">'.$tag.'</a></li>';
@@ -87,9 +88,11 @@
 						echo '</ul>';
 					}
 				}
+			}
 			?>
-			<li style="font-size: 9px;">Belum Terdaftar</li>
+			<li style="font-size: 9px;"><a href="/products?groups=none">Belum Terdaftar</a></li>
 			<?php
+			if (is_get('groups','none')) {
 				foreach ($groups as $group) {
 					$group['tags'] = explode(',',$group['tags']); 
 					if (!empty($group['tags']) && $group['group'] == 'others' ) {
@@ -100,6 +103,7 @@
 						echo '</ul>';				
 					}
 				}
+			}
 			?>
 			</ul>
 		</div>
