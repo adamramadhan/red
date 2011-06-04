@@ -22,7 +22,6 @@
 	});  
 	</script>
 <?php endif ?>
-<?php var_dump($products); ?>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 
