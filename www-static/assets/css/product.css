@@ -43,7 +43,11 @@
     padding-top: 5px;
     width: 85px;
 }
-#red-product-tags li { }
+#red-product-tags li {   list-style: none outside none; }
+#red-product-tags ul ul li {      border-left: 1px solid #EEEEEE;
+    font-size: 11px;
+    margin-left: 2px;
+    padding-left: 6px;}
 #status-verified {
     background: none repeat scroll 0 0 #BAE9FF;
     padding: 5px 10px;
@@ -62,6 +66,7 @@
     display: block;
     margin-left: 0;
     padding: 10px 323px;
+    text-align: center;
 }
 #pesan {
     -moz-box-shadow: 0 1px 3px #DDDDDD;

@@ -84,6 +84,7 @@ $l['edit_address_error'] = 'Alamat Profil tidak boleh kosong';
 $l['product_image_error'] = 'Image Produk Harus Beformat Image ( .png, .jpeg, .gif dan lainnya )';
 $l['product_name_error'] ='Nama Produk harus beformat 4-20 Kata, Angka, # atau Spasi';
 $l['product_description_error'] = 'Deskripsi Produk tidak boleh kosong';
+$l['product_group_error'] = 'Group Produk tidak boleh kosong';
 $l['product_tag_error'] = 'Tag Produk tidak boleh kosong & Harus Berformat text ( Text tampa spasi ) 3-15 Kata';
 $l['product_price_error'] = 'Harga Produk tidak boleh kosong & Harus Beformat Numeric ( angka ) 1 - 11 Angka';
 $l['connection_yahoo_error'] = 'Yahoo anda harus berformat 0-100 Angka, Kata, "_" atau "." dengan EXT, contoh: sebuahid.yahoo25@rocketmail.com atau yahooid@yahoo.com';

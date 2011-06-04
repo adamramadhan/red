@@ -151,10 +151,8 @@ class Ajax extends Application {
 				}			
 			}
 			
-			echo '
-			<a rel="nofollow" target="_blank" href="http://www.twitter.com/'.$_POST['twitter'].'">
-				<div class="cu" id="twitter">'.$data['twitter'].'</div>
-				<div id="twitter-meta" class="cb">@'.$_POST['twitter'].'</div>
+			echo '<div class="cu" id="twitter">'.$data['twitter'].'</div>
+			<a rel="nofollow" target="_blank" href="http://www.twitter.com/'.$_POST['twitter'].'"><div id="twitter-meta" class="cb">@'.$_POST['twitter'].'</div>
 			</a>';			
 		}		
 	}
@@ -232,9 +230,8 @@ class Ajax extends Application {
 
 			# FACEBOOK
 			echo '
-			<a rel="nofollow" target="_blank" href="'.$data ['facebook']['data']['link'].'">
-				<div class="cu" id="facebook">'.$data ['facebook']['status'].'</div>
-				<div id="facebook-meta" class="cb">@'.$_POST['facebook'].'</div>					
+			<div class="cu" id="facebook">'.$data ['facebook']['status'].'</div>
+				<a rel="nofollow" target="_blank" href="'.$data ['facebook']['data']['link'].'"><div id="facebook-meta" class="cb">@'.$_POST['facebook'].'</div>					
 			</a>';
 		}			
 	}

@@ -8,6 +8,7 @@
 			if ( !empty($products) ) {
 				foreach ( $products as $key => $value) {
 				echo 	'<div class="clearfix" id="subinformation">
+						<div id="group">'.$value['group'].'</div>
 						<div id="subname">'.$value['tag'].'</div>
 						<div id="subname">'.$value['name'].'</div>
 						<div id="subname">'.$value['price'].'</div>

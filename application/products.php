@@ -108,7 +108,7 @@ class Products extends Application {
 		}
 		
 		$data ['count'] = count ( $data ['products'] );
-		$data ['tags'] = $this->model->products->getTags ();
+		$data ['groups'] = $this->model->products->getGroups ();
 		
 		$this->view ( 'products/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );

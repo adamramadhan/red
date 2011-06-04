@@ -1,4 +1,4 @@
-	<?php $views->js('jquery,middleware/jquery/jquery.form,middleware/jquery/jquery.validation,users/editproduct'); ?>
+<?php $views->js('jquery,middleware/jquery/jquery.form,middleware/jquery/jquery.validation,users/editproduct'); ?>
 	<?php $this->validation->geterrors(); ?>
 	<div id="red-error-box"></div>
 	<!-- CONTENT START -->
@@ -8,15 +8,28 @@
 			<h3>Edit Product</h3>
 			<form id="form-productadd" enctype="multipart/form-data" accept-charset="utf-8" method="post" >
 			<ul>
-				<li><?php $this->forms->textinput('name',l('productname'), array( 'title' => l('product_name_error'), 'value' => $data['name'] )); ?></li>
+				<li><?php $this->forms->textinput('name',l('productname'), array( 'title' => l('product_name_error'), 'value' => $product['name'] )); ?></li>
 				<li><?php $this->forms->textarea('informationbox',l('productdescription'), 
 						  array( 'title' => l('product_description_error'),
 						  		 'cols' => '17',
 						  		 'rows' => '5', 
-						  		 'value' => $information)
+						  		 'value' => $product['information'])
 						  ); ?></li>
-				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error'), 'value' => $tag )); ?></li>
-				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error'), 'value' => $price )); ?></li>
+				<li>
+				<label for="tag">Group Produk</label>
+				<select name="group" >
+				<?php foreach ($groups as $group): ?>
+					<?php if (strtolower($product['group']) == strtolower($group['group'])): ?>
+						<?php echo '<option selected="true" value="'.$product['group'].'">'.ucfirst($product['group']).'</option>'; ?>
+					<?php endif ?>
+					<?php if (strtolower($product['group']) !== strtolower($group['group'])): ?>
+						<?php echo '<option value="'.strtolower($group['group']).'">'.$group['group'].'</option>'; ?>
+					<?php endif ?>
+				<?php endforeach ?>
+				</select>
+				</li>						  
+				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error'), 'value' => $product['tag'] )); ?></li>
+				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error'), 'value' => $product['price'] )); ?></li>
 				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'size' => '11' )); ?></li>
 			</ul>
 			<p><input type="submit" value="Edit" name="edit" id="button"></p>

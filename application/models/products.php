@@ -5,7 +5,7 @@ class ModelProducts extends Models {
 	public $database = 'application';
 	
 	function getData($pid) {
-		$data = $this->fetch ( "SELECT uid, name, information, image, image_tumb, tag, price 
+		$data = $this->fetch ( "SELECT uid, name, information, `group`, image, image_tumb, tag, price 
 		FROM products WHERE pid = :pid LIMIT 1", array ('pid' => $pid ) );
 		return $data;
 	}
@@ -18,6 +18,7 @@ class ModelProducts extends Models {
 					tag = :tag,
 					price = :price,
 					image = :image,
+					`group` = :group,
 					image_tumb = :image_tumb,
 					timecreate = :timecreate	
 					WHERE pid = :pid", $data );
@@ -29,6 +30,7 @@ class ModelProducts extends Models {
 					information = :information,
 					tag = :tag,
 					price = :price,
+					`group` = :group,
 					timecreate = :timecreate
 					WHERE pid = :pid", $data );
 		}
@@ -41,7 +43,7 @@ class ModelProducts extends Models {
 	}
 	
 	function listProductsByUID($uid, $offset = 0, $limit = 40) {
-		$list = $this->fetchAll ( "SELECT uid, pid, name, information, image, image_tumb, tag, price 
+		$list = $this->fetchAll ( "SELECT uid, pid, name, information, image, image_tumb, `group`, tag, price 
 		FROM products WHERE uid = :uid ORDER BY pid DESC LIMIT $offset, $limit", array ('uid' => $uid ) );
 		return $list;
 	}
@@ -55,6 +57,13 @@ class ModelProducts extends Models {
 	function getTags($limit = 100) {
 		$tags = $this->fetchall ( "SELECT tag, COUNT(tag) AS counter
 		FROM products GROUP BY tag ORDER BY counter DESC LIMIT $limit" );
+		return $tags;
+	}
+
+	# @todo WARNING HEAVY LOAD!!! bayangin aja kalo ada 1000 orang buka product, kita fetch semua product! tampa limit
+	function getGroups() {
+		$tags = $this->fetchall ( "SELECT `group`,  GROUP_CONCAT(DISTINCT tag ORDER BY tag) AS tags
+		FROM products GROUP BY `group`");
 		return $tags;
 	}
 	

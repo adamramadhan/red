@@ -14,6 +14,14 @@
 						  		 'cols' => '17',
 						  		 'rows' => '5')
 						  ); ?></li>
+				<li>
+				<label for="tag">Group Produk</label>
+				<select name="group" >
+				<?php foreach ($groups as $group): ?>
+					<?php echo '<option value="'.strtolower($group['group']).'">'.$group['group'].'</option>'; ?>
+				<?php endforeach ?>
+				</select>
+				</li>
 				<li><?php $this->forms->textinput('tag',l('producttag'), array( 'title' => l('product_tag_error') )); ?></li>
 				<li><?php $this->forms->textinput('price',l('productprice'), array( 'title' => l('product_price_error') )); ?></li>
 				<li><?php $this->forms->fileinput('image',l('productimage'), array( 'title' => l('product_image_error'),'size' => '11' )); ?></li>

@@ -248,3 +248,9 @@ input, textarea {
     text-align: left;
     unicode-bidi: bidi-override;
 }
+
+select{
+    display: block;
+    margin: 5px;
+    padding: 5px;
+}

@@ -115,7 +115,9 @@ list-style:none outside none;
 /*product*/
 #subinformation{background:none repeat scroll 0 0 #fff;
 margin:5px 0;border-bottom: 1px solid #F9EBEB;}
-
+#subinformation #group{float: left;
+    max-width: 230px;
+    padding: 5px 10px;    background: none repeat scroll 0 0 #FEFFDE;}
 #ptime{
     color: #C6A6A6;}
 #subname{    float: left;
@@ -267,26 +269,24 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     text-align: right;}
 #subfeed-more  {   padding: 10px;}
 .bootstraps{
-    background: url("/www-static/assets/images/red-gradiant200.gif") repeat-x scroll left center #D32E2E;
+    background: url("/www-static/assets/images/red-gradiant305.gif") repeat-x scroll left center #D32E2E;
     border: 1px solid #A90000;
+    color: #7D1212;
     float: left;
-    height: 200px;
-    color:#7D1212;
+    height: 305px;
     margin-right: 20px;
     margin-top: 15px;
+    width: 169px;}
 
-    width: 232px;}
-
-.bootstraps.ok{background: url("/www-static/assets/images/blue-gradiant200.gif") repeat-x scroll left center #FFFFFF;
-border:1px solid #0046B4;color:#222;}
 .bootstraps.ok .desc{border-top: 1px solid #308DEF;}
 .bootstraps.ok .image{ border-bottom: 1px solid #004EA0;}
 .bootstraps#last-child{
         margin-right: 0px;
 }
 .bootstraps .image{    border-bottom: 1px solid #B30000;
-    font-size: 20px;
-    height: 53px;
+    /*font-size: 15px;*/
+    font-weight: bold;
+    height: 52px;
     padding-top: 40px;
     text-align: center;}
 .bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}

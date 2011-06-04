@@ -54,7 +54,7 @@
       <h1>Insights</h1>
 
       <?php if (isset($null)): ?>
-      <p>No data Available.</p>        
+      <p>Tidak terdapat data, Kunjungi Profile /  Produk anda. ( real-time! )</p>        
       <?php endif ?>
 
       <?php if (!isset($null)): ?>

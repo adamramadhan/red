@@ -13,7 +13,12 @@ class ModelGroups extends Models {
 
 	function getGroups($limit = 10) {
 		$data = $this->fetchAll ( 'SELECT gid, `group`, information, tag FROM groups 
-		GROUP BY tag LIMIT ' . $limit );
+		GROUP BY `tag` ORDER BY `group`, tag LIMIT ' . $limit );
+		return $data;
+	}
+
+	function listGroups() {
+		$data = $this->fetchAll ( 'SELECT `group` FROM groups GROUP BY `group`');
 		return $data;
 	}
 

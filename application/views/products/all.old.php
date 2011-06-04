@@ -72,14 +72,27 @@
 		</div>	
 		
 		<div id="red-product-tags">
+			<h3>Tags</h3>
+			<ul><?php
+				foreach ($tags as $tag) {
+					echo '<li><a href="?tag='.$tag['tag'].'">' . $tag['tag'] . '(' . $tag['counter'] . ')</a></li>';
+				}
+			?></ul>		
+		</div>
+	</div>
+<!-- CONTENT END -->
+
+
+
+		<div id="red-product-tags">
 			<h3>Groups</h3>
-			<li><a href="/products" style="font-size: 9px;">Tampilkan Semua</a></li>
 			<ul>
 			<?php
 				foreach ($groups as $group) {
 					$group['tags'] = explode(',',$group['tags']); 
-					if (!empty($group['tags']) && !empty($group['group']) && $group['group'] != 'others') {
-						echo '<li>'.ucfirst($group['group']).'</li>';
+					#var_dump($group['tags']);
+					echo '<li>'.$group['group'].'</li>';
+					if (!empty($group['tags'])) {
 						echo '<ul>';
 						foreach ($group['tags'] as $tag) {
 							echo '<li><a href="/products?tag='.$tag.'">'.$tag.'</a></li>';
@@ -88,19 +101,7 @@
 					}
 				}
 			?>
-			<li style="font-size: 9px;">Belum Terdaftar</li>
-			<?php
-				foreach ($groups as $group) {
-					$group['tags'] = explode(',',$group['tags']); 
-					if (!empty($group['tags']) && $group['group'] == 'others' ) {
-						echo '<ul>';
-						foreach ($group['tags'] as $tag) {
-							echo '<li><a href="/products?tag='.$tag.'">'.$tag.'</a></li>';
-						}	
-						echo '</ul>';				
-					}
-				}
-			?>
+			<li><a href="/products">Others</a></li>
 			</ul>
 		</div>
 	</div>

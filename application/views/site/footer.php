@@ -12,7 +12,7 @@
 			
 			<ul class="clearfix" id="copyright">
 				<li><p><?php echo l('copyright'); ?></p></li>
-				<li id="verified-business"><a href="/verify/netcoid"><?php $views->getIMG('verified.png'); ?></a></li>
+				<li id="verified-business"><a href="/verify"><?php $views->getIMG('verified.png'); ?></a></li>
 			</ul>
 		</div>
 	</div>

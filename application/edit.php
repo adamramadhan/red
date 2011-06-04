@@ -164,17 +164,21 @@ class Edit extends Application {
 		
 		$this->middleware ( 'verotimage', 'upload' );
 		$this->model ( 'products' );
+		// groups
 		
 		# IF EDIT
-		$data = array ();
+		//$data = array ();
+		$this->model('groups');
+		$data['groups'] = $this->model->groups->listGroups();
+
 		if (is_get ( 'e' )) {
-			$data = $this->model->products->getData ( $_GET ['e'] );
-			if (! empty ( $data ['price'] )) {
-				$data ['price'] = sprintf ( "%d", $data ['price'] );
+			$data['product'] = $this->model->products->getData ( $_GET ['e'] );
+			if (! empty ( $data ['product']['price'] )) {
+				$data ['product']['price'] = sprintf ( "%d", $data ['product']['price'] );
 			}
 			
 			#validate get data
-			if ($data ['uid'] !== $this->sessions->get ( 'uid' )) {
+			if ($data ['product']['uid'] !== $this->sessions->get ( 'uid' )) {
 				redirect ( '/' );
 			}
 		}
@@ -185,9 +189,10 @@ class Edit extends Application {
 			# GET A NEW PRODUCT
 			$p ['name'] = $_POST ['name'];
 			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
-			$p ['tag'] = strtolower($_POST ['tag']);
+			$p ['tag'] = ($_POST ['tag']);
 			$p ['price'] = $_POST ['price'];
-			
+			$p ['group'] = $_POST['group'];
+
 			# get the time from jakarta
 			$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
 			$p ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
@@ -196,6 +201,8 @@ class Edit extends Application {
 			$this->validation->required ( $p ['information'], l ( 'product_description_error' ) );
 			$this->validation->regex ( $p ['tag'], '/^[a-zA-Z0-9]{3,15}+$/', l ( 'product_tag_error' ) );
 			$this->validation->regex ( $p ['price'], '/^[0-9]{1,11}+$/', l ( 'product_price_error' ) );
+			$this->validation->required ( $p ['group'], l ( 'product_group_error' ) );
+
 
 			if (!is_get ( 'e' )) {
 				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
@@ -288,10 +295,10 @@ class Edit extends Application {
 
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		if (empty ( $data )) {
-			$this->view ( 'users/product' );
+		if (! is_get ( 'e' )) {
+			$this->view ( 'users/product',$data );
 		}
-		if (! empty ( $data )) {
+		if ( is_get ( 'e' )) {
 			$this->view ( 'users/editproduct', $data );
 		}
 		$this->view ( 'users/footer' );

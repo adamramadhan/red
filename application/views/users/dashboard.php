@@ -1,8 +1,5 @@
 <div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;"><span style="position: relative;right: 5px;top: 2px;"><?php $views->getIMG('i/megaphonebybigfunkychiken.gif'); ?> </span>Hallo, Kami sedang voting <a href="/blog?id=6"><u>permintaan fitur #2</u></a> . Jangan lupa untuk <i>Ctrl + D</i> untuk Bookmark!</p></div>
 
-<!-- UJI COBA -->
-<?php $views->js('jquery,users/dashboard'); ?>
-
 	<div class="clearfix" id="red-content">
 		<!-- FORM START -->
 		<div id="red-edit-full">
@@ -23,20 +20,26 @@
 				echo '<div class="clearfix bootcamp">';
 				if (empty($user['logo'])) {
 					echo '<a href="/edit/profile"><div class="c bootstraps">
-						<div class="image">Set Up Profile</div>	
+						<div class="image">Lengkapi Profile</div>	
 						<div class="desc">Lengkapilah data Usaha atau Organisasi Anda.</div>
 					</div></a>';
 				}
 				if (empty($userproduct)) {
 					echo '<a href="/edit/product"><div class="c bootstraps">
-						<div class="image">Create a Product</div>	
+						<div class="image">Buat Produk</div>	
 						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda langsung dapat berbagi.</div>
 					</div></a>';
 				}
 				if (empty($feeds)) {
-					echo '<a href="/products"><div id="last-child" class="c bootstraps">
-						<div class="image">Be Social</div>	
-						<div class="desc">Mulailah dengan memfollow usaha lain, anda akan mendapat update dalam dashboard ini</div>
+					echo '<a href="/products"><div class="c bootstraps">
+						<div class="image">Ikuti Perkembangan</div>	
+						<div class="desc">Jelajahi produk, lihat profilenya dan tekan tombol ikuti, anda langsung akan mendapat update dalam dashboard ini</div>
+					</div></a>';
+				}
+				if (empty($user['information'])) {
+					echo '<a href="/edit/frontbox"><div id="last-child" class="c bootstraps">
+						<div class="image">Kotak Informasi</div>	
+						<div class="desc">Apa yang Anda ingin sampaikan pertama kali kepada penunjung?</div>
 					</div></a>';
 				}
 				echo '</div>';
@@ -45,6 +48,11 @@
 						
 			<?php
 			if ( !empty($feeds) ) {
+
+				# UJI COBA
+				$views->js('jquery,users/dashboard');
+
+
 				echo "<div class='feeds'>";
 				foreach ( $feeds as $key) {
 				echo '<div id="feed-'.$key['pid'].'" class="feed">';
