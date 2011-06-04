@@ -27,6 +27,8 @@
 	<div class="clearfix" id="red-content">
 
 		<div class="clearfix" id="red-product-list">
+
+			<?php if (!empty($group)): ?>
 				<div id="product-group">
 					<div id="product-group-meta">
 						<div class="clearfix">
