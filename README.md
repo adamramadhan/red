@@ -23,5 +23,6 @@ http://code.google.com/speed/webp/
 
 #### MINOR
 8. inkonsisten branda.
+9. check placeholder html5 bisa sebagai penganti javascript dihalaman depan
 
 #### NEXT ( REASEARCH )

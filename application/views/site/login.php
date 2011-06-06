@@ -8,7 +8,8 @@
 				<h3>Login</h3>
 				<li><label for="username">Username</label> <input type="text" value="" id="input-username" name="username"></li>
 				<li><label for="password">Kata Sandi</label> <input type="password" value="" id="input-password" name="password" autocomplete="off"></li>	
-				<li><label for="password">Security</label><span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=yApiud6xfTWnE8ADIr0V1fP0cKlFh4q2sOXtDJinjYM6VnURW2AlUlMeQY"></script></li>
+				<li><label for="password">Security</label><span id="siteseal">
+				<a target="_blank" href="https://seal.godaddy.com/verifySeal?sealID=yApiud6xfTWnE8ADIr0V1fP0cKlFh4q2sOXtDJinjYM6VnURW2AlUlMeQY"><?php $views->getIMG('godaddy-ssl.gif'); ?></a></span></li>
 				<p><input type="submit" value="Login" name="login" id="button"></p>	
 				</ul>			
 			</form>

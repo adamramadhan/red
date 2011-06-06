@@ -23,6 +23,7 @@ class Social {
 		   	$this->facebook_token = $token[1];
 		}
 	}
+
 	public function get_twitter($twitter) {
 		if (empty ( $twitter )) {
 			$status = 'Twitter Profile';
@@ -259,7 +260,7 @@ class Social {
 
 	function twitterSearch($search){
 		$url = "http://search.twitter.com/search.json?rpp=100&
-		callback=netcoid-".md5($search)."&q='".$search;
+		callback=netcoid-".md5($search)."&q=".$search;
 		
 		$fp = @fopen ( $url, 'r' );
 
@@ -270,21 +271,31 @@ class Social {
 		if ($fp) {
 
 			$json = stream_get_contents($fp);
-			$jsonData = json_decode($json);
-			
-			if ($jsonData) {	
-				foreach ($jsonData as $key => $value) {
-					$data[$key] = $value;
-				}
+
+			# PAKE ARRAY LEBIH HEMAT MEMORY TAPI OBJECT LEBIH CEPAT (DALAM MICRO) SO DOESNT REALLY MATTERS
+			$data = json_decode($json,TRUE);
+
+			# GET RECENT TWITTER - 1 HOUR
+			# http://stackoverflow.com/questions/6247674/return-all-the-array-between-one-hour-via-php
+			$data['results'] = array_filter($data['results'], array($this,"filterWithinHourTW"));
+
+			# COMPARE DATA
+			# http://stackoverflow.com/questions/6138023/time-minus-time-time-seconds-in-php/6138184#6138184
+			if (!empty($data['results'])) {
+
+				$lastarray = count($data['results'])-1;
+				$time = strtotime($data['results']['0']['created_at']) - strtotime($data['results'][$lastarray]['created_at']);
+				# TWITTER / HOUR
+				$data['tweetperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
 			}
-		
-			# get data
-			#http://stackoverflow.com/questions/6138023/time-minus-time-time-seconds-in-php/6138184#6138184
-			$time = strtotime($data['results']['0']->created_at) - strtotime($data['results']['99']->created_at);
-			# tweet per hours
-			$data['tweetperhour'] =  ceil(( 99 / $time ) * 60 * 60);
-			#var_dump($data);
+
+			# IF DATA EMPTY
+			if (empty($data['results'])) {
+				$data['tweetperhour'] = 0;
+			}
 		}
+	
+	# RETURNS THE DATA
 	return $data;
 	}
 
@@ -303,20 +314,34 @@ class Social {
 		if ($fp) {
 
 			$json = stream_get_contents($fp);
-			$jsonData = json_decode($json);
-
-			if ($jsonData) {	
-				foreach ($jsonData as $key => $value) {
-					$data[$key] = $value;
-				}
-			}
+			$data = json_decode($json,TRUE);
 			
-			# get data
-			$time = strtotime($data['data']['0']->created_time) - strtotime($data['data']['29']->created_time);
-			# tweet per hours
-			$data['postperhour'] =  ceil(( 29 / $time ) * 60 * 60);
+			# FILTER DATA
+			$data['data'] = array_filter($data['data'], array($this,"filterWithinHourFB"));
+			
+			# COMPARE DATA
+			if (!empty($data['data'])) {
+				
+				$lastarray = count($data['data'])-1;
+				$time = strtotime($data['data']['0']['created_time']) - strtotime($data['data'][$lastarray]['created_time']);
+
+				# FACEBOOK / HOUR
+				$data['postperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
+			}
+
+			# IF EMPTY
+			if (empty($data['data'])) {
+				$data['postperhour'] = 0;
+			}
 		}
 	return $data;
+	}
+
+	function filterWithinHourTW($array){
+		return (strtotime($array['created_at']) > strtotime('-1 hour'));
+	}
+	function filterWithinHourFB($array){
+		return (strtotime($array['created_time']) > strtotime('-1 hour'));
 	}
 }
 

@@ -21,6 +21,9 @@
 	</body>
 
 <?php $views->js('jquery,middleware/jquery/jquery.timeago','external'); ?>
+<?php #$views->js('middleware/historyjs/amplify.store,middleware/historyjs/history.adapter.jquery,middleware/historyjs/history,middleware/historyjs/history.html4','external');
+?>
+<?php# $views->js('ajaxify-netcoid') ?>
 <?php $views->js('middleware/jquery/jquery.form,middleware/jquery/jquery.validation,home'); ?>
 <?php 
 if (!config('development')) {
