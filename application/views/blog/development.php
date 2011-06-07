@@ -9,7 +9,7 @@
 			</div>
 			<div class="blog-post" id="development-introduction">
 				<h3>Mengapa?</h3>
-				<code>/development</code> adalah salah satu bentuk penerapan <a target="_blank" href="https://www.networks.co.id/blog?id=9">Keterbukaan, Feedback dan Transparansi</a>, Disini Rekan Netcoid dapat melihat Progress Perkembangan secara langsung. Tentu nantinya akan kami lengkapi dengan Laporan BUG, Feedback dan tentunya Feature Request. Untuk Development anda dapat mengikuti <a target="_blank" href="http://www.github.com/netcoid">Netcoid</a> di @github, untuk Design dan Ilustrasi Netcoid anda dapat mengikuti <a target="_blank" href="http://www.twitter.com/liulusiliu">Momoru</a> di @twitter.
+				<code>/development</code> adalah salah satu bentuk penerapan <a target="_blank" href="https://www.networks.co.id/blog?id=9">Keterbukaan, Feedback dan Transparansi</a>, Disini Rekan Netcoid dapat melihat Progress Perkembangan secara langsung. Tentu nantinya akan kami lengkapi dengan Laporan BUG, Feedback dan tentunya Feature Request. Untuk Development anda dapat mengikuti <a target="_blank" href="http://www.github.com/masedem">Adam Ramadhan</a> di @github, untuk Design dan Ilustrasi Netcoid anda dapat mengikuti <a target="_blank" href="http://www.twitter.com/liulusiliu">Momoru</a> di @twitter.
 			</div>
 
 			<div class="blog-post" id="development-changes">

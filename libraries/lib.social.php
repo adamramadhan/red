@@ -283,10 +283,19 @@ class Social {
 			# http://stackoverflow.com/questions/6138023/time-minus-time-time-seconds-in-php/6138184#6138184
 			if (!empty($data['results'])) {
 
-				$lastarray = count($data['results'])-1;
-				$time = strtotime($data['results']['0']['created_at']) - strtotime($data['results'][$lastarray]['created_at']);
-				# TWITTER / HOUR
-				$data['tweetperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
+				# JIKA LEBIH DARI SATU RESULTSNYA ( BANDINGIN HARUS 2 ) 
+				if (count($data['results']) != 1) {
+					$lastarray = count($data['results'])-1;
+					$time = strtotime($data['results']['0']['created_at']) - strtotime($data['results'][$lastarray]['created_at']);
+
+					# TWITTER / HOUR
+					$data['tweetperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
+				}
+
+				if (count($data['results']) == 1) {
+					$data['tweetperhour'] = 1;
+				}
+
 			}
 
 			# IF DATA EMPTY
@@ -321,12 +330,19 @@ class Social {
 			
 			# COMPARE DATA
 			if (!empty($data['data'])) {
-				
-				$lastarray = count($data['data'])-1;
-				$time = strtotime($data['data']['0']['created_time']) - strtotime($data['data'][$lastarray]['created_time']);
 
-				# FACEBOOK / HOUR
-				$data['postperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
+				# JIKA LEBIH DARI SATU RESULTSNYA ( BANDINGIN HARUS 2 ) 
+				if (count($data['data']) != 1) {							
+					$lastarray = count($data['data'])-1;
+					$time = strtotime($data['data']['0']['created_time']) - strtotime($data['data'][$lastarray]['created_time']);
+
+					# FACEBOOK / HOUR
+					$data['postperhour'] =  ceil(( $lastarray / $time ) * 60 * 60);
+				}
+
+				if (count($data['data']) == 1) {			
+					$data['postperhour'] = 1;
+				}
 			}
 
 			# IF EMPTY

@@ -116,7 +116,13 @@
 
 .product-image{    display: block;
     text-align: center;}
-
+.product-image img {
+    border: 1px solid #ddd;
+    padding: 2px;box-shadow: 1px 1px 1px #F5F5F5;
+}
+.product-image img:hover {
+    border: 1px solid #939393;
+}
 #productline{    padding: 0 10px;}
 
 /*BETA FIXES*/
