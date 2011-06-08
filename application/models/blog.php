@@ -13,7 +13,7 @@ class ModelBlog extends Models {
 	}
 	
 	function getPost($id) {
-		$data = $this->fetch ( 'SELECT blog.title, blog.content, blog.content_html, users.name, blog.tag, blog.timecreate, blog.nid, blog.status
+		$data = $this->fetch ( 'SELECT blog.title, blog.content, blog.content_html, users.name, users.username,  blog.tag, blog.timecreate, blog.nid, blog.status
 		FROM blog, users WHERE users.uid = blog.uid AND blog.nid = :nid ORDER BY nid DESC LIMIT 1', array ('nid' => $id ) );
 		return $data;
 	}

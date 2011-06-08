@@ -35,8 +35,8 @@ class Test extends Application {
 
 	function home(){
 		$this->library('social');
-		$json['twitter'] = $this->social->twitterSearch('@startuplokal&lang=id');
-		$json['facebook'] = $this->social->facebookSearch('@startuplokal&type=post');
+		$json['twitter'] = $this->social->twitterSearch('@faktanyaadalah&lang=id');
+		$json['facebook'] = $this->social->facebookSearch('@faktanyaadalah&type=post');
 		$hello = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
 		var_dump($hello);
 

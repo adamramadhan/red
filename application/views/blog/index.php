@@ -11,7 +11,7 @@
 				echo '<div class="blog-post" id="post-'.$post['nid'].'">';
 				echo '<h1>'.$post['title'].'</h1>';
 				echo "<ul id='post-meta' class='clearfix'>";
-				echo '<li id="meta-author">By '.$post['name'].'</li>';
+				echo '<li id="meta-author">By <a style="font-weight: bold;" href="/'.$post['username'].'" class="u">'.$post['name'].'</a></li>';
 				echo '<li>at '.$post['timecreate'].'</li>';
 				echo '<li>tag '.ucfirst($post['tag']).'</li>';
 				echo "</ul>";
