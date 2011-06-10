@@ -13,7 +13,7 @@
 		<div class="box-approve">
 			<h3>Selamat bergabung</h3>
 			<p>Netcoid adalah riset, Sedikit berbeda dari website jejaring pada umumnya, kami akan menghargai anda jika anda mau menyisahkan beberapa menit untuk membaca 
-			<a target="_blank" href="terms.php">panduan lengkap</a> website ini.
+			<a target="_blank" href="/terms">panduan lengkap</a> website ini.
 			</p></br>
 			<p>Perhatian*, Nomer kontak anda akan dihubungi oleh staff kami paling lama 24x7 
 			jika anda mendaftar sebagai perusahaan ( PT dan CV ).</p>

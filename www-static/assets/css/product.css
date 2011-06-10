@@ -23,17 +23,16 @@
     word-wrap: break-word;
 }
 #product {
+    display: inline-block;
     float: left;
-    margin: 5px;
-    padding: 0 5px;
-    width: 150px;
+    margin-bottom: 10px;
+    width: 190px;
 }
 #productline hr { border-color: #eee }
 #red-product-list {
-    padding: 0 5px;
+    margin: 15px auto 0;
     min-height: 500px;
-    width: 850px;
-    float: left;
+    width: 960px;
 }
 #red-product-tags {
     border-left: 1px solid #EEEEEE;
@@ -114,8 +113,11 @@
     font-size: 11px;
     text-align: center;}
 
-.product-image{    display: block;
-    text-align: center;}
+.product-image{     
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;}
 .product-image img {
     border: 1px solid #ddd;
     padding: 2px;box-shadow: 1px 1px 1px #F5F5F5;
@@ -129,7 +131,97 @@
 
 #product-group{
     border: 1px solid #CCCCCC;
-    margin: 0 10px 10px;
+    margin: 10px 36px;
     padding: 10px;
-    width: 810px;
 }
+
+#search input{
+             width: 940px;
+}
+
+#product-to-next{
+    background: none repeat scroll 0 0 #E3E3E3;
+    color: #FFFFFF;
+    height: 150px;
+    right: 10px;
+    opacity: 0.5;
+    padding: 3px;
+    position: fixed;
+    text-align: center;
+    width: 75px;    margin: 9% 0;
+}
+
+#product-to-back{
+    background: none repeat scroll 0 0 #E3E3E3;
+    color: #FFFFFF;
+    height: 150px;
+    left: 10px;
+    opacity: 0.5;
+    padding: 3px;
+    position: fixed;
+    text-align: center;
+    width: 75px;    margin: 9% 0;
+}
+
+.arrow{
+    display: block;
+    font-family: Trebuchet MS;
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 63px;
+}
+
+#product-to-next:hover, #product-to-back:hover{
+    background: none repeat scroll 0 0 #ccc;
+    opacity:1;
+}
+
+#arrow-link:hover{text-decoration:none;
+    color:#444;}
+
+
+
+div#marquee {
+    color: #989393;
+    margin: 5px;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    width: 960px;
+}
+div#marquee div.scrollingtext {
+    position:relative;
+    display:inline;
+    white-space:nowrap;
+}
+div#marquee div.fader {
+    width:60px;
+    position:absolute;
+    background:url(/images/left-right-fader.png) repeat-y scroll 0 0 transparent;
+    top:0;
+    left:0;
+}
+div#marquee div.fader.left {
+    background-position:-60px 0;
+    left:auto;
+    right:0;
+}
+
+#groups{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #E7E7E7;
+    color: #444444;    font-family: Trebuchet MS;
+}
+#groups ul{
+    margin: 0 auto;
+    width: 960px;
+}
+#groups li{    float: left;
+    margin-right: 15px;
+    padding: 5px 0 5px 10px;}
+
+#groups li a{ 
+    display: block;
+    padding: 1px 5px;}
+
+#product-name{}

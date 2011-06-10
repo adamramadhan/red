@@ -28,6 +28,11 @@ class ModelGroups extends Models {
 		return $data;
 	}
 
+	function listTagbyGroup($group) {
+		$data = $this->fetchAll ( "SELECT `tag` FROM groups WHERE `group` = '$group'");
+		return $data;
+	}
+
 	function getGroup($gid) {
 		$data = $this->fetch ( "SELECT `group`, information, tag FROM groups WHERE gid = :gid", array ('gid' => $gid ) );
 		return $data;

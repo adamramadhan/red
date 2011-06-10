@@ -76,7 +76,7 @@ class Products extends Application {
 	}
 	
 	function all() {
-		
+
 		// start pagenation
 		if (! isset ( $_GET ['offset'] )) {
 			$data['offset'] = '0';
@@ -94,19 +94,34 @@ class Products extends Application {
 		
 		$this->model('groups');
 
-		if (! is_get ( 'tag' )) {
+		# GET products/groups
+		$current_group = func_get_args();
+		
+		if (!empty($current_group)) {
+
+			$data['current_group'] = $current_group[0];
+			$data['tags'] = $this->model->groups->listTagbyGroup($data['current_group']);
+
+			if (! is_get ( 'tag' )) {
+				$data ['products'] = $this->model->products->listProductsByGroup ( $data['current_group'], $data['offset'] );
+			}
+			
+			if (is_get ( 'tag' )) {
+				# @todo harus di safe dulu
+				$tag = $_GET ['tag'];
+				$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
+
+				# added groups
+				$data ['group'] = $this->model->groups->getGroupByTag($_GET['tag']);
+			}
+		}
+		# END BETA
+
+		# SET search product by group
+		if (empty($current_group)) {
 			$data ['products'] = $this->model->products->listProducts ( $data['offset'] );
 		}
-		
-		if (is_get ( 'tag' )) {
-			# @todo harus di safe dulu
-			$tag = $_GET ['tag'];
-			$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
 
-			# added groups
-			$data ['group'] = $this->model->groups->getGroupByTag($_GET['tag']);
-		}
-		
 		$data ['count'] = count ( $data ['products'] );
 		# yang ini berdasarkan yang ada di group
 		#$data ['groups'] = $this->model->groups->getAllGroups ();

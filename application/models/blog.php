@@ -19,7 +19,7 @@ class ModelBlog extends Models {
 	}
 	
 	function getLastPost($status = '0') {
-		$data = $this->fetch ( 'SELECT blog.nid, blog.title, blog.content, blog.content_html, users.name, blog.tag, blog.timecreate, blog.nid
+		$data = $this->fetch ( 'SELECT blog.nid, blog.title, blog.content, blog.content_html, users.name, users.username, blog.tag, blog.timecreate, blog.nid
 		FROM blog, users WHERE users.uid = blog.uid AND status = '.$status.' ORDER BY nid DESC LIMIT 1' );
 		return $data;
 	}

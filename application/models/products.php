@@ -53,6 +53,12 @@ class ModelProducts extends Models {
 		FROM products,users WHERE tag = :tag AND products.uid = users.uid ORDER BY pid DESC LIMIT $offset, $limit", array ('tag' => $tag ) );
 		return $list;
 	}
+
+	function listProductsByGroup($group, $offset = 0, $limit = 40) {
+		$list = $this->fetchAll ( "SELECT products.pid, products.uid, products.name, products.information, products.image_tumb, price, users.name AS cname, users.username AS cusername, role
+		FROM products,users WHERE `group` = :group AND products.uid = users.uid ORDER BY pid DESC LIMIT $offset, $limit", array ('group' => $group ) );
+		return $list;
+	}
 	
 	function getTags($limit = 100) {
 		$tags = $this->fetchall ( "SELECT tag, COUNT(tag) AS counter
@@ -66,6 +72,11 @@ class ModelProducts extends Models {
 		FROM products GROUP BY `group`");
 		return $tags;
 	}
+
+	#function getAllTag($group) {
+	#	$tags = $this->fetchall ( "SELECT DISTINCT(tag) FROM products WHERE `group` = $group");
+	#	return $tags;
+	#}
 	
 	function listProducts($offset = 0, $limit = 40) {
 		$list = $this->fetchall ( "SELECT products.pid, products.uid, products.name, products.information, products.image_tumb, price, users.name AS cname, users.username AS cusername, role

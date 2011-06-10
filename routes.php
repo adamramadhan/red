@@ -48,6 +48,7 @@ $routes['edit/products'] = 'edit:products';
 #products
 $routes['product'] = 'products:single';
 $routes['products'] = 'products:all';
+$routes['^products/[a-zA-Z]{1,20}$'] = 'products:all';
 
 #social
 $routes['social/follow'] = 'social:follow';

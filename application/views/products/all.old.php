@@ -22,11 +22,18 @@
 	});  
 	</script>
 <?php endif ?>
-
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 
 		<div class="clearfix" id="red-product-list">
+
+			<?php if (config('features/search/core')): ?>
+				<div id="search">
+					<form action="#" name="f">
+						<input autocomplete="off" maxlength="2048" name="query" title="Google Search" value="" spellcheck="false">					
+					</form>
+				</div>
+			<?php endif ?>
 
 			<?php if (!empty($group)): ?>
 				<div id="product-group">
@@ -46,9 +53,19 @@
 					echo "<div id='product'>";
 					echo "<a class='product-image' href='/product?id=" . $product['pid'] . "'>";
 					echo $views->getStorage($product['uid'],$product['image_tumb']); 
-					echo "</a>
-					<span class='product-meta'>".$product['name']."</span>
-					</div>";
+					echo "</a><span class='product-meta'><p>".$product['name']."</p>";
+					if ($product['role'] == 1) {
+						echo "<p style='font-weight: normal;'>by 
+						<a class='u' href='/".$product['cusername']."'>".$product['cname']." ✔</a></p></span>";
+						echo "</div>";
+					}
+
+					if ($product['role'] != 1) {
+						echo "<p style='font-weight: normal;'>by 
+						<a class='u' href='/".$product['cusername']."'>".$product['cname']."</a></p></span>";
+						echo "</div>";
+					}
+
 			        if ($i % 5 == 0)
 			              echo '<div id="productline" class="clear"><hr/></div>';
 			        $i++;
@@ -72,27 +89,15 @@
 		</div>	
 		
 		<div id="red-product-tags">
-			<h3>Tags</h3>
-			<ul><?php
-				foreach ($tags as $tag) {
-					echo '<li><a href="?tag='.$tag['tag'].'">' . $tag['tag'] . '(' . $tag['counter'] . ')</a></li>';
-				}
-			?></ul>		
-		</div>
-	</div>
-<!-- CONTENT END -->
-
-
-
-		<div id="red-product-tags">
 			<h3>Groups</h3>
+			<li><a href="/products" style="font-size: 9px;">Tampilkan Semua</a></li>
 			<ul>
 			<?php
+			if (!is_get('groups','none')) {
 				foreach ($groups as $group) {
 					$group['tags'] = explode(',',$group['tags']); 
-					#var_dump($group['tags']);
-					echo '<li class="headers">'.$group['group'].'</li>';
-					if (!empty($group['tags'])) {
+					if (!empty($group['tags']) && !empty($group['group']) && $group['group'] != 'others') {
+						echo '<li class="headers">'.ucfirst($group['group']).'</li>';
 						echo '<ul>';
 						foreach ($group['tags'] as $tag) {
 							echo '<li><a href="/products?tag='.$tag.'">'.$tag.'</a></li>';
@@ -100,8 +105,23 @@
 						echo '</ul>';
 					}
 				}
+			}
 			?>
-			<li><a href="/products">Others</a></li>
+			<li style="font-size: 9px;"><a href="/products?groups=none">Belum Terdaftar</a></li>
+			<?php
+			if (is_get('groups','none')) {
+				foreach ($groups as $group) {
+					$group['tags'] = explode(',',$group['tags']); 
+					if (!empty($group['tags']) && $group['group'] == 'others' ) {
+						echo '<ul>';
+						foreach ($group['tags'] as $tag) {
+							echo '<li><a href="/products?tag='.$tag.'">'.$tag.'</a></li>';
+						}	
+						echo '</ul>';				
+					}
+				}
+			}
+			?>
 			</ul>
 		</div>
 	</div>
