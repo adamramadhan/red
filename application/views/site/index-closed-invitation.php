@@ -26,6 +26,7 @@
 	<div class="clearfix" id="red-content">
 		<div id="invitation-closed">
 			<div class="helloworld">business + technology + social</div>
+			<div>menghubungkan pelaku bisnis dengan teknologi dan social media.</div>
 		</div>
 		<div id="invitation-closed-meta"><span id="what-is-netcoid"><a href="/why">Seperti apa?</a></span></div>
 			<?php $views->css('blog'); ?>

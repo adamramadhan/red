@@ -137,7 +137,13 @@ h1, h2, h3, h4, h5, h6 {
 /*fix sementara*/
 #post-meta{border-left:none;}
 
-
+.blog-post h2{
+    border-bottom: 2px solid #D32E2E;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 5px;
+    padding: 5px 0;
+}
 .blog-post p{
     clear: both;
     word-wrap: break-word;
