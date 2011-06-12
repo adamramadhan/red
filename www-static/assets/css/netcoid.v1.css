@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: normal;
+  src: url(/www-static/assets/fonts/verdana.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url(/www-static/assets/fonts/DroidSans.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Pacifico'), url('/www-static/assets/fonts/Pacifico.ttf') format('truetype');
+}
+
+
 /*users*/
 
 a.u{
