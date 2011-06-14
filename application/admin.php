@@ -195,7 +195,7 @@ class Admin extends Application {
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		# get blog posts
 		$data ['posts'] = $this->model->blog->getPosts ();
-		
+			
 		# if request delete
 		if (is_get ( 'd' )) {
 			$this->model->blog->delPost ( $_GET ['d'] );

@@ -41,8 +41,6 @@ class Blog extends Application {
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 			$this->view ( 'blog/blog-menu' );
 			# SEO END
-
-
 			
 			# start comment
 			if (config ( 'features/comments/core' )) {

@@ -311,3 +311,21 @@ opacity:1;}
 #ajax-dashboard-refresh:hover{color:#444;}
 #ajax-information:hover{    background: none repeat scroll 0 0 #FFFDE1;
     border: 1px solid #F1EEC5;}
+
+/*blog*/
+#waiting-approval{
+        background: none repeat scroll 0 0 #FFFDC6;
+    margin: 0 0 10px;
+    padding: 5px;
+}
+
+#blog-edit{    border: 1px solid #AAAAAA;
+    float: left;
+        margin-right: 28px;
+    padding: 5px;
+    text-align: center;
+    width: 345px;display:block;}
+#blog-del{    border: 1px solid #AAAAAA;
+    float: left;
+    padding: 5px;
+    width: 345px; display:block;   text-align: center;}

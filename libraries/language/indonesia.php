@@ -95,6 +95,11 @@ $l['comment_empty'] = 'Maaf Komentar anda tidak boleh kosong';
 // Plugin languageThe string you entered for the image verification did not match what was displayed.
 $l['recaptcha_error'] = 'Karakter yang anda masukan tidak sesuai dengan verifikasi reCAPTCHA';
 
+// BLOG
+$l['blog_title_error'] = 'Judul Blog tidak boleh kosong & harus berformat 4 - 20 Kata, Angka # atau Spasi';
+$l['blog_content_empty'] = 'Konten Blog tidak boleh kosong';
+$l['blog_tag_empty'] = 'Tag Blog tidak boleh kosong & Harus Berformat text ( Text tampa spasi ) 3-15 Kata';
+
 // menu right
 $l['Profiledata'] = 'Data Profil';
 $l['informationbox'] = 'Kotak Informasi';

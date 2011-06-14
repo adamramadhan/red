@@ -23,6 +23,16 @@ class ModelBlog extends Models {
 		FROM blog, users WHERE users.uid = blog.uid AND status = '.$status.' ORDER BY nid DESC LIMIT 1' );
 		return $data;
 	}
+
+	function listUnapprovedByUID($uid){
+		$data = $this->fetch ( 'SELECT blog.nid, blog.status, blog.content, blog.content_html, blog.title, blog.tag
+		FROM blog, users 
+		WHERE users.uid = blog.uid
+		AND blog.uid = :uid
+		AND blog.status = 0
+		ORDER BY nid DESC LIMIT 1', array ('uid' => $uid ) );
+		return $data;		
+	}
 	
 	function listNewsTitle($status = '0') {
 		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title, blog.timecreate

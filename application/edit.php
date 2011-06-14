@@ -337,6 +337,108 @@ class Edit extends Application {
 		$this->view ( 'users/products', $data );
 		$this->view ( 'users/footer' );
 	}
+
+	function article(){
+		# unvefieid users
+		$this->view ( 'users/header' );
+		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+		$this->model ( 'blog' );
+
+		# SATU PERSATU DI VERIFIKASI, JIKA MASIH ADA YANG 0 TDAK BISA MASUKIN NEWS BARU KARENA SPAM
+		$unnapproved_article = $this->model->blog->listUnapprovedByUID($this->sessions->get('uid'));
+		
+		# JIKA TIDAK ADA ARTIKEL YANG BELUM DIAPRROVE
+		if (!empty($unnapproved_article)) {
+			
+			# DELETE
+			if (is_get('d')) {
+				$this->model->blog->delPost ( $unnapproved_article['nid']);
+				redirect ( '/beta/article' );				
+			}
+
+			# EDIT
+			if (is_get('e')) {
+				
+				if (is_post('editpost')) {
+					# @todo strip all code for security kayanya sih udah safe coba dicek ulang
+					$n ['title'] = $_POST ['title'];
+					
+					if (config('middleware/wmd')) {	
+						$n ['content'] = $_POST ['content'];
+						$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+					}
+					if (!config('middleware/wmd')) {	
+						$n ['content'] = $_POST ['content'];
+						$n ['content_html'] = $_POST ['content'];
+					}
+
+					$n ['tag'] = $_POST ['tag'];
+					$n ['uid'] = $this->sessions->get ( 'uid' );
+					$n ['nid'] = $unnapproved_article['nid'];
+
+					# get the time from jakarta
+					$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+					$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+					
+					# validateing
+					$this->validation->required ( $n ['title'], l('blog_title_error') );
+					$this->validation->required ( $n ['content'], l('blog_content_empty') );
+					$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
+					
+					if (! sizeof ( $this->validation->errors )) {
+						$this->model->blog->editPost ( $n );
+						redirect ( '/beta/article' );
+					}
+				}
+
+				$this->view ( 'users/blogedit', $unnapproved_article );
+			}
+
+			# VIEW
+			if (!is_get('d') && !is_get('e')) {
+				$this->view ( 'users/blogverify', $unnapproved_article );
+			}
+			
+		}
+
+		# JIKA ADA ARTIKEL YANG BELUM DIAPPROVE
+		if (empty($unnapproved_article)) {
+			if (is_post ( 'newpost' )) {
+				
+				# @todo strip all code for security
+				$n ['title'] = $_POST ['title'];
+				
+				if (config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+				}
+				if (!config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['content'];
+				}
+
+				$n ['tag'] = $_POST ['tag'];
+				$n ['uid'] = $this->sessions->get ( 'uid' );
+				
+				# get the time from jakarta
+				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+				$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+				
+				# validateing
+				$this->validation->required ( $n ['title'], l('blog_title_error') );
+				$this->validation->required ( $n ['content'], l('blog_content_empty') );
+				$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
+				
+				if (! sizeof ( $this->validation->errors )) {
+					$this->model->blog->setPosts ( $n );
+					redirect ( '/beta/article' );
+				}
+			}
+			$this->view ( 'users/blogadd' );
+		}
+		
+		$this->view ( 'users/footer' );
+	}
 }
 
 ?>

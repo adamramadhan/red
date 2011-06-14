@@ -18,7 +18,9 @@
 #invitation-closed {
     margin: 100px 0 0 90px;
 }
-#invitation-closed-meta{ margin: 20px 0 0 120px;}
+#invitation-closed-meta {
+    margin: 40px 0 0 400px;
+}
 #what-is-netcoid a{      font-family: 'Pacifico',serif;  font-size: 30px; text-decoration:underline;}
 	</style>
 	

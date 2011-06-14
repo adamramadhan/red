@@ -19,7 +19,7 @@ $routes['nojs'] = 'core:nojs';
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
 
 #mobile
-$routes['mobile'] = 'mobile:index';
+#$routes['mobile'] = 'mobile:index';
 
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';
@@ -44,6 +44,7 @@ $routes['edit/connections'] = 'edit:connections';
 $routes['edit/product'] = 'edit:product';
 $routes['edit/products'] = 'edit:products';
 
+$routes['beta/article'] = 'edit:article';
 
 #products
 $routes['product'] = 'products:single';

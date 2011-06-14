@@ -6,6 +6,8 @@ www-static/images/i
 wiki/*
 configuration.php
 debug/*
+README.md
+todo.txt
 
 # ZEND #
 ########

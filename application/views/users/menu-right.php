@@ -6,6 +6,7 @@
 					<li class="iconfrontbox"><?php $views->href('/edit/frontbox',l('informationbox')); ?></li>
 					<li class="iconconnect"><?php $views->href('/edit/connections',l('connectioncenter')); ?></li>
 					<li class="iconadd"><?php $views->href('/edit/product',l('addproduct')); ?></li>
+					<li class="iconadd"><?php $views->href('/beta/article','Tulis Artikel <sup style="font-size: 10px;">beta</sup>'); ?></li>
 					<li class="iconlist"><?php $views->href('/edit/products',l('productlist')); ?></li>
 					<li class="iconhelp"><?php $views->href('/help',l('askhelp')); ?></li>
 					<li class="iconinsights"><?php $views->href('/beta/insights',l('insights').'<sup style="font-size: 10px;">beta</sup>'); ?></li>
