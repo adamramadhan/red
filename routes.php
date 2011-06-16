@@ -91,6 +91,7 @@ $routes['ajax/social/pull/search'] = 'ajax:getSocialSearch';
 
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 $routes['area51/home'] = 'test:home';
+$routes['area51/hello'] = 'test:hello';
 $routes['development'] = 'test:github';
 $routes['beta/insights'] = 'test:getAnalytics';
 $routes['area51/flush'] = 'test:flush';

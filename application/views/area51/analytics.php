@@ -54,7 +54,7 @@
       <h1>Insights</h1>
 
       <?php if (isset($null)): ?>
-      <p>Tidak terdapat data, Kunjungi Profile /  Produk anda. ( real-time! )</p>        
+      <p>Anda tidak mempunyai cukup data, Kunjungi Profile / Produk anda dan sebarkan url anda di <code>www.networks.co.id/<?php echo $this->sessions->get('username'); ?></code> *<i>Mimimal kami mempunyai data untuk dapat membandingkan akfititas penunjung anda diantara 2 hari. Hubungi <a href="/help">Pusat Bantuan</a> untuk support.</i></p>        
       <?php endif ?>
 
       <?php if (!isset($null)): ?>

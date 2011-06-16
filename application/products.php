@@ -76,7 +76,6 @@ class Products extends Application {
 	}
 	
 	function all() {
-
 		// start pagenation
 		if (! isset ( $_GET ['offset'] )) {
 			$data['offset'] = '0';
@@ -91,9 +90,9 @@ class Products extends Application {
 			}
 		}
 		// end pagenation
-		
 		$this->model('groups');
 
+		# PAGEINATION TEST
 		# GET products/groups
 		$current_group = func_get_args();
 		
@@ -129,10 +128,16 @@ class Products extends Application {
 		$data ['groups'] = $this->model->products->getAllGroups();
 		#var_dump($data['groups'],$data['allgroups']);
 		
-		$this->view ( 'products/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'products/all', $data );
-		$this->view ( 'site/footer' );
+		if(is_ajax()) {
+			$this->view ( 'products/ajax-productlist', $data );	
+		} 
+
+		if (!is_ajax()) {
+			$this->view ( 'products/header' );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			$this->view ( 'products/all', $data );	
+			$this->view ( 'site/footer' );	
+		}	
 	}
 }
 

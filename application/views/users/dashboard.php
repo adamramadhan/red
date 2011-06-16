@@ -27,13 +27,13 @@
 				if (empty($userproduct)) {
 					echo '<a href="/edit/product"><div class="c bootstraps">
 						<div class="image">Buat Produk</div>	
-						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda langsung dapat berbagi.</div>
+						<div class="desc">Tambah produk Usaha atau Organisasi Anda sehingga anda langsung dapat berjualan.</div>
 					</div></a>';
 				}
 				if (empty($feeds)) {
 					echo '<a href="/products"><div class="c bootstraps">
 						<div class="image">Ikuti Perkembangan</div>	
-						<div class="desc">Jelajahi produk, lihat profilenya dan tekan tombol ikuti, anda langsung akan mendapat update dalam dashboard ini</div>
+						<div class="desc">Jelajahi produk, follow pelaku bisnis yang ingin anda ikuti.</div>
 					</div></a>';
 				}
 				if (empty($user['information'])) {

@@ -53,6 +53,14 @@ function is_get($name, $value = NULL) {
 	}
 }
 
+function is_ajax( $request = 'xmlhttprequest' ){
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == $request ) {
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
 /**
  * return bool if a string exists in routes.php
  * @version 100.20/3/2011

@@ -108,16 +108,15 @@ class Application {
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */
-	protected function helper($help) {
+	protected function helper($help, $setup = array()) {
 
 		if (file_exists ( 'libraries/helpers/help.' . $help . '.php' )) {
 			#kemunkinan disini kalo ada dua class sama akan error
 			require 'libraries/helpers/help.' . $help . '.php';
 			$class = ucfirst ( $help );
-			
 			#memastikan jika tidak ada property yang sama
 			if (class_exists ( $class ) && ! property_exists ( $this, $help )) {
-				$this->$help = new $class ();
+				$this->$help = new $class ( );
 				return TRUE;
 			}
 		}

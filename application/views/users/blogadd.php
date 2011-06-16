@@ -26,6 +26,10 @@
 		
 		<div id="red-edit-right">	
 		<div id="red-profile-guides">
+		<h3>Tell your story.</h3>
+			<p>Tulisan anda akan dimuat <a style="color: #CC3E3E;text-decoration: underline;" href="/blog">Blog Netcoid</a> dan beberapa rekan media Netcoid.</p>
+		</div>
+		<div id="red-profile-guides">
 		<style>
 		.highlight{background: none repeat scroll 0 0 #FFFCBB;}
 		</style>

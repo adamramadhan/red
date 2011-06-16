@@ -16,13 +16,10 @@
 		// Prepare Variables
 		var
 			/* Application Specific Variables */
-			contentSelector = '#red-content,#content,article:first,.article:first,.post:first',
+			contentSelector = '#red-product-list',
 			$content = $(contentSelector).filter(':first'),
 			contentNode = $content.get(0),
-			$menu = $('#red-header,#nav,nav:first,.nav:first').filter(':first'),
-			activeClass = 'active selected current youarehere',
-			activeSelector = '.active,.selected,.current,.youarehere',
-			menuChildrenSelector = '> li,> ul > li',
+			$menu = $('#red-header'),
 			/* Application Generic Variables */
 			$body = $(document.body),
 			rootUrl = History.getRootUrl(),

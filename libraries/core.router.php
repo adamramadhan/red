@@ -58,7 +58,7 @@ class Router {
 				}
 			}
 		}
-		
+			
 		#jika tidak ada di route maka 404
 		if (! isset ( $this->controller )) {
 			//$this->controller = $routes['404'];
@@ -97,7 +97,6 @@ class Router {
 			if (is_callable ( array ($controller, $method ) )) {
 				# http://stackoverflow.com/questions/5369099/call-user-func-array-vs-controller-methodparams/5369108#5369108
 				call_user_func_array ( array ($controller, $method ), $this->params );
-			
 			}
 		
 		#$controller->$method($this->params);

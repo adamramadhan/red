@@ -1,5 +1,4 @@
 <?php if (!empty($group)): ?>
-	<?php $views->JS('jquery'); ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
 		var search = 
@@ -22,7 +21,6 @@
 	});  
 	</script>
 <?php endif ?>
-
 
 		<div class="clearfix" id="groups">
 		<ul>
@@ -52,7 +50,6 @@
 
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
-
 		<?php if (config('features/search/core')): ?>
 			<div id="search">
 				<form action="#" name="f">
@@ -74,7 +71,7 @@
 		<?php endif ?>
 
 		<div class="clearfix" id="red-product-list">
-		
+
 		<?php 
 		#<div id="productline" class="clear"><hr/></div>
 			if (isset($_GET['offset'])) {
@@ -126,10 +123,19 @@
 				/* ok tdnya kan 20 cuma kalo pas 20 pas klick morenya
 				ga ada produknya alangkah lebih baiknya kalo seandainya
 				diklick minimal ada satu product */
-
-	
-
 			?>
 		</div>	
 	</div>
 <!-- CONTENT END -->
+
+
+<?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
+  <script type="text/javascript">
+    $(function(){
+      $('#arrow-link').pjax({
+	    container: '#red-product-list',
+	  });
+	$('#red-product-list')
+    .bind('start.pjax', function() {  $('#red-product-list').html('<img style="position: relative; top: 200px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif">')})
+	});
+</script>

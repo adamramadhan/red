@@ -26,7 +26,7 @@ class Site extends Application {
 					$social['facebook'] = $this->social->getFacebookPageData('netcoid');
 					$social['twitter'] = $this->social->getTwitterData('netcoid');
 					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'];
-					$this->cache->add ( "netcoid:social:point", $socialpt , 60 );
+					$this->cache->add ( "netcoid:social:point", $socialpt , 360 ); # from 60 
 					$data ['socialpoint'] = $socialpt;
 				}
 			}
@@ -55,7 +55,7 @@ class Site extends Application {
 			}
 			
 			# open invite
-			$this->view ( 'site/index-closed-invitation',$data );
+			$this->view ( 'site/index-openinvite3',$data );
 									
 			#$this->view('site/register-openinvite2',$data);
 			$this->view ( 'site/footer' );

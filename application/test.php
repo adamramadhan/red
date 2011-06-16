@@ -33,6 +33,11 @@ class Test extends Application {
 		}
 	}
 
+	function hello(){
+		echo "hello";
+		var_dump($_SERVER['HTTP_X_REQUESTED_WITH']);
+	}
+
 	function home(){
 		$this->library('social');
 		$json['twitter'] = $this->social->twitterSearch('@faktanyaadalah&lang=id');
@@ -131,12 +136,12 @@ class Test extends Application {
 			$data['insights']['product'] = implode(',', $products);
 		}
 
-		if (empty($data['insights'])) {
+		if (count($data['insights']) <= 2) {
 			$data['insights']['null'] = TRUE;
 			#$data['insights']['page'] = '["'.$weekago.'",1,1,1,1],["'.$weektoday.'",1,1,1,1]';
 			#$data['insights']['product'] = '["#1 Product",1,1,1,1],["#2 Product",1,1,1,1]';
 		}
-
+		var_dump($data);
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view('area51/analytics',$data['insights']);
