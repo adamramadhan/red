@@ -1,27 +1,3 @@
-<?php if (!empty($group)): ?>
-	<script type="text/javascript">
-	jQuery(document).ready(function(){
-		var search = 
-		{ 
-			tag: '<?php echo $group['tag']; ?>',
-		};  
-	    // Create the AJAX request  
-	    $.ajax({  
-	        type: "POST",                    // Using the POST method  
-	        url: "/ajax/social/pull/search",      // The file to call  
-	        data: search,                  // Our data to pass  
-	        beforeSend: function(){
-	        	$('#ajax-talkperhour').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');
-	        },
-	        success: function(data) {            // What to do on success  
-	        	console.log(data);
-	            $('#ajax-talkperhour').hide().fadeIn(3000).html(data);
-	        }  
-	    });  
-	});  
-	</script>
-<?php endif ?>
-
 		<div class="clearfix" id="groups">
 		<ul>
 			<?php
@@ -139,3 +115,27 @@
     .bind('start.pjax', function() {  $('#red-product-list').html('<img style="position: relative; top: 200px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif">')})
 	});
 </script>
+
+<?php if (!empty($group)): ?>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		var search = 
+		{ 
+			tag: '<?php echo $group['tag']; ?>',
+		};  
+	    // Create the AJAX request  
+	    $.ajax({  
+	        type: "POST",                    // Using the POST method  
+	        url: "/ajax/social/pull/search",      // The file to call  
+	        data: search,                  // Our data to pass  
+	        beforeSend: function(){
+	        	$('#ajax-talkperhour').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');
+	        },
+	        success: function(data) {            // What to do on success  
+	        	console.log(data);
+	            $('#ajax-talkperhour').hide().fadeIn(3000).html(data);
+	        }  
+	    });  
+	});  
+	</script>
+<?php endif ?>
