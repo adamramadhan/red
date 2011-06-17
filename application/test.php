@@ -141,7 +141,7 @@ class Test extends Application {
 			#$data['insights']['page'] = '["'.$weekago.'",1,1,1,1],["'.$weektoday.'",1,1,1,1]';
 			#$data['insights']['product'] = '["#1 Product",1,1,1,1],["#2 Product",1,1,1,1]';
 		}
-		var_dump($data);
+		
 		$this->view ( 'users/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->view('area51/analytics',$data['insights']);
