@@ -136,7 +136,7 @@ class Test extends Application {
 			$data['insights']['product'] = implode(',', $products);
 		}
 
-		if (count($data['insights']) = 1) {
+		if (count($data['insights']) == 1) {
 			$data['insights']['null'] = TRUE;
 			#$data['insights']['page'] = '["'.$weekago.'",1,1,1,1],["'.$weektoday.'",1,1,1,1]';
 			#$data['insights']['product'] = '["#1 Product",1,1,1,1],["#2 Product",1,1,1,1]';
