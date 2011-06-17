@@ -25,7 +25,7 @@
 
 	<!-- CONTENT START -->
 	<div id="red-content">
-		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai <i>ispirasi, teknologi</i> dan <i>media penghubung antar bisnis</i> Indonesia. Netcoid adalah situs jejaring bisnis yang menggabungkan semua ide terbaik yang pernah ada di www, mulai dari social, profiles, dan sistim pencarian.</p></div>
+		<div class="whybox" id="why"><p>Netcoid dibentuk sebagai <i>teknologi</i> dan <i>media penghubung antar pelaku bisnis</i> Indonesia. Netcoid adalah situs jejaring bisnis pertama di indonesia yang menggabungkan semua ide terbaik yang pernah ada di www, mulai dari social, profiles, dan sistim pencarian.</p></div>
 
 		<div id="what">
 		<h3>Ikuti Perkembangan bisnis sesuai kebutuhan!</h3>
