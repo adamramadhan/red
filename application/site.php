@@ -63,7 +63,7 @@ class Site extends Application {
 			
 			
 			if (is_get('team')) {
-					$this->view('site/register-openinvite2',$data);			
+					$this->view ( 'site/index-openinvite3',$data );		
 			}				
 			
 			$this->view ( 'site/footer' );
