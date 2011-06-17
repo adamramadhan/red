@@ -56,8 +56,16 @@ class Site extends Application {
 			
 			# open invite
 			#$this->view ( 'site/index-openinvite3',$data );	
-			$this->view ( 'site/index-prepare',$data );						
-			#$this->view('site/register-openinvite2',$data);
+			
+			if (!is_get('team')) {
+				$this->view ( 'site/index-prepare',$data );		
+			}
+			
+			
+			if (is_get('team')) {
+					$this->view('site/register-openinvite2',$data);			
+			}				
+			
 			$this->view ( 'site/footer' );
 		}
 		
