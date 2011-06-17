@@ -57,14 +57,14 @@ class Site extends Application {
 			# open invite
 			#$this->view ( 'site/index-openinvite3',$data );	
 			
-			if (!is_get('team')) {
-				$this->view ( 'site/index-prepare',$data );		
-			}
+			#if (!is_get('team')) {
+			#	$this->view ( 'site/index-prepare',$data );		
+			#}
 			
 			
-			if (is_get('team')) {
-					$this->view ( 'site/index-openinvite3',$data );		
-			}				
+			#if (is_get('team')) {
+			$this->view ( 'site/index-openinvite3',$data );		
+			#}				
 			
 			$this->view ( 'site/footer' );
 		}
