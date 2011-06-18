@@ -114,10 +114,14 @@
 
   $('#red-product-list')
     .bind('start.pjax', function() { $('#red-product-list').html('<img style="position: relative; top: 200px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif">') })
-    .bind('end.pjax', function() { $("#red-product-list img").hide();
-	$("#red-product-list img").fadeIn(); })
-    // cosmetics
-
+	    .bind('end.pjax', function() { 
+		    $('#red-product-list img').hide();
+			$('#red-product-list img').load(
+			    function() {
+			         $('#red-product-list img').fadeIn();
+			    }
+			);
+		})
 	});
 </script>
 
