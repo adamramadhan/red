@@ -22,7 +22,15 @@ http://code.google.com/speed/webp/
 
 
 #### MINOR
-8. inkonsisten branda.
+8. inkonsisten beranda.
 9. check placeholder html5 bisa sebagai penganti javascript dihalaman depan
+10. Prioritise your data http://www.tuxradar.com/practicalphp/18/2/1 
+11. EXPLAIN query2 biar bisa cek (database)
+12. USE INDEX http://www.tuxradar.com/practicalphp/18/2/17 (database)
+13. select benchmark(100000000, 1 = 1);
+
+#### MAINTENANCE
+1. OPTIMIZE ( DEFRAG DATABASE )
+2. SHOW InnoDB STATUS dibawah 80 harus di cek http://www.tuxradar.com/practicalphp/18/2/21
 
 #### NEXT ( REASEARCH )
