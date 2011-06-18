@@ -67,8 +67,10 @@ class Views {
 			throw new Exception ( "No such img as $img" );
 		}
 		// epic fix / kalo dihapus jadinya ya cacat
+		$options = getimagesize("www-static" . DS . "storage" . DS . $uid . DS . $img);
 		$img = "/www-static" . DS . "storage" . DS . $uid . DS . $img;
-		echo '<img src="' . $img . '" />';
+		
+		echo '<img '.$options[3].' src="' . $img . '" />';
 	}
 	
 	/**

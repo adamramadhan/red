@@ -12,7 +12,7 @@ class Mobile extends Application {
 		$this->view ( 'admin/header' );
 		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
 		$this->helper ( 'forms' );
-		$this->view ( 'admin/index' );
+		echo "developing";
 		$this->view ( 'site/footer' );
 	}
 }
