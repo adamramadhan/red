@@ -66,8 +66,11 @@ class Views {
 		if (! file_exists ( "www-static" . DS . "storage" . DS . $uid . DS . $img )) {
 			throw new Exception ( "No such img as $img" );
 		}
-		// epic fix / kalo dihapus jadinya ya cacat
+		
+		# tambahan masih @ujicoba
 		$options = getimagesize("www-static" . DS . "storage" . DS . $uid . DS . $img);
+
+		// epic fix / kalo dihapus jadinya ya cacat
 		$img = "/www-static" . DS . "storage" . DS . $uid . DS . $img;
 		
 		echo '<img '.$options[3].' src="' . $img . '" />';

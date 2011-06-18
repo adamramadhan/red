@@ -111,8 +111,13 @@
       $('#arrow-link').pjax({
 	    container: '#red-product-list',
 	  });
-	$('#red-product-list')
-    .bind('start.pjax', function() {  $('#red-product-list').html('<img style="position: relative; top: 200px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif">')})
+
+  $('#red-product-list')
+    .bind('start.pjax', function() { $('#red-product-list').html('<img style="position: relative; top: 200px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif">') })
+    .bind('end.pjax', function() { $("img").hide();
+	$("#red-product-list img").fadeIn(); })
+    // cosmetics
+
 	});
 </script>
 
@@ -132,7 +137,7 @@
 	        	$('#ajax-talkperhour').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');
 	        },
 	        success: function(data) {            // What to do on success  
-	        	console.log(data);
+	        	//console.log(data);
 	            $('#ajax-talkperhour').hide().fadeIn(3000).html(data);
 	        }  
 	    });  
