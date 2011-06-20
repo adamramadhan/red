@@ -44,16 +44,13 @@
 					<p><?php echo $group['information']; ?></p>
 				</div>
 			</div>
+		<div id="ajax-netcoidtrends"></div>
 		<?php endif ?>
 
 		<div class="clearfix" id="red-product-list">
 
-		<?php if (!empty($group)): ?>
-				<div id="productline" class="clear"><hr/></div>
-		<?php endif ?>
-
 		<?php 
-		
+			# BACK BUTTON
 			if (isset($_GET['offset'])) {
 				if ($_GET['offset'] > 0) {
 					$back = $page-2;
@@ -73,6 +70,10 @@
 				echo '<a id="arrow-link" href="?offset='. $page .'" ><div id="product-to-next"><span class="arrow">></span></div></a>';
 			}
 		?>
+
+		<?php if (!empty($group)): ?>
+				<div id="productline" class="clear"><hr/></div>
+		<?php endif ?>
 
 			<?php
 				$i = 1;	
@@ -106,10 +107,6 @@
 			?>
 		</div>	
 
-		<?php if (!empty($group)): ?>
-		<div id="ajax-netcoidtrends"></div>
-		<?php endif ?>
-
 	</div>
 <!-- CONTENT END -->
 
@@ -128,7 +125,6 @@
 		})
 	});
 </script>
-
 <?php if (!empty($group)): ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
@@ -151,8 +147,25 @@
 	        }  
 	    });
 
-
+		var trends = 
+		{ 
+			tag: '<?php echo $group['tag']; ?>',
+		};  
+	    // Create the AJAX request  
+	    $.ajax({  
+	        type: "POST",                    // Using the POST method  
+	        url: "/ajax/social/pull/trends",      // The file to call  
+	        data: trends, 
+	        dataType: 'html',   
+	        beforeSend: function(){
+	        	$('#ajax-netcoidtrends').html('<img style="position: relative; margin: 0pt auto; display: block;" src="/www-static/assets/images/ajax-loader.gif">');
+	        },
+	        success: function(data) {
+  				$('#ajax-netcoidtrends').hide().fadeIn(3000).html(data);
+	        }  
+	    });
 
 	});  
 	</script>
+
 <?php endif ?>

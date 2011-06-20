@@ -7,17 +7,14 @@ class Ajax extends Application {
 
 	function __construct(){
 		$this->library ( 'sessions' );
-		if ($this->sessions->get('uid')) {
-			
-			# AVOID ERRORS
-			if (empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
-				$_SERVER['HTTP_X_REQUESTED_WITH'] = NULL;
-			}
 
-			# IF ITS NOT A AJAX REQUEST = EXIT
-			if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
-				exit ( 'Hello, api@networks.co.id' );	
-			}
+		# AVOID ERRORS
+		if (empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+			$_SERVER['HTTP_X_REQUESTED_WITH'] = NULL;
+		}
+		
+		if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+			exit ( 'Hello, api@networks.co.id' );	
 		}
 	}
 	
@@ -271,52 +268,99 @@ class Ajax extends Application {
 	}
 
 	function getGoogleTrend(){
-		$_POST['tag'] = 'tshirt';
-		if (! empty ( $_POST['tag'] )) {
-			require '/middleware/trends/class.xhttp.php';
-			$data['search'] = $_POST['tag'];
-			$data['post'] = array(
-			  'accountType' => 'HOSTED_OR_GOOGLE',
-			  'Email'       => 'damsprivate@gmail.com',
-			  'Passwd'      => 'cicakkurus28',
-			  'service'     => 'trendspro', 
-			  'source'      => 'Netcoid Google Insights'
-			);
-			$response = xhttp::fetch('https://www.google.com/accounts/ClientLogin', $data);
-			
-			# ERROR
-			if(!$response['successful']) {
-			    echo 'response: '; print_r($response);
-			    die();
+		# REQIIRE THE TRENDS MIDDLEWARE
+		require '/middleware/trends/class.xhttp.php';
+		$data['search'] = $_POST['tag'];
+		$data['post'] = array(
+		  'accountType' => 'HOSTED_OR_GOOGLE',
+		  'Email'       => 'api@networks.co.id',
+		  'Passwd'      => 'helloworld',
+		  'service'     => 'trendspro', 
+		  'source'      => 'Netcoid Google Insights'
+		);
+
+		# CACHE ENABLED
+		if (config ( 'features/memcached' )) {
+			$this->cache = new Cache;
+			# JIKA ADA CACHE
+			if ( $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] )) {
+				$data = $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] );
+				$this->view('ajax/ajax-trends',$data);
 			}
-			
-			preg_match('/SID=(.+)/', $response['body'], $matches);
-			$sid = $matches[1];
-			$xdata = array();
-			$xdata['cookies'] = array(
-			    'SID' => $sid
-			);
-			$response = xhttp::fetch('http://www.google.com/insights/search/overviewReport?q='.$data['search'].'&geo=ID&cmpt=q&content=1&export=1', $xdata);
 
-			$f = explode("\n\n", $response['body']);
+			# JIKA TIDAK ADA CAHE
+			if ( !$this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] )) {
+				$response = xhttp::fetch('https://www.google.com/accounts/ClientLogin', $data);
+				if(!$response['successful']) {
+				    echo 'response: '; print_r($response);
+				    die();
+				}
+				preg_match('/SID=(.+)/', $response['body'], $matches);
+				$sid = $matches[1];
+				$xdata = array();
+				$xdata['cookies'] = array(
+				    'SID' => $sid
+				);
+				$response = xhttp::fetch('http://www.google.com/insights/search/overviewReport?q='.$data['search'].'&geo=ID&cmpt=q&content=1&export=1', $xdata);
+				$f = explode("\n\n", $response['body']);
+				
+				# AMBIL 5 KOTA TERATAS
+				preg_match_all("/[a-zA-Z]{1,255},[0-9]{1,3}/",$f[3],$kotateratas,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_topcity'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $kotateratas[0]);
 
-			# AMBIL 5 KOTA TERATAS
-			preg_match_all("/[a-zA-Z]{1,255},[0-9]{1,3}/",$f[3],$kotateratas,PREG_PATTERN_ORDER);
-			$data['netcoidinsights_topcity'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $kotateratas[0]);
+				# AMBIL SUBKAWASAN TERTINGGI
+				preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[2],$regional,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_topregion'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $regional[0]);
 
-			# AMBIL SUBKAWASAN TERTINGGI
-			preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[2],$regional,PREG_PATTERN_ORDER);
-			$data['netcoidinsights_topregion'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $regional[0]);
+				# AMBIL TAG PALING BANYAK DIGUNAKAN
+				preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[5],$regional,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_toptag'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1', $regional[0]);
 
-			# AMBIL TAG PALING BANYAK DIGUNAKAN
-			preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[5],$regional,PREG_PATTERN_ORDER);
-			$data['netcoidinsights_toptag'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1', $regional[0]);
+				#echo $response['body'];
+				preg_match_all("/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/",$f[1],$chart,PREG_PATTERN_ORDER);
+				$chart2 = preg_replace('/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/', '["$1",$2]', $chart[0]);
+				$data['netcoidtrends'] = array_slice($chart2, -50);	
+				$this->cache->add ( 'INSIGHTS:TRENDS:'.$_POST['tag'], $data, 5184000 ); # 1 hari
+				$this->view('ajax/ajax-trends',$data);
+			}
+		}
 
-			#echo $response['body'];
-			preg_match_all("/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/",$f[1],$chart,PREG_PATTERN_ORDER);
-			$chart2 = preg_replace('/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/', '["$1",$2]', $chart[0]);
-			$data['netcoidtrends'] = array_slice($chart2, -50);	
-			$this->view('ajax/ajax-trends',$data);
+		# CACHE NOT ENABLED
+		if (!config ( 'features/memcached' )) {	
+			if (! empty ( $_POST['tag'] )) {
+
+				$response = xhttp::fetch('https://www.google.com/accounts/ClientLogin', $data);
+				if(!$response['successful']) {
+				    echo 'response: '; print_r($response);
+				    die();
+				}
+				preg_match('/SID=(.+)/', $response['body'], $matches);
+				$sid = $matches[1];
+				$xdata = array();
+				$xdata['cookies'] = array(
+				    'SID' => $sid
+				);
+				$response = xhttp::fetch('http://www.google.com/insights/search/overviewReport?q='.$data['search'].'&geo=ID&cmpt=q&content=1&export=1', $xdata);
+				$f = explode("\n\n", $response['body']);
+				
+				# AMBIL 5 KOTA TERATAS
+				preg_match_all("/[a-zA-Z]{1,255},[0-9]{1,3}/",$f[3],$kotateratas,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_topcity'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $kotateratas[0]);
+
+				# AMBIL SUBKAWASAN TERTINGGI
+				preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[2],$regional,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_topregion'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1($2)', $regional[0]);
+
+				# AMBIL TAG PALING BANYAK DIGUNAKAN
+				preg_match_all("/[a-zA-Z]{1,255}[\s][a-zA-Z]{1,255},([1-9]{1,2}(?!\d)|100)/",$f[5],$regional,PREG_PATTERN_ORDER);
+				$data['netcoidinsights_toptag'] = preg_replace('/([a-zA-Z]{1,255}),([0-9]{1,3})/', '$1', $regional[0]);
+
+				#echo $response['body'];
+				preg_match_all("/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/",$f[1],$chart,PREG_PATTERN_ORDER);
+				$chart2 = preg_replace('/([0-9]{4}-[0-9]{2}-[0-9]{2}\s-\s[0-9]{4}-[0-9]{2}-[0-9]{2}),(\d+)/', '["$1",$2]', $chart[0]);
+				$data['netcoidtrends'] = array_slice($chart2, -50);	
+				$this->view('ajax/ajax-trends',$data);
+			}
 		}
 	}
 }
