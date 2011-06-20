@@ -269,9 +269,9 @@ class Ajax extends Application {
 
 	function getGoogleTrend(){
 		# REQIIRE THE TRENDS MIDDLEWARE
-		require '/middleware/trends/class.xhttp.php';
 		
 			die();
+		require '/middleware/trends/class.xhttp.php';
 		$data['search'] = $_POST['tag'];
 		$data['post'] = array(
 		  'accountType' => 'HOSTED_OR_GOOGLE',
