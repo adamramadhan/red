@@ -38,7 +38,7 @@
 			<div id="product-group">
 				<div id="product-group-meta">
 					<div class="clearfix">
-						<h3 class="l"><?php echo $group['group']; ?></h3>
+					<h3 class="l"><?php echo ucfirst($group['tag']); ?></h3>
 						<span id="ajax-talkperhour" class="l"></span>
 					</div>
 					<p><?php echo $group['information']; ?></p>
