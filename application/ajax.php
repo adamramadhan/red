@@ -283,6 +283,7 @@ class Ajax extends Application {
 		if (config ( 'features/memcached' )) {
 			$this->cache = new Cache;
 			# JIKA ADA CACHE
+			die();
 			if ( $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] )) {
 				$data = $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] );
 				$this->view('ajax/ajax-trends',$data);
