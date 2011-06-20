@@ -95,23 +95,21 @@ class Products extends Application {
 		# PAGEINATION TEST
 		# GET products/groups
 		$current_group = func_get_args();
-		
-		if (!empty($current_group)) {
+		if (!empty($current_group[0])) {
 
 			$data['current_group'] = $current_group[0];
 			$data['tags'] = $this->model->groups->listTagbyGroup($data['current_group']);
 
-			if (! is_get ( 'tag' )) {
+			if (empty($current_group[1])) {
 				$data ['products'] = $this->model->products->listProductsByGroup ( $data['current_group'], $data['offset'] );
 			}
 			
-			if (is_get ( 'tag' )) {
+			if (!empty($current_group[1])) {
 				# @todo harus di safe dulu
-				$tag = $_GET ['tag'];
-				$data ['products'] = $this->model->products->listProductsByTag ( $tag, $data['offset'] );
+				$data ['products'] = $this->model->products->listProductsByTag ( $current_group[1], $data['offset'] );
 
 				# added groups
-				$data ['group'] = $this->model->groups->getGroupByTag($_GET['tag']);
+				$data ['group'] = $this->model->groups->getGroupByTag( $current_group[1]);
 			}
 		}
 		# END BETA

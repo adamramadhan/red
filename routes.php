@@ -50,6 +50,7 @@ $routes['beta/article'] = 'edit:article';
 $routes['product'] = 'products:single';
 $routes['products'] = 'products:all';
 $routes['^products/[a-zA-Z]{1,20}$'] = 'products:all';
+$routes['^products/[a-zA-Z]{1,20}/[a-zA-Z]{1,20}$'] = 'products:all';
 
 #social
 $routes['social/follow'] = 'social:follow';
@@ -88,6 +89,7 @@ $routes['ajax/social/pull/facebook'] = 'ajax:getSocialFacebook';
 $routes['ajax/social/pull/yahoo'] = 'ajax:getSocialYahoo';
 $routes['ajax/social/pull/twitter'] = 'ajax:getSocialTwitter';
 $routes['ajax/social/pull/search'] = 'ajax:getSocialSearch';
+$routes['ajax/social/pull/trends'] = 'ajax:getGoogleTrend';
 
 #$routes['area51/([a-zA-Z0-9_]+)'] = 'test:$1';
 $routes['area51/home'] = 'test:home';

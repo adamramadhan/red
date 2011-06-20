@@ -1,5 +1,9 @@
 		<div class="clearfix" id="red-product-list">
 
+		<?php if (!empty($group)): ?>
+				<div id="productline" class="clear"><hr/></div>
+		<?php endif ?>
+
 		<?php 
 		#<div id="productline" class="clear"><hr/></div>
 			if (isset($_GET['offset'])) {

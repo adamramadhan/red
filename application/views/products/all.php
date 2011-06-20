@@ -16,7 +16,7 @@
 				echo '<li><a href="/products">Kembali</a></li>';
 				foreach ($tags as $tag) {
 					if (!empty($tag['tag'])) {
-						echo '<li><a href="/products/'.$current_group.'?tag='.$tag['tag'].'">#'.ucfirst($tag['tag']).'</a></li>';
+						echo '<li><a href="/products/'.$current_group.'/'.$tag['tag'].'">#'.ucfirst($tag['tag']).'</a></li>';
 					}				
 				}
 			}
@@ -48,8 +48,12 @@
 
 		<div class="clearfix" id="red-product-list">
 
+		<?php if (!empty($group)): ?>
+				<div id="productline" class="clear"><hr/></div>
+		<?php endif ?>
+
 		<?php 
-		#<div id="productline" class="clear"><hr/></div>
+		
 			if (isset($_GET['offset'])) {
 				if ($_GET['offset'] > 0) {
 					$back = $page-2;
@@ -101,6 +105,11 @@
 				diklick minimal ada satu product */
 			?>
 		</div>	
+
+		<?php if (!empty($group)): ?>
+		<div id="ajax-netcoidtrends"></div>
+		<?php endif ?>
+
 	</div>
 <!-- CONTENT END -->
 
@@ -123,6 +132,7 @@
 <?php if (!empty($group)): ?>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
+		// SEARCH START
 		var search = 
 		{ 
 			tag: '<?php echo $group['tag']; ?>',
@@ -139,7 +149,10 @@
 	        	//console.log(data);
 	            $('#ajax-talkperhour').hide().fadeIn(3000).html(data);
 	        }  
-	    });  
+	    });
+
+
+
 	});  
 	</script>
 <?php endif ?>

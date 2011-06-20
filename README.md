@@ -19,7 +19,7 @@ http://code.google.com/speed/webp/
 5. group harus ada di depan.
 6. tambahan meny company punya tag sendiri. satu untuk satu peruhaaan. ( fokus perusahaan / bisnis ) berdasrkan input ntah di register ntah di edit. ( predifined, others ada tp harus diinput apa ) buat halaman baru. kalo gak ada grop dan alamat di awal, kita harus mengisinya terlebih dahulu. satu page baru. www.networks.co.id/edit/start
 7. ok kita taro kota dibawah alamat ( predefined ) nah di tiap inputnya coba liat tag abbr.
-
+8. Random products, always randoming and refreshing ( ajax )
 
 #### MINOR
 8. inkonsisten beranda.

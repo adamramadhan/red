@@ -215,12 +215,13 @@ class Edit extends Application {
 			if (is_get ( 'e' )) {
 				$p ['pid'] = $_GET ['e'];
 			}
+
+			$this->validation->image ( $_FILES ['image'], l ( 'product_image_error' ) );
 			
 			if (! sizeof ( $this->validation->errors )) {
 				
 				# JIKA IMAGE ADA
 				if (! empty ( $_FILES ['image'] ['size'] )) {
-					$this->validation->image ( $_FILES ['image'], l ( 'product_image_error' ) );
 					
 					# START PLUGIN
 					$this->upload->vupload ( $_FILES ['image'] );
