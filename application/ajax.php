@@ -270,6 +270,8 @@ class Ajax extends Application {
 	function getGoogleTrend(){
 		# REQIIRE THE TRENDS MIDDLEWARE
 		require '/middleware/trends/class.xhttp.php';
+		
+			die();
 		$data['search'] = $_POST['tag'];
 		$data['post'] = array(
 		  'accountType' => 'HOSTED_OR_GOOGLE',
@@ -283,7 +285,6 @@ class Ajax extends Application {
 		if (config ( 'features/memcached' )) {
 			$this->cache = new Cache;
 			# JIKA ADA CACHE
-			die();
 			if ( $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] )) {
 				$data = $this->cache->get ( 'INSIGHTS:TRENDS:'.$_POST['tag'] );
 				$this->view('ajax/ajax-trends',$data);
