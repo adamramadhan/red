@@ -16,7 +16,7 @@
 				echo '<li><a href="/products">Kembali</a></li>';
 				foreach ($tags as $tag) {
 					if (!empty($tag['tag'])) {
-						echo '<li><a href="/products/'.$current_group.'/'.$tag['tag'].'">#'.ucfirst($tag['tag']).'</a></li>';
+						echo '<li><a href="/products/'.$current_group.'/'.$tag['tag'].'">#'.$tag['tag'].'</a></li>';
 					}				
 				}
 			}
