@@ -14,7 +14,7 @@ class Ajax extends Application {
 		}
 
 		if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
-			#exit ( 'Hello, api@networks.co.id' );	
+			exit ( 'Hello, api@networks.co.id' );	
 		}
 	}
 	
