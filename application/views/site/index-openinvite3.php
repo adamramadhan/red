@@ -8,7 +8,7 @@
 <script type="text/javascript">
 $(window).load(function() {
 	$('#ajax-loading-preview').hide();
-	$('.previewnetcoid').show();
+	$('.previewnetcoid').fadeIn();
     $('.previewnetcoid').cycle({
 		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		speed:    2000,
