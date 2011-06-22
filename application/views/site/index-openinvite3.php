@@ -1,6 +1,22 @@
 <div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
  <?php echo $socialpoint; ?> / 1000 ♥ Netcoid <span style="background: none repeat scroll 0% 0% rgb(254, 255, 203); padding: 3px 10px;">Invitasi #3 dibuka! dukung kami untuk berkembang, follow <a style="color: rgb(211, 46, 46);" href="http://www.twitter.com/netcoid" target="_blank">twitter</a>, like <a style="color: rgb(211, 46, 46);" target="_blank" href="http://www.facebook.com/netcoid">facebook</a> atau ikuti <a style="color: rgb(211, 46, 46);" target="_blank" href="/development">perkembangan</a> kami.</span></p></div></div>
 
+
+
+<?php $views->js('jquery','external'); ?>
+<script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(window).load(function() {
+	$('#ajax-loading-preview').hide();
+	$('.previewnetcoid').show();
+    $('.previewnetcoid').cycle({
+		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		speed:    2000,
+		timeout:  6000
+	});
+});
+</script>
+
 <?php $views->CSS('buttons.v1') ?>	
 	<style type="text/css" media="screen">
 	.whatnetcoid {
@@ -32,7 +48,8 @@
 			<h1 class="whatnetcoid">jejaring bisnis</h1>
 			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
 			<hr>
-
+			
+			<div style="width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 170px auto;"></div>
 			<div class="previewnetcoid">
 				<div><?php $views->getIMG('temp/new0.png'); ?>
 				<p>Hello, Netcoid adalah jejaring bisnis <i>pertama</i> di Indonesia</p></div>
@@ -59,16 +76,3 @@
 			<hr>
 	</div>
 	<!-- CONTENT END -->
-
-<?php $views->js('jquery','external'); ?>
-<script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(window).load(function() {
-	$('.previewnetcoid').show();
-    $('.previewnetcoid').cycle({
-		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-		speed:    2000,
-		timeout:  6000
-	});
-});
-</script>
