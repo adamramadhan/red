@@ -10,8 +10,6 @@ class Site extends Application {
 	function index() {
 		# no session = show front page
 		if (! $this->sessions->get ( 'uid' )) {
-			# init
-			$this->library ( 'validation' );
 			
 			# social addon
 			if (config ( 'features/memcached' )) {
@@ -38,34 +36,9 @@ class Site extends Application {
 				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'];
 			}
 			# end social addon
-
-			$this->middleware ( 'recaptcha', 'recaptcha' );
-			
 			$this->view ( 'site/header' );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-			
-			# register, secureing the data
-			if (is_post ( 'register' )) {
-				$this->preregister ();
-			}
-			
-			# if have sessions register & secure
-			if ($this->sessions->get ( 'secure.data' ) && $this->sessions->get ( 'secure.response' )) {
-				$this->postregister ();
-			}
-			
-			# open invite
-			#$this->view ( 'site/index-openinvite3',$data );	
-			
-			#if (!is_get('team')) {
-			#	$this->view ( 'site/index-prepare',$data );		
-			#}
-			
-			
-			#if (is_get('team')) {
-			$this->view ( 'site/index-openinvite3',$data );		
-			#}				
-			
+			$this->view ( 'site/index-openinvite3',$data );	
 			$this->view ( 'site/footer' );
 		}
 		
@@ -98,7 +71,57 @@ class Site extends Application {
 			$this->view ( 'site/footer' );
 		}
 	}
-	
+
+	function signup() {
+		# no session = show front page
+		if (! $this->sessions->get ( 'uid' )) {
+
+			$this->library ( 'validation' );
+			
+			# social addon
+			if (config ( 'features/memcached' )) {
+				$this->cache = new Cache;		
+				$this->library ( 'social' );
+
+				if ($this->cache->get ( "netcoid:social:point" )) {
+					$data ['socialpoint'] = $this->cache->get ( "netcoid:social:point" );
+				}
+				
+				if (! $this->cache->get ( "netcoid:social:point" )) {
+					$social['facebook'] = $this->social->getFacebookPageData('netcoid');
+					$social['twitter'] = $this->social->getTwitterData('netcoid');
+					$socialpt = $social['twitter']['followers_count'] + $social['facebook']['likes'];
+					$this->cache->add ( "netcoid:social:point", $socialpt , 360 ); # from 60 
+					$data ['socialpoint'] = $socialpt;
+				}
+			}
+
+			if (!config('features/memcached')) {
+				$this->library ( 'social' );
+				$social['facebook'] = $this->social->getFacebookPageData('netcoid');
+				$social['twitter'] = $this->social->getTwitterData('netcoid');
+				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'];
+			}
+			# end social addon
+
+			$this->view ( 'site/header' );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			
+			# register, secureing the data
+			if (is_post ( 'register' )) {
+				$this->preregister ();
+			}
+			
+			# if have sessions register & secure
+			if ($this->sessions->get ( 'secure.data' ) && $this->sessions->get ( 'secure.response' )) {
+				$this->postregister ();
+			}
+
+			$this->view ( 'site/signup',$data );				
+			$this->view ( 'site/footer' );
+		}
+	}
+
 	# secureing the data
 	function preregister() {
 		$this->library ( 'security' );

@@ -3,6 +3,7 @@
 // lalu di validasi
 // Core language
 $l['home'] = 'Beranda';
+$l['signup'] = 'Pendaftaran';
 $l['why']  = 'Seperti apa?';
 $l['aboutus']  = 'Tentang';
 $l['blog']  = 'Blog';

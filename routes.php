@@ -24,6 +24,7 @@ $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';
 $routes['secure'] = 'secure:index';
+$routes['signup'] = 'site:signup';
 $routes['login'] = 'login:index';
 $routes['terms'] = 'site:terms';
 $routes['privacy'] = 'site:privacy';

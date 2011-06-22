@@ -94,6 +94,7 @@ span#notification {
 
 .background-event#red-content{background: url("www-static/assets/images/highlight-1.png") no-repeat scroll left 30px transparent;
     height: 600px;}
+    
 #red-content-left {
     float: left;
     padding-bottom: 40px;
@@ -101,7 +102,6 @@ span#notification {
 }
 
 #red-content-right {
-    background: url("www-static/assets/images/border.png") no-repeat scroll left center #FFFFFF;
     float: left;
     min-height: 650px;
     padding: 5px 5px 5px 20px;
@@ -146,6 +146,25 @@ span#notification {
 #footer #copyright li { float: right }
 /* ERRORS
    ================================================== */
+label.error{
+    margin: 5px;
+    position: relative;
+    bottom: 11px;
+    display: inline-block;
+    padding: 5px;
+    font-size: 11px;
+    background: #FEFFCB;
+    border: 1px solid #DDDEA3;
+    border-top: 1px solid #fff ;
+    width: 200px;
+    -webkit-border-bottom-right-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.error a{color: #D32E2E;}
 #red-error-box {
     left: 20px;
     margin: 0 auto 10px;

@@ -3,6 +3,7 @@
 // lalu di validasi
 // Core language
 $l['home'] = 'Home';
+$l['signup'] = 'Sign up';
 $l['why']  = 'Why?';
 $l['aboutus']  = 'About';
 $l['blog']  = 'Blog';
