@@ -49,7 +49,7 @@ $(window).load(function() {
 			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
 			<hr>
 			
-			<div style="width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 170px auto;"></div>
+			<div style="width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 200px auto;"></div>
 			<div class="previewnetcoid">
 				<div><?php $views->getIMG('temp/new0.png'); ?>
 				<p>Hello, Netcoid adalah jejaring bisnis <i>pertama</i> di Indonesia</p></div>
