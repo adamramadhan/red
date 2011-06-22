@@ -24,6 +24,7 @@
 	    text-align: center;
 	    padding:5px 10px;
 	}
+	.previewnetcoid{display:none;}
 	</style>
 
 	<!-- CONTENT START -->
@@ -32,7 +33,6 @@
 			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
 			<hr>
 
-			<div style=";width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 216px auto;"></div>
 			<div class="previewnetcoid">
 				<div><?php $views->getIMG('temp/new0.png'); ?>
 				<p>Hello, Netcoid adalah jejaring bisnis <i>pertama</i> di Indonesia</p></div>
@@ -63,15 +63,12 @@
 <?php $views->js('jquery','external'); ?>
 <script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$('.previewnetcoid').hide();
-		$('.previewnetcoid img').load(function(){
-			$('#ajax-loading-preview').hide();
-			$('.previewnetcoid').show();
-		    $('.previewnetcoid').cycle({
-				fx: 'scrollLeft',
-				speed:    2000,
-				timeout:  6000
-			});		
-		});
-
+$(window).load(function() {
+	$('.previewnetcoid').show();
+    $('.previewnetcoid').cycle({
+		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		speed:    2000,
+		timeout:  6000
+	});
+});
 </script>
