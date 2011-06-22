@@ -24,7 +24,7 @@
 	    text-align: center;
 	    padding:5px 10px;
 	}
-	.previewnetcoid{display:none;height:438px;}
+	.previewnetcoid{display:none;height:438px !important;}
 	</style>
 
 	<!-- CONTENT START -->
