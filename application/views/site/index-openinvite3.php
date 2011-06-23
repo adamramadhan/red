@@ -12,6 +12,7 @@
 	    height: 70px;
 	    margin: 20px 0 0;
 	    text-align: center;
+	    display:block;
 	}
 	.hownetcoid{text-align: center;}
 	.previewnetcoid p {
@@ -21,7 +22,6 @@
 	    font-weight: bold;
 	    margin: 0 auto;
 	    padding: 0 10px;
-	    text-align: center;
 	    padding:5px 10px;
 	}
 	.previewnetcoid{display:none;height:438px !important;}
