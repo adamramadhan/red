@@ -23,6 +23,24 @@
 	    width:960px;
 	    text-align:center;
 	}
+
+
+.previewnetcoid p {
+    background: none repeat scroll 0 0 #151515;
+    border: 20px solid #151515;
+    bottom: 405px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    height: 405px;
+    opacity: 0.9;
+    padding-top: 202.5px;
+    position: relative;
+    text-align: center;
+    width: 920px;
+}
+.previewnetcoid p:hover {opacity:0.1;}
 	.previewnetcoid{display:none;height:438px !important;}
 	.previewnetcoid img{display:block;}
 	</style>
@@ -60,7 +78,7 @@
 				<p>Insights, <i>Pelajari</i> konsumen anda. Lakukan optimasi</p>
 				</div>
 				<div><?php $views->getIMG('temp/new8.png'); ?>
-				<p>Insights, juga mengembalikan kata <i>fun</i> dalam bisnis</p>
+				<p>Insights, juga mengembalikan kata <i>"its fun"</i> dalam bisnis</p>
 				</div>
 				<div><?php $views->getIMG('temp/new9.png'); ?>
 				<p>Blog bersama, dari kompetisi ke <i>kolaborasi</i></p>
@@ -79,7 +97,8 @@ jQuery(document).ready(function() {
     $('.previewnetcoid').cycle({
 		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 		speed:    2000,
-		timeout:  6000
+		timeout:  10000,
+		sync: false
 	});
 });
 </script>
