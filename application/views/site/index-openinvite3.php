@@ -38,7 +38,6 @@ margin-left: 20px;}
 			<p class="hownetcoid"><u>Menghubungkan pelaku bisnis dengan teknologi dan social media</u></p>
 			<hr>
 			
-			<div style="width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 200px auto;"></div>
 			<div class="blog-post benefits clearfix">
 					<div class="left l">
 						<h3>Business</h3>
@@ -73,8 +72,3 @@ margin-left: 20px;}
 	<!-- CONTENT END -->
 
 <?php $views->js('jquery,middleware/jquery/jquery.cycle','external'); ?>
-<script type="text/javascript">
-jQuery(document).ready(function() {
-	$('#ajax-loading-preview').hide();
-});
-</script>
