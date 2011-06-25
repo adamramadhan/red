@@ -134,6 +134,7 @@ riset
 .blog-post ul ul li{    list-style: circle outside none;}
 .blog-post ul li{     list-style: square outside none;
     padding-bottom: 0.45em;}
+
 /*fix sementara*/
 #post-meta{border-left:none;}
 
@@ -144,6 +145,7 @@ riset
     margin-bottom: 5px;
     padding: 5px 0;
 }
+
 .blog-post p{
     clear: both;
     word-wrap: break-word;
