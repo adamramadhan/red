@@ -1,9 +1,9 @@
 <div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
  <?php echo $socialpoint; ?> / 1000 ♥ Netcoid <span style="background: none repeat scroll 0% 0% rgb(254, 255, 203); padding: 3px 10px;">Invitasi #3 ditutup. Dukung kami berkembang, follow <a style="color: rgb(211, 46, 46);" href="http://www.twitter.com/netcoid" target="_blank">twitter</a>, like <a style="color: rgb(211, 46, 46);" target="_blank" href="http://www.facebook.com/netcoid">facebook</a> atau ikuti <a style="color: rgb(211, 46, 46);" target="_blank" href="/development">perkembangan</a> kami.</span></p></div></div>
 
-<?php $views->CSS('buttons.v1') ?>	
+<?php $views->CSS('buttons.v1','blog') ?>	
 	<style type="text/css" media="screen">
-	.whatnetcoid {
+	.helloworld {
 	    font-family: 'Pacifico',serif;
 	    font-size: 63px;
 	    font-style: normal;
@@ -23,69 +23,52 @@
 	    width:960px;
 	    text-align:center;
 	}
-
-
-.previewnetcoid p {
-    background: none repeat scroll 0 0 #151515;
-    border: 20px solid #151515;
-    bottom: 405px;
-    color: #FFFFFF;
-    display: block;
-    font-size: 15px;
-    font-weight: bold;
-    height: 405px;
-    opacity: 0.9;
-    padding-top: 202.5px;
-    position: relative;
-    text-align: center;
-    width: 920px;
-}
-.previewnetcoid p:hover {opacity:0.1;}
-	.previewnetcoid{display:none;height:438px !important;}
-	.previewnetcoid img{display:block;}
+	.benefits .left{width: 300px;
+margin-right: 20px;}
+	.benefits .mid{width:320px;}
+	.benefits .right{width: 300px;
+margin-left: 20px;}
+.blog-post{padding:0;}
+.blog-post h3{border:none;}
 	</style>
 
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
-			<h1 class="whatnetcoid">jejaring bisnis</h1>
-			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
+			<h1 class="helloworld">jejaring bisnis</h1>
+			<p class="hownetcoid"><u>Menghubungkan pelaku bisnis dengan teknologi dan social media</u></p>
 			<hr>
 			
 			<div style="width: 978px;" id="ajax-loading-preview"><img src="/www-static/assets/images/ajax-loader.gif" style="display: block; margin: 200px auto;"></div>
-			<div class="previewnetcoid">
-				<div><?php $views->getIMG('temp/new0.png'); ?>
-				<p>Hello, Netcoid adalah jejaring bisnis <i>pertama</i> di Indonesia</p>
-				</div>
-				<div><?php $views->getIMG('temp/new1.png'); ?>
-				<p>Buat <i>profil</i> Perusahaan, Bisnis atau Organisasi anda di www.networks.co.id/bisnisanda</p>
-				</div>
-				<div><?php $views->getIMG('temp/new4.png'); ?>
-				<p>Social. Twitter, Facebook dan Yahoo dalam <i>satu halaman</i></p>
-				</div>
-				<div><?php $views->getIMG('temp/new3.png'); ?>
-				<p>Upload Jasa, Produk atau Portofolio bisnis Anda</p>
-				</div>
-				<div><?php $views->getIMG('temp/new5.png'); ?>
-				<p>Ikuti berita sesuai kebutuhan Anda secara <i>Real-Time</i></p>
-				</div>
-				<div><?php $views->getIMG('temp/new6.png'); ?>
-				<p>Berikan promosi, feedback hingga <i>penawaran</i>. Semua bisa terjadi</p>
-				</div>
-				<div><?php $views->getIMG('temp/new7.png'); ?>
-				<p><i>Konsumisasi</i> Produk anda sebebas - bebasnya</p>
-				</div>
-				<div><?php $views->getIMG('temp/new2.png'); ?>
-				<p>Insights, <i>Pelajari</i> konsumen anda. Lakukan optimasi</p>
-				</div>
-				<div><?php $views->getIMG('temp/new8.png'); ?>
-				<p>Insights, juga mengembalikan kata <i>"its fun"</i> dalam bisnis</p>
-				</div>
-				<div><?php $views->getIMG('temp/new9.png'); ?>
-				<p>Blog bersama, dari kompetisi ke <i>kolaborasi</i></p>
-				</div>
+			<div class="blog-post benefits clearfix">
+					<div class="left l">
+						<h3>Business</h3>
+						<p>Partisipasi dalam jejaring bisnis indonesia, dimana Anda bisa <i>membeli, menjual, mencari dan dicari</i> Pelaku bisnis lainnya.</p>
+						<?php $views->getIMG('temp/hello1.png') ?>
+						<ul>
+							<li>Upload Produk anda</li>
+							<li>Aman dan Mudah</li>
+							<li>Shared Blog</li>
+						</ul>
+						<?php $views->getIMG('temp/hello4.png') ?>
+					</div>
+					<div class="mid l"><h3>Social</h3><p>Telusuri & Ikuti Pelaku bisnis lainnya dengan satu klik <i>"ikuti"</i>. <i>promosi, blog dan produk terbaru</i> pelaku bisnis yang Anda ikuti teringkas dalam satu halaman. </p>
+					<?php $views->getIMG('temp/hello2.png') ?></div>		
+					<div class="right l"><h3>Insights</h3><p>Pelajari penunjung anda, lakukan optimasi, tingkatkan penjualan anda. ( Real-time )</p>
+					<?php $views->getIMG('temp/hello3.png') ?>
+					<p>
+					<ul>
+					<li>Jumlah Penunjung Anda</li>
+					<li>Produk Yang paling diminati</li>
+					<li><a target="_blank" href="/products/fashion/tshirt">Pelajari trend yang sedang terjadi</a></li>
+					</ul>
+					</p></div>			
 			</div>
-
 			<hr>
+			
+			<div class="netcoid-start">
+					<p style="text-align: center;"><input class="button cupid-green" disable="true" type="submit" value="Perkembangan" name="register" id="button"></p>
+			</div>
+			
 	</div>
 	<!-- CONTENT END -->
 
@@ -93,12 +76,5 @@
 <script type="text/javascript">
 jQuery(document).ready(function() {
 	$('#ajax-loading-preview').hide();
-	$('.previewnetcoid').fadeIn();
-    $('.previewnetcoid').cycle({
-		fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-		speed:    2000,
-		timeout:  10000,
-		sync: false
-	});
 });
 </script>

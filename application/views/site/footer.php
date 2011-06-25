@@ -11,7 +11,7 @@
 			</ul>
 			
 			<ul class="clearfix" id="copyright">
-				<li><p><?php echo l('copyright'); ?></p></li>
+				<li><p><a href="/allstars"><?php echo l('copyright'); ?></a></p></li>
 				<li id="verified-business"><a href="/verify"><?php $views->getIMG('verified.png'); ?></a></li>
 			</ul>
 		</div>

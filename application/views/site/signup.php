@@ -50,8 +50,8 @@
 	<?php $this->validation->geterrors(); ?>
 	<div class="clearfix" id="red-content">
 		<div id="red-content-left">
-			<h1 class="whatnetcoid">jejaring bisnis</h1>
-			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
+			<h1 class="whatnetcoid">before we start</h1>
+			<p class="hownetcoid">Komunitas, Bantuan dan Peraturan</p>
 			<hr>
 		</div>
 		<div id="red-content-right">
