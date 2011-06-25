@@ -23,7 +23,8 @@
 			<h3>Ikuti Perkembangan kami!</h3>
 			<p>Sebelumnya kami akan mengucapkan selamat kepada anda, anda berada pada 1000 pendaftar pertama. Kami sedang <i>berkembang cepat</i>, untuk mengikuti perkembangan kami anda dapat mengikuti <a target="_blank" href="/blog">Blog</a> kami, Twitter dan Facebook kami; 
 			<p class="clearfix" style=" padding: 5px 5px 0;">
-			<span id="follow-twitterapi"><a href="http://twitter.com/netcoid" class="twitter-follow-button" data-lang="id">Follow @netcoid</a></span>
+			<a href="http://twitter.com/masedem" class="twitter-follow-button" data-show-count="false">Follow @masedem</a>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 			<span id="like-facebookapi"><fb:like href="www.facebook.com/netcoid" send="true" width="300" show_faces="true" font=""></fb:like></span>
 			</p>
 			</p>				
@@ -38,5 +39,4 @@
 		setelah anda membaca, Anda dapat "masuk" dari menu atas kanan.</span>
 	</div>
 	<!-- CONTENT END -->
-	<script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
 	<script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
