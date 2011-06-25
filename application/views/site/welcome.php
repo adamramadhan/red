@@ -38,14 +38,5 @@
 		setelah anda membaca, Anda dapat "masuk" dari menu atas kanan.</span>
 	</div>
 	<!-- CONTENT END -->
-	<?php $views->JS('jquery'); ?>
-	<script type="text/javascript">
-	  (function(){
-	    var twitterWidgets = document.createElement('script');
-	    twitterWidgets.type = 'text/javascript';
-	    twitterWidgets.async = true;
-	    twitterWidgets.src = 'https://platform.twitter.com/widgets.js';
-	    document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-	  })();
-	</script>
+	<script src="https://platform.twitter.com/widgets.js" type="text/javascript"></script>
 	<script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
