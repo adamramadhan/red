@@ -114,6 +114,7 @@ class ReCaptcha {
 	
 	public static function check_answer($extra_params = array()) {
 		$privkey = self::$privatekey;
+		
 		$remoteip = $_SERVER ["REMOTE_ADDR"];
 		$challenge = $_POST ["recaptcha_challenge_field"];
 		$response = $_POST ["recaptcha_response_field"];

@@ -12,8 +12,8 @@ class Secure extends Application {
 		if (is_post ( 'secure' ) && $this->sessions->get ( 'secure.get' ) && $this->sessions->get ( 'secure.data' )) {
 			
 			# kalo lagi error matiin aja
-			//$respond = $this->recaptcha->check_answer();
-			//$this->validation->f(!$respond->is_valid,l('recaptcha_error'));
+			$respond = $this->recaptcha->check_answer();
+			$this->validation->f(!$respond->is_valid,l('recaptcha_error'));
 			
 
 			# check recaptcha
