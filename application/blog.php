@@ -22,11 +22,19 @@ class Blog extends Application {
 	
 	function index() {
 		$data ['posts'] = $this->model->blog->listNewsTitle ();
-		$data ['highlight'] = $this->model->blog->getHighlight();
+		
 		if (! is_get ( 'id' )) {
 
 			# GET LATEST POST DATA WHERE STATUS 1
 			$data ['post'] = $this->model->blog->getLastPost ('1');
+
+			if ($data['post']['status'] == 1) {
+				$data ['highlight'] = $this->model->blog->getHighlight('2');
+			}
+
+			if ($data['post']['status'] == 3) {
+				$data ['highlight'] = $this->model->blog->getHighlight('4');
+			}
 
 			if (config('middleware/wmd')) {	
 				$data ['post'] ['content'] = $data ['post'] ['content_html'];
@@ -82,7 +90,15 @@ class Blog extends Application {
 		if (is_get ( 'id' )) {
 			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
-			
+
+			if ($data['post']['status'] == 1) {
+				$data ['highlight'] = $this->model->blog->getHighlight('2');
+			}
+
+			if ($data['post']['status'] == 3) {
+				$data ['highlight'] = $this->model->blog->getHighlight('4');
+			}
+		
 			# IF STATUS 0 OR NOT PUBLISHED
 			if ($data['post']['status'] == '0') {
 				redirect('404');
