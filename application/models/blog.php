@@ -56,7 +56,7 @@ class ModelBlog extends Models {
 		return $status;
 	}
 	function getHighlight($status){
-		$data = $this->fetch ( 'SELECT blog.nid, blog.title, blog.content, blog.content_html, users.name, blog.tag, blog.timecreate
+		$data = $this->fetch ( 'SELECT blog.nid, blog.title, blog.content, blog.content_html, users.name, blog.tag, blog.timecreate, blog.status
 		FROM blog, users WHERE users.uid = blog.uid AND status = :status ORDER BY nid DESC LIMIT 1', array ('status' => $status ) );
 		return $data;		
 	}
