@@ -34,9 +34,9 @@ class ModelBlog extends Models {
 		return $data;		
 	}
 	
-	function listNewsTitle($status = '0') {
-		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title, blog.timecreate
-		FROM blog, users WHERE users.uid = blog.uid AND status = '.$status.' ORDER BY nid DESC LIMIT 10' );
+	function listNewsTitle() {
+		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title, blog.timecreate, blog.status
+		FROM blog, users WHERE users.uid = blog.uid AND status = 1 OR status = 3 ORDER BY nid DESC LIMIT 10' );
 		return $data;
 	}
 	

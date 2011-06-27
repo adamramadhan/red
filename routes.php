@@ -14,7 +14,6 @@ $routes['503'] = 'core:off';
 $routes['nojs'] = 'core:nojs';
 #$routes['default'] = 'core:index';
 
-
 #fitur profiles ke method index
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
 

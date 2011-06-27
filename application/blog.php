@@ -21,7 +21,7 @@ class Blog extends Application {
 	}
 	
 	function index() {
-		$data ['posts'] = $this->model->blog->listNewsTitle ('1');
+		$data ['posts'] = $this->model->blog->listNewsTitle ();
 		$data ['highlight'] = $this->model->blog->getHighlight();
 		if (! is_get ( 'id' )) {
 

@@ -75,7 +75,7 @@
 		<div class="c" id="red-blog-right">
 			<ul>
 			<?php foreach ($posts as $post) {
-				echo '<li class="post-list" id="post-list-'.$post['nid'].'">
+				echo '<li class="post-list type-'.$post['status'].'" id="post-list-'.$post['nid'].'">
 				<div id="post-list-title"><a href="/blog?id='.$post['nid'].'">'.$post['title'].'</a></div>
 				<div id="post-list-meta">updated <abbr class="ajax-time" title="'.$post['timecreate'].'" id="time">'.$this->time->formatDateDiff($post['timecreate']).'</abbr></div>
 				</li>';	

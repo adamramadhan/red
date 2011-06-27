@@ -1,29 +1,31 @@
-<?php $this->validation->geterrors(); ?>
-	<div id="red-error-box"></div>
-	<!-- CONTENT START -->
-	<div class="clearfix" id="red-content">
+
 		<!-- FORM START -->
 		<div id="red-edit-left-wide">
-			<h3>Edit Artikel</h3>
+			<h3>Tambah Artikel</h3>
 			<form id="form-blogadd" accept-charset="utf-8" method="post">
 			<ul>
-				<li><label for="input-title">Judul</label><input type="text" title="<?php echo l('blog_title_error'); ?>" value="<?php echo $data['title']; ?>" id="input-title" class="text-title" name="title"></li>
+				<li><label for="input-title">Judul</label><input type="text"
+					title="<?php echo l('blog_title_error'); ?>" value="" id="input-title" class="text-title" name="title"></li>
 				<li><div id="js-middleware-wmd-menu"></div></li>
-				<li><label for="content">Tulisan</label><textarea title="<?php echo l('blog_content_empty'); ?>" rows="50" cols="65" name="content" id="js-middleware-wmd-core"><?php echo $data['content']; ?></textarea></li>
+				<li><label for="content">Tulisan</label><textarea title="<?php echo l('blog_content_empty'); ?>" rows="50" cols="65" name="content" id="js-middleware-wmd-core"></textarea></li>
 				<li><label for="preview">Preview</label>
-				<h1 id="title-suffix" style="padding: 5px;"><?php echo $data['title']; ?></h1>
+				<h1 id="title-suffix" style="padding: 5px;"></h1>
 				<div class="blog-post" id="js-middleware-wmd-preview"></div>
 				</li>
 				<li><label for="input-title">Tag</label><input type="text"
-					value="<?php echo $data['tag']; ?>" title="<?php echo l('blog_tag_empty'); ?>" id="input-tag" class="textinput" name="tag"></li>
+					value="" title="<?php echo l('blog_tag_empty'); ?>"  id="input-tag" class="textinput" name="tag"></li>
 			</ul>
 			<input type="hidden" name="js-middleware-wmd-output" value="" id="js-middleware-wmd-output">
-			<p><input type="submit" value="Edit" name="editpost" id="button"></p>
+			<p><input type="submit" value="Review" name="newpost" id="button"></p>
 			</form>
 		</div>
 		<!-- FORM ENDS -->
 		
 		<div id="red-edit-right">	
+		<div id="red-profile-guides">
+		<h3>Tell your story.</h3>
+			<p>Tulisan anda akan dimuat <a style="color: #CC3E3E;text-decoration: underline;" href="/blog">Blog Netcoid</a> dan beberapa rekan media Netcoid.</p>
+		</div>
 		<div id="red-profile-guides">
 		<style>
 		.highlight{background: none repeat scroll 0 0 #FFFCBB;}
@@ -60,21 +62,17 @@
 			<p>Anda hanya dapat mengirim satu artikel sampai artikel tersebut di approve.</p>
 		</div>	
 		</div>
-		
-		<!-- ADS & MENU START -->
-		<?php $this->view('users/menu-right'); ?>	
-		<!-- ADS & MENU START -->
-
-	</div>
-	<!-- CONTENT END -->	
 
 	<link rel="stylesheet" type="text/css" href="/www-static/assets/js/middleware/wmd/wmd.css"/>
 	<?php $views->css('blog'); ?>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/showdown.js"></script>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/wmd.js"></script> 
+
     <style>
-		#js-middleware-wmd-preview {
-		    padding: 5px;
-		}
-		.text-title {
-	    width: 465px;
-		}
+	#js-middleware-wmd-preview {
+	    padding: 5px;
+	}
+	.text-title {
+    width: 465px;
+	}
     </style>

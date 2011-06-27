@@ -1,7 +1,7 @@
 	<?php $this->validation->geterrors(); ?>
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
-
+		<div class="l clearfix" id="ajax-users-dashboard">
 		<!-- INFORMATION START -->
 		<div id="red-edit-full">
 			<?php
@@ -31,7 +31,7 @@
 			?>
 		</div>
 		<!-- INFORMATION ENDS -->	
-	
+		</div>
 
 		<!-- ADS & MENU START -->
 		<?php $this->view('users/menu-right'); ?>	

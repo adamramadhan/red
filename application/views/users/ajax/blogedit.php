@@ -1,7 +1,4 @@
-<?php $this->validation->geterrors(); ?>
-	<div id="red-error-box"></div>
-	<!-- CONTENT START -->
-	<div class="clearfix" id="red-content">
+	<div class="l clearfix" id="ajax-users-dashboard">
 		<!-- FORM START -->
 		<div id="red-edit-left-wide">
 			<h3>Edit Artikel</h3>
@@ -60,21 +57,18 @@
 			<p>Anda hanya dapat mengirim satu artikel sampai artikel tersebut di approve.</p>
 		</div>	
 		</div>
-		
-		<!-- ADS & MENU START -->
-		<?php $this->view('users/menu-right'); ?>	
-		<!-- ADS & MENU START -->
-
 	</div>
-	<!-- CONTENT END -->	
 
 	<link rel="stylesheet" type="text/css" href="/www-static/assets/js/middleware/wmd/wmd.css"/>
 	<?php $views->css('blog'); ?>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/showdown.js"></script>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/wmd.js"></script> 
+	<?php $views->JS('jquery,middleware/jquery/jquery.validation,users/addarticle'); ?>
     <style>
-		#js-middleware-wmd-preview {
-		    padding: 5px;
-		}
-		.text-title {
-	    width: 465px;
-		}
+	#js-middleware-wmd-preview {
+	    padding: 5px;
+	}
+	.text-title {
+    width: 465px;
+	}
     </style>

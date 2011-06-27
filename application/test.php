@@ -40,9 +40,10 @@ class Test extends Application {
 
 	function home(){
 		$this->library('social');
-		$json['twitter'] = $this->social->twitterSearch('@faktanyaadalah&lang=id');
-		$json['facebook'] = $this->social->facebookSearch('@faktanyaadalah&type=post');
-		$hello = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
+		#$json['twitter'] = $this->social->twitterSearch('@faktanyaadalah&lang=id');
+		#$json['facebook'] = $this->social->facebookSearch('@faktanyaadalah&type=post');
+		#$hello = $json['twitter']['tweetperhour'] + $json['facebook']['postperhour'];
+		$hello = $this->social->getYahooProfile('uniqpost');
 		var_dump($hello);
 
 		#$facebook = $this->social->getFacebookPageStatus('netcoid');

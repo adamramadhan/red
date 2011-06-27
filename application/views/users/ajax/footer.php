@@ -1,3 +1,12 @@
+		
+		</div>
+		<!-- ADS & MENU START -->
+		<?php $this->view('users/menu-right'); ?>	
+		<!-- ADS & MENU START -->
+
+	</div>
+	<!-- CONTENT END -->	
+
 	<!-- START FOOTER  -->
 	<div id="footer">
 		<div class="clearfix" id="footer-warp">
@@ -19,19 +28,4 @@
 	<!-- END FOOTER  -->
 	
 	</body>
-
-<?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
- <script type="text/javascript">
-	jQuery(document).ready(function(){
-		$('#arrow-link').pjax({
-	    	container: '#ajax-users-dashboard',
-	  	});
-	});
-</script>
-<?php 
-
-if (!config('development')) {
-	$views->js('middleware/google/google-analytics');
-}
-?>
 </html>
