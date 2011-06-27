@@ -213,3 +213,7 @@ riset
     width: 670px;
 }
 #highlight a{color:#CC3E3E;}
+
+#red-blog-right .type-3{    background: none repeat scroll 0 0 #62BCDA;}
+#red-blog-right .type-3 #post-list-title a {    color: #444444;}
+#red-blog-right .type-3 #post-list-meta{    color: #3878AB;}
