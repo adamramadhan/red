@@ -19,8 +19,6 @@
   src: local('Pacifico'), url('/www-static/assets/fonts/Pacifico.ttf') format('truetype');
 }
 
-
-
 a.u{
    color: #5E96E3;
 }
@@ -32,6 +30,7 @@ a.u{
 body {
     color: #444444;
     font: 13px/1.7em "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+    direction: ltr;
 }
 label {
     display: block;

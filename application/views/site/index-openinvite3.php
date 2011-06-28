@@ -30,6 +30,7 @@ margin-right: 20px;}
 margin-left: 20px;}
 .blog-post{padding:0;}
 .blog-post h3{border:none;}
+.netcoid-start a:hover{text-decoration:none;}
 	</style>
 
 	<!-- CONTENT START -->
@@ -65,7 +66,7 @@ margin-left: 20px;}
 			<hr>
 			
 			<div class="netcoid-start">
-					<p style="text-align: center;"><input class="button cupid-green" disable="true" type="submit" value="Perkembangan" name="register" id="button"></p>
+					<p style="text-align: center;"><a href="/signup"><input class="button cupid-green" type="submit" value="Signup" name="register" id="button"></a></p>
 			</div>
 			
 	</div>

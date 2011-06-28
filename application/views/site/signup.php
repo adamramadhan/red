@@ -44,16 +44,25 @@
     padding: 5px;
     width: 670px;
 }
+#red-content-right {
+	min-height: 650px;
+	padding: 5px 5px 5px 20px;
+	width: 400px;
+	margin: 0 auto;
+	float:none;
+}
 	</style>
 
 	<!-- CONTENT START -->
 	<?php $this->validation->geterrors(); ?>
 	<div class="clearfix" id="red-content">
+		<!--
 		<div id="red-content-left">
 			<h1 class="whatnetcoid">before we start</h1>
 			<p class="hownetcoid">Komunitas, Bantuan dan Peraturan</p>
-			<hr>
+			<hr>					
 		</div>
+		--> 
 		<div id="red-content-right">
 			<div id="red-register">
 				<h3><strong>Pendaftaran</strong></h3>
