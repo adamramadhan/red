@@ -342,8 +342,15 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
 }
 .feeds #subimage img:hover {
     border: 1px solid #939393;
-
 }
+
+.feeds:hover #subimage img {
+     transform: rotate(0deg) translate(0px, -2px) scale(1.030);
+    -moz-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
+    -webkit-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
+    -o-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
+}
+ 
 
 .feeds #subcomments{  }
 .mentions{ 

@@ -182,11 +182,11 @@ PRODUCTLIST
 }
 
 #product:hover .product-image img{
-/*     transform: rotate(0deg) translate(0px, -2px) scale(1.030);
+    transform: rotate(0deg) translate(0px, -2px) scale(1.030);
     -moz-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
     -webkit-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
     -o-transform: rotate(0deg) translate(0px, -2px) scale(1.030); 
-*/  
+
 }
 
 #ajax-pull-twitter,#ajax-pull-yahoo ,#ajax-pull-twitter{
