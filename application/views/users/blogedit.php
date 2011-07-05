@@ -70,11 +70,14 @@
 
 	<link rel="stylesheet" type="text/css" href="/www-static/assets/js/middleware/wmd/wmd.css"/>
 	<?php $views->css('blog'); ?>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/showdown.js"></script>
+	<script type="text/javascript" src="/www-static/assets/js/middleware/wmd/wmd.js"></script> 
+	<?php $views->JS('jquery,middleware/jquery/jquery.validation,users/addarticle'); ?>
     <style>
-		#js-middleware-wmd-preview {
-		    padding: 5px;
-		}
-		.text-title {
-	    width: 465px;
-		}
+	#js-middleware-wmd-preview {
+	    padding: 5px;
+	}
+	.text-title {
+    width: 465px;
+}
     </style>

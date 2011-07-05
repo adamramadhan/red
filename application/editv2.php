@@ -1,13 +1,16 @@
 <?php
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
-class Edit extends Application {
+class editv2 extends Application {
 	/**
 	 * WWW.NETWORKS.CO.ID/EDIT
 	 * where global things happens
 	 * inside this domain.
 	 */
+	 
 	function __construct() {
+
+		# BOOTSTRAP
 		$this->library ( 'sessions' );
 		$this->library ( 'validation' );
 		$this->helper ( 'forms' );
@@ -17,27 +20,46 @@ class Edit extends Application {
 			redirect ( '/404' );
 			die ();
 		}
+
+		# ASSETS
+		$this->preCSShooks = array(
+			'framework',
+			'netcoid.v1',
+			'users'
+		);
+
+		$this->preJShooks = array(
+			'jquery',
+			'jquery-ui-1.8.14.custom.min'
+		);
+
+		$this->postJShooks = array(
+			'middleware/jquery/jquery.pjax',
+			'users.v1'
+		);
 	}
-	
-	/**
-	 * WWW.NETWORKS.CO.ID/EDIT/PROFILE
-	 * where users edit their basic profile
-	 * information.
-	 */
-	function profile() {
-		# INIT
+	function skel(){
+		# START BOOTSTRAP
+		# START LOGIC
+		# START VIEWS
+	}
+
+	function EditProfile(){
+
+		# START BOOTSTRAP
 		$this->middleware ( 'googlemaps', 'googlemaps' );
 		$this->middleware ( 'verotimage', 'upload' );
 		$this->model ( 'users' );
 		$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
-		
+
+		# START LOGIC
 		if (! empty ( $data ['user'] ['address'] )) {
 			$this->googlemaps->init ( array ('size' => '220x220', 'address' => $data ['user'] ['address'], 'language' => 'Disini', 'path' => STORAGE ) );
 		}
 		
 		if (is_post ( 'edit' )) {
 			
-			#GET DATA
+			# GET DATA
 			$e ['address'] = $this->validation->safe ( $_POST ['address'] );
 			$e ['phone'] = $_POST ['phone'];
 			$e ['email'] = $_POST ['email'];
@@ -96,367 +118,83 @@ class Edit extends Application {
 				}
 			}
 		}
-		
-		$this->view ( 'users/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'users/profile', $data );
-		$this->view ( 'users/footer' );
+
+		# START VIEWS
+		if (!is_ajax()) {
+			$this->view ( 'usersv2/header', $data );
+			$this->view ( 'usersv2/profile', $data );
+			$this->view ( 'usersv2/footer', $data );
+		}
+		if (is_ajax()) {
+			$this->view ( 'usersv2/profile', $data );
+		}			
 	}
-	
-	function frontbox() {
-		$this->model ( 'users' );
-		$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
-		
-		if (is_post ( 'edit' )) {
-			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
-			$p ['uid'] = $this->sessions->get ( 'uid' );
-			
-			if (! sizeof ( $this->validation->errors )) {
-				$this->model->users->updateFrontPage ( $p );
-				redirect ( '/edit/frontbox' );
-			}
-		}
-		
-		$this->view ( 'users/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'users/frontpage', $data );
-		$this->view ( 'users/footer' );
-	}
-	
-	function connections() {
-		$this->library ( 'social' );
-		$this->model ( 'users' );
-		$data ['user'] = $this->model->users->getDataConnection ( $this->sessions->get ( 'uid' ) );
-		
-		if (is_post ( 'edit' )) {
-			$c ['yahoo'] = $_POST ['yahoo'];
-			$c ['twitter'] = $_POST ['twitter'];
-			#validation
-			$c ['facebook'] = $_POST ['facebook'];
-			$c ['uid'] = $this->sessions->get ( 'uid' );
-			
-			# check if yahoo exist in post
-			if (! empty ( $c ['yahoo'] )) {
-				$this->validation->regex ( $c ['yahoo'], '/^([a-zA-Z0-9_.\s]{6,40})(@yahoo.com|@ymail.com|@rocketmail.com)$/', l ( 'connection_yahoo_error' ) );
-			}
-			
-			# check if twitter exist in post			
-			if (! empty ( $c ['twitter'] )) {
-				$this->validation->regex ( $c ['twitter'], '/^[a-zA-Z0-9_]{1,20}+$/', l ( 'connection_twitter_error' ) );
-			}
-			
-			if (! empty ( $c ['facebook'] )) {
-				$this->validation->regex ( $c ['facebook'], '/^[a-zA-Z0-9_.]+$/', l ( 'connection_facebook_error' ) );
-			}
-			
-			if (! sizeof ( $this->validation->errors )) {
-				$this->model->users->updateConnections ( $c );
-				redirect ( '/edit/connections' );
-			}
-		}
-		$this->view ( 'users/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'users/connections', $data );
-		$this->view ( 'users/footer' );
-	}
-	
-	function product() {
-		
-		$this->middleware ( 'verotimage', 'upload' );
-		$this->model ( 'products' );
-		// groups
-		
-		# IF EDIT
-		//$data = array ();
-		$this->model('groups');
-		$data['groups'] = $this->model->groups->listGroups();
 
-		if (is_get ( 'e' )) {
-			$data['product'] = $this->model->products->getData ( $_GET ['e'] );
-			if (! empty ( $data ['product']['price'] )) {
-				$data ['product']['price'] = sprintf ( "%d", $data ['product']['price'] );
-			}
-			
-			#validate get data
-			if ($data ['product']['uid'] !== $this->sessions->get ( 'uid' )) {
-				redirect ( '/' );
-			}
-		}
-		
-		# JIKA TAMBAH PRODUCT
-		if (is_post ( 'edit' )) {
-			
-			# GET A NEW PRODUCT
-			$p ['name'] = $_POST ['name'];
-			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
-			$p ['tag'] = ($_POST ['tag']);
-			$p ['price'] = $_POST ['price'];
-			$p ['group'] = $_POST['group'];
+	function ListProducts(){
 
-			# get the time from jakarta
-			$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
-			$p ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
-			
-			$this->validation->regex ( $p ['name'], '/^[a-zA-Z0-9_\s#]{4,20}$/', l ( 'product_name_error' ) );
-			$this->validation->required ( $p ['information'], l ( 'product_description_error' ) );
-			$this->validation->regex ( $p ['tag'], '/^[a-zA-Z0-9]{3,15}+$/', l ( 'product_tag_error' ) );
-			$this->validation->regex ( $p ['price'], '/^[0-9]{1,11}+$/', l ( 'product_price_error' ) );
-			$this->validation->required ( $p ['group'], l ( 'product_group_error' ) );
-
-
-			if (!is_get ( 'e' )) {
-				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
-			}
-			
-			if (! is_get ( 'e' )) {
-				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
-				$p ['uid'] = $this->sessions->get ( 'uid' );
-			}
-			if (is_get ( 'e' )) {
-				$p ['pid'] = $_GET ['e'];
-			}
-
-			$this->validation->image ( $_FILES ['image'], l ( 'product_image_error' ) );
-			
-			if (! sizeof ( $this->validation->errors )) {
-				
-				# JIKA IMAGE ADA
-				if (! empty ( $_FILES ['image'] ['size'] )) {
-					
-					# START PLUGIN
-					$this->upload->vupload ( $_FILES ['image'] );
-					$savepath = STORAGE . DS . $this->sessions->get ( 'uid' );
-					$randomid = md5 ( $this->sessions->get ( 'uid' ) . 'product' );
-					
-					if ($this->upload->uploaded) {
-						// RAW IMAGE START
-						# @todo fixed auto rename
-						$this->upload->file_auto_rename = true;
-						// @todo important! 460 kan maksimalnya cuma gambarnya	
-						if ($this->upload->image_src_x > 460) {
-							$this->upload->image_resize = true;
-							$this->upload->image_ratio_y = true;
-							$this->upload->image_x = 460;
-						}
-						
-						$this->upload->file_name_body_pre = $this->sessions->get ( 'uid' ) . 'raw' . $randomid;
-						$this->upload->allowed = array ('image/*' );
-						$this->upload->Process ( $savepath );
-						
-						if ($this->upload->processed) {
-							/* give another edit variable for update */
-							$p ['image'] = $this->upload->file_dst_name;
-							chmod ( $savepath . '/' . $p ['image'], 0644 );
-						}
-						// RAW IMAGE ENDS
-						
-
-						// TUMB IMAGE START	@todo sampe disini        
-						$this->upload->file_auto_rename = true;
-						$this->upload->image_resize = true;
-						$this->upload->image_x = 150; // width
-						$this->upload->image_y = 150; // height
-						$this->upload->image_ratio = true;
-						$this->upload->file_name_body_pre = $this->sessions->get ( 'uid' ) . 'tumb' . $randomid;
-						$this->upload->allowed = array ('image/*' );
-						
-						$this->upload->Process ( $savepath );
-						if ($this->upload->processed) {
-							/* give another edit variable for update */
-							$p ['image_tumb'] = $this->upload->file_dst_name;
-							chmod ( $savepath . '/' . $p ['image_tumb'], 0644 );
-						}
-						// TUMB IMAGE ENDS
-						
-
-						$this->upload->clean ();
-					}
-				}
-				
-				# IF THERE IS NO EDIT
-				if (! is_get ( 'e' )) {
-					$this->model->products->addProduct ( $p );
-					redirect ( '/edit/products' );
-				}
-				
-				#IF THERE IS EDIT 
-				if (is_get ( 'e' )) {
-					if (! empty ( $p ['image'] ) && ! empty ( $p ['image_tumb'] )) {
-						# GET PRODUCT IMAGE INFORMATION FROM DB
-						$imagepath = STORAGE . DS . $this->sessions->get ( 'uid' ) . DS;
-						unlink ( $imagepath . $data ['image'] );
-						unlink ( $imagepath . $data ['image_tumb'] );
-					}
-					$this->model->products->updateData ( $p );
-					redirect ( '/edit/products' );
-				}
-			} # ERROR ENDS
-		} # IF POST EDIT
-		
-
-		$this->view ( 'users/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		if (! is_get ( 'e' )) {
-			$this->view ( 'users/product',$data );
-		}
-		if ( is_get ( 'e' )) {
-			$this->view ( 'users/editproduct', $data );
-		}
-		$this->view ( 'users/footer' );
-	}
-	
-	function products() {
+		# START BOOTSTRAP
 		$this->model ( 'users' );
 		$this->model ( 'products' );
-		$data ['products'] = $this->model->products->listProductsByUID ( $this->sessions->get ( 'uid' ) );
-		
-		# IF DEL REQUEST
-		if (is_get ( 'd' )) {
-			
-			# GET PRODUCT UID
-			$productuid = $this->model->products->getProductPID ( $_GET ['d'] );
-			
-			# IF PRODUCT UID = USER UID
-			if ($productuid ['uid'] == $this->sessions->get ( 'uid' )) {
+
+		# START LOGIC
+		if (!is_get('t')) {
+			$data['products'] = $this->model->products->listGroupByTag($this->sessions->get('uid'));
+		}
+
+		if (is_get('t')) {
+			$data['products'] = $this->model->products->listByTag($this->sessions->get('uid'),$_GET['t']);
+
+			# IF DEL REQUEST
+			if (is_get ( 'd' )) {
 				
-				# GET PRODUCT IMAGE INFORMATION FROM DB
-				$image = $this->model->users->getProductIMG ( $_GET ['d'] );
-				$imagepath = STORAGE . DS . $this->sessions->get ( 'uid' ) . DS;
+				# GET PRODUCT UID
+				$productuid = $this->model->products->getProductPID ( $_GET ['d'] );
 				
-				# DEL IMAGE
-				if (unlink ( $imagepath . $image ['image_tumb'] ) && unlink ( $imagepath . $image ['image'] )) {
-					$this->model->users->delProduct ( $_GET ['d'] );
-					redirect ( '/edit/products' );
-				}
-			}
-		}
-		# END DEL REQUEST
-		
-
-		$this->view ( 'users/header' );
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->view ( 'users/products', $data );
-		$this->view ( 'users/footer' );
-	}
-
-	function article(){
-		# unvefieid users
-		$this->view ( 'users/header' );
-		$this->render('js','jquery', array('type' => 'external' ));
-		$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-		$this->model ( 'blog' );
-
-		# SATU PERSATU DI VERIFIKASI, JIKA MASIH ADA YANG 0 TDAK BISA MASUKIN NEWS BARU KARENA SPAM
-		$unnapproved_article = $this->model->blog->listUnapprovedByUID($this->sessions->get('uid'));
-
-		# JIKA TIDAK ADA ARTIKEL YANG BELUM DIAPRROVE
-		if (!empty($unnapproved_article)) {
-
-			# DELETE
-			if (is_get('d')) {
-				$this->model->blog->delPost ( $unnapproved_article['nid']);
-				redirect ( '/beta/article' );				
-			}
-
-			# EDIT
-			if (is_get('e')) {
-
-				if (is_post('editpost')) {
-					# @todo strip all code for security kayanya sih udah safe coba dicek ulang
-					$n ['title'] = $_POST ['title'];
-
-					if (config('middleware/wmd')) {	
-						$n ['content'] = $_POST ['content'];
-						$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
-					}
-					if (!config('middleware/wmd')) {	
-						$n ['content'] = $_POST ['content'];
-						$n ['content_html'] = $_POST ['content'];
-					}
-
-					$n ['tag'] = $_POST ['tag'];
-					$n ['uid'] = $this->sessions->get ( 'uid' );
-					$n ['nid'] = $unnapproved_article['nid'];
-
-					# get the time from jakarta
-					$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
-					$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
-
-					# validateing
-					$this->validation->required ( $n ['title'], l('blog_title_error') );
-					$this->validation->required ( $n ['content'], l('blog_content_empty') );
-					$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
-
-					if (! sizeof ( $this->validation->errors )) {
-						$this->model->blog->editPost ( $n );
-						redirect ( '/beta/article' );
+				# IF PRODUCT UID = USER UID
+				if ($productuid ['uid'] == $this->sessions->get ( 'uid' )) {
+					
+					# GET PRODUCT IMAGE INFORMATION FROM DB
+					$image = $this->model->users->getProductIMG ( $_GET ['d'] );
+					$imagepath = STORAGE . DS . $this->sessions->get ( 'uid' ) . DS;
+					
+					# DEL IMAGE
+					if (unlink ( $imagepath . $image ['image_tumb'] ) && unlink ( $imagepath . $image ['image'] )) {
+						$this->model->users->delProduct ( $_GET ['d'] );
+						redirect ( '/edit/products?t='.$_GET['t'] );
 					}
 				}
-
-				$this->view ( 'users/blogedit', $unnapproved_article );
-				$this->render('js','middleware/wmd/showdown', array('type' => 'external' ));
-				$this->render('js','middleware/wmd/wmd', array('type' => 'external' ));
-				$this->render('js','middleware/jquery/jquery.validation,users/addarticle');
 			}
+			# END DEL REQUEST
 
-			# VIEW
-			if (!is_get('d') && !is_get('e')) {
-				$this->view ( 'users/blogverify', $unnapproved_article );
+			if (empty($data['products'])) {
+				redirect ( '/edit/products' );
+				die ();
 			}
-
 		}
 
-		# JIKA ADA ARTIKEL YANG BELUM DIAPPROVE
-		if (empty($unnapproved_article)) {
-			if (is_post ( 'newpost' )) {
-
-				# @todo strip all code for security
-				$n ['title'] = $_POST ['title'];
-
-				if (config('middleware/wmd')) {	
-					$n ['content'] = $_POST ['content'];
-					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
-				}
-				if (!config('middleware/wmd')) {	
-					$n ['content'] = $_POST ['content'];
-					$n ['content_html'] = $_POST ['content'];
-				}
-
-				$n ['tag'] = $_POST ['tag'];
-				$n ['uid'] = $this->sessions->get ( 'uid' );
-
-				# get the time from jakarta
-				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
-				$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
-
-				# validateing
-				$this->validation->required ( $n ['title'], l('blog_title_error') );
-				$this->validation->required ( $n ['content'], l('blog_content_empty') );
-				$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
-
-				if (! sizeof ( $this->validation->errors )) {
-					$this->model->blog->setPosts ( $n );
-					redirect ( '/beta/article' );
-				}
+		# START VIEWS
+		if (!is_get('t')) {
+			if (!is_ajax()) {
+				$this->view ( 'usersv2/header', $data );
+				$this->view ( 'usersv2/productgroups', $data );
+				$this->view ( 'usersv2/footer', $data );
 			}
-			$this->view ( 'users/blogadd' );
-			$this->render('js','middleware/wmd/showdown', array('type' => 'external' ));
-			$this->render('js','middleware/wmd/wmd', array('type' => 'external' ));
-			$this->render('js','middleware/jquery/jquery.validation,users/addarticle');
+			if (is_ajax()) {
+				$this->view ( 'usersv2/productgroups', $data );
+			}
 		}
 
-
-		$pjax = '
-		jQuery(document).ready(function(){
-			$("#red-side-menu a").pjax({
-	    		container: "#ajax-users-dashboard"
-	  		});
-		});
-		';
-		$this->render('js','middleware/jquery/jquery.pjax','external');
-		$this->render('js',$pjax,'raw');
-		$this->view ( 'users/footer' );
-	}
+		if (is_get('t')) {
+			if (!is_ajax()) {
+				$this->view ( 'usersv2/header', $data );
+				$this->view ( 'usersv2/productlists', $data );
+				$this->view ( 'usersv2/footer', $data );
+			}
+			if (is_ajax()) {
+				$this->view ( 'usersv2/productlists', $data );
+			}			
+		}
+	} 
 }
 
 ?>

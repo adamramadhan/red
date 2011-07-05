@@ -82,29 +82,51 @@ class Views {
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */
-	public function CSS() {
-		if (config ( 'features/compress/css' )) {
-			// See @ref #1
-			ob_start ( array ($this, 'compressorCSS' ) );
+	public function CSS( $files, $type = NULL ) {
+
+		#sementara
+		if (!is_array($files)) {
+			$files = func_get_args ();
 		}
-		
-		$file = func_get_args ();
-		echo "<style type='text/css'>";
-		foreach ( $file as $css ) {
-			
-			if (config ( 'development' )) {
-				
-				if (! file_exists ( "www-static" . DS . "assets" . DS . "css" . DS . $css . ".css" )) {
-					throw new Exception ( "No such file as $css.css" );
+
+		# Is it External or Inline ?
+		switch ($type) {
+			case 'external':
+				foreach ($files as $css) {
+					if (config ( 'development' )) {
+						if (! file_exists ( "www-static" . DS . "assets" . DS . "css" . DS . $css . ".css" )) {
+							throw new Exception ( "No such file as $css.css" );
+						}
+					}
+					
+					$fullpath =  "/www-static" . DS . "assets" . DS . "css" . DS . $css . ".css";
+					echo '<link type="text/css" rel="stylesheet" href="'.$fullpath.'"/>'."\n\t\t";
 				}
-			}
+				break;
 			
-			require_once "www-static" . DS . "assets" . DS . "css" . DS . $css . ".css";
-		}
-		echo "</style>";
-		
-		if (config ( 'features/compress/css' )) {
-			ob_end_flush ();
+			default:
+				if (config ( 'features/compress/css' )) {
+					// See @ref #1
+					ob_start ( array ($this, 'compressorCSS' ) );
+				}
+				
+				echo "<style type='text/css'>";
+				foreach ( $files as $css ) {
+					
+					if (config ( 'development' )) {
+						if (! file_exists ( "www-static" . DS . "assets" . DS . "css" . DS . $css . ".css" )) {
+							throw new Exception ( "No such file as $css.css" );
+						}
+					}
+					
+					require_once "www-static" . DS . "assets" . DS . "css" . DS . $css . ".css";
+				}
+				echo "</style>";
+				
+				if (config ( 'features/compress/css' )) {
+					ob_end_flush ();
+				}
+			break;
 		}
 	}
 	
@@ -114,10 +136,12 @@ class Views {
 	 * @author rama@networks.co.id
 	 * @tutorial wiki/missing.txt
 	 */
-	public function JS( $string, $type = NULL ) {
+	public function JS( $files, $type = NULL ) {
 	
-	# Get the files from the string
-	$files = explode(",", $string);
+	if (!is_array($files)) {
+		# Get the files from the string
+		$files = explode(",", $files);
+	}
 	
 	# Is it External or Inline ?
 	switch ($type) {

@@ -113,8 +113,19 @@ list-style:none outside none;
 }
 
 /*product*/
-#subinformation{background:none repeat scroll 0 0 #fff;
-margin:5px 0;border-bottom: 1px solid #F9EBEB;}
+#subinformation {
+    background-color: none repeat scroll 0 0 #FFF9E3;
+    border-bottom: 1px solid #F9EBEB;
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+
+#subinformation:hover{background-color:  #FFFEDC;}
+#ajax-red-treeslider a:hover {
+      background: none repeat scroll 0 0 #fff;
+      color:#444;
+      text-decoration:none;
+}
 #subinformation #group{float: left;
     max-width: 230px;
     padding: 5px 10px;    background: none repeat scroll 0 0 #FEFFDE;}
@@ -132,11 +143,14 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     float: left;
     font-size: 10px;
     padding: 5px 10px;}
-#suboptions a {
+#suboptions {
     color: #CCCCCC;
     float: right;
     margin-right: 10px;
     padding: 5px;
+}
+#suboptions a{
+    color: #CCCCCC;
 }
 #subname a,#subuser a{color: #CC3E3E;}
 
@@ -230,6 +244,27 @@ margin:5px 0;}
     padding-left: 21px;
 }
 
+.iconproducts{
+    background-image: url("/www-static/assets/images/i/lisat.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+.iconproduct{
+    background-image: url("/www-static/assets/images/i/item.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+#ajax-red-treeslider {
+    border-color: #EEEEEE;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    margin-top: 10px;
+}
+
 #message.iconmessage{
     background-image: url("/www-static/assets/images/i/Mail.png");
     background-position: 10px center;
@@ -291,9 +326,25 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     text-align: center;}
 .bootstraps .desc{    padding: 10px;       border-top: 1px solid #E35858;}
 .feeds {    margin-top: 15px;}    
-.feeds #subimage{      max-width: 150px;}
-.feeds #subimage img{        border: 1px solid #CCCCCC;
-    padding: 2px;}
+.feeds #subimage{
+    max-width: 150px;
+}
+
+.feeds #subimage img{
+    border: 1px solid #ddd;
+    padding: 2px;
+    box-shadow: 1px 1px 1px #F5F5F5;
+    
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+}
+.feeds #subimage img:hover {
+    border: 1px solid #939393;
+
+}
+
 .feeds #subcomments{  }
 .mentions{ 
     margin: 5px 0;font-size:11px;

@@ -41,7 +41,19 @@ class ModelProducts extends Models {
 		$status = $this->insert ( 'products', $data );
 		return $status;
 	}
-	
+
+	function listGroupByTag($uid, $offset = 0, $limit = 40){
+		$list = $this->fetchAll ( "SELECT tag
+		FROM products WHERE uid = :uid GROUP BY tag ORDER BY pid DESC LIMIT $offset, $limit", array ('uid' => $uid ) );
+		return $list;
+	}	
+
+	function listByTag($uid, $tag, $offset = 0, $limit = 40) {
+		$list = $this->fetchAll ( "SELECT uid, pid, name, information, image, image_tumb, `group`, tag, price 
+		FROM products WHERE uid = :uid AND tag = :tag ORDER BY pid DESC LIMIT $offset, $limit", array ('uid' => $uid, 'tag' => $tag ) );
+		return $list;
+	}
+
 	function listProductsByUID($uid, $offset = 0, $limit = 40) {
 		$list = $this->fetchAll ( "SELECT uid, pid, name, information, image, image_tumb, `group`, tag, price 
 		FROM products WHERE uid = :uid ORDER BY pid DESC LIMIT $offset, $limit", array ('uid' => $uid ) );
