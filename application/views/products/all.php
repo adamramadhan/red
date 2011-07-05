@@ -115,7 +115,7 @@
 <?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
   <script type="text/javascript">
     $(function(){
-      $('#arrow-link,.redpjax-group').pjax({
+      $('#arrow-link').pjax({
 	    container: '#red-product-list',
 	  });
 
