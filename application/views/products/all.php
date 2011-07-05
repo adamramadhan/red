@@ -3,7 +3,7 @@
 			<?php
 			# JIKA GAK ADA TAG
 			if (empty($tags)) {
-				echo '<li><a class="redpjax-group" href="/products">Tampilkan Semua</a></li>';
+				#echo '<li><a class="redpjax-group" href="/products">Tampilkan Semua</a></li>';
 				foreach ($groups as $value) {
 					$value['tags'] = explode(',',$value['tags']);
 					if (!empty($value['tags'])){
@@ -115,6 +115,7 @@
 <?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
   <script type="text/javascript">
     $(function(){
+    	// kurang ,.redpjax-group
       $('#arrow-link').pjax({
 	    container: '#red-product-list',
 	  });
