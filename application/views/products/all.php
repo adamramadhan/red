@@ -3,20 +3,21 @@
 			<?php
 			# JIKA GAK ADA TAG
 			if (empty($tags)) {
+				echo '<li><a class="redpjax-group" href="/products">Tampilkan Semua</a></li>';
 				foreach ($groups as $value) {
-					$value['tags'] = explode(',',$value['tags']); 
+					$value['tags'] = explode(',',$value['tags']);
 					if (!empty($value['tags'])){
-						echo '<li class="redpjax-group"><a href="/products/'.$value['group'].'">#'.$value['group'].'</a></li>';
+						echo '<li><a class="redpjax-group" href="/products/'.$value['group'].'">#'.$value['group'].'</a></li>';
 					}				
 				}
 			}
 
 			# JIKA ADA TAG
 			if (!empty($tags)) {
-				echo '<li><a href="/products">Kembali</a></li>';
+				echo '<li><a class="redpjax-group" href="/products">Kembali</a></li>';
 				foreach ($tags as $tag) {
 					if (!empty($tag['tag'])) {
-						echo '<li class="redpjax-group"><a href="/products/'.$current_group.'/'.$tag['tag'].'">#'.$tag['tag'].'</a></li>';
+						echo '<li><a  class="redpjax-group" href="/products/'.$current_group.'/'.$tag['tag'].'">#'.$tag['tag'].'</a></li>';
 					}				
 				}
 			}
@@ -114,7 +115,7 @@
 <?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
   <script type="text/javascript">
     $(function(){
-      $('#arrow-link,.redpjax-group a').pjax({
+      $('#arrow-link,.redpjax-group').pjax({
 	    container: '#red-product-list',
 	  });
 
