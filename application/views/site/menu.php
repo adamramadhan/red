@@ -6,7 +6,7 @@
 				<li><?php $views->href('/products','Pencarian'); ?></li>
 			</ul>		
 			<ul id="red-menu-right" class="absolutewarp">
-				<li id="red-menu-signup"><?php #$views->href('/signup',l('signup')); ?></li>
+				<li id="red-menu-signup"><?php $views->href('/signup',l('signup')); ?></li>
 				<li id="red-menu-login"><?php $views->href('/login',l('login')); ?></li>
 			</ul>
 		</div>
