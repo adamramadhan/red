@@ -135,6 +135,7 @@ class Test extends Application {
 		}
 		if (!empty($products)) {
 			$data['insights']['product'] = implode(',', $products);
+			#var_dump($data['insights']);
 		}
 		$insightscount = explode('],', $data['insights']['page']);
 

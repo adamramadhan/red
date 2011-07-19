@@ -5,19 +5,15 @@
     padding: 5px;
 }
 .textinput{}
-#red-edit-right
-{
-    border-top: 1px solid #F5EFE7;
-    background: none repeat scroll 0 0 #FEFBE8;
+#red-edit-right {
     float: left;
-    margin-right: 20px;
-    padding: 10px;
-    width: 220px;
+    margin-right: 15px;
+    width: 245px;
 }
-#red-edit-right li
-{
-    list-style: decimal outside none;
+#red-edit-right li {
+    list-style: square outside none;
     margin-left: 20px;
+    margin-top: 5px;
 }
 #red-edit-left-wide
 {
@@ -154,11 +150,11 @@ list-style:none outside none;
 }
 #subname a,#subuser a{color: #CC3E3E;}
 
-#red-profile-guides{
+#red-profile-guides {
     background: none repeat scroll 0 0 #DEFFCF;
     border: 1px solid #C9EBBA;
-    margin: 10px 0;
-    padding: 10px;  
+    margin: 0 0 10px;
+    padding: 10px;
 }
 #red-profile-info{
     background: none repeat scroll 0 0 #ffffff;
@@ -349,7 +345,7 @@ margin:5px 0;border-bottom: 1px solid #F9EBEB;}
     border: 1px solid #939393;
 }
 
-.feeds:hover #subimage img {
+.feeds #subimage img:hover {
      transform: rotate(0deg) translate(0px, -2px) scale(1.030);
     -moz-transform: rotate(0deg) translate(0px, -2px) scale(1.030);
     -webkit-transform: rotate(0deg) translate(0px, -2px) scale(1.030);

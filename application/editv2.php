@@ -2,6 +2,7 @@
 if (! defined ( 'SECURE' ))
 	exit ( 'Hello, security@networks.co.id' );
 class editv2 extends Application {
+	
 	/**
 	 * WWW.NETWORKS.CO.ID/EDIT
 	 * where global things happens
@@ -22,6 +23,11 @@ class editv2 extends Application {
 		}
 
 		# ASSETS
+		# hook ini berfungsi di semua function
+		# tadinya mau kaya $this->preCSShooks[] = 'jquery'
+		# jadi tiap halaman bisa beda2, masalahnya contstuct cuma
+		# di jalakan sekali saja. jadi harus mencari cara lain.
+
 		$this->preCSShooks = array(
 			'framework',
 			'netcoid.v1',
@@ -38,10 +44,20 @@ class editv2 extends Application {
 			'users.v1'
 		);
 	}
+
+	# sebuah contoh control terbaru
 	function skel(){
 		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+
 		# START LOGIC
+
 		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {}
+		if (is_ajax()) {}		
 	}
 
 	function EditProfile(){

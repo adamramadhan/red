@@ -5,7 +5,6 @@ class Blog extends Application {
 	// set status
 	//public $status = 'off';
 	
-
 	function __construct() {
 		$this->model ( 'blog' );
 		if (config ( 'features/comments/core' )) {
@@ -42,6 +41,8 @@ class Blog extends Application {
 
 			# SEO START
 			# @todo karena dihalaman depan ada konten yang sama gimana?
+			# @todo coba dikasih concorual url atau apa gitu..
+			
 			$header ['title'] = "netcoid official blog &mdash; media peluang bisnis online";
 			$header ['keywords'] = $data['post']['tag'];
 
