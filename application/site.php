@@ -9,10 +9,11 @@ class Site extends Application {
 	
 	function index() {
 		# no session = show front page
+		# no session = show front page
 		if (! $this->sessions->get ( 'uid' )) {
-			
-			$this->library ( 'validation' );
 
+			$this->library ( 'validation' );
+			
 			# social addon
 			if (config ( 'features/memcached' )) {
 				$this->cache = new Cache;		
@@ -38,9 +39,21 @@ class Site extends Application {
 				$data ['socialpoint'] = $social['twitter']['followers_count'] + $social['facebook']['likes'];
 			}
 			# end social addon
+
 			$this->view ( 'site/header' );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-			$this->view ( 'site/signup',$data );	
+			
+			# register, secureing the data
+			if (is_post ( 'register' )) {
+				$this->preregister ();
+			}
+			
+			# if have sessions register & secure
+			if ($this->sessions->get ( 'secure.data' ) && $this->sessions->get ( 'secure.response' )) {
+				$this->postregister ();
+			}
+
+			$this->view ( 'site/signup',$data );				
 			$this->view ( 'site/footer' );
 		}
 		
