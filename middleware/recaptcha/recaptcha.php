@@ -65,7 +65,7 @@ class ReCaptcha {
 	
 	public static function get_html($error = null, $use_ssl = false) {
 		$pubkey = self::$publickey;
-		
+		$use_ssl = TRUE;
 		if ($use_ssl) {
 			$server = RECAPTCHA_API_SECURE_SERVER;
 		} else {
