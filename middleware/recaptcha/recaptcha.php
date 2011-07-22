@@ -1,6 +1,7 @@
 <?php
+# https://api-secure.recaptcha.net http://api.recaptcha.net
 define ( "RECAPTCHA_API_SERVER", "http://api.recaptcha.net" );
-define ( "RECAPTCHA_API_SECURE_SERVER", "https://api-secure.recaptcha.net" );
+define ( "RECAPTCHA_API_SECURE_SERVER", "https://www.google.com/recaptcha/api" );
 # kalo socet error ganti ke google.com
 define ( "RECAPTCHA_VERIFY_SERVER", "api-verify.recaptcha.net" );
 # define("RECAPTCHA_VERIFY_SERVER", "173.194.36.104");
@@ -65,6 +66,7 @@ class ReCaptcha {
 	
 	public static function get_html($error = null, $use_ssl = false) {
 		$pubkey = self::$publickey;
+		
 		$use_ssl = TRUE;
 		if ($use_ssl) {
 			$server = RECAPTCHA_API_SECURE_SERVER;
