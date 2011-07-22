@@ -8,6 +8,13 @@
 			</ul>
 			<p><input type="submit" value="Update" name="edit" id="button"></p>
 			</form>
+			<hr style="border-color: rgb(255, 0, 101); border-style: dashed;">
+			<p>Status</p>
+			<p>
+			0 = Not Verified ( warning gambar verify masih tersimpan )<br/>
+			1 = Verivied ( warning gambar verify tidak tersimpan )<br/>
+			3 = Media Partner<br/>
+			</p>
 		</div>
 		<?php require 'menu.php'; ?>
 	</div>

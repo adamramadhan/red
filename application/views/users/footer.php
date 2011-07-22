@@ -20,7 +20,7 @@
 	
 	</body>
 
-<?php $views->js('jquery,middleware/jquery/jquery.pjax','external'); ?>
+<?php $views->js('jquery,middleware/jquery/jquery.validation,middleware/jquery/jquery.pjax','external'); ?>
  <script type="text/javascript">
 	jQuery(document).ready(function(){
 		$('#arrow-link').pjax({

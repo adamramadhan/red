@@ -5,7 +5,8 @@
 				<ul>
 					<li><?php $views->href('/admin/verify','Non Verified'); ?></li>
 					<li><?php $views->href('/admin/unverify','Verified'); ?></li>
-					<li><?php $views->href('/admin/reset','Reset Password'); ?></li>
+					<li><?php $views->href('/admin/unverify','Verified'); ?></li>
+					<li><?php $views->href('/admin/useredit','Edit User'); ?></li>
 				</ul>
 				<?php endif ?>
 				<li><h4>Blog</h4></li>
