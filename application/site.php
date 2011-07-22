@@ -167,7 +167,7 @@ class Site extends Application {
 		$this->validation->f ( is_routes ( $r ['username'] ), l ( 'register_username_used' ) );
 		
 		if (! sizeof ( $this->validation->errors )) {
-			$this->sessions->set ( 'secure.get', '/signup' );
+			$this->sessions->set ( 'secure.get', '/' );
 			$this->sessions->set ( 'secure.data', $r );
 			redirect ( '/secure' );
 		}
