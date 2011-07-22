@@ -1,7 +1,7 @@
 <div style="height: 30px; background: none repeat scroll 0pt 0pt rgb(255, 255, 255); border-bottom: 1px solid rgb(231, 231, 231); color: rgb(68, 68, 68);"><p style="margin: 0pt auto; width: 960px; text-align: center; line-height: 29px;">
- <?php echo $socialpoint; ?> / 1000 ♥ Netcoid <span style="background: none repeat scroll 0% 0% rgb(254, 255, 203); padding: 3px 10px;">Invitasi #3 dibuka! dukung kami untuk berkembang, follow <a style="color: rgb(211, 46, 46);" href="http://www.twitter.com/netcoid" target="_blank">twitter</a>, like <a style="color: rgb(211, 46, 46);" target="_blank" href="http://www.facebook.com/netcoid">facebook</a> atau ikuti <a style="color: rgb(211, 46, 46);" target="_blank" href="/development">perkembangan</a> kami.</span></p></div></div>
+ <?php echo $socialpoint; ?> ♥ Netcoid <span style="background: none repeat scroll 0% 0% rgb(254, 255, 203); padding: 3px 10px;">Invitasi #3 dibuka! dukung kami untuk berkembang, follow <a style="color: rgb(211, 46, 46);" href="http://www.twitter.com/netcoid" target="_blank">twitter</a>, like <a style="color: rgb(211, 46, 46);" target="_blank" href="http://www.facebook.com/netcoid">facebook</a> atau ikuti <a style="color: rgb(211, 46, 46);" target="_blank" href="/development">perkembangan</a> kami.</span></p></div></div>
 
-<?php $views->CSS('buttons.v1') ?>	
+<?php $views->CSS('buttons.v1','blog') ?>	
 	<style type="text/css" media="screen">
 
 .whatnetcoid {
@@ -44,28 +44,57 @@
     padding: 5px;
     width: 670px;
 }
-#red-content-right {
-	min-height: 650px;
-	padding: 5px 5px 5px 20px;
-	width: 400px;
-	margin: 0 auto;
-	float:none;
+#helpus-1{
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 5px;
+width:215px;
 }
+#helpus-2{  
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 5px;
+width:215px;}
+#helpus-3{    
+    float: left;
+    padding: 5px;
+width:215px;}
+.blog-post{padding:0;}
+#moreabout{    font-family: verdana;
+    font-size: 15px;}
 	</style>
 
 	<!-- CONTENT START -->
 	<?php $this->validation->geterrors(); ?>
 	<div class="clearfix" id="red-content">
-		<!--
+		
 		<div id="red-content-left">
-			<h1 class="whatnetcoid">before we start</h1>
-			<p class="hownetcoid">Komunitas, Bantuan dan Peraturan</p>
-			<hr>					
+			<h1 class="whatnetcoid">jejaring bisnis <span id="moreabout">Situs jejaring untuk Bisnis</span></h1>
+			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
+			<div class="blog-post clearfix" style="margin-top: 20px;">
+				<div id="helpus-1">
+				<h3>Business</h3>
+					<p>Partisipasi dalam jejaring bisnis indonesia, dimana Anda bisa <strong>membeli, menjual, mencari dan dicari</strong> Pelaku bisnis lainnya.</p>
+				</div>		
+				<div id="helpus-2">
+					<h3>Social</h3><p>Telusuri & Ikuti Pelaku bisnis lainnya dengan satu klik <i>"ikuti"</i>. <strong>promosi, blog, jasa dan produk terbaru</strong> pelaku bisnis yang Anda ikuti teringkas dalam satu halaman.
+					</p>
+				</div>
+				<div id="helpus-3">
+					<h3>Insights</h3>
+					<p>Pelajari penunjung anda, lakukan optimasi, <strong>tingkatkan penjualan anda</strong>. ( Real-time )
+					</p>
+				</div>
+			</div>	
+			
+			<hr>
+			<div style="height: 325px; background: url(&quot;www-static/assets/images/sarangsemut.png&quot;) no-repeat scroll -60px -575px rgb(255, 255, 255);"></div>
 		</div>
-		--> 
+		
 		<div id="red-content-right">
 			<div id="red-register">
 				<h3><strong>Pendaftaran</strong></h3>
+				<i>gratis selamanya</i>
 				<form id="form-register" accept-charset="utf-8" method="post" >
 				<ul>
 					<li><label for="username">Username</label><input type="text" maxlength="20" title="<?php echo l('register_username_error'); ?>" 

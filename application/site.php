@@ -11,6 +11,8 @@ class Site extends Application {
 		# no session = show front page
 		if (! $this->sessions->get ( 'uid' )) {
 			
+			$this->library ( 'validation' );
+
 			# social addon
 			if (config ( 'features/memcached' )) {
 				$this->cache = new Cache;		
@@ -38,7 +40,7 @@ class Site extends Application {
 			# end social addon
 			$this->view ( 'site/header' );
 			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-			$this->view ( 'site/index-openinvite3',$data );	
+			$this->view ( 'site/signup',$data );	
 			$this->view ( 'site/footer' );
 		}
 		
@@ -72,6 +74,7 @@ class Site extends Application {
 		}
 	}
 
+/*
 	function signup() {
 		# no session = show front page
 		if (! $this->sessions->get ( 'uid' )) {
@@ -121,6 +124,7 @@ class Site extends Application {
 			$this->view ( 'site/footer' );
 		}
 	}
+*/
 
 	# secureing the data
 	function preregister() {

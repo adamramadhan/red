@@ -74,7 +74,23 @@
 				</li>
 			</ul>
 		</div>
-		
+<!--
+		<div id="red-terms-general">
+			<ul>
+				<li><h3>4. Micro Funds</h3></li>
+				<li><h4>4.1 NON PROFIT</h4> tidak ada keuntungan yang diambil oleh Netcoid IHQ ( Invesment HQ ) dan Investor Independent Netcoid lainnya, tujuan memberikan pinjaman tanpa keuntungan, suka rela dalam rangka membantu mengembangkan pelaku bisnis.</p>
+				</li>
+				<li>
+				<h4>4.2 Independent Investors RISK</h4>
+					<ul>
+						<li>kami tidak menjamin pinjaman finansial kepada Investor Independent Netcoid</li>
+						<li>awdawd</li>
+						<li>kami tidak menjamin pinjaman finansial kepada Investor Independent Netcoid</li>
+					<ul>
+				</li>
+			</ul>
+		</div>
+-->		
 		<div id="red-terms-notes">
 			<ul>
 				<li><h3>Notes</h3></li>
