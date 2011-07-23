@@ -16,7 +16,8 @@ $routes['nojs'] = 'core:nojs';
 
 #fitur profiles ke method index
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
-
+#HQ
+$routes['^HQ|hq$'] = 'profiles:index';
 #mobile
 #$routes['mobile'] = 'mobile:index';
 
