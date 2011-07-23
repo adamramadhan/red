@@ -62,6 +62,11 @@ width:215px;}
 .blog-post{padding:0;}
 #moreabout{    font-family: verdana;
     font-size: 15px;}
+.showonhover{display:none;}
+#helpus-1:hover .showonhover{display: block;width:215px;position: relative;background:#fff;}
+#helpus-2:hover .showonhover{display: block;width:215px;position: relative;background:#fff;}
+#helpus-3:hover .showonhover{display: block;width:215px;position: relative;background:#fff;}
+.wbt{color: #D32E2E;position:absolute;display: block;}
 	</style>
 
 	<!-- CONTENT START -->
@@ -71,18 +76,19 @@ width:215px;}
 		<div id="red-content-left">
 			<h1 class="whatnetcoid">jejaring bisnis <span id="moreabout">Situs jejaring untuk Bisnis</span></h1>
 			<p class="hownetcoid">Menghubungkan pelaku bisnis dengan teknologi dan social media</p>
-			<div class="blog-post clearfix" style="margin-top: 20px;">
+			<div style="margin-top: 20px;" class="blog-post clearfix">
 				<div id="helpus-1">
-				<h3>Business</h3>
-					<p>Partisipasi dalam jejaring bisnis indonesia, dimana Anda bisa <strong>membeli, menjual, mencari dan dicari</strong> Pelaku bisnis lainnya.</p>
+				<h3>Promote</h3>
+					<p>Partisipasi dalam jejaring bisnis indonesia, dimana Anda bisa <strong>membeli, menjual, mencari dan dicari</strong> Pelaku bisnis lainnya. <span class="wbt"><i class="showonhover">Promosikan jasa atau produk anda!</i></span></p>
 				</div>		
 				<div id="helpus-2">
-					<h3>Social</h3><p>Telusuri & Ikuti Pelaku bisnis lainnya dengan satu klik <i>"ikuti"</i>. <strong>promosi, blog, jasa dan produk terbaru</strong> pelaku bisnis yang Anda ikuti teringkas dalam satu halaman.
+					<h3>Stay Updated</h3><p>Telusuri & Ikuti Update Pelaku bisnis lainnya dengan satu klik <i>"ikuti"</i>. <strong>promosi, blog, jasa dan produk terbaru</strong> pelaku bisnis yang Anda ikuti. 
+					<span class="wbt"><i class="showonhover">Teringkas dalam satu halaman</i></span>
 					</p>
 				</div>
 				<div id="helpus-3">
-					<h3>Insights</h3>
-					<p>Pelajari penunjung anda, lakukan optimasi, <strong>tingkatkan penjualan anda</strong>. ( Real-time )
+					<h3>Learn</h3>
+					<p>Pelajari penunjung anda, lakukan optimasi, <strong>tingkatkan penjualan anda</strong>. ( Real-time ) <span class="wbt"><i class="showonhover">Jumlah Pengunjung, Produk mana yang paling diminati, Asal Penunjung, Butuh lebih?</span></i>
 					</p>
 				</div>
 			</div>	

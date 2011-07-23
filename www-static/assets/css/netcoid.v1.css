@@ -23,9 +23,12 @@ a.u{
    color: #5E96E3;
 }
 #comment{font-size:11px;}
-#logo{
-    width: 75px;}
-
+#logo {
+    bottom: 3px;
+    position: relative;
+    width: 85px;
+}
+#red-header #logo:hover{background:none;}
 
 body {
     color: #444444;

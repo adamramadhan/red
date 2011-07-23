@@ -193,3 +193,12 @@ PRODUCTLIST
     display:block;    margin-bottom: 10px;
 }
 #ajax-pull-facebook #facebook a{    background:none repeat scroll 0 0 #E7E1FF;}
+
+
+
+
+
+/*blog*/
+#red-blog .judul{color:#CC3E3E;text-decoration:underline;}
+#red-blog .judul:hover{background:none repeat scroll 0 0 #FFFBC5;}
+#red-blog li{    margin-bottom: 5px;}

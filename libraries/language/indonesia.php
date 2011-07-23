@@ -97,7 +97,7 @@ $l['comment_empty'] = 'Maaf Komentar anda tidak boleh kosong';
 $l['recaptcha_error'] = 'Karakter yang anda masukan tidak sesuai dengan verifikasi reCAPTCHA';
 
 // BLOG
-$l['blog_title_error'] = 'Judul Blog tidak boleh kosong & harus berformat 4 - 20 Kata, Angka # atau Spasi';
+$l['blog_title_error'] = 'Judul Blog tidak boleh kosong & harus berformat 4 - 70 Kata, Angka, ?, Koma, # atau Spasi';
 $l['blog_content_empty'] = 'Konten Blog tidak boleh kosong';
 $l['blog_tag_empty'] = 'Tag Blog tidak boleh kosong & Harus Berformat text ( Text tampa spasi ) 3-15 Kata';
 

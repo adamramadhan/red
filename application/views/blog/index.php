@@ -2,10 +2,10 @@
 	<div class="clearfix" id="red-content">
 		<div id="red-blog-left">
 		<?php if (!empty($highlight)): ?>
-		<div class="c type-<?php echo $highlight['status'] ?>" id="highlight">
-		<h4><?php echo $highlight['title']; ?></h4>
-		<?php echo $highlight['content_html']; ?>
-		</div>
+			<div class="c type-<?php echo $highlight['status'] ?>" id="highlight">
+				<h4><?php echo $highlight['title']; ?></h4>
+				<?php echo $highlight['content_html']; ?>
+			</div>
 		<?php endif ?>
 			<?php 
 				echo '<div class="blog-post" id="post-'.$post['nid'].'">';

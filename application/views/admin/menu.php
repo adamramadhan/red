@@ -14,9 +14,11 @@
 					<li><?php $views->href('/admin/blog','List Post'); ?></li>
 					<li><?php $views->href('/admin/newpost','Tambah Post'); ?></li>
 				</ul>
+				<?php if ($this->user['role'] == 5): ?>
 				<li><h4>Groups</h4></li>
 				<ul>
 					<li><?php $views->href('/admin/groups','Groups'); ?></li>
 				</ul>
+				<?php endif ?>
 			</ul>
 		</div>

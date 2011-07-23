@@ -7,8 +7,13 @@ class ModelBlog extends Models {
 	public $database = 'application';
 	
 	function getPosts($limit = 30) {
-		$data = $this->fetchAll ( 'SELECT blog.title, blog.content, blog.tag, users.name, users.uid, blog.timecreate, blog.nid, blog.status
+		$data = $this->fetchAll ( 'SELECT blog.title, blog.content, blog.content_html, blog.tag, users.name, users.uid, blog.timecreate, blog.nid, blog.status
 		FROM blog, users WHERE users.uid = blog.uid ORDER BY nid DESC LIMIT ' . $limit );
+		return $data;
+	}
+
+	function getPostsbyUID($uid, $status = 1, $limit = 30) {
+		$data = $this->fetchAll ( 'SELECT blog.nid, blog.timecreate, blog.status, blog.title, blog.tag FROM blog, users  WHERE users.uid = blog.uid AND users.uid = '.$uid.' AND status = '.$status.' ORDER BY nid DESC LIMIT ' . $limit );
 		return $data;
 	}
 	
@@ -29,14 +34,14 @@ class ModelBlog extends Models {
 		FROM blog, users 
 		WHERE users.uid = blog.uid
 		AND blog.uid = :uid
-		AND blog.status = 0
+		AND blog.status = 5
 		ORDER BY nid DESC LIMIT 1', array ('uid' => $uid ) );
 		return $data;		
 	}
 	
 	function listNewsTitle() {
 		$data = $this->fetchAll ( 'SELECT blog.nid, blog.title, blog.timecreate, blog.status
-		FROM blog, users WHERE users.uid = blog.uid AND (status = 1 OR status = 3) ORDER BY nid DESC LIMIT 10' );
+		FROM blog, users WHERE users.uid = blog.uid AND (status = 2 OR status = 4) ORDER BY nid DESC LIMIT 10' );
 		return $data;
 	}
 	

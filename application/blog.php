@@ -25,16 +25,19 @@ class Blog extends Application {
 		if (! is_get ( 'id' )) {
 
 			# GET LATEST POST DATA WHERE STATUS 1
-			$data ['post'] = $this->model->blog->getLastPost ('1');
+			$data ['post'] = $this->model->blog->getLastPost ('2');
 
-			if ($data['post']['status'] == 1) {
-				$data ['highlight'] = $this->model->blog->getHighlight('2');
+			# 2 = Published Official Blog maka tunjukan 3 = Published Official Blog Highlight
+			if ($data['post']['status'] == 2) {
+				$data ['highlight'] = $this->model->blog->getHighlight('3');
 			}
 
-			if ($data['post']['status'] == 3) {
-				$data ['highlight'] = $this->model->blog->getHighlight('4');
+			# jika 4 = Netcoid HQ maka tunjukan 5 = Netcoid HQ highlight
+			if ($data['post']['status'] == 4) {
+				$data ['highlight'] = $this->model->blog->getHighlight('5');
 			}
-
+			
+			#var_dump($data );var_dump($data ['highlight']);
 			if (config('middleware/wmd')) {	
 				$data ['post'] ['content'] = $data ['post'] ['content_html'];
 			}
@@ -92,12 +95,14 @@ class Blog extends Application {
 			
 			$data ['post'] = $this->model->blog->getPost ( $_GET ['id'] );
 
-			if ($data['post']['status'] == 1) {
-				$data ['highlight'] = $this->model->blog->getHighlight('2');
+			# 2 = Published Official Blog maka tunjukan 3 = Published Official Blog Highlight
+			if ($data['post']['status'] == 2) {
+				$data ['highlight'] = $this->model->blog->getHighlight('3');
 			}
 
-			if ($data['post']['status'] == 3) {
-				$data ['highlight'] = $this->model->blog->getHighlight('4');
+			# jika 4 = Netcoid HQ maka tunjukan 5 = Netcoid HQ highlight
+			if ($data['post']['status'] == 4) {
+				$data ['highlight'] = $this->model->blog->getHighlight('5');
 			}
 		
 			# IF STATUS 0 OR NOT PUBLISHED

@@ -35,7 +35,17 @@ class Profiles extends Application {
 			$this->helper ( 'active' );
 			$this->model ( 'products' );
 			$this->model ( 'social' );
-			
+
+			# ADDED BLOG POSTS
+			$this->model ( 'blog' );
+			# 1 = User Content ( approved )
+			$data['blog']['approved'] = $this->model->blog->getPostsbyUID($data ['user']['uid'],1);
+			# 2 = Published Official Blog
+			$data['blog']['official'] = $this->model->blog->getPostsbyUID($data ['user']['uid'],2);
+			# 4 = Netcoid HQ for admins
+			$data['blog']['bloghq'] = $this->model->blog->getPostsbyUID($data ['user']['uid'],4);
+			# END BLOG POSTS
+
 			$data ['thisprofile'] = $username;
 			
 			$this->middleware ( 'googlemaps', 'googlemaps' );

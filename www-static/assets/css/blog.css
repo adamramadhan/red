@@ -214,12 +214,13 @@ riset
 }
 #highlight a{color:#CC3E3E;}
 
-#red-blog-right .type-3{    background: none repeat scroll 0 0 #62BCDA;}
-#red-blog-right .type-3 #post-list-title a {    color: #444444;}
-#red-blog-right .type-3 #post-list-meta{    color: #3878AB;}
+#red-blog-right .type-4{        background: none repeat scroll 0 0 #62BCDA;
+    border-bottom: 1px solid #3F95B1;}
+#red-blog-right .type-4 #post-list-title a {    color: #444444;}
+#red-blog-right .type-4 #post-list-meta{    color: #3878AB;}
 
 
-#highlight.type-4 {
+#highlight.type-5 {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #eee;
     margin: 10px 0;

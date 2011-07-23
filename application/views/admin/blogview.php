@@ -10,9 +10,12 @@
 			<hr style="border-color: rgb(255, 0, 101); border-style: dashed;">
 			<p>Status</p>
 			<p>
-			0 = Not Published<br/>
-			1 = Published<br/>
-			2 = Highlight<br/>
+			0 = User Content ( not approved )<br/>
+			1 = User Content ( approved )<br/>
+			2 = Published Official Blog</br>
+			3 = Published Official Blog Highlight </br>
+			4 = Netcoid HQ<br/>
+			5 = Netcoid HQ highlight<br/>
 			</p>
 			<?php 
 				echo $post['tag'];

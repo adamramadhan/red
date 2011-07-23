@@ -43,7 +43,7 @@
             }
         });
 
-        $("#input-title").rules("add", { regex: /^[a-zA-Z0-9_\s#]{4,20}$/, required : true });
+        $("#input-title").rules("add", { regex: /^[a-zA-Z0-9_\s#?,]{4,70}$/, required : true });
         $("#js-middleware-wmd-core").rules("add", { required : true });
         $("#input-tag").rules("add", { regex: /^[a-zA-Z0-9]{3,15}$/, required : true });
         /* validator ends */

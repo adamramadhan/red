@@ -1,7 +1,46 @@
 	<?php $views->js('jquery'); ?>
 
 	<script type='text/javascript'>  
-jQuery(document).ready(function(){$("#red-products, #red-information").hide();$("#red-"+(window.location.hash.replace("#","")||"information")).show();$("#content-info").click(function(event){$("#red-products").hide();$("#red-information").show();});$("#content-product").click(function(event){$("#red-products img").hide();$("#red-information").hide();$("#red-products").show();$("#red-products img").fadeIn();});var referrer=document.referrer.toLowerCase();function ISODateString(d){function pad(n){return n<10?'0'+n:n}return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())}var d=new Date();var datetime=ISODateString(d);var analytics={guest_UID:'<?php echo $this->sessions->get('uid'); ?>',host_UID:'<?php echo $user['uid']; ?>',IP:'<?php echo $_SERVER['REMOTE_ADDR']; ?>',referrer:referrer,timecreate:datetime,};$.ajax({type:"POST",url:"/ajax/analytics/push",data:analytics});var points={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>',twitter:'<?php echo $user['twitter']; ?>',yahoo:'<?php echo $user['yahoo']; ?>',};$.ajax({type:"POST",url:"/ajax/social/pull/points",data:points,beforeSend:function(){$('#ajax-socialpoint').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');},success:function(data){$('#ajax-socialpoint').hide().fadeIn(3000).html(data);},error:function(){$('#ajax-socialpoint').html('0');}});<?php if(!empty($user['twitter'])):?>var twitter={uid:'<?php echo $user['uid']; ?>',twitter:'<?php echo $user['twitter']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/twitter",data:twitter,beforeSend:function(){$('#ajax-pull-twitter').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-twitter').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['yahoo'])):?>var yahoo={uid:'<?php echo $user['uid']; ?>',yahoo:'<?php echo $user['yahoo']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/yahoo",data:yahoo,beforeSend:function(){$('#ajax-pull-yahoo').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-yahoo').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['facebook'])):?>var facebook={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/facebook",data:facebook,beforeSend:function(){$('#ajax-pull-facebook').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-facebook').hide().fadeIn(3000).html(data);}});<?php endif?>});
+jQuery(document).ready(function(){
+	$("#red-products, #red-information, #red-blog").hide();
+
+	<?php if (!empty($user['information'])): ?>
+	$("#red-" + (window.location.hash.replace("#", "") || "information")).show();
+ 	<?php endif ?>
+ 
+	<?php if (!empty($products) && empty($user['information'])): ?>
+	$("#red-" + (window.location.hash.replace("#", "") || "products")).show();
+ 	<?php endif ?>
+
+	<?php if (!empty($blog) && empty($products) && empty($user['information'])): ?>
+	$("#red-" + (window.location.hash.replace("#", "") || "blog")).show();
+ 	<?php endif ?>
+ 
+	$("#content-info").click(function(event){
+   		$("#red-products").hide();  
+   		$("#red-blog").hide();  
+   		$("#red-information").show(); 
+   	});
+			
+
+
+	$("#content-product").click(function(event){
+		$("#red-blog").hide();  
+		$("#red-information").hide();
+
+		$("#red-products img").hide();
+   		$("#red-products").show(); 
+		$("#red-products img").fadeIn();
+	});
+
+	$("#content-blog").click(function(event){
+   		$("#red-products").hide();  
+   		$("#red-information").hide();  
+   		$("#red-blog").show(); 
+	});
+
+
+var referrer=document.referrer.toLowerCase();function ISODateString(d){function pad(n){return n<10?'0'+n:n}return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())}var d=new Date();var datetime=ISODateString(d);var analytics={guest_UID:'<?php echo $this->sessions->get('uid'); ?>',host_UID:'<?php echo $user['uid']; ?>',IP:'<?php echo $_SERVER['REMOTE_ADDR']; ?>',referrer:referrer,timecreate:datetime,};$.ajax({type:"POST",url:"/ajax/analytics/push",data:analytics});var points={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>',twitter:'<?php echo $user['twitter']; ?>',yahoo:'<?php echo $user['yahoo']; ?>',};$.ajax({type:"POST",url:"/ajax/social/pull/points",data:points,beforeSend:function(){$('#ajax-socialpoint').html('<img src="/www-static/assets/images/ajax-loader.gif" style="position: relative; top: 4px;">');},success:function(data){$('#ajax-socialpoint').hide().fadeIn(3000).html(data);},error:function(){$('#ajax-socialpoint').html('0');}});<?php if(!empty($user['twitter'])):?>var twitter={uid:'<?php echo $user['uid']; ?>',twitter:'<?php echo $user['twitter']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/twitter",data:twitter,beforeSend:function(){$('#ajax-pull-twitter').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-twitter').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['yahoo'])):?>var yahoo={uid:'<?php echo $user['uid']; ?>',yahoo:'<?php echo $user['yahoo']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/yahoo",data:yahoo,beforeSend:function(){$('#ajax-pull-yahoo').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-yahoo').hide().fadeIn(3000).html(data);}});<?php endif?><?php if(!empty($user['facebook'])):?>var facebook={uid:'<?php echo $user['uid']; ?>',facebook:'<?php echo $user['facebook']; ?>'};$.ajax({type:"POST",url:"/ajax/social/pull/facebook",data:facebook,beforeSend:function(){$('#ajax-pull-facebook').html('<a rel="nofollow" target="_blank" href="#"><img style="position: relative; top: 4px; left: 50%;" src="/www-static/assets/images/ajax-loader.gif"></a>');},success:function(data){$('#ajax-pull-facebook').hide().fadeIn(3000).html(data);}});<?php endif?>});
 	</script> 
 
 
@@ -38,9 +77,18 @@ jQuery(document).ready(function(){$("#red-products, #red-information").hide();$(
 				?></li>
 				<!-- SEND MESSAGE END -->
 				
-				<li><a id="content-info" href="#information"><?php echo l('information'); ?></a></li>
-				<li><a id="content-product" href="#products"><?php echo l('products'); ?></a></li>
+				<?php if (!empty($user['information'])): ?>
+					<li><a id="content-info" href="#information"><?php echo l('information'); ?></a></li>
+				<?php endif ?>
 				
+				<?php if (!empty($products)): ?>
+				<li><a id="content-product" href="#products"><?php echo l('products'); ?></a></li>
+				<?php endif ?>
+
+				<?php if (!empty($blog)): ?>
+				<li><a id="content-blog" href="#blog"><?php echo l('blog'); ?><sup>β</sup></a></li>
+				<?php endif ?>
+
 				<!-- VERIFIED OR NOT START -->
 				<li><?php
 					if ($user['role'] == 1) {
@@ -134,6 +182,19 @@ jQuery(document).ready(function(){$("#red-products, #red-information").hide();$(
 			?>
 			</div>
 			<!-- END PRODUCT -->
+
+			<!-- START BLOG -->
+			<div id="red-blog">
+				<ul>
+					<?php foreach ($blog as $posts): ?>
+						<?php foreach ($posts as $post): ?>
+							<li class="type-<?php echo $post['status']; ?>">#<?php echo $post['tag']; ?> <a target="_blank" class="judul" href="blog?id=<?php echo $post['nid']; ?>"><?php echo $post['title']; ?></a>, 
+							<sub><?php echo $post['timecreate']; ?></sub></li>							
+						<?php endforeach ?>
+					<?php endforeach ?>
+				</ul>
+			</div>
+			<!-- END BLOG -->
 		</div>
 	</div>
 	<!-- CONTENT END -->
