@@ -85,7 +85,7 @@ var referrer=document.referrer.toLowerCase();function ISODateString(d){function 
 				<li><a id="content-product" href="#products"><?php echo l('products'); ?></a></li>
 				<?php endif ?>
 
-				<?php if (!empty($blog)): ?>
+				<?php if (!empty($blog['approved']) || !empty($blog['bloghq']) || !empty($blog['official'])): ?>
 				<li><a id="content-blog" href="#blog"><?php echo l('blog'); ?><sup>β</sup></a></li>
 				<?php endif ?>
 
