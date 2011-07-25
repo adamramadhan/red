@@ -18,8 +18,9 @@ $routes['nojs'] = 'core:nojs';
 $routes['^[a-zA-Z0-9_]{6,20}$'] = 'profiles:index';
 #HQ
 $routes['^HQ|hq$'] = 'profiles:index';
-#mobile
-#$routes['mobile'] = 'mobile:index';
+
+#mobile ( lagi riset sementara di blog inject css mobile display none untuk yang gak perlu)
+#$routes['m/blog'] = 'mobile:blog';
 
 $routes['blog'] = 'blog:index';
 $routes['home'] = 'site:index';

@@ -1,0 +1,10 @@
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+.blog-post{color:#333;}
+#red-blog-right{display:none;}
+#red-blog-left{width:auto;float:none;}
+html #red-content {
+    width: auto;
+     min-width: 5px;
+}
+#highlight{display:none;}
+#red-menu-login{display:none;}

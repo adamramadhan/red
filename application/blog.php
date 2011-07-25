@@ -8,6 +8,10 @@ class Blog extends Application {
 	function __construct() {
 		$this->model ( 'blog' );
 		if (config ( 'features/comments/core' )) {
+
+			# UJI COBA
+			$this->helper('mobile');
+
 			$this->model ( 'comments' );
 			$this->model ( 'users' );
 			$this->helper ( 'comments' );
@@ -21,7 +25,7 @@ class Blog extends Application {
 	
 	function index() {
 		$data ['posts'] = $this->model->blog->listNewsTitle ();
-		
+
 		if (! is_get ( 'id' )) {
 
 			# GET LATEST POST DATA WHERE STATUS 1
