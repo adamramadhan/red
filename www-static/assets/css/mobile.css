@@ -35,3 +35,4 @@ html #footer-warp{width:auto;}
 #red-menu-left {
     float: none;
 }
+img,object,embed{max-width:100%}
