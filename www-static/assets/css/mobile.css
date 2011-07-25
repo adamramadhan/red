@@ -4,7 +4,6 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
     float: none;
     margin: 5px;
     width: auto;
-    display:none;
 }
 #red-blog-left{width:auto;float:none;}
 html #red-content {
