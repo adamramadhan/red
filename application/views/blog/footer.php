@@ -27,6 +27,7 @@
 jQuery(document).ready(function(){
 	/* time ago plugin start */
   	$(".ajax-time").timeago();
+  	$("#red-content img").css('width','100%');
 });
 </script>
 <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
