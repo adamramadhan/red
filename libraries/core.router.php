@@ -62,7 +62,7 @@ class Router {
 		#jika tidak ada di route maka 404
 		if (! isset ( $this->controller )) {
 			$this->controller = $routes['404'];
-			//redirect ( '/404' );
+			#redirect ( '/404', TRUE, '404' );
 		}
 
 		#dispatch the routes

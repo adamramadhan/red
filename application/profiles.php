@@ -21,8 +21,14 @@ class Profiles extends Application {
 		
 
 		# kalo tidak ada username yang ada kasih 404
-		if (! $data ['user'] ['username']) {
-			redirect ( '/404' );
+		if (!isset($data ['user'] ['username'])) {
+			header ( "HTTP/1.0 404 Not Found" );
+			$this->library ( 'sessions' );
+			$this->helper ( 'active' );
+			$this->view ( 'site/header' );
+			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
+			$this->view ( 'site/404' );
+			$this->view ( 'site/footer' );
 		}
 		
 		# kalo ada username yang punya

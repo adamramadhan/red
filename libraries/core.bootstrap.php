@@ -100,8 +100,9 @@ function l($language) {
  * @tutorial wiki/missing.txt
  * @todo status codes
  */
-function redirect($link) {
-	header ( 'Location: ' . $link );
+function redirect($link, $replace = TRUE, $status = 302) {
+	header ( 'Location: ' . $link, $replace, $status );
 	exit ( $link );
 }
+
 ?>
