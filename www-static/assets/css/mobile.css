@@ -15,7 +15,7 @@ html #red-content {
 alt{display:none;}
 #highlight{display:none;}
 #red-menu-login{display:none;}
-#red-content img{ width:100%;}
+#red-content img{ max-width:100%;}
 html #footer-warp{width:auto;}
 html #red-menu{  width: auto;}
 #footer #footer-menu li {
@@ -41,4 +41,4 @@ html #red-menu{  width: auto;}
 #footer ul#footer-menu {
     float: none;
 }
-img,object,embed{max-width:100%;}
+object,embed{max-width:100%;}

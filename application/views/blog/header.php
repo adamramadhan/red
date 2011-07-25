@@ -11,6 +11,7 @@
 		<link rel="icon" type="image/png" href="/www-static/assets/images/f48x48.png" />
 		<noscript><meta http-equiv="X-Frame-Options" content="deny" /></noscript>
 		<noscript><meta http-equiv=refresh content="0; URL=/nojs" /></noscript>
+		
  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 		<?php $is_mobile = $this->mobile->mobile_device_detect(); ?>
