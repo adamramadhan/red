@@ -9,12 +9,14 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 html #red-content {
     width: auto;
     min-width: 5px;
+    max-width:auto;
 }
+alt{display:none;}
 #highlight{display:none;}
 #red-menu-login{display:none;}
 #red-content img{ width:100%;}
-html #red-menu{  width: auto;}
 html #footer-warp{width:auto;}
+html #red-menu{  width: auto;}
 #footer #footer-menu li {
     display: none;
     float: left;
@@ -31,8 +33,11 @@ html #footer-warp{width:auto;}
 #red-menu-right {
     display: none;
 }
-
+#red-blog-menu{width:auto;}
 #red-menu-left {
+    float: none;
+}
+#footer ul#footer-menu {
     float: none;
 }
 img,object,embed{max-width:100%}
