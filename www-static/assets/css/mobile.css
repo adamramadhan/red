@@ -28,3 +28,10 @@ html #footer-warp{width:auto;}
     float: left;
     padding-left: 10px;
 }
+#red-menu-right {
+    display: none;
+}
+
+#red-menu-left {
+    float: none;
+}
