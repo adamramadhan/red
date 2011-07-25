@@ -4,6 +4,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
     float: none;
     margin: 5px;
     width: auto;
+    display:none;
 }
 #red-blog-left{width:auto;float:none;}
 html #red-content {
@@ -40,4 +41,4 @@ html #red-menu{  width: auto;}
 #footer ul#footer-menu {
     float: none;
 }
-img,object,embed{max-width:81%;}
+img,object,embed{max-width:100%;}
