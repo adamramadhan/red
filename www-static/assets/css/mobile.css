@@ -1,6 +1,10 @@
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 .blog-post{color:#333;}
-#red-blog-right{display:none;}
+#red-blog-right {
+    float: none;
+    margin: 5px;
+    width: auto;
+}
 #red-blog-left{width:auto;float:none;}
 html #red-content {
     width: auto;
@@ -8,3 +12,4 @@ html #red-content {
 }
 #highlight{display:none;}
 #red-menu-login{display:none;}
+html #red-content img(width:100%;)
