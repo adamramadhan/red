@@ -27,20 +27,7 @@
         );
 
         $("#form-blogadd").validate({
-            onkeyup: false,
-            success: function(label) {
-                label.addClass("none")
-            },
-            showErrors: function(errorMap, errorList) {
-            $("#form-productadd").find("input").each(function() {
-                $(this).removeClass("error");
-            });
-            $("#red-error-box").html("");
-                if(errorList.length) {
-                    $("#red-error-box").html('<ul><li class="error-list clearfix"><span id="num">-' + this.numberOfInvalids() +'</span><span id="description">' + errorList[0]['message'] + '</span></li></ul>');
-                $(errorList[0]['element']).addClass("error");
-                }
-            }
+            onkeyup: false
         });
 
         $("#input-title").rules("add", { regex: /^[a-zA-Z0-9_\s#?,]{4,70}$/, required : true });

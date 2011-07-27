@@ -210,7 +210,166 @@ class editv2 extends Application {
 				$this->view ( 'usersv2/productlists', $data );
 			}			
 		}
-	} 
+	}
+
+	function Products(){
+		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+		$this->middleware ( 'verotimage', 'upload' );
+		$this->model ( 'products' );
+		$this->model('groups');
+
+		# START LOGIC
+		$data['groups'] = $this->model->groups->getAllGroups();
+
+		# EDIT PAGE
+		if (is_get ( 'e' )) {
+			$data['product'] = $this->model->products->getData ( $_GET ['e'] );
+			if (! empty ( $data ['product']['price'] )) {
+				$data ['product']['price'] = sprintf ( "%d", $data ['product']['price'] );
+			}
+			
+			#validate get data
+			if ($data ['product']['uid'] !== $this->sessions->get ( 'uid' )) {
+				redirect ( '/' );
+			}
+		}
+
+		# ADD PRODUCT
+		if (is_post ( 'edit' )) {
+			var_dump($_POST);
+			# GET A NEW PRODUCT
+			$p ['name'] = $_POST ['name'];
+			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
+			$p ['tag'] = $_POST ['tag'];
+			$p ['price'] = $_POST ['price'];
+
+			# GET GROUP FROM TAG 
+			$pgroup = $this->model->groups->getGroupByTag($_POST['tag']);
+			$p ['group'] = strtolower($pgroup['group']);
+
+			# get the time from jakarta
+			$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+			$p ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+			
+			$this->validation->regex ( $p ['name'], '/^[a-zA-Z0-9_\s#]{4,20}$/', l ( 'product_name_error' ) );
+			$this->validation->required ( $p ['information'], l ( 'product_description_error' ) );
+			$this->validation->regex ( $p ['tag'], '/^[a-zA-Z0-9]{3,15}+$/', l ( 'product_tag_error' ) );
+			$this->validation->regex ( $p ['price'], '/^[0-9]{1,11}+$/', l ( 'product_price_error' ) );
+			$this->validation->required ( $p ['group'], l ( 'product_group_error' ) );
+
+
+			if (!is_get ( 'e' )) {
+				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
+			}
+			
+			if (! is_get ( 'e' )) {
+				$this->validation->required ( $_FILES ['image'] ['size'], l ( 'product_image_error' ) );
+				$p ['uid'] = $this->sessions->get ( 'uid' );
+			}
+			if (is_get ( 'e' )) {
+				$p ['pid'] = $_GET ['e'];
+			}
+
+			$this->validation->image ( $_FILES ['image'], l ( 'product_image_error' ) );
+			
+			if (! sizeof ( $this->validation->errors )) {
+				
+				# JIKA IMAGE ADA
+				if (! empty ( $_FILES ['image'] ['size'] )) {
+					
+					# START PLUGIN
+					$this->upload->vupload ( $_FILES ['image'] );
+					$savepath = STORAGE . DS . $this->sessions->get ( 'uid' );
+					$randomid = md5 ( $this->sessions->get ( 'uid' ) . 'product' );
+					
+					if ($this->upload->uploaded) {
+						// RAW IMAGE START
+						# @todo fixed auto rename
+						$this->upload->file_auto_rename = true;
+						// @todo important! 460 kan maksimalnya cuma gambarnya	
+						if ($this->upload->image_src_x > 460) {
+							$this->upload->image_resize = true;
+							$this->upload->image_ratio_y = true;
+							$this->upload->image_x = 460;
+						}
+						
+						$this->upload->file_name_body_pre = $this->sessions->get ( 'uid' ) . 'raw' . $randomid;
+						$this->upload->allowed = array ('image/*' );
+						$this->upload->Process ( $savepath );
+						
+						if ($this->upload->processed) {
+							/* give another edit variable for update */
+							$p ['image'] = $this->upload->file_dst_name;
+							chmod ( $savepath . '/' . $p ['image'], 0644 );
+						}
+						// RAW IMAGE ENDS
+						
+
+						// TUMB IMAGE START	@todo sampe disini        
+						$this->upload->file_auto_rename = true;
+						$this->upload->image_resize = true;
+						$this->upload->image_x = 150; // width
+						$this->upload->image_y = 150; // height
+						$this->upload->image_ratio = true;
+						$this->upload->file_name_body_pre = $this->sessions->get ( 'uid' ) . 'tumb' . $randomid;
+						$this->upload->allowed = array ('image/*' );
+						
+						$this->upload->Process ( $savepath );
+						if ($this->upload->processed) {
+							/* give another edit variable for update */
+							$p ['image_tumb'] = $this->upload->file_dst_name;
+							chmod ( $savepath . '/' . $p ['image_tumb'], 0644 );
+						}
+						// TUMB IMAGE ENDS
+						$this->upload->clean ();
+					}
+				}
+				
+				# IF THERE IS NO EDIT
+				if (! is_get ( 'e' )) {
+					$this->model->products->addProduct ( $p );
+					redirect ( '/edit/products' );
+				}
+				
+				#IF THERE IS EDIT 
+				if (is_get ( 'e' )) {
+					if (! empty ( $p ['image'] ) && ! empty ( $p ['image_tumb'] )) {
+						# GET PRODUCT IMAGE INFORMATION FROM DB
+						$imagepath = STORAGE . DS . $this->sessions->get ( 'uid' ) . DS;
+						unlink ( $imagepath . $data ['image'] );
+						unlink ( $imagepath . $data ['image_tumb'] );
+					}
+					$this->model->products->updateData ( $p );
+					redirect ( '/edit/products' );
+				}
+			} # ERROR ENDS
+		} # IF POST EDIT
+
+
+		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {
+				$this->view ( 'usersv2/header', $data );
+			if (! is_get ( 'e' )) {
+				$this->view ( 'usersv2/product', $data );
+			}
+			if ( is_get ( 'e' )) {
+				$this->view ( 'usersv2/editproduct', $data );
+			}
+			$this->view ( 'usersv2/footer', $data );
+		}
+		if (is_ajax()) {
+			if (! is_get ( 'e' )) {
+				$this->view ( 'usersv2/product', $data );
+			}
+			if ( is_get ( 'e' )) {
+				$this->view ( 'usersv2/editproduct', $data );
+			}
+		}		
+	}
 }
 
 ?>

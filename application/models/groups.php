@@ -18,9 +18,9 @@ class ModelGroups extends Models {
 	}
 
 	function getAllGroups(){
-		$tags = $this->fetchall ( "SELECT groups.`group`,  GROUP_CONCAT(DISTINCT groups.tag ORDER BY groups.tag) AS tags
+		$data = $this->fetchall ( "SELECT groups.`group`,  GROUP_CONCAT(DISTINCT groups.tag ORDER BY groups.tag) AS tags
 		FROM groups  GROUP BY `group`");
-		return $tags;		
+		return $data;		
 	}
 
 	function listGroups() {

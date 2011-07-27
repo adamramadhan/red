@@ -44,10 +44,10 @@ $routes['logout'] = 'site:logout';
 $routes['edit/frontbox'] = 'edit:frontbox';
 $routes['edit/connections'] = 'edit:connections';
 $routes['edit/product'] = 'edit:product';
-$routes['old/edit/products'] = 'edit:products';
 
 $routes['edit/products'] = 'editv2:ListProducts';
 $routes['edit/profile'] = 'editv2:EditProfile';
+$routes['edit/product'] = 'editv2:Products';
 
 $routes['beta/article'] = 'edit:article';
 
@@ -106,6 +106,7 @@ $routes['area51/hello'] = 'test:hello';
 $routes['development'] = 'test:github';
 $routes['beta/insights'] = 'test:getAnalytics';
 $routes['area51/flush'] = 'test:flush';
+$routes['area51/groups'] = 'test:groups';
 #$routes['area51/analytics'] = 'test:analytics';
 #ok lanjut milih folder blog untuk skala blilitas tp class ada dua ? sebenernya satu tp tiap didalam core masak ada classnya ? ntar banyak filenya
 #kenapa ga di jadiin method aja ?

@@ -150,6 +150,40 @@ class Test extends Application {
 		$this->view('area51/analytics',$data['insights']);
 		$this->view ( 'users/footer' );		
 	}
+
+	function groups(){
+		$this->model('groups');
+		$dump = $this->model->groups->getAllGroups();
+		#var_dump($dump);
+
+		?>
+			<html>
+			<head>
+				<title>Test</title>
+			</head>
+			<body>
+		<?php
+		echo '<select title="Choose a country..." style="width:350px;" class="red-ajax-select">';
+		foreach ($dump as $group) {
+			$tags = explode(",", $group['tags']);
+			echo '<optgroup label="'.$group['group'].'">';
+			foreach ($tags as $tag) {
+				echo '<option value="'.$tag.'">'.$tag.'</option>';
+			}
+		}
+		echo "</select>";
+		?>
+			</body>
+		<link href="/www-static/assets/js/middleware/chosen/chosen.css" rel="stylesheet"></link>
+		<link href="/www-static/assets/css/netcoid.v1.css" rel="stylesheet"></link>
+		<script type='text/javascript' src='/www-static/assets/js/jquery.js'></script>
+		<script type="text/javascript" src="/www-static/assets/js/middleware/chosen/chosen.jquery.js"></script>
+		<script type="text/javascript">
+			$(".red-ajax-select").chosen();
+		</script>
+			</html>
+		<?php
+	}
 }
 
 ?>

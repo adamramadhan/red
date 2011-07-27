@@ -147,24 +147,22 @@ span#notification {
 #footer #copyright li { float: right }
 /* ERRORS
    ================================================== */
-label.error{
-    margin: 5px;
-    position: relative;
-    bottom: 11px;
-    display: inline-block;
-    padding: 5px;
-    font-size: 11px;
-    background: #FEFFCB;
-    border: 1px solid #DDDEA3;
-    border-top: 1px solid #fff ;
-    width: 200px;
-    -webkit-border-bottom-right-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-bottomright: 3px;
-    -moz-border-radius-bottomleft: 3px;
-    border-bottom-right-radius: 3px;
+label.error {
+    background: none repeat scroll 0 0 #FEFFCB;
     border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-color: #FFFFFF #DDDEA3 #DDDEA3;
+    border-style: solid;
+    border-width: 1px;
+    bottom: 6px;
+    display: block;
+    font-size: 11px;
+    margin: 0 0 0 5px;
+    padding: 6px;
+    position: relative;
+    /*FIX*/
 }
+
 .error a{color: #D32E2E;}
 #red-error-box {
     left: 20px;
@@ -193,7 +191,7 @@ label.error{
     margin: 5px;
     padding: 5px;
 }
-#red-register .textinput{width:200px}
+#red-register .li{width:195px}
 /* APPROVEAL
    ================================================== */
 .box-approve {
@@ -381,3 +379,12 @@ opacity:1;}
     UJI COBA 
 */
 #red-header #search-highlight a{ color: #FFF6A7;}
+
+
+/* INPUTS & FORMS */
+#form-register input[type="text"], #form-register input[type="password"], #form-register label.error{
+    width:195px;
+}
+#form-productadd input[type="text"], #form-productadd input[type="password"], #form-productadd label.error{
+    width: 460px;
+}

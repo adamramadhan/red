@@ -43,6 +43,8 @@
 #textarea-informationbox{
     height: 400px;
     width: 460px;
+    /* ada error*/
+    margin-bottom:-1px;
 }
 #red-edit-left
 {

@@ -34,7 +34,7 @@ class ModelBlog extends Models {
 		FROM blog, users 
 		WHERE users.uid = blog.uid
 		AND blog.uid = :uid
-		AND blog.status = 5
+		AND blog.status = 0
 		ORDER BY nid DESC LIMIT 1', array ('uid' => $uid ) );
 		return $data;		
 	}

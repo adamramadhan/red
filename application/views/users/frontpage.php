@@ -7,7 +7,13 @@
 				<h3>Kotak Informasi</h3>
 				<form accept-charset="utf-8" method="post" >
 				<ul>
-					<li><?php $this->forms->input('informationbox','textarea',l('informationbox'),$user['information']); ?></li>
+                    <li><?php $this->forms->textarea('informationbox',l('informationbox'), 
+                              array( 'title' => l('product_description_error'),
+                                     'cols' => '17',
+                                     'rows' => '5', 
+                                     'value' => $user['information'])
+                              ); ?></li>
+                    <li>
 				</ul>
 				<p><input type="submit" value="Ubah" name="edit" id="button"></p>
 				</form>
