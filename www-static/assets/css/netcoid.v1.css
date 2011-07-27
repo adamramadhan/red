@@ -388,3 +388,15 @@ opacity:1;}
 #form-productadd input[type="text"], #form-productadd input[type="password"], #form-productadd label.error{
     width: 460px;
 }
+#form-blogadd input[type="text"], #form-blogadd input[type="password"], #form-blogadd label.error, #form-blogadd textarea{
+    width: 460px;
+}
+#form-blogadd textarea{
+    margin-bottom: -1px;
+}
+#form-useredit input[type="text"], #form-useredit input[type="password"], #form-useredit label.error, #form-useredit textarea {
+    width: 460px;
+}
+#form-useredit textarea{
+    margin-bottom: -1px;
+}

@@ -28,7 +28,7 @@ class Active extends Application {
 				FROM mentions WHERE uid = :uid AND open = 0 LIMIT 1', array ('uid' => $uid ) );
 			}
 			
-			$application->view ( 'users/menu-active-with-helper', $data );
+			$application->view ( 'site/menu-active-with-helper', $data );
 		}
 	}
 }

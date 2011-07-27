@@ -17,8 +17,6 @@
 }
 #red-edit-left-wide
 {
-    border-top: 1px solid #F5EFE7;
-    background: none repeat scroll 0 0 #FEFBE8;
     float: left;
     margin-right: 20px;
     padding: 10px;
@@ -106,8 +104,8 @@ padding:10px;
 #facebook a{    background: none repeat scroll 0 0 #FBFFD9;
     color: #AAAAAA;}
 #connect-status li {
-margin:10px 0;
-list-style:none outside none;
+    list-style: none outside none;
+    margin: 0 0 10px;
 }
 
 /*product*/

@@ -9,16 +9,6 @@ class Profiles extends Application {
 		*/
 		$this->model ( 'users' );
 		$data ['user'] = $this->model->users->getData ( $username );
-		
-		// start beta plugin \[img\]((?:[^*_\[]+|\[(?!img\]))*)\[img\]
-		#$data['user']['information'] = $validate->safe($data['user']['information']);
-		$data ['user'] ['information'] = nl2br ( $data ['user'] ['information'] );
-		#$data['user']['information'] = str_replace( "\n" , "<br />" , $data['user']['information']);
-		$data ['user'] ['information'] = preg_replace ( '/\[i\]((?:[^\[]+|\[(?!i\]))*)\[i\]/', '<em>\1</em>', $data ['user'] ['information'] );
-		$data ['user'] ['information'] = preg_replace ( '/\[b\]((?:[^\[]+|\[(?!b\]))*)\[b\]/', '<strong>\1</strong>', $data ['user'] ['information'] );
-		$data ['user'] ['information'] = preg_replace ( '/\[img\]((?:[^\[]+|\[(?!img\]))*)\[img\]/', '<img src="\1" />', $data ['user'] ['information'] );
-		// end beta plugin
-		
 
 		# kalo tidak ada username yang ada kasih 404
 		if (!isset($data ['user'] ['username'])) {

@@ -41,18 +41,16 @@ $routes['^verify/[a-zA-Z0-9_]{6,20}$'] = 'verify:profile';
 #edit
 $routes['logout'] = 'site:logout';
 #$routes['edit/profile'] = 'edit:profile';
-$routes['edit/frontbox'] = 'edit:frontbox';
-$routes['edit/connections'] = 'edit:connections';
-$routes['edit/product'] = 'edit:product';
 
+#$routes['edit/product'] = 'edit:product';
+
+$routes['dashboard'] = 'editv2:dashboard';
 $routes['edit/products'] = 'editv2:ListProducts';
 $routes['edit/profile'] = 'editv2:EditProfile';
 $routes['edit/product'] = 'editv2:Products';
-
-$routes['beta/article'] = 'edit:article';
-
-
-#v2 edit
+$routes['edit/frontbox'] = 'editv2:EditFrontBox';
+$routes['edit/connections'] = 'editv2:EditConnections';
+$routes['beta/article'] = 'editv2:article';
 
 
 #products

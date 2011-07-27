@@ -1,1 +1,0 @@
-<div id="red-edit-right">ads</div>

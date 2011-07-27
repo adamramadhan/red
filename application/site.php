@@ -59,31 +59,7 @@ class Site extends Application {
 		
 		# if session = show dashboad
 		if ($this->sessions->get ( 'uid' )) {
-			
-			$this->model ( 'users' );
-			$this->model ( 'products' );
-			$this->model ( 'social' );
-			$this->helper ( 'time' );
-			$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
-			
-			foreach ( $data ['followingproduct'] as $key => $value ) {
-				$data ['feeds'] [$value ['pid']] = $value;
-				if (config ( 'features/comments/core' )) {
-					$data ['feeds'] [$value ['pid']] ['comments'] = $this->model->products->listCommentsByPID ( $value ['pid'], 3 );
-				}
-			}
-			
-			# var_dump($data['feeds']);
-			# need optimize
-
-			$data ['userproduct'] = $this->model->products->listProductsByUID ( $this->sessions->get ( 'uid' ), 0, 1 );
-			$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
-			$data ['social'] = $this->model->social->CountSocial ( $this->sessions->get ( 'uid' ) );
-			$data ['partners'] = $this->model->social->CountParters ( $this->sessions->get ( 'uid' ) );
-			$this->view ( 'users/header' );
-			$this->active->menu ( $this->sessions->get ( 'uid' ), $this );
-			$this->view ( 'users/dashboard', $data );
-			$this->view ( 'site/footer' );
+			redirect('/dashboard');
 		}
 	}
 

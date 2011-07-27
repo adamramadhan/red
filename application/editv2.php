@@ -14,6 +14,7 @@ class editv2 extends Application {
 		# BOOTSTRAP
 		$this->library ( 'sessions' );
 		$this->library ( 'validation' );
+		$this->library ( 'messenger' );
 		$this->helper ( 'forms' );
 		$this->helper ( 'active' );
 		
@@ -61,7 +62,7 @@ class editv2 extends Application {
 	}
 
 	function EditProfile(){
-
+				
 		# START BOOTSTRAP
 		$this->middleware ( 'googlemaps', 'googlemaps' );
 		$this->middleware ( 'verotimage', 'upload' );
@@ -124,12 +125,14 @@ class editv2 extends Application {
 					}
 					
 					$this->model->users->updateData ( $e );
+					$this->messenger->setMessage('Updated');
 					redirect ( '/edit/profile' );
 				}
 				
 				/* IMAGE TIDAK */
 				if (empty ( $_FILES ['logo'] ['size'] )) {
 					$this->model->users->updateData ( $e );
+					$this->messenger->setMessage('Updated');
 					redirect ( '/edit/profile' );
 				}
 			}
@@ -176,6 +179,7 @@ class editv2 extends Application {
 					# DEL IMAGE
 					if (unlink ( $imagepath . $image ['image_tumb'] ) && unlink ( $imagepath . $image ['image'] )) {
 						$this->model->users->delProduct ( $_GET ['d'] );
+						$this->messenger->setMessage('Updated');
 						redirect ( '/edit/products?t='.$_GET['t'] );
 					}
 				}
@@ -238,7 +242,7 @@ class editv2 extends Application {
 
 		# ADD PRODUCT
 		if (is_post ( 'edit' )) {
-			var_dump($_POST);
+
 			# GET A NEW PRODUCT
 			$p ['name'] = $_POST ['name'];
 			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
@@ -330,6 +334,7 @@ class editv2 extends Application {
 				# IF THERE IS NO EDIT
 				if (! is_get ( 'e' )) {
 					$this->model->products->addProduct ( $p );
+					$this->messenger->setMessage('Updated');
 					redirect ( '/edit/products' );
 				}
 				
@@ -342,6 +347,7 @@ class editv2 extends Application {
 						unlink ( $imagepath . $data ['image_tumb'] );
 					}
 					$this->model->products->updateData ( $p );
+					$this->messenger->setMessage('Updated');
 					redirect ( '/edit/products' );
 				}
 			} # ERROR ENDS
@@ -368,6 +374,265 @@ class editv2 extends Application {
 			if ( is_get ( 'e' )) {
 				$this->view ( 'usersv2/editproduct', $data );
 			}
+		}		
+	}
+
+	function EditFrontBox(){
+		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+		$this->model ( 'users' );
+
+		# START LOGIC
+		$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
+
+		if (is_post ( 'edit' )) {
+			$p ['information'] = $this->validation->safe ( $_POST ['informationbox'] );
+			$p ['information_html'] = $_POST['js-middleware-wmd-output'];
+			$p ['uid'] = $this->sessions->get ( 'uid' );
+
+			if (! sizeof ( $this->validation->errors )) {
+				$this->model->users->updateFrontPage ( $p );
+				$this->messenger->setMessage('Updated');
+				redirect ( '/edit/frontbox' );
+			}
+		}
+
+		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {
+			$this->view ( 'usersv2/header', $data );
+			$this->view ( 'usersv2/frontpage', $data );
+			$this->view ( 'usersv2/footer', $data );
+		}
+		if (is_ajax()) {
+			$this->view ( 'usersv2/frontpage', $data );
+		}		
+	}
+
+	function EditConnections(){
+		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+		$this->library ( 'social' );
+		$this->model ( 'users' );
+
+		# START LOGIC
+		$data ['user'] = $this->model->users->getDataConnection ( $this->sessions->get ( 'uid' ) );
+		
+		if (is_post ( 'edit' )) {
+			$c ['yahoo'] = $_POST ['yahoo'];
+			$c ['twitter'] = $_POST ['twitter'];
+			#validation
+			$c ['facebook'] = $_POST ['facebook'];
+			$c ['uid'] = $this->sessions->get ( 'uid' );
+			
+			# check if yahoo exist in post
+			if (! empty ( $c ['yahoo'] )) {
+				$this->validation->regex ( $c ['yahoo'], '/^([a-zA-Z0-9_.\s]{6,40})(@yahoo.com|@ymail.com|@rocketmail.com)$/', l ( 'connection_yahoo_error' ) );
+			}
+			
+			# check if twitter exist in post			
+			if (! empty ( $c ['twitter'] )) {
+				$this->validation->regex ( $c ['twitter'], '/^[a-zA-Z0-9_]{1,20}+$/', l ( 'connection_twitter_error' ) );
+			}
+			
+			if (! empty ( $c ['facebook'] )) {
+				$this->validation->regex ( $c ['facebook'], '/^[a-zA-Z0-9_.]+$/', l ( 'connection_facebook_error' ) );
+			}
+			
+			if (! sizeof ( $this->validation->errors )) {
+				$this->messenger->setMessage('Updated');
+				$this->model->users->updateConnections ( $c );
+				redirect ( '/edit/connections' );
+			}
+		}
+
+		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {
+			$this->view ( 'usersv2/header', $data );
+			$this->view ( 'usersv2/connections', $data );
+			$this->view ( 'usersv2/footer', $data );
+		}
+		if (is_ajax()) {
+			$this->view ( 'usersv2/connections', $data );
+		}		
+	}
+
+	function article(){
+		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+		$this->model ( 'blog' );
+
+		# START LOGIC
+		$unnapproved_article = $this->model->blog->listUnapprovedByUID($this->sessions->get('uid'));
+
+		# JIKA TIDAK ADA ARTIKEL YANG BELUM DIAPRROVE
+		if (!empty($unnapproved_article)) {
+			
+			# DELETE
+			// @todo tmabahin uid lah
+			if (is_get('d')) {
+				$this->model->blog->delPost ( $unnapproved_article['nid']);
+				$this->messenger->setMessage('Updated');
+				redirect ( '/beta/article' );				
+			}
+
+			# EDIT
+			if (is_get('e')) {
+				
+				if (is_post('editpost')) {
+					# @todo strip all code for security kayanya sih udah safe coba dicek ulang
+					$n ['title'] = $_POST ['title'];
+					
+					if (config('middleware/wmd')) {	
+						$n ['content'] = $_POST ['content'];
+						$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+					}
+					if (!config('middleware/wmd')) {	
+						$n ['content'] = $_POST ['content'];
+						$n ['content_html'] = $_POST ['content'];
+					}
+
+					$n ['tag'] = $_POST ['tag'];
+					$n ['uid'] = $this->sessions->get ( 'uid' );
+					$n ['nid'] = $unnapproved_article['nid'];
+
+					# get the time from jakarta
+					$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+					$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+					
+					# validateing
+					$this->validation->required ( $n ['title'], l('blog_title_error') );
+					$this->validation->required ( $n ['content'], l('blog_content_empty') );
+					$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
+					
+					if (! sizeof ( $this->validation->errors )) {
+						$this->model->blog->editPost ( $n );
+						$this->messenger->setMessage('Updated');
+						redirect ( '/beta/article' );
+					}
+				}
+			}
+		}
+
+		# JIKA ADA ARTIKEL YANG BELUM DIAPPROVE
+		if (empty($unnapproved_article)) {
+			if (is_post ( 'newpost' )) {
+				
+				# @todo strip all code for security
+				$n ['title'] = $_POST ['title'];
+				
+				if (config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['js-middleware-wmd-output'];
+				}
+				if (!config('middleware/wmd')) {	
+					$n ['content'] = $_POST ['content'];
+					$n ['content_html'] = $_POST ['content'];
+				}
+
+				$n ['tag'] = $_POST ['tag'];
+				$n ['uid'] = $this->sessions->get ( 'uid' );
+				
+				# get the time from jakarta
+				$time = new DateTime ( NULL, new DateTimeZone ( 'Asia/Jakarta' ) );
+				$n ['timecreate'] = $time->format ( 'Y-m-d H:i:s' );
+				
+				# validateing
+				$this->validation->required ( $n ['title'], l('blog_title_error') );
+				$this->validation->required ( $n ['content'], l('blog_content_empty') );
+				$this->validation->required ( $n ['tag'], l('blog_tag_empty') );
+				
+				if (! sizeof ( $this->validation->errors )) {
+					$this->model->blog->setPosts ( $n );
+					redirect ( '/beta/article' );
+				}
+			}
+		}
+
+		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {
+			$this->view ( 'usersv2/header');
+
+			# EDIT
+			if (is_get('e')) {
+				$this->view ( 'usersv2/blogedit', $unnapproved_article );
+			}
+
+			# NO EDIT & DEL
+			if (!is_get('d') && !is_get('e')) {
+				if (empty($unnapproved_article)) {
+					$this->view ( 'usersv2/blogadd' );
+				}
+				if (!empty($unnapproved_article)) {
+					$this->view ( 'usersv2/blogverify', $unnapproved_article );
+				}
+			}
+
+			$this->view ( 'usersv2/footer' );
+		}
+		if (is_ajax()) {
+			# EDIT
+			if (is_get('e')) {
+				$this->view ( 'usersv2/blogedit', $unnapproved_article );
+			}
+
+			# NO EDIT & DEL
+			if (!is_get('d') && !is_get('e')) {
+				if (empty($unnapproved_article)) {
+					$this->view ( 'usersv2/blogadd' );
+				}
+				if (!empty($unnapproved_article)) {
+					$this->view ( 'usersv2/blogverify', $unnapproved_article );
+				}
+			}
+		}		
+	}
+
+	function dashboard(){
+		# START BOOTSTRAP
+		# bootstraping diperuntukan untuk loading semua midleware dan kebutuhan
+		# controllernya, jadinya gak btuh2 lagi, taro dipaling atas
+		$this->model ( 'users' );
+		$this->model ( 'products' );
+		$this->model ( 'social' );
+		$this->helper ( 'time' );
+
+		# START LOGIC
+		$data ['followingproduct'] = $this->model->products->listFromFollower ( $this->sessions->get ( 'uid' ), 5 );
+		
+		foreach ( $data ['followingproduct'] as $key => $value ) {
+			$data ['feeds'] [$value ['pid']] = $value;
+			if (config ( 'features/comments/core' )) {
+				$data ['feeds'] [$value ['pid']] ['comments'] = $this->model->products->listCommentsByPID ( $value ['pid'], 3 );
+			}
+		}
+		# var_dump($data['feeds']);
+		# need optimize
+
+		$data ['userproduct'] = $this->model->products->listProductsByUID ( $this->sessions->get ( 'uid' ), 0, 1 );
+		$data ['user'] = $this->model->users->getData ( $this->sessions->get ( 'uid' ) );
+		$data ['social'] = $this->model->social->CountSocial ( $this->sessions->get ( 'uid' ) );
+		$data ['partners'] = $this->model->social->CountParters ( $this->sessions->get ( 'uid' ) );
+
+		# START VIEWS
+		# viewsnya dipisah antara ajax, sama non ajax. bedanya sama versi pertama
+		# sehingga bisa di load secara parsial. tidak harus semuanya.
+		if (!is_ajax()) {
+			$this->view ( 'usersv2/header');
+			$this->view ( 'usersv2/dashboard', $data );
+			$this->view ( 'usersv2/footer' );
+		}
+
+		if (is_ajax()) {
+			$this->view ( 'usersv2/dashboard', $data );
 		}		
 	}
 }

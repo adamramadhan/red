@@ -1,6 +1,6 @@
 		<!-- AJAX CONTENT END -->
 		</div>
-	<?php $this->View('users/menu-right'); ?>
+	<?php $this->View('usersv2/menu-right'); ?>
 	</div> <!-- CONTENT END -->
 
 	<!-- START FOOTER  -->

@@ -21,8 +21,6 @@ jQuery(document).ready(function(){
    		$("#red-blog").hide();  
    		$("#red-information").show(); 
    	});
-			
-
 
 	$("#content-product").click(function(event){
 		$("#red-blog").hide();  
@@ -77,7 +75,7 @@ var referrer=document.referrer.toLowerCase();function ISODateString(d){function 
 				?></li>
 				<!-- SEND MESSAGE END -->
 				
-				<?php if (!empty($user['information'])): ?>
+				<?php if (!empty($user['information_html'])): ?>
 					<li><a id="content-info" href="#information"><?php echo l('information'); ?></a></li>
 				<?php endif ?>
 				
@@ -147,7 +145,7 @@ var referrer=document.referrer.toLowerCase();function ISODateString(d){function 
 		<div id="red-profile-right">
 			<!-- INFORMATION START -->
 			<div id="red-information">
-				<?php echo $user['information']; ?>
+				<?php echo $user['information_html']; ?>
 			</div>
 			<!-- END INFORMATION -->
 			

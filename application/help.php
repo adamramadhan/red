@@ -7,6 +7,7 @@ class Help extends Application {
 
 		# BOOTSTRAP
 		$this->library ( 'sessions' );
+		$this->library ( 'messenger' );
 
 		# ASSETS
 		# hook ini berfungsi di semua function
@@ -85,6 +86,7 @@ class Help extends Application {
 				$this->validation->required ( $m ['message'], l ( 'message_empty' ) );
 				
 				if (! sizeof ( $this->validation->errors )) {
+					$this->messenger->setMessage('Sent');
 					$this->model->messages->sendMessage ( $m );
 					redirect ( '/messages' );
 				}

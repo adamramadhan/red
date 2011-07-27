@@ -9,7 +9,7 @@
 						<div id="subname">'.$value['name'].'</div>
 						<div id="subname">'.$value['price'].'</div>
 						<div id="suboptions"><a href="/edit/products?t='.$_GET['t'].'&d='.$value['pid'].'">Hapus</a></div>
-						<div id="suboptions"><a href="/edit/product?e='.$value['pid'].'">Edit</a></div>
+						<div id="suboptions" class="red-pjax"><a href="/edit/product?e='.$value['pid'].'">Edit</a></div>
 						<div id="suboptions"><a href="/product?id='.$value['pid'].'">Lihat</a></div>
 						</div></li>';
 			}

@@ -16,9 +16,11 @@
 		?>
 	</head>
 <body>
+
 <?php $this->active->menu ( $this->sessions->get ( 'uid' ), $this ); ?>
-<?php $this->validation->geterrors(); ?>
-	
+<?php $this->validation->getErrors(); ?>
+<?php $this->messenger->getMessage(); ?>
+
 	<!-- CONTENT START -->
 	<div class="clearfix" id="red-content">
 		<div class="l clearfix" id="ajax-users-v1">
